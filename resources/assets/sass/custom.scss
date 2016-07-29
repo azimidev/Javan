@@ -1,0 +1,112 @@
+$bright : #C8FF00;
+$beige : #F5F5DC;
+$shadow : #9B9B9B;
+$primary : #9C27B0;
+$inverse : #3F51B5;
+$success : #4CAF50;
+$info : #03A9F4;
+$warning : #FBC02D;
+$danger : #F44336;
+$dark : #1D1D1D;
+
+$iranNastaliq : 'IranNastaliq', 'bbcnassim', Tahoma, Verdana, Arial, sans-serif;
+$bbcnassim : 'bbcnassim', 'Lato', 'Helvetica Neue', Helvetica, Tahoma, Verdana, Arial, sans-serif;
+$lato : 'Lato', 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
+$openSans : 'Open Sans Condensed', 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
+
+body { background-color : $dark; }
+
+footer { color : white; }
+
+.main { padding-bottom : 3%; }
+
+.profile {
+	background    : url("/images/background/background-3.jpg");
+	color         : $beige;
+	border-radius : 0 !important;
+}
+
+.bg {
+	background      : url("/images/background/background-4.jpg") repeat;
+	background-size : cover;
+}
+
+.login { margin : 100px 0; }
+
+.register { margin : 100px 0; }
+
+.iranNastaliq { font-family : $iranNastaliq; }
+
+.lato { font-family : $lato; }
+
+.openSnas { font-family : $openSans; }
+
+.btn { margin : 1% 0; }
+
+.bright { color : $bright !important; }
+
+.header { margin-top : -20px; }
+
+.brand > * { color : white !important; }
+
+.center {
+	margin     : auto;
+	text-align : center !important;
+	display    : inherit;
+	* { text-align : center !important; }
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family : $openSans;
+	color       : $primary;
+	text-shadow : 1px 1px 10px $shadow;
+}
+
+textarea { resize : vertical; padding : 15px !important; }
+
+article { margin-top : 3%; }
+
+aside {
+	margin-top : 5%;
+	h2, h3 {
+		font-size     : 2em;
+		color         : $inverse;
+		border-bottom : 1px dotted $primary;
+	}
+}
+
+.img-space { margin-bottom : 1em; }
+
+.navbar { border-radius : 0; }
+
+.underline { border-bottom : 1px solid $bright; }
+
+.dropzone { border : dashed 2px $primary; background-color : $beige; }
+
+.carousel-caption > * { color : white; font-weight : lighter; font-family : $openSans; }
+
+.carousel-caption {
+	text-align                 : left;
+	background-color           : rgba(0, 0, 0, 0.3);
+	padding-left               : 2%;
+	right                      : 60%;
+	left                       : 0;
+	bottom                     : 20%;
+	border-top-right-radius    : 10px;
+	border-bottom-right-radius : 10px;
+}
+
+.alert-dismissible {
+	display  : inline-block;
+	position : fixed;
+	left     : 15px;
+	top      : 50px;
+	z-index  : 100;
+}
+
+#disqus_thread {
+	margin-top : 10%;
+	padding    : 20px;
+	clear      : both;
+	border-top : 1px solid $bright;
+}

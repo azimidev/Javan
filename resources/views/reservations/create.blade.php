@@ -17,8 +17,7 @@
 		<aside>
 			<div class="col-sm-4">
 				<h2><i class="fa fa-info-circle"></i> Information</h2>
-				<p class="lead">Find us in trip advisor</p>
-				@include('partials.tripadvisor')
 			</div>
-		</aside>	</main>
+		</aside>
+	</main>
 @stop

@@ -137,8 +137,6 @@
 				<p>Please view and download the terms and conditions below to clear up everything before booking:</p>
 				<a class="btn btn-raised btn-primary" href="/images/files/Javan-Terms-and-Conditions.pdf" target="_blank">Terms
 					& Conditions (PDF)</a>
-				<h2>Find us on Tripadvisor</h2>
-				@include('partials.tripadvisor')
 			</div>
 		</aside>
 	</main>

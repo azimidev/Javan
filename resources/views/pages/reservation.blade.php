@@ -22,6 +22,13 @@
 					<fieldset>
 						<legend>Please complete the form below</legend>
 						{{ csrf_field() }}
+						<div class="alert alert-inverse">
+							<p class="text-justify">
+								<i class="fa fa-info-circle fa-lg fa-fw"></i>
+								If you are a member please <a class="alert-link" href="{{ url('/login') }}">login here</a>
+								to book a table.
+							</p>
+						</div>
 
 						<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
 							<label for="date" class="control-label col-sm-2">Name</label>

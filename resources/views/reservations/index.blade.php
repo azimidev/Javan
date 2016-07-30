@@ -39,7 +39,7 @@
 							<td>{{ today($booking->date) ? 'Today' : $booking->date->format('l jS \\of F Y') }}</td>
 							<td>{{ $booking->time }}</td>
 							<td>{{ $booking->seats }}</td>
-							<td>{{ $booking->active ? 'Yes' : 'No' }}</td>
+							<td>{!! $booking->active ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>' !!}</td>
 							<td>
 								<form action="{{ route('reservations.destroy', $booking) }}" method="POST">
 									{{ csrf_field() }}
@@ -49,7 +49,7 @@
 											Change
 										</a>
 									@endcan
-									<button type="submit" class="btn btn-sm btn-raised btn-danger">
+									<button type="submit" class="btn btn-sm btn-raised btn-danger confirm">
 										Cancel
 									</button>
 								</form>

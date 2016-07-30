@@ -3,13 +3,12 @@ namespace Javan\Http;
 
 class Flash
 {
-
 	public function create($title, $message, $level, $key = 'flash_message')
 	{
 		return session()->flash($key, [
 			'title'   => $title,
 			'message' => $message,
-			'level'   => $level
+			'level'   => $level,
 		]);
 	}
 
@@ -37,5 +36,4 @@ class Flash
 	{
 		return $this->create($title, $message, $level, 'flash_message_overlay');
 	}
-
 }

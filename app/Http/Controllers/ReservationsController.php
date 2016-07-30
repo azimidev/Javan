@@ -3,7 +3,7 @@
 namespace Javan\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Javan\Http\Requests;
+use Javan\AppMailer;
 use Javan\Reservation;
 
 class ReservationsController extends Controller
@@ -50,22 +50,22 @@ class ReservationsController extends Controller
 	 * Store a newly created resource in storage.
 	 *
 	 * @param  \Illuminate\Http\Request $request
-	 *
+	 * @param \Javan\AppMailer $mailer
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(Request $request)
+	public function store(Request $request, AppMailer $mailer)
 	{
 		$this->validate($request, [
 			'date'  => 'required',
 			'time'  => 'required',
-			'seats' => 'required|max:50',
+			'seats' => 'required|max:25',
 		]);
 
 		$reservation          = new Reservation($request->all());
-		$reservation->user_id = auth()->user()->id;
+		$reservation->user_id = $request->user()->id;
 		$reservation->save();
 
-		// Send Notification Email
+		$mailer->sendEmailConfirmation($request);
 
 		flash()->success('Success', 'You have booked successfully');
 
@@ -76,7 +76,6 @@ class ReservationsController extends Controller
 	 * Display the specified resource.
 	 *
 	 * @param $reservations
-	 *
 	 * @return \Illuminate\Http\Response
 	 * @internal param int $id
 	 */
@@ -89,7 +88,6 @@ class ReservationsController extends Controller
 	 * Show the form for editing the specified resource.
 	 *
 	 * @param int|\Javan\Reservation $reservations
-	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function edit(Reservation $reservations)
@@ -101,8 +99,7 @@ class ReservationsController extends Controller
 	 * Update the specified resource in storage.
 	 *
 	 * @param  \Illuminate\Http\Request $request
-	 * @param int|\Javan\Reservation    $reservations
-	 *
+	 * @param int|\Javan\Reservation $reservations
 	 * @return \Illuminate\Http\Response
 	 */
 	public function update(Request $request, Reservation $reservations)
@@ -124,7 +121,6 @@ class ReservationsController extends Controller
 	 * Remove the specified resource from storage.
 	 *
 	 * @param \Javan\Reservation $reservations
-	 *
 	 * @return \Illuminate\Http\Response
 	 * @throws \Exception
 	 * @internal param int $id
@@ -132,6 +128,7 @@ class ReservationsController extends Controller
 	public function destroy(Reservation $reservations)
 	{
 		$reservations->delete();
+
 		flash()->success('Success', 'Reservation was canceled and deleted');
 
 		return back();

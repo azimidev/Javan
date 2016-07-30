@@ -10784,11 +10784,15 @@ aside {
 
 .img-wrap .close {
   position: absolute;
-  top: 7px;
-  right: 10px;
+  top: 0;
+  right: 0;
+  padding: 0 5px;
+  margin: -5px;
+  border-radius: 50%;
+  background-color: #1D1D1D;
+  border: 3px solid white;
   z-index: 100;
-  font-size: 2em;
-  font-family: "bbcnassim", "Lato", "Helvetica Neue", Helvetica, Tahoma, Verdana, Arial, sans-serif; }
+  font-size: 2em; }
 
 #disqus_thread {
   margin-top: 10%;

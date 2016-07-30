@@ -8,7 +8,6 @@ use Javan\Post;
 
 class PhotosController extends Controller
 {
-
 	/**
 	 * PhotosController constructor.
 	 *
@@ -17,7 +16,6 @@ class PhotosController extends Controller
 	public function __construct()
 	{
 		$this->middleware(['auth', 'admin.manager']);
-		// $this->middleware(['must.own.post'], ['only' => ['destroy']]);
 	}
 
 	/**
@@ -39,7 +37,20 @@ class PhotosController extends Controller
 	 */
 	public function destroy(Photo $photo)
 	{
+		if ( ! auth()->user()->owns($photo->post)) {
+
+			if (request()->ajax()) {
+				return response(['message' => 'Unauthorized Action!'], 403);
+			}
+
+			flash()->error('Unauthorized Action!', 'You are not authorized to do this action');
+
+			return back();
+		}
+
 		$photo->delete();
+
+		flash()->success('Success', 'Your photo was deleted');
 
 		return back();
 	}

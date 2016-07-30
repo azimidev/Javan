@@ -109,12 +109,16 @@ aside {
 }
 
 .img-wrap .close {
-	position    : absolute;
-	top         : 7px;
-	right       : 10px;
-	z-index     : 100;
-	font-size   : 2em;
-	font-family : $bbcnassim;
+	position         : absolute;
+	top              : 0;
+	right            : 0;
+	padding          : 0 5px;
+	margin           : -5px;
+	border-radius    : 50%;
+	background-color : $dark;
+	border           : 3px solid white;
+	z-index          : 100;
+	font-size        : 2em;
 }
 
 #disqus_thread {

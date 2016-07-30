@@ -17371,11 +17371,13 @@ $.support.pjax ? enable() : disable()
 		var form = $(this).parents('form');
 		swal({
 			title              : "Are You Sure ?",
-			text               : 'The action will not be recovered again',
+			// text               : 'You won\'t be able to recover from this action again',
 			type               : "warning",
 			showCancelButton   : true,
 			confirmButtonColor : "#4CAF50",
 			cancelButtonColor  : "#F44336",
+			confirmButtonClass : 'btn btn-success btn-raised',
+			cancelButtonClass  : 'btn btn-danger btn-raised',
 			confirmButtonText  : "Yes",
 			cancelButtonText   : "No",
 			closeOnConfirm     : true,

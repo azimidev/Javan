@@ -104,7 +104,8 @@ class PostsController extends Controller
 	public function update(PostRequest $request, Post $post)
 	{
 		$post->update($request->all());
-		flash()->success('Success', 'Post has been updated successfully');
+
+		flash()->success('Success', 'Post has been updated');
 
 		return redirect()->route('post.show', $post->slug);
 	}
@@ -119,7 +120,8 @@ class PostsController extends Controller
 	public function destroy(Post $post)
 	{
 		$post->delete();
-		flash()->success('Success', 'The post was deleted successfully');
+
+		flash()->success('Success', 'The post was deleted');
 
 		return back();
 	}

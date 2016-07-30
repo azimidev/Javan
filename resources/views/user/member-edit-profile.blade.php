@@ -18,7 +18,10 @@
 		</article>
 		<aside>
 			<div class="col-sm-4">
-				{{--TODO--}}
+				<h2><i class="fa fa-info-circle"></i> Information</h2>
+				<p class="text-justify">
+					Please make sure your details such as mobile and address are up-to-date for delivery and reservation.
+				</p>
 			</div>
 		</aside>
 	</main>

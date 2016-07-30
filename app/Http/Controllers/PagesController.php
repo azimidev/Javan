@@ -49,7 +49,9 @@ class PagesController extends Controller
 			'email'        => 'required|email',
 			'user_message' => 'required',
 		]);
+
 		$mailer->sendEmail($request);
+
 		flash()->success('Thank You!', 'Your message was sent successfully.');
 
 		return back();

@@ -1,7 +1,7 @@
 <aside>
 	<div class="col-md-4">
 		@if (auth()->check() && auth()->user()->owns($post))
-			<h2><i class="fa fa-picture-o"></i> Add Post Photos</h2>
+			<h2><i class="fa fa-picture-o fa-fw"></i> Add Post Photos</h2>
 			<form class="dropzone" action="{{ route('add.photo', $post->slug) }}" method="POST" id="addPhotosFrom"
 			      enctype="multipart/form-data">
 				{{ csrf_field() }}
@@ -9,7 +9,7 @@
 			</form>
 		@endif
 		@unless ($post->photos->isEmpty())
-			<h2><i class="fa fa-picture-o"></i> Photos Uploaded</h2>
+			<h2><i class="fa fa-picture-o fa-fw"></i> Photos Uploaded</h2>
 			@foreach ($post->photos->chunk(2) as $set)
 				<div class="row">
 					@foreach ($set as $photo)
@@ -19,7 +19,7 @@
 									<form method="POST" action="{{ route('delete.photo', $photo->id) }}">
 										{{ csrf_field() }}
 										{{ method_field('DELETE') }}
-										<button type="submit" class="text-danger close confirm" data-dismiss="modal" aria-hidden="true">
+										<button type="submit" class="close confirm" data-dismiss="modal" aria-hidden="true">
 											&times;
 										</button>
 									</form>

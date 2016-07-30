@@ -45,7 +45,7 @@
 											<i class="fa fa-lg fa-pencil-square-o"></i>
 										</a>
 										@unless($user->isSelf())
-											<button type="submit" class="btn btn-sm btn-raised btn-danger">
+											<button type="submit" class="btn btn-sm btn-raised btn-danger confirm">
 												<i class="fa fa-lg fa-trash"></i>
 											</button>
 										@endunless

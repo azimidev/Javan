@@ -1,8 +1,8 @@
 <div class="g-page"
      data-width="273"
      data-href="//plus.google.com/u/0/107724180985175918891"
-     data-theme="dark"
-     data-layout="landscape" data-rel="publisher">
+     {{--data-theme="dark"--}}
+     data-layout="portrait" data-rel="publisher">
 </div>
 
 <script>

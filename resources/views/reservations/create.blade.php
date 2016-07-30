@@ -17,6 +17,7 @@
 		<aside>
 			<div class="col-sm-4">
 				<h2><i class="fa fa-info-circle"></i> Information</h2>
+				For parties more than 25 people please call us on <a href="tel:02085638553">02085638553</a>
 			</div>
 		</aside>
 	</main>

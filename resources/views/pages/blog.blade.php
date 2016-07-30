@@ -19,10 +19,10 @@
 				@if ($post)
 					@section('title', $post->subject)
 				@include('partials.post-show', ['post' => $post])
+				@include('partials.disqus')
 				@else
 					@include('partials.post-show', ['post' => $posts->first()])
 				@endif
-				@include('partials.disqus')
 			</div>
 		</article>
 		<aside>

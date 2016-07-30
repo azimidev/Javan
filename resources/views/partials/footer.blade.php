@@ -23,9 +23,6 @@
 					</a>
 				</li>
 			</ul>
-			<div class="clearfix hidden-xs">
-				@include('partials.google+')
-			</div>
 		</nav>
 		<nav class="copyright pull-right">
 			&copy; {{ date('Y') }} Javan Restaurant
@@ -39,7 +36,7 @@
 				<a href="https://twitter.com/JavanLondon" class="text-info" target="_blank" title="Twitter">
 					<i class="fa fa-twitter-square fa-fw fa-3x"></i>
 				</a>
-				<a href="https://plus.google.com/b/107724180985175918891/" class="text-danger" target="_blank"
+				<a href="https://plus.google.com/107724180985175918891" class="text-danger" target="_blank"
 				   title="Google Plus">
 					<i class="fa fa-google-plus-square fa-fw fa-3x"></i>
 				</a>

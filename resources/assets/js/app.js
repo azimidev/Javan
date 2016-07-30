@@ -11,16 +11,19 @@
 	 * Material initialization
 	 */
 	$.material.init();
+
 	/**
 	 * Carousel Auto Play
 	 */
 	$('.carousel').carousel({
 		interval : 4000
 	});
+
 	/**
 	 * Add bg class for login and register page
 	 */
 	$('.login, .register').parent().addClass('bg');
+
 	/**
 	 * Bootstrap Date picker
 	 * @type {Date}
@@ -34,6 +37,7 @@
 			return date.valueOf() < now.valueOf() ? 'disabled' : '';
 		}
 	});
+
 	/**
 	 * Alert fade in and out
 	 */
@@ -42,6 +46,7 @@
 		.delay(7000)
 		.fadeOut(500)
 		.addClass('animated tada');
+
 	/**
 	 * This function will make menus drop automatically
 	 * it targets the ul navigation and li drop-down
@@ -57,10 +62,12 @@
 	 * Show tooltips
 	 */
 	$("[data-toggle='tooltip']").tooltip({animation : true});
+
 	/**
 	 * Show pop overs
 	 */
 	$('[data-toggle="popover"]').popover();
+
 	/**
 	 * Attribute data-remote for every form
 	 */
@@ -70,6 +77,7 @@
 			$btn.button('reset');
 		}, 3600000); // 1000*60*60 (1 hour)
 	});
+
 	/**
 	 * Dropzone
 	 * @type {{paramName: string, maxFilesize: number, acceptedFiles: string}}
@@ -80,8 +88,34 @@
 		acceptedFiles : '.jpg, .jpeg, .png, .bmp', // Validates file types
 		// addRemoveLinks : true,
 	};
+
 	/**
 	 * Pjax
 	 */
 	$(document).pjax('a#pjax', '#pjax-container');
+
+	/**
+	 * Confirmation class
+	 */
+	$('.confirm').click(function(e) {
+		e.preventDefault();
+		var form = $(this).parents('form');
+		swal({
+			title              : "Are You Sure ?",
+			text               : 'The action will not be recovered again',
+			type               : "warning",
+			showCancelButton   : true,
+			confirmButtonColor : "#4CAF50",
+			cancelButtonColor  : "#F44336",
+			confirmButtonText  : "Yes",
+			cancelButtonText   : "No",
+			closeOnConfirm     : true,
+			closeOnCancel      : true,
+		}).then(
+			function() {
+				form.submit();
+			}
+		);
+	});
+
 })();

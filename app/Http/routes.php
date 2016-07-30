@@ -32,3 +32,4 @@ Route::resource('reservations', 'ReservationsController');
 Route::resource('post', 'PostsController');
 
 Route::post('/post/{slug}/photos', 'PhotosController@store')->name('add.photo');
+Route::delete('/photo/{photo}', 'PhotosController@destroy')->name('delete.photo');

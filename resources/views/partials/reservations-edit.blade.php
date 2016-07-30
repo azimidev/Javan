@@ -23,7 +23,7 @@
 	<label for="seats" class="control-label col-sm-2">Seats</label>
 	<div class="col-sm-5">
 		<input type="number" class="form-control" name="seats" id="seats" placeholder="Seats"
-		       value="{{ $reservations->seats }}" max="50">
+		       value="{{ $reservations->seats }}" max="25">
 		<span class="help-block text-info">How many seats ?</span>
 	</div>
 </div>

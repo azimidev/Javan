@@ -22,12 +22,12 @@ class PhotosController extends Controller
 	}
 
 	/**
-	 * @param $id
+	 * @param \Javan\Photo $photo
 	 * @return \Illuminate\Http\RedirectResponse
 	 */
-	public function destroy($id)
+	public function destroy(Photo $photo)
 	{
-		Photo::findOrFail($id)->delete();
+		$photo->delete();
 
 		return back();
 	}

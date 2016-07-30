@@ -62,6 +62,11 @@
 											<i class="fa fa-facebook fa-2x fa-fw"></i>
 										</a>
 									</li>
+									<li>
+										<a href="#google" data-toggle="tab">
+											<i class="fa fa-google-plus fa-2x fa-fw"></i>
+										</a>
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -84,6 +89,9 @@
 							</div>
 							<div class="tab-pane" id="facebook">
 								@include('partials.facebook')
+							</div>
+							<div class="tab-pane" id="google">
+								@include('partials.google+')
 							</div>
 						</div>
 					</div>

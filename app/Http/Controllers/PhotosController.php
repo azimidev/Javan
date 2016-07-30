@@ -8,6 +8,18 @@ use Javan\Post;
 
 class PhotosController extends Controller
 {
+
+	/**
+	 * PhotosController constructor.
+	 *
+	 * @throws \Illuminate\Auth\Access\AuthorizationException
+	 */
+	public function __construct()
+	{
+		$this->middleware(['auth', 'admin.manager']);
+		// $this->middleware(['must.own.post'], ['only' => ['destroy']]);
+	}
+
 	/**
 	 * @param $slug
 	 * @param \Javan\Http\Requests\PhotoRequest $request

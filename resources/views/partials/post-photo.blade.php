@@ -15,25 +15,25 @@
 					@foreach ($set as $photo)
 						<div class="col-xs-6">
 							<div class="img-wrap">
-								<form method="POST" action="{{ route('delete.photo', $photo->id) }}">
-									{{ csrf_field() }}
-									{{ method_field('DELETE') }}
-									<button type="submit" class="text-danger close confirm" data-dismiss="modal" aria-hidden="true">
-										&times;
-									</button>
-								</form>
+								@if (auth()->user()->owns($post))
+									<form method="POST" action="{{ route('delete.photo', $photo->id) }}">
+										{{ csrf_field() }}
+										{{ method_field('DELETE') }}
+										<button type="submit" class="text-danger close confirm" data-dismiss="modal" aria-hidden="true">
+											&times;
+										</button>
+									</form>
+								@endif
 								<a href="/{{ $photo->path }}" data-lity>
-									<img class="img-space img-responsive img-thumbnail img-raised"
+									<img class="img-space img-responsive img-thumbnail img-raised pull-right"
 									     src="/{{ $photo->thumbnail_path }}"
 									     alt="{{ $photo->name }}">
 								</a>
 							</div>
-							{{--<button type="submit" class="btn btn-sm btn-danger" data-dz-remove>&times;</button>--}}
 						</div>
 					@endforeach
 				</div>
 			@endforeach
 		@endunless
-
 	</div>
 </aside>

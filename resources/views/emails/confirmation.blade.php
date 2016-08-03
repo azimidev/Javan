@@ -203,8 +203,8 @@
 																	</table>
 																	<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
 																		Dear {{ $name }}, <br/><br/>
-																		Your booking with Javan Restaurant has been placed and confirmed. <br/>
-																		Here's your booking information:
+																		The booking with Javan Restaurant has been placed and confirmed. <br/>
+																		Here's the booking information:
 																	</p>
 																	<br/><br/>
 																	<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
@@ -216,6 +216,7 @@
 																	<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
 																		Seats: {{ $seats }}
 																	</p>
+																	<br/><br/>
 																	<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
 																		Your booking will be canceled if you arrive later than 15 minutes from your booking
 																		time and you will need to book again

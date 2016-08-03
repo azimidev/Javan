@@ -158,6 +158,7 @@ return [
 
 		Intervention\Image\ImageServiceProvider::class,
 		Oblagio\Instagram\InstagramServiceProvider::class,
+		Barryvdh\DomPDF\ServiceProvider::class,
 		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
 	],
@@ -207,6 +208,7 @@ return [
 		'View'      => Illuminate\Support\Facades\View::class,
 		'Image'     => Intervention\Image\Facades\Image::class,
 		'Instagram' => Oblagio\Instagram\InstagramFacade::class,
+		'PDF'       => Barryvdh\DomPDF\Facade::class,
 
 	],
 

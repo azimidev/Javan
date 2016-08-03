@@ -8,6 +8,7 @@ use Javan\AppMailer;
 use Javan\Post;
 use Javan\Reservation;
 use Javan\User;
+use PDF;
 
 class PagesController extends Controller
 {

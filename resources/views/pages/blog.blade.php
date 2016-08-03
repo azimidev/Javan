@@ -18,8 +18,8 @@
 			<div class="col-md-8 col-xs-12">
 				@if ($post)
 					@section('title', $post->subject)
-				@include('partials.post-show', ['post' => $post])
-				@include('partials.disqus')
+					@include('partials.post-show', ['post' => $post])
+					@include('partials.disqus')
 				@else
 					@include('partials.post-show', ['post' => $posts->first()])
 				@endif

@@ -65,7 +65,14 @@ class ReservationsController extends Controller
 		$reservation->user_id = $request->user()->id;
 		$reservation->save();
 
+		// TODO Job 1: Send email confirmation to the user
 		$mailer->sendEmailConfirmation($request);
+		// TODO Job 2: Send email notification to the admin
+		$mailer->sendEmailTo(env('ADMIN_EMAIL'), $reservation->load('user')->toArray());
+		// TODO Job 3: Make PDF and attach it
+		// $data = $reservation->load('user')->toArray();
+		// $pdf  = PDF::loadView('emails.reservation', $data);
+		// $mailer->sendAttachment($pdf->output());
 
 		flash()->success('Success', 'You have booked successfully');
 
@@ -111,7 +118,7 @@ class ReservationsController extends Controller
 		]);
 
 		$reservations->update($request->all());
-		// Send Notification Email
+
 		flash()->success('Success', 'Reservation was updated');
 
 		return redirect()->route('member.bookings');

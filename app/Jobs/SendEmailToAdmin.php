@@ -2,11 +2,10 @@
 
 namespace Javan\Jobs;
 
-use Javan\AppMailer;
-use Javan\Jobs\Job;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
+use Javan\AppMailer;
 use Javan\Reservation;
 
 class SendEmailToAdmin extends Job implements ShouldQueue

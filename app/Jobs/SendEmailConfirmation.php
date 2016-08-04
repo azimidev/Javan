@@ -2,35 +2,36 @@
 
 namespace Javan\Jobs;
 
-use Javan\Jobs\Job;
-use Javan\AppMailer;
-use Illuminate\Http\Request;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
+use Javan\AppMailer;
+use Javan\Reservation;
 
 class SendEmailConfirmation extends Job implements ShouldQueue
 {
-    use InteractsWithQueue, SerializesModels;
-
-    /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
+	use InteractsWithQueue, SerializesModels;
+	protected $reservation;
 
 	/**
-	 * Execute the job.
+	 * Create a new job instance.
 	 *
-	 * @param \Illuminate\Http\Request $request
+	 * @param \Javan\Reservation $reservation
+	 */
+	public function __construct(Reservation $reservation)
+	{
+		$this->reservation = $reservation;
+	}
+
+	/**
+	 * Create a new job instance.
+	 *
 	 * @param \Javan\AppMailer $mailer
 	 */
-    public function handle(Request $request, AppMailer $mailer)
-    {
-	    $mailer->sendEmailConfirmation($request);
-    }
+	public function handle(AppMailer $mailer)
+	{
+		$mailer->sendEmailConfirmationTo(
+			$this->reservation->user->email, $this->reservation->load('user')->toArray()
+		);
+	}
 }

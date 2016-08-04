@@ -5,6 +5,14 @@
 		<a href="{{ route('reservations.create') }}" class="btn btn-raised btn-info pull-right">
 			<i class="fa fa-plus fa-lg"></i>
 		</a>
+		@can('admin_manager', auth()->user())
+			<div class="togglebutton">
+				<label>
+					<input type="checkbox" id="refresh">
+					<i class="fa fa-refresh fa-lg"></i> Auto Refresh
+				</label>
+			</div>
+		@endcan
 		@if ($reservations->isEmpty())
 			<div class="clearfix"></div>
 			<div class="center">

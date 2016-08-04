@@ -12,7 +12,7 @@
 					restaurant. We have online table reservation available online or over the phone:
 					<a href="tel:02085638553" class="btn-link" target="_blank">02085638553</a> <br>
 					<a href="{{ route('member.bookings') }}" class="btn btn-info btn-raised">
-						Reserve Tabel Online
+						Reserve Table Online
 					</a>
 				</p>
 				<h2>Delivery</h2>

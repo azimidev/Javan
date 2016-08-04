@@ -35,12 +35,13 @@ class AppMailer
 	}
 
 	/**
-	 * @param      $request
+	 * @param $email
+	 * @param $data
 	 */
-	public function sendEmailConfirmation($request)
+	public function sendEmailConfirmationTo($email, $data)
 	{
-		$this->data = array_merge($request->all(), $request->user()->toArray());
-		$this->to   = $request->user()->email;
+		$this->data = $data;
+		$this->to   = $email;
 		$this->view = 'emails.confirmation';
 
 		$this->deliver();

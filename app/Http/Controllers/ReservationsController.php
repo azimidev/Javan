@@ -3,6 +3,7 @@
 namespace Javan\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Javan\AppMailer;
 use Javan\Jobs\SendEmailConfirmation;
 use Javan\Jobs\SendEmailToAdmin;
@@ -55,7 +56,7 @@ class ReservationsController extends Controller
 	 * @param \Javan\AppMailer $mailer
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(Request $request, AppMailer $mailer)
+	public function store(Request $request)
 	{
 		$this->validate($request, [
 			'date'  => 'required',
@@ -67,8 +68,8 @@ class ReservationsController extends Controller
 		$reservation->user_id = $request->user()->id;
 		$reservation->save();
 
-		$this->dispatch(new SendEmailConfirmation);
 		$this->dispatch(new SendEmailToAdmin($reservation));
+		$this->dispatch(new SendEmailConfirmation($reservation));
 		// TODO Job 3: Make PDF and attach it
 		// $data = $reservation->load('user')->toArray();
 		// $pdf  = PDF::loadView('emails.reservation', $data);

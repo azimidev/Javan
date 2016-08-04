@@ -1,12 +1,5 @@
 (function() {
-	/**
-	 * Refresh the page interval
-	 *
-	 * 60000 * 5 minutes
-	 */
-	// setInterval(function() {
-	// 	window.location.reload();
-	// }, 300000);
+
 	/**
 	 * Material initialization
 	 */
@@ -119,5 +112,34 @@
 			}
 		);
 	});
+
+	/**
+	 * Reloading page every interval minute
+	 */
+	var reloading;
+	var interval = 300000;
+
+	function checkReloading() {
+		if (window.location.hash == "#autoreload") {
+			reloading                                  = setTimeout("window.location.reload();", interval);
+			document.getElementById("refresh").checked = true;
+		}
+	}
+
+	function toggleAutoRefresh(cb) {
+		if (cb.checked) {
+			window.location.replace("#autoreload");
+			reloading = setTimeout("window.location.reload();", interval);
+		} else {
+			window.location.replace("#");
+			clearTimeout(reloading);
+		}
+	}
+
+	$('#refresh').on('click', function() {
+		toggleAutoRefresh(this);
+	});
+
+	checkReloading();
 
 })();

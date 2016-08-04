@@ -21,7 +21,7 @@
 	<label for="seats" class="control-label col-sm-2">Seats</label>
 	<div class="col-sm-5">
 		<input type="number" class="form-control" name="seats" id="seats" placeholder="Seats"
-		       value="{{ old('seats') }}" max="25" required>
+		       value="{{ old('seats') }}" min="1" max="25" required>
 		<span class="help-block text-info">Please call us for more than 25 person</span>
 	</div>
 </div>

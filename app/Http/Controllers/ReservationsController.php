@@ -4,6 +4,8 @@ namespace Javan\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Javan\AppMailer;
+use Javan\Jobs\SendEmailConfirmation;
+use Javan\Jobs\SendEmailToAdmin;
 use Javan\Reservation;
 
 class ReservationsController extends Controller
@@ -65,10 +67,8 @@ class ReservationsController extends Controller
 		$reservation->user_id = $request->user()->id;
 		$reservation->save();
 
-		// TODO Job 1: Send email confirmation to the user
-		$mailer->sendEmailConfirmation($request);
-		// TODO Job 2: Send email notification to the admin
-		$mailer->sendEmailTo(env('ADMIN_EMAIL'), $reservation->load('user')->toArray());
+		$this->dispatch(new SendEmailConfirmation);
+		$this->dispatch(new SendEmailToAdmin($reservation));
 		// TODO Job 3: Make PDF and attach it
 		// $data = $reservation->load('user')->toArray();
 		// $pdf  = PDF::loadView('emails.reservation', $data);

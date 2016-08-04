@@ -1,0 +1,37 @@
+<?php
+
+namespace Javan\Jobs;
+
+use Javan\AppMailer;
+use Javan\Jobs\Job;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Javan\Reservation;
+
+class SendEmailToAdmin extends Job implements ShouldQueue
+{
+    use InteractsWithQueue, SerializesModels;
+
+	protected $reservation;
+
+	/**
+	 * Create a new job instance.
+	 *
+	 * @param \Javan\Reservation $reservation
+	 */
+    public function __construct(Reservation $reservation)
+    {
+        $this->reservation = $reservation;
+    }
+
+	/**
+	 * Execute the job.
+	 *
+	 * @param \Javan\AppMailer $mailer
+	 */
+    public function handle(AppMailer $mailer)
+    {
+	    $mailer->sendEmailTo(env('ADMIN_EMAIL'), $this->reservation->load('user')->toArray());
+    }
+}

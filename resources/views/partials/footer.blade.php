@@ -22,6 +22,11 @@
 						Blog
 					</a>
 				</li>
+				<li>
+					<a href="{{ url('/information') }}">
+						Terms & Conditions
+					</a>
+				</li>
 			</ul>
 		</nav>
 		<nav class="copyright pull-right">

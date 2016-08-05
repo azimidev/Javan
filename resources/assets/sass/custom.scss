@@ -1,4 +1,5 @@
 $bright : #C8FF00;
+$bright : #A0F;
 $beige : #F5F5DC;
 $shadow : #9B9B9B;
 $primary : #9C27B0;
@@ -17,6 +18,8 @@ $openSans : 'Open Sans Condensed', 'Helvetica Neue', Helvetica, Verdana, Arial, 
 body { background-color : $dark; }
 
 footer { color : white; }
+
+.text-bright { color : $bright; }
 
 .main { padding-bottom : 3%; }
 

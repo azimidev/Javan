@@ -28,7 +28,6 @@
 
 <div class="form-group">
 	<div class="col-sm-offset-2">
-		<a class="btn btn-danger btn-raised" href="{{ url()->previous() }}">Cancel</a>
 		<button type="submit" class="btn btn-raised btn-success"
 		        data-loading-text="One Moment... <i class='fa fa-spinner fa-pulse'></i>">
 			<i class="fa fa-plus"></i>

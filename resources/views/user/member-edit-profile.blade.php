@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('content')
@@ -18,9 +17,24 @@
 		</article>
 		<aside>
 			<div class="col-sm-4">
-				<h2><i class="fa fa-info-circle"></i> Information</h2>
+				<h2><i class="fa fa-info fa-fw fa-lg"></i> Information</h2>
 				<p class="text-justify">
 					Please make sure your details such as mobile and address are up-to-date for delivery and reservation.
+				</p>
+				<h2><i class="fa fa-lock fa-fw fa-lg"></i> Password Change</h2>
+				<p class="text-justify">
+					If you'd like to change your password please <strong>log out</strong> of and go to <strong>log in</strong>
+					page, from there click on <strong>forgot your password</strong> enter your email in the field. We will send
+					you an email reset password with a <strong>link</strong> to reset your password.
+				</p>
+				<h2><i class="fa fa-phone fa-fw fa-lg"></i> Mobile Number</h2>
+				<p class="text-justify">
+					Your mobile number (preferably) is important to us and yourself. If it's inserted incorrectly, your booking,
+					take away collection or delivery orders <strong>will not</strong> take place.
+				</p>
+				<h2><i class="fa fa-gavel fa-fw fa-lg"></i> Terms & Conditions</h2>
+				<p class="text-justify">
+					Please visit <a href="{{ url('/information') }}" target="_blank" title="Terms & Conditions">here</a> and read our terms and conditions
 				</p>
 			</div>
 		</aside>

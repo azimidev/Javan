@@ -5,10 +5,11 @@ namespace Javan\Http\Controllers;
 use Illuminate\Http\Request;
 use Instagram;
 use Javan\AppMailer;
+use Javan\Jobs\SendEmailConfirmation;
+use Javan\Jobs\SendEmailToAdmin;
 use Javan\Post;
 use Javan\Reservation;
 use Javan\User;
-use PDF;
 
 class PagesController extends Controller
 {
@@ -32,6 +33,11 @@ class PagesController extends Controller
 	public function contact()
 	{
 		return view('pages.contact');
+	}
+
+	public function information()
+	{
+		return view('pages.information');
 	}
 
 	public function blog($slug = NULL)
@@ -79,18 +85,19 @@ class PagesController extends Controller
 			'name'     => $request->input('name'),
 			'email'    => $request->input('email'),
 			'phone'    => $request->input('phone'),
-			'password' => bcrypt($request->input('password')),
+			'password' => $request->input('password'),
 		]);
 
 		$reservation          = new Reservation($request->all());
 		$reservation->user_id = $user->id;
 		$reservation->save();
 
-		// Send Notification Email
+		$this->dispatch(new SendEmailToAdmin($reservation));
+		$this->dispatch(new SendEmailConfirmation($reservation));
 
-		auth()->attempt(['email' => $request->email, 'password' => $request->password]);
-		flash()->success('Success', 'You have booked successfully');
+		auth()->login($user);
+		flash()->success('Success', 'You have booked successfully and your are a member now');
 
-		return redirect('/member/profile');
+		return redirect()->route('member.show');
 	}
 }

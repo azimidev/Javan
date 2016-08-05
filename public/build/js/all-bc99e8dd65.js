@@ -17268,14 +17268,7 @@ $.support.pjax ? enable() : disable()
 }));
 
 (function() {
-	/**
-	 * Refresh the page interval
-	 *
-	 * 60000 * 5 minutes
-	 */
-	// setInterval(function() {
-	// 	window.location.reload();
-	// }, 300000);
+
 	/**
 	 * Material initialization
 	 */
@@ -17346,12 +17339,6 @@ $.support.pjax ? enable() : disable()
 			$btn.button('reset');
 		}, 3600000); // 1000*60*60 (1 hour)
 	});
-
-	// $('#refresh').click(function() {
-	// 	setInterval(function() {
-	// 		window.location.reload();
-	// 	}, 1000);
-	// });
 
 	/**
 	 * Dropzone

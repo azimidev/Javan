@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<style>
 		body {
-			font-size     : 20px;
+			font-size     : 17px;
 		}
 
 		.heading {
@@ -50,7 +50,7 @@
 </head>
 <body>
 <div class="container-fluid">
-	<h1 class="heading">Javan Restaurant</h1>
+	<h2 class="heading">Javan Restaurant</h2>
 
 	<h3 class="subheading">Booking Confirmation</h3>
 

@@ -3,8 +3,6 @@
 namespace Javan\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
-use Javan\AppMailer;
 use Javan\Jobs\SendEmailConfirmation;
 use Javan\Jobs\SendEmailToAdmin;
 use Javan\Reservation;
@@ -26,6 +24,8 @@ class ReservationsController extends Controller
 	 */
 	public function index()
 	{
+		Reservation::cancelOldReservations();
+
 		$sortBy    = request()->get('sortBy');
 		$direction = request()->get('direction');
 		$params    = compact('sortBy', 'direction');
@@ -71,9 +71,7 @@ class ReservationsController extends Controller
 		$this->dispatch(new SendEmailToAdmin($reservation));
 		$this->dispatch(new SendEmailConfirmation($reservation));
 		// TODO Job 3: Make PDF and attach it
-		// $data = $reservation->load('user')->toArray();
-		// $pdf  = PDF::loadView('emails.reservation', $data);
-		// $mailer->sendAttachment($pdf->output());
+		// $this->dispatch(new SendPdfAttachment($reservation));
 
 		flash()->success('Success', 'You have booked successfully');
 

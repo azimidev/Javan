@@ -7,15 +7,17 @@
 				<h1>Welcome {{ $user->name }}</h1>
 				@can('member', $user)
 					@unless ($user->address && $user->post_code)
-						<p class="text-danger">It appears your address is not completed yet. </p>
-						<p class="text-info"> Please make sure your address is correct for delivery before you order otherwise we
-							will not deliver to you.</p>
+						<p class="text-bright">It appears your address is not completed yet ! </p>
+						<p class="text-bright"> Please make sure your address is correct for delivery before you order otherwise we
+							cannot deliver to you.</p>
 					@endunless
 					<p>For reservations or delivery please click on the buttons below</p>
 					<p>
-						<a href="{{ route('member.bookings') }}" class="btn btn-info btn-raised btn-round btn-lg">Reserve Table</a>
 						<a href="#" class="btn btn-danger btn-raised btn-round btn-lg" data-toggle="modal" data-target="#myModal">
-							Order Food Delivery
+							Take Away Orders
+						</a>
+						<a href="{{ route('member.bookings') }}" class="btn btn-info btn-raised btn-round btn-lg">
+							Bookings
 						</a>
 					</p>
 				@endcan

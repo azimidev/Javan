@@ -29,7 +29,7 @@ return [
 	|
 	*/
 
-	'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+	'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -81,7 +81,7 @@ return [
 	|
 	*/
 
-	'username' => env('MAIL_USERNAME', 'hasan0azimi@gmail.com'),
+	'username' => env('MAIL_USERNAME'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -94,7 +94,7 @@ return [
 	|
 	*/
 
-	'password' => env('MAIL_PASSWORD', '1365*1986HA'),
+	'password' => env('MAIL_PASSWORD'),
 
 	/*
 	|--------------------------------------------------------------------------

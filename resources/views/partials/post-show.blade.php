@@ -1,4 +1,4 @@
-@unless ($post)
+@if ($post)
 	<h2>{{ $post->subject }}</h2>
 	<div class="col-sm-8">
 		{!! nl2br($post->body) !!}
@@ -12,4 +12,4 @@
 			</a>
 		@endforeach
 	</div>
-@endunless
+@endif

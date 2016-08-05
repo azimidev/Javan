@@ -1,4 +1,4 @@
-@unless ($post->isEmpty())
+@unless ($post)
 	<h2>{{ $post->subject }}</h2>
 	<div class="col-sm-8">
 		{!! nl2br($post->body) !!}

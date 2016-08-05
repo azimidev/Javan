@@ -1,5 +1,5 @@
 $bright : #C8FF00;
-$bright : #A0F;
+$twilight : #A0F;
 $beige : #F5F5DC;
 $shadow : #9B9B9B;
 $primary : #9C27B0;
@@ -20,6 +20,8 @@ body { background-color : $dark; }
 footer { color : white; }
 
 .text-bright { color : $bright; }
+
+.text-twilight { color : $twilight; }
 
 .main { padding-bottom : 3%; }
 

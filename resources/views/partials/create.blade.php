@@ -80,6 +80,6 @@
 <div class="col-sm-offset-2">
 	<button type="submit" class="btn btn-raised btn-primary">
 		<i class="fa fa-pencil-square-o fa-lg"></i>
-		Update
+		Create
 	</button>
 </div>

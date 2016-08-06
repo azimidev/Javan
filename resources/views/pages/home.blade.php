@@ -11,19 +11,19 @@
 					We value and love our customers and would like to welcome you and surprise you every time you visit us in your
 					restaurant. We have online table reservation available online or over the phone:
 					<a href="tel:02085638553" class="btn-link" target="_blank">02085638553</a> <br>
-					<a href="{{ route('member.bookings') }}" class="btn btn-info btn-raised">
+					<a href="{{ auth()->check() ? route('member.bookings') : route('create.reservation') }}" class="btn btn-info btn-raised">
 						Reserve Table Online
 					</a>
 				</p>
 				<h2>Delivery</h2>
 				<p class="text-justify">
 					Ae are trying to setup our food delivery system for you to be able to order directly from our website. We also
-					have our <a href="#" class="btn-link">Deliveroo</a> system where you can order from.
+					have our <a href="#" class="btn-link" data-toggle="modal" data-target="#myModal">Deliveroo</a> system where you can order from.
 				</p>
 				<p class="text-justify">
 					If you order food delivery by phone or with this website, <span class="underline">all delivery fees are
 						separate from the total food cost</span> and we deliver food within London. <br>
-					<a href="/images/files/Javan-Terms-and-Conditions.pdf" class="btn btn-success btn-raised" target="_blank">
+					<a href="#" class="btn btn-success btn-raised" target="_blank">
 						Order Food Delivery
 					</a>
 				</p>

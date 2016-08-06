@@ -55,7 +55,7 @@ return [
 	|
 	*/
 
-	'from' => ['address' => 'noreply@javan-restaurant.co.uk', 'name' => 'Javan Restaurant'],
+	'from' => ['address' => 'javanlondon@zoho.com', 'name' => 'Javan Restaurant'],
 
 	/*
 	|--------------------------------------------------------------------------

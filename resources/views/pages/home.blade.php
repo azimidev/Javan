@@ -17,13 +17,12 @@
 				</p>
 				<h2>Delivery</h2>
 				<p class="text-justify">
-					Ae are trying to setup our food delivery system for you to be able to order directly from our website. We also
-					have our <a href="#" class="btn-link" data-toggle="modal" data-target="#myModal">Deliveroo</a> system where you can order from.
+					Ae are trying to setup our food delivery system for you to be able to order directly from our website.
 				</p>
 				<p class="text-justify">
 					If you order food delivery by phone or with this website, <span class="underline">all delivery fees are
-						separate from the total food cost</span> and we deliver food within London. <br>
-					<a href="#" class="btn btn-success btn-raised" target="_blank">
+						separate from the total food cost</span> and we deliver food only within London. <br>
+					<a href="#" class="btn btn-success btn-raised" data-toggle="modal" data-target="#myModal">
 						Order Food Delivery
 					</a>
 				</p>

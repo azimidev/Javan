@@ -6,8 +6,8 @@ use Illuminate\Contracts\Mail\Mailer;
 class AppMailer
 {
 	protected $mailer;
-	protected $from = 'NoReply@javan-restaurant.co.uk';
-	protected $to   = 'hazz.azimi@gmail.com';
+	protected $from = 'javanlondon@zoho.com';
+	protected $to;
 	protected $view;
 	protected $data = [];
 
@@ -27,7 +27,6 @@ class AppMailer
 	public function sendEmail($request)
 	{
 		$this->data = $request->all();
-		$this->from = $request->input('email');
 		$this->to   = env('ADMIN_EMAIL');
 		$this->view = 'emails.contact';
 
@@ -65,7 +64,6 @@ class AppMailer
 	 */
 	public function sendAttachment($output)
 	{
-		$this->from = 'NoReply@javan-restaurant.co.uk';
 		$this->to   = env('ADMIN_EMAIL');
 		$this->data = [];
 		$this->view = 'emails.empty';

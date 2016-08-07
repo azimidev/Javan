@@ -117,7 +117,7 @@
 	 * Reloading page every interval minute
 	 */
 	var reloading;
-	var interval = 300000;
+	var interval = 5000;
 
 	function checkReloading() {
 		if (window.location.hash == "#autoreload") {

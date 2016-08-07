@@ -2,7 +2,9 @@
 
 namespace Javan\Http\Controllers\Auth;
 
+use Auth;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Support\Str;
 use Javan\Http\Controllers\Controller;
 
 class PasswordController extends Controller
@@ -27,5 +29,19 @@ class PasswordController extends Controller
 	public function __construct()
 	{
 		$this->middleware('guest');
+	}
+
+	/**
+	 * @param $user
+	 * @param $password
+	 */
+	protected function resetPassword($user, $password)
+	{
+		$user->forceFill([
+			'password'       => $password,
+			'remember_token' => Str::random(60),
+		])->save();
+
+		Auth::guard($this->getGuard())->login($user);
 	}
 }

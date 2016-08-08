@@ -16,22 +16,23 @@
 						<div class="col-xs-8">
 							<ol>
 								<li>Naan</li>
-								<li>Panir Sabzi</li>
+								<li>Panir Sabzi <span class="text-danger">(Nut Allergy Allert)</span></li>
 								<li>Mast-o-Khiar</li>
 								<li>Mast Mosir</li>
-								<li>Hummus</li>
+								<li>Hummus <span class="text-danger">(Nut Allergy Allert)</span></li>
 								<li>Torshi Makhlot</li>
 								<li>Gherkins Olive</li>
 								<li>Salad Shirazi</li>
 								<li>Salad Fasl</li>
 								<li>Salad Olivieh</li>
-								<li>Kookoo Sabzi</li>
+								<li>Kookoo Sabzi <span class="text-danger">(Nut Allergy Allert)</span></li>
 								<li>Mirza Ghasemi</li>
-								<li>Kashk Bademjan</li>
+								<li>Kashk Bademjan <span class="text-danger">(Nut Allergy Allert)</span></li>
 								<li>Chicken Wings</li>
-								<li>Ash Reshteh</li>
-								<li>Oat Soup</li>
-								<li>Dolma</li>
+								<li>Ash Reshteh <span class="text-warning">(Not Available for Delivery)</span></li>
+								<li>Barley Soup</li>
+								<li>Ox Tongue</li>
+								<li>Tahdig</li>
 							</ol>
 						</div>
 						<div class="col-xs-4">
@@ -53,6 +54,7 @@
 								<li>£ 5</li>
 								<li>£ 5</li>
 								<li>£ 5</li>
+								<li>£ 5</li>
 							</ul>
 						</div>
 					</div>
@@ -60,7 +62,7 @@
 					<h3>Main Course</h3>
 					<div class="row">
 						<div class="col-xs-8">
-							<ol start="18">
+							<ol start="19">
 								<li>Koobideh & Bread</li>
 								<li>Chelo Koobideh</li>
 								<li>Chelo Barg</li>
@@ -112,21 +114,23 @@
 					<h3>Sides & Extras</h3>
 					<div class="row">
 						<div class="col-xs-8">
-							<ol start="38">
-								<li>Tahdig</li>
+							<ol start="39">
 								<li>Rice Portion</li>
+								<li>Green Rice Portion</li>
 								<li>Zereshk</li>
 								<li>Grilled Tomato</li>
 								<li>Grilled Onion</li>
+								<li>Feta Cheese</li>
 							</ol>
 						</div>
 						<div class="col-xs-4">
 							<ul class="list-unstyled">
+								<li>£ 3</li>
 								<li>£ 5</li>
 								<li>£ 3</li>
 								<li>£ 3</li>
 								<li>£ 3</li>
-								<li>£ 3</li>
+								<li>£ 1</li>
 							</ul>
 						</div>
 					</div>
@@ -140,8 +144,8 @@
 								<li>Pepsi</li>
 								<li>Fanta</li>
 								<li>7up</li>
-								<li>Glass of Dough</li>
-								<li>Jug of Dough</li>
+								<li>Glass of Yogurt Drink</li>
+								<li>Jug of Yogurt Drink</li>
 							</ul>
 						</div>
 						<div class="col-xs-4">

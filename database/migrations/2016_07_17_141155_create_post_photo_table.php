@@ -31,6 +31,6 @@ class CreatePostPhotoTable extends Migration
      */
     public function down()
     {
-        Schema::drop('photo_post');
+        Schema::drop('post_photo');
     }
 }

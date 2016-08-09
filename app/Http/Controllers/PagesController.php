@@ -8,6 +8,7 @@ use Javan\AppMailer;
 use Javan\Jobs\SendEmailConfirmation;
 use Javan\Jobs\SendEmailToAdmin;
 use Javan\Post;
+use Javan\Product;
 use Javan\Reservation;
 use Javan\User;
 
@@ -27,7 +28,14 @@ class PagesController extends Controller
 
 	public function menu()
 	{
-		return view('pages.menu');
+		$appetizers   = Product::whereCategory('appetizer')->get();
+		$main_courses = Product::whereCategory('main_course')->get();
+		$extras       = Product::whereCategory('extra')->get();
+		$beverages    = Product::whereCategory('beverage')->get();
+		$juices       = Product::whereCategory('juice')->get();
+		$desserts     = Product::whereCategory('dessert')->get();
+
+		return view('pages.menu', compact('appetizers', 'main_courses', 'extras', 'beverages', 'juices', 'desserts'));
 	}
 
 	public function contact()

@@ -85,7 +85,7 @@ class ReservationsController extends Controller
 	 * @return \Illuminate\Http\Response
 	 * @internal param int $id
 	 */
-	public function show($reservations)
+	public function show(Reservation $reservations)
 	{
 		//
 	}

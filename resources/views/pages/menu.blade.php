@@ -15,46 +15,16 @@
 					<div class="row">
 						<div class="col-xs-8">
 							<ol>
-								<li>Naan</li>
-								<li>Panir Sabzi <span class="text-danger">(Nut Allergy Allert)</span></li>
-								<li>Mast-o-Khiar</li>
-								<li>Mast Mosir</li>
-								<li>Hummus <span class="text-danger">(Nut Allergy Allert)</span></li>
-								<li>Torshi Makhlot</li>
-								<li>Gherkins Olive</li>
-								<li>Salad Shirazi</li>
-								<li>Salad Fasl</li>
-								<li>Salad Olivieh</li>
-								<li>Kookoo Sabzi <span class="text-danger">(Nut Allergy Allert)</span></li>
-								<li>Mirza Ghasemi</li>
-								<li>Kashk Bademjan <span class="text-danger">(Nut Allergy Allert)</span></li>
-								<li>Chicken Wings</li>
-								<li>Ash Reshteh <span class="text-warning">(Not Available for Delivery)</span></li>
-								<li>Barley Soup</li>
-								<li>Ox Tongue</li>
-								<li>Tahdig</li>
+								@foreach ($appetizers as $appetizer)
+									<li>{{ $appetizer->title }}</li>
+								@endforeach
 							</ol>
 						</div>
 						<div class="col-xs-4">
 							<ul class="list-unstyled">
-								<li>£ 1.50</li>
-								<li>£ 4</li>
-								<li>£ 3.95</li>
-								<li>£ 3.95</li>
-								<li>£ 3.95</li>
-								<li>£ 3.50</li>
-								<li>£ 3.50</li>
-								<li>£ 3.95</li>
-								<li>£ 4</li>
-								<li>£ 3.95</li>
-								<li>£ 5</li>
-								<li>£ 4</li>
-								<li>£ 4</li>
-								<li>£ 5</li>
-								<li>£ 5</li>
-								<li>£ 5</li>
-								<li>£ 5</li>
-								<li>£ 5</li>
+								@foreach ($appetizers as $appetizer)
+									<li>£ {{ number_format($appetizer->price / 100 , 2) }}</li>
+								@endforeach
 							</ul>
 						</div>
 					</div>
@@ -63,50 +33,16 @@
 					<div class="row">
 						<div class="col-xs-8">
 							<ol start="19">
-								<li>Koobideh & Bread</li>
-								<li>Chelo Koobideh</li>
-								<li>Chelo Barg</li>
-								<li>Chelo Chenjeh</li>
-								<li>Soltani Makhsoos</li>
-								<li>Chenjeh Koobideh</li>
-								<li>Momtaz</li>
-								<li>Chelo Joojeh (Boneless)</li>
-								<li>Chelo Joojeh</li>
-								<li>Shishlik (Lamb Chops)</li>
-								<li>Mixed Grill</li>
-								<li>Loobia Polo</li>
-								<li>Chelo Mahi</li>
-								<li>Zereshk Polo Ba Morgh</li>
-								<li>Baghali Polo Ba Mahicheh</li>
-								<li>Chelo Khoresh Gheymeh</li>
-								<li>Chelo Khoresh Bademjan | Gheymeh Bademjan</li>
-								<li>Chelo Khoresh Ghormeh Sabzi</li>
-								<li>Chelo Khoresh Fesenjan</li>
-								<li>Chelo Khoresh Bamieh</li>
+								@foreach ($main_courses as $main_course)
+									<li>{{ $main_course->title }}</li>
+								@endforeach
 							</ol>
 						</div>
 						<div class="col-xs-4">
 							<ul class="list-unstyled">
-								<li>£ 9</li>
-								<li>£ 9</li>
-								<li>£ 12</li>
-								<li>£ 12</li>
-								<li>£ 14</li>
-								<li>£ 14</li>
-								<li>£ 14</li>
-								<li>£ 10</li>
-								<li>£ 10</li>
-								<li>£ 12</li>
-								<li>£ 25</li>
-								<li>£ 10</li>
-								<li>£ 15</li>
-								<li>£ 10</li>
-								<li>£ 12</li>
-								<li>£ 10</li>
-								<li>£ 10</li>
-								<li>£ 10</li>
-								<li>£ 12</li>
-								<li>£ 10</li>
+								@foreach ($main_courses as $main_course)
+									<li>£ {{ number_format($main_course->price / 100 , 2) }}</li>
+								@endforeach
 							</ul>
 						</div>
 					</div>
@@ -115,22 +51,16 @@
 					<div class="row">
 						<div class="col-xs-8">
 							<ol start="39">
-								<li>Rice Portion</li>
-								<li>Green Rice Portion</li>
-								<li>Zereshk</li>
-								<li>Grilled Tomato</li>
-								<li>Grilled Onion</li>
-								<li>Feta Cheese</li>
+								@foreach ($extras as $extra)
+									<li>{{ $extra->title }}</li>
+								@endforeach
 							</ol>
 						</div>
 						<div class="col-xs-4">
 							<ul class="list-unstyled">
-								<li>£ 3</li>
-								<li>£ 5</li>
-								<li>£ 3</li>
-								<li>£ 3</li>
-								<li>£ 3</li>
-								<li>£ 1</li>
+								@foreach ($extras as $extra)
+									<li>£ {{ number_format($extra->price / 100 , 2) }}</li>
+								@endforeach
 							</ul>
 						</div>
 					</div>
@@ -139,24 +69,16 @@
 					<div class="row">
 						<div class="col-xs-8">
 							<ul class="list-unstyled" style="margin-left: 1.5em;">
-								<li>Coke</li>
-								<li>Diet Coke</li>
-								<li>Pepsi</li>
-								<li>Fanta</li>
-								<li>7up</li>
-								<li>Glass of Yogurt Drink</li>
-								<li>Jug of Yogurt Drink</li>
+								@foreach ($beverages as $beverage)
+									<li>{{ $beverage->title }}</li>
+								@endforeach
 							</ul>
 						</div>
 						<div class="col-xs-4">
 							<ul class="list-unstyled">
-								<li>£ 1</li>
-								<li>£ 1</li>
-								<li>£ 1</li>
-								<li>£ 1</li>
-								<li>£ 1</li>
-								<li>£ 1.50</li>
-								<li>£ 4.50</li>
+								@foreach ($beverages as $beverage)
+									<li>£ {{ number_format($beverage->price / 100 , 2) }}</li>
+								@endforeach
 							</ul>
 						</div>
 					</div>
@@ -165,16 +87,16 @@
 					<div class="row">
 						<div class="col-xs-8">
 							<ul class="list-unstyled" style="margin-left: 1.5em;">
-								<li>Orange Juice</li>
-								<li>Apple Juice</li>
-								<li>Grapefruit Juice</li>
+								@foreach ($juices as $juice)
+									<li>{{ $juice->title }}</li>
+								@endforeach
 							</ul>
 						</div>
 						<div class="col-xs-4">
 							<ul class="list-unstyled">
-								<li>£ 3</li>
-								<li>£ 2</li>
-								<li>£ 3</li>
+								@foreach ($juices as $juice)
+									<li>£ {{ number_format($juice->price / 100 , 2) }}</li>
+								@endforeach
 							</ul>
 						</div>
 					</div>
@@ -183,20 +105,16 @@
 					<div class="row">
 						<div class="col-xs-8">
 							<ul class="list-unstyled" style="margin-left: 1.5em;">
-								<li>Zulbia Bamieh</li>
-								<li>Faloodeh</li>
-								<li>Zaffron Ice Cream</li>
-								<li>Faloodeh Ice Cream Mixed</li>
-								<li>Baklava</li>
+								@foreach ($desserts as $dessert)
+									<li>{{ $dessert->title }}</li>
+								@endforeach
 							</ul>
 						</div>
 						<div class="col-xs-4">
 							<ul class="list-unstyled">
-								<li>£ 3</li>
-								<li>£ 3</li>
-								<li>£ 3</li>
-								<li>£ 3</li>
-								<li>£ 3</li>
+								@foreach ($desserts as $dessert)
+									<li>£ {{ number_format($dessert->price / 100 , 2) }}</li>
+								@endforeach
 							</ul>
 						</div>
 					</div>

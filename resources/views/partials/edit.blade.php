@@ -36,7 +36,7 @@
 	<label for="address" class="control-label col-sm-2">Address</label>
 	<div class="col-sm-5">
 		<input type="text" class="form-control" name="address" id="address" placeholder="Address"
-		       value="{{ $user->address }}" pattern="[\w\s\-]+">
+		       value="{{ $user->address }}" pattern="[\w\s\-]+" required>
 		<span class="help-block text-info">First line of your address</span>
 	</div>
 </div>
@@ -45,7 +45,7 @@
 	<label for="city" class="control-label col-sm-2">City</label>
 	<div class="col-sm-5">
 		<input type="text" class="form-control" name="city" id="city" placeholder="City"
-		       value="{{ $user->city }}" pattern="[\w\s\-,]+">
+		       value="{{ $user->city }}" pattern="[\w\s\-,]+" required>
 		<span class="help-block text-info">City you live</span>
 	</div>
 </div>
@@ -54,7 +54,7 @@
 	<label for="post_code" class="control-label col-sm-2">Post Code</label>
 	<div class="col-sm-5">
 		<input type="text" class="form-control" name="post_code" id="post_code" placeholder="Post Code"
-		       value="{{ $user->post_code }}" pattern="[\w\s\-]+">
+		       value="{{ $user->post_code }}" pattern="[\w\s\-]+" required>
 		<span class="help-block text-info">Your post code</span>
 	</div>
 </div>
@@ -63,7 +63,7 @@
 	<label for="phone" class="control-label col-sm-2">Phone</label>
 	<div class="col-sm-5">
 		<input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone"
-		       value="{{ $user->phone }}">
+		       value="{{ $user->phone }}" required>
 		<span class="help-block text-info">Your phone or mobile number</span>
 	</div>
 </div>

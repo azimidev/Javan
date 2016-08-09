@@ -21,7 +21,7 @@
 							<div class="content">
 								<div class="input-group{{ $errors->has('name') ? ' has-error' : '' }}">
 								<span class="input-group-addon">
-									<i class="fa fa-user fa-lg"></i>
+									<i class="fa fa-user fa-lg fa-fw"></i>
 								</span>
 
 									<input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}"
@@ -36,7 +36,7 @@
 
 								<div class="input-group{{ $errors->has('email') ? ' has-error' : '' }}">
 								<span class="input-group-addon">
-									<i class="fa fa-envelope fa-lg"></i>
+									<i class="fa fa-envelope fa-lg fa-fw"></i>
 								</span>
 
 									<input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}"
@@ -51,7 +51,7 @@
 
 								<div class="input-group {{ $errors->has('password') ? ' has-error' : '' }}">
 									<span class="input-group-addon">
-										<i class="fa fa-lock fa-lg"></i>
+										<i class="fa fa-lock fa-lg fa-fw"></i>
 									</span>
 
 									<input id="password" type="password" class="form-control" name="password" placeholder="Password"
@@ -66,7 +66,7 @@
 
 								<div class="input-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
 								<span class="input-group-addon">
-									<i class="fa fa-lock fa-lg"></i>
+									<i class="fa fa-lock fa-lg fa-fw"></i>
 								</span>
 
 									<input id="password-confirm" type="password" class="form-control" name="password_confirmation"
@@ -76,6 +76,66 @@
 									@if ($errors->has('password_confirmation'))
 										<span class="text-danger">
 											<strong>{{ $errors->first('password_confirmation') }}</strong>
+										</span>
+									@endif
+								</div>
+
+								<div class="input-group{{ $errors->has('address') ? ' has-error' : '' }}">
+								<span class="input-group-addon">
+									<i class="fa fa-home fa-lg fa-fw"></i>
+								</span>
+
+									<input id="address" type="text" class="form-control" name="address"
+									       placeholder="First line of your address" required pattern="[\w\s\-]+">
+
+									@if ($errors->has('address'))
+										<span class="text-danger">
+											<strong>{{ $errors->first('address') }}</strong>
+										</span>
+									@endif
+								</div>
+
+								<div class="input-group{{ $errors->has('city') ? ' has-error' : '' }}">
+								<span class="input-group-addon">
+									<i class="fa fa-map fa-lg fa-fw"></i>
+								</span>
+
+									<input id="city" type="text" class="form-control" name="city"
+									       placeholder="City" required pattern="[\w\s\-,]+">
+
+									@if ($errors->has('city'))
+										<span class="text-danger">
+											<strong>{{ $errors->first('city') }}</strong>
+										</span>
+									@endif
+								</div>
+
+								<div class="input-group{{ $errors->has('post_code') ? ' has-error' : '' }}">
+								<span class="input-group-addon">
+									<i class="fa fa-envelope-o fa-lg fa-fw"></i>
+								</span>
+
+									<input id="post_code" type="text" class="form-control" name="post_code"
+									       placeholder="Post Code" required pattern="[\w\s\-]+">
+
+									@if ($errors->has('post_code'))
+										<span class="text-danger">
+											<strong>{{ $errors->first('post_code') }}</strong>
+										</span>
+									@endif
+								</div>
+
+								<div class="input-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+								<span class="input-group-addon">
+									<i class="fa fa-phone fa-lg fa-fw"></i>
+								</span>
+
+									<input id="phone" type="tel" class="form-control" name="phone"
+									       placeholder="Mobile Phone" required>
+
+									@if ($errors->has('phone'))
+										<span class="text-danger">
+											<strong>{{ $errors->first('phone') }}</strong>
 										</span>
 									@endif
 								</div>

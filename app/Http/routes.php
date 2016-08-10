@@ -33,5 +33,8 @@ Route::resource('reservations', 'ReservationsController');
 Route::resource('post', 'PostsController');
 Route::resource('products', 'ProductsController');
 
+Route::post('/products/{product}/photo', 'ProductsController@addPhoto')->name('add.product.photo');
+Route::delete('/products/{product}/photo', 'ProductsController@deletePhoto')->name('delete.product.photo');
+
 Route::post('/post/{slug}/photos', 'PhotosController@store')->name('add.photo');
 Route::delete('/photo/{photo}', 'PhotosController@destroy')->name('delete.photo');

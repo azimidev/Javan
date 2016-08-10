@@ -2,6 +2,7 @@
 
 namespace Javan;
 
+use File;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -33,5 +34,15 @@ class Product extends Model
 				}
 			}
 		}
+	}
+
+	/**
+	 * @throws \Exception
+	 */
+	public function delete()
+	{
+		parent::delete();
+
+		File::delete([$this->image_path]);
 	}
 }

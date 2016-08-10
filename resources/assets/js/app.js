@@ -82,6 +82,15 @@
 		// addRemoveLinks : true,
 	};
 
+	Dropzone.options.addProductPhoto = {
+		paramName      : "photo", // The name that will be used to transfer the file
+		maxFilesize    : 5, // MB
+		uploadMultiple : false,
+		maxFiles       : 1,
+		acceptedFiles  : '.jpg, .jpeg, .png, .bmp', // Validates file types
+		// addRemoveLinks : true,
+	};
+
 	/**
 	 * Pjax
 	 */

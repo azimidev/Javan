@@ -2,6 +2,7 @@
 
 namespace Javan\Http\Controllers;
 
+use File;
 use Illuminate\Http\Request;
 use Javan\Product;
 
@@ -12,7 +13,7 @@ class ProductsController extends Controller
 	 */
 	public function __construct()
 	{
-		$this->middleware(['auth', 'admin'], ['except' => ['index', 'show']]);
+		$this->middleware(['auth', 'admin'], ['except' => ['index']]);
 	}
 
 	/**
@@ -122,6 +123,40 @@ class ProductsController extends Controller
 		$products->delete();
 
 		flash()->success('Success', 'Product has been removed');
+
+		return back();
+	}
+
+	/**
+	 * @param \Javan\Product $product
+	 * @param \Illuminate\Http\Request $request
+	 * @return \Symfony\Component\HttpFoundation\File\File
+	 * @throws \Symfony\Component\HttpFoundation\File\Exception\FileException
+	 */
+	public function addPhoto(Product $product, Request $request)
+	{
+		$this->validate($request, [
+			'photo' => 'mimes:jpg,jpeg,png,bmp',
+		]);
+
+		$file = $request->file('photo');
+		$name = time() . '-' . $file->getClientOriginalName();
+		$product->update(['image_path' => 'images/products/' . $name]);
+
+		return $file->move('images/products', $name);
+	}
+
+	/**
+	 * @param \Javan\Product $product
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
+	public function deletePhoto(Product $product)
+	{
+		File::delete([$product->image_path]);
+
+		$product->update(['image_path' => NULL]);
+
+		flash()->success('Success', 'Image has been deleted');
 
 		return back();
 	}

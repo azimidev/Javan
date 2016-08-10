@@ -29,7 +29,7 @@
 						<tr>
 							<td>{{ $product->title }}</td>
 							<td>{{ $product->description }}</td>
-							<td>{{ $product->price }}</td>
+							<td>{{ number_format($product->price / 100, 2) }}</td>
 							<td>{{ $product->category }}</td>
 							<td>
 								<form action="{{ route('products.destroy', $product) }}" method="POST">

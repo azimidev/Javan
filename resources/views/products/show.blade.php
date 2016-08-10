@@ -40,12 +40,15 @@
 					</div>
 				</div>
 			@endif
-			<h2><i class="fa fa-picture-o fa-fw"></i> Add <span class="text-danger">One</span> Product Photo</h2>
-			<form class="dropzone" action="{{ route('add.product.photo', $products->id) }}" method="POST" id="addProductPhoto"
-			      enctype="multipart/form-data">
-				{{ csrf_field() }}
-				<div class="text-primary dz-message" data-dz-message>Upload Photos Here</div>
-			</form>
+			@unless ($products->image_path)
+				<h2><i class="fa fa-picture-o fa-fw"></i> Add <span class="text-danger">One</span> Product Photo</h2>
+				<form class="dropzone" action="{{ route('add.product.photo', $products->id) }}" method="POST"
+				      id="addProductPhoto"
+				      enctype="multipart/form-data">
+					{{ csrf_field() }}
+					<div class="text-primary dz-message" data-dz-message>Upload Photos Here</div>
+				</form>
+			@endunless
 		</aside>
 	</main>
 @stop

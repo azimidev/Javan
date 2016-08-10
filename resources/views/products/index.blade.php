@@ -29,8 +29,8 @@
 						<tr>
 							<td>{{ $product->title }}</td>
 							<td>{{ $product->description }}</td>
-							<td>£ {{ number_format($product->price / 100, 2) }}</td>
-							<td>{{ $product->category }}</td>
+							<td><span class="label label-danger">£ {{ number_format($product->price / 100, 2) }}</span></td>
+							<td><span class="label label-info">{{ $product->category }}</span></td>
 							<td>
 								<form action="{{ route('products.destroy', $product) }}" method="POST">
 									{{ csrf_field() }}

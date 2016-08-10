@@ -18,7 +18,7 @@
 				<thead>
 					<tr>
 						<th>{!! sort_products_by('title', 'Title') !!}</th>
-						<th>{!! sort_products_by('description', 'Description') !!}</th>
+						<th width="50%">{!! sort_products_by('description', 'Description') !!}</th>
 						<th>{!! sort_products_by('price', 'Price') !!}</th>
 						<th>{!! sort_products_by('category', 'Category') !!}</th>
 						<th colspan="2">Actions</th>
@@ -29,7 +29,7 @@
 						<tr>
 							<td>{{ $product->title }}</td>
 							<td>{{ $product->description }}</td>
-							<td>{{ number_format($product->price / 100, 2) }}</td>
+							<td>£ {{ number_format($product->price / 100, 2) }}</td>
 							<td>{{ $product->category }}</td>
 							<td>
 								<form action="{{ route('products.destroy', $product) }}" method="POST">

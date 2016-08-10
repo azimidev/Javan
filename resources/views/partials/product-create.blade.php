@@ -32,7 +32,7 @@
 			<option selected disabled>-- Choose One Category --</option>
 			<option value="appetizer">Appetizer</option>
 			<option value="main_course">Main Course</option>
-			<option value="extra">Sides 7 Extras</option>
+			<option value="extra">Sides & Extras</option>
 			<option value="beverage">Beverage</option>
 			<option value="juice">Juice</option>
 			<option value="dessert">Dessert</option>

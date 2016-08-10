@@ -60,11 +60,11 @@ class ProductsController extends Controller
 			'category' => 'required',
 		]);
 
-		Product::create($request->all());
+		$product = Product::create($request->all());
 
 		flash()->success('Success', 'Product has been added to the menu');
 
-		return redirect()->route('products.show');
+		return redirect()->route('products.show', $product->id);
 	}
 
 	/**
@@ -108,7 +108,7 @@ class ProductsController extends Controller
 
 		flash()->success('Success', 'Menu has been updated');
 
-		return redirect()->route('products.show');
+		return redirect()->route('products.show', $products->id);
 	}
 
 	/**

@@ -9,7 +9,7 @@
 			<div class="clearfix"></div>
 			<div class="center">
 				<h1>Menu is empty !</h1>
-				<h2>Click the plus button to add product to menu</h2>
+				<h2>Click the plus button to add products to menu</h2>
 			</div>
 		@else
 			<h1>{{ $products->count() }} {{ str_plural('Product', $products->count()) }}</h1>

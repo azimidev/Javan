@@ -13,7 +13,9 @@
 		"barryvdh/laravel-ide-helper": "v2.2.0",
 		"intervention/image"         : "^2.3",
 		"muhamadrezaar/instagram"    : "^1.0",
-		"barryvdh/laravel-dompdf"    : "^0.6.1"
+		"barryvdh/laravel-dompdf"    : "^0.6.1",
+		"gloudemans/shoppingcart"    : "^2.1",
+		"stripe/stripe-php"          : "^3.20"
 	},
 	"require-dev" : {
 		"fzaninotto/faker"    : "~1.4",

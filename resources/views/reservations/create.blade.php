@@ -16,7 +16,7 @@
 		</article>
 		<aside>
 			<div class="col-sm-4">
-				<h2><i class="fa fa-info-circle"></i> Information</h2>
+				<h2><i class="fa fa-info-circle fa-fw"></i> Information</h2>
 				<p class="text-justify alert alert-info">
 					For parties more than 25 people please call us on <a href="tel:02085638553" class="alert-link">02085638553</a></p>
 				<p class="text-justify">

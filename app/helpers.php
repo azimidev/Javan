@@ -46,6 +46,14 @@ function today($date)
 	return $date->eq(Carbon::today());
 }
 
+function javan_is_open()
+{
+	$opening_time = (new DateTime('Europe/London'))->setTime(12, 0)->getTimestamp();
+	$closing_time = (new DateTime('Europe/London'))->setTime(23, 0)->getTimestamp();
+
+	return time() >= $opening_time && time() <= $closing_time;
+}
+
 function sort_reservations_by($column, $body)
 {
 	$direction = (\Request::get('direction') == 'ASC') ? 'DESC' : 'ASC';

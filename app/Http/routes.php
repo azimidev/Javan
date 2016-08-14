@@ -32,9 +32,14 @@ Route::resource('user', 'UsersController');
 Route::resource('reservations', 'ReservationsController');
 Route::resource('post', 'PostsController');
 Route::resource('products', 'ProductsController');
+Route::resource('cart', 'ShoppingCartsController');
 
 Route::post('/products/{product}/photo', 'ProductsController@addPhoto')->name('add.product.photo');
 Route::delete('/products/{product}/photo', 'ProductsController@deletePhoto')->name('delete.product.photo');
 
 Route::post('/post/{slug}/photos', 'PhotosController@store')->name('add.photo');
 Route::delete('/photo/{photo}', 'PhotosController@destroy')->name('delete.photo');
+
+Route::get('menu/add/{product}', 'PagesController@addToCart')->name('add.to.cart');
+Route::get('menu/remove/{product}/{qty}', 'PagesController@removeFromCart')->name('remove.from.cart');
+Route::get('menu/destroy/cart', 'PagesController@destroyCart')->name('destroy.cart');

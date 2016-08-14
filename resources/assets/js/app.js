@@ -94,7 +94,17 @@
 	/**
 	 * Pjax
 	 */
-	$(document).pjax('a#pjax', '#pjax-container');
+	$(document).pjax(
+		'a#pjax, a#addToCart, a#removeFromCart, a#destroyCart',
+		'#pjax-container', {
+			type     : 'GET',
+			scrollTo : false
+		}
+	);
+
+	$(document).on('pjax:success', function() {
+		$('#notifyAlert').fadeIn('fast').delay(700).fadeOut('fast')
+	});
 
 	/**
 	 * Confirmation class
@@ -103,9 +113,9 @@
 		e.preventDefault();
 		var form = $(this).parents('form');
 		swal({
-			title              : "Are You Sure ?",
+			title              : "<h4>Are You Sure ?</h4>",
 			// text               : 'You won\'t be able to recover from this action again',
-			type               : "warning",
+			type               : "question",
 			showCancelButton   : true,
 			confirmButtonColor : "#4CAF50",
 			cancelButtonColor  : "#F44336",

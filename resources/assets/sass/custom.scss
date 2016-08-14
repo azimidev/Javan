@@ -25,6 +25,16 @@ footer { color : white; }
 
 .main { padding-bottom : 3%; }
 
+.no-style {
+	margin         : 0 !important;
+	padding        : 0 !important;
+	border         : 0 !important;
+	outline        : 0 !important;
+	font-size      : 100% !important;
+	vertical-align : baseline !important;
+	background     : transparent !important;
+}
+
 .profile {
 	background    : url("/images/background/background-3.jpg");
 	color         : $beige;
@@ -107,6 +117,24 @@ aside {
 	left     : 15px;
 	top      : 50px;
 	z-index  : 100;
+}
+
+.menu {
+	h2, h3, h4 {
+		border-bottom : 1px dotted #FFF;
+	}
+	line-height : 2.5em;
+}
+
+#notifyAlert {
+	display       : inline-block;
+	position      : fixed;
+	right         : 30px;
+	top           : 50px;
+	z-index       : 100;
+	border-radius : 4px;
+	min-width     : 200px;
+	text-align    : center;
 }
 
 .img-wrap {

@@ -2,6 +2,7 @@
 
 namespace Javan\Http\Controllers;
 
+use Cart;
 use Illuminate\Http\Request;
 use Javan\Reservation;
 
@@ -64,6 +65,7 @@ class SessionsController extends Controller
 
 	/**
 	 * @return \Illuminate\Contracts\View\Factory
+	 * @throws \Exception
 	 * \Illuminate\Http\RedirectResponse
 	 * \Illuminate\View\View
 	 */

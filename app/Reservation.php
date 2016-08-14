@@ -14,26 +14,43 @@ class Reservation extends Model
 		'active',
 	];
 
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+	 */
 	public function user()
 	{
 		return $this->belongsTo(User::class);
 	}
 
+	/**
+	 * @param $value
+	 */
 	public function setDateAttribute($value)
 	{
 		$this->attributes['date'] = str_replace('/', '-', $value);
 	}
 
+	/**
+	 * @param $value
+	 * @return string
+	 */
 	public function getTimeAttribute($value)
 	{
 		return (new Carbon($value))->format('h:i');
 	}
 
+	/**
+	 * @param $value
+	 * @return \Carbon\Carbon
+	 */
 	public function getDateAttribute($value)
 	{
 		return new Carbon($value);
 	}
 
+	/**
+	 * @throws \Exception
+	 */
 	public static function cancelOldReservations()
 	{
 		$bookings = Reservation::all();

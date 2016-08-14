@@ -24,20 +24,22 @@
 	<meta name="twitter:title" content="Javan Restaurant"/>
 	<meta name="twitter:description" content="Top Quality Persian Cuisine in London"/>
 	<meta name="twitter:image" content="/images/misc/parsclick-logo.png"/>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"
-	      integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="{{ elixir('css/app.css') }}" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet">
 	<link rel="shortcut icon" type="image/png" href="/images/favicon.png">
 </head>
 <body id="app-layout">
-	@include('partials.nav')
-	@include('partials.errors')
-	@yield('content')
-	@include('partials.modal')
-	@include('partials.footer')
+@include('partials.nav')
+@include('partials.errors')
+@yield('content')
+@include('partials.modal')
+@include('partials.footer')
 
-	<script src="{{ elixir('js/all.js') }}"></script>
-	@include('partials.flash')
-	@include('partials.addthis')
+<script src="https://use.fontawesome.com/ed7ef479e3.js"></script>
+<script src="{{ elixir('js/all.js') }}"></script>
+@yield('scripts')
+@include('partials.flash')
+@include('partials.addthis')
 </body>
 </html>

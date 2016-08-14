@@ -25,6 +25,14 @@ class User extends Authenticatable
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
 	 */
+	public function shoppingCarts()
+	{
+		return $this->hasMany(ShoppingCart::class);
+	}
+
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
 	public function reservations()
 	{
 		return $this->hasMany(Reservation::class);

@@ -13,6 +13,11 @@ class Photo extends Model
 	protected $fillable = ['name', 'path', 'thumbnail_path'];
 	protected $file;
 
+	/**
+	 * @param \Symfony\Component\HttpFoundation\File\UploadedFile $file
+	 * @throws \Illuminate\Database\Eloquent\MassAssignmentException
+	 * @return static
+	 */
 	public static function fromFile(UploadedFile $file)
 	{
 		$photo       = new static;
@@ -27,6 +32,9 @@ class Photo extends Model
 		return $photo;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function fileName()
 	{
 		$name = sha1($this->file->getClientOriginalName());
@@ -36,26 +44,41 @@ class Photo extends Model
 		return "{$name}.{$extension}";
 	}
 
+	/**
+	 * @return string
+	 */
 	public function filePath()
 	{
 		return $this->baseDir() . '/' . $this->fileName();
 	}
 
+	/**
+	 * @return string
+	 */
 	public function baseDir()
 	{
 		return 'images/posts';
 	}
 
+	/**
+	 * @return string
+	 */
 	public function thumbnailPath()
 	{
 		return $this->baseDir() . '/tn-' . $this->fileName();
 	}
 
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+	 */
 	public function post()
 	{
 		return $this->belongsTo(Post::class);
 	}
 
+	/**
+	 * @return $this
+	 */
 	public function upload()
 	{
 		$this->file->move($this->baseDir(), $this->fileName());
@@ -64,6 +87,9 @@ class Photo extends Model
 		return $this;
 	}
 
+	/**
+	 * @return $this
+	 */
 	public function makeThumbnail()
 	{
 		Image::make($this->filePath())->fit(200)->save($this->thumbnailPath());
@@ -71,6 +97,9 @@ class Photo extends Model
 		return $this;
 	}
 
+	/**
+	 * @throws \Exception
+	 */
 	public function delete()
 	{
 		parent::delete();

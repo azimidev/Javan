@@ -1,6 +1,6 @@
 <footer class="footer">
 	<div class="container">
-		<nav class="pull-left">
+		<nav class="navbar-left">
 			<ul>
 				<li>
 					<a href="{{ url('/about') }}">
@@ -28,10 +28,24 @@
 					</a>
 				</li>
 			</ul>
+			<ul class="hidden-xs">
+				<li>
+					<i title="Visa" class="fa fa-cc-visa fa-fw fa-3x"></i>
+				</li>
+				<li>
+					<i title="Master Card" class="fa fa-cc-mastercard fa-fw fa-3x"></i>
+				</li>
+				<li>
+					<i title="American Express" class="fa fa-cc-jcb fa-fw fa-3x"></i>
+				</li>
+				<li>
+					<i title="Stripe" class="fa fa-cc-stripe fa-fw fa-3x"></i>
+				</li>
+			</ul>
 		</nav>
-		<nav class="copyright pull-right">
+		<nav class="copyright navbar-right">
 			&copy; {{ date('Y') }} Javan Restaurant
-			<div class="clearfix">
+			<div>
 				<a href="https://www.facebook.com/JavanLondonLtd" class="btn-link" target="_blank" title="Facebook">
 					<i class="fa fa-facebook-square fa-fw fa-3x"></i>
 				</a>

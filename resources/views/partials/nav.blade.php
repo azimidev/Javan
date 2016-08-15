@@ -35,7 +35,10 @@
 					<li class="{{ active('login') }}"><a href="{{ url('/login') }}">Login</a></li>
 					<li class="{{ active('register') }}"><a href="{{ url('/register') }}">Register</a></li>
 				@else
-					<li class="{{ active('cart/create') }}"><a href="{{ route('cart.create') }}"><i class="fa fa-shopping-cart"></i> Cart</a>
+					<li class="{{ active('cart/create') }}"><a href="{{ route('cart.create') }}">
+							<i class="fa fa-shopping-cart"></i> Cart
+							<span class="badge">{{ Cart::count() }}</span>
+						</a>
 					</li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

@@ -17,7 +17,7 @@ class ShoppingCartsController extends Controller
 	public function __construct()
 	{
 		$this->middleware('auth');
-		$this->middleware('admin.manager', ['except' => ['create', 'store']]);
+		$this->middleware('admin.manager', ['except' => ['create', 'store', 'show']]);
 	}
 
 	/**
@@ -83,6 +83,7 @@ class ShoppingCartsController extends Controller
 				'status'  => TRUE,
 				'note'    => $request->input('note'),
 			]);
+			// TODO: SEND EMAIL
 			flash()->overlay('Payment was successfull', 'Your payment was successfull and delivery has been place');
 
 			Cart::destroy();

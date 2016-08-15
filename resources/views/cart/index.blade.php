@@ -16,11 +16,16 @@
 		@if ($carts->isEmpty())
 			<div class="clearfix"></div>
 			<div class="center">
-				<h1>You have no booking yet !</h1>
-				<h2>Click the plus button to book a table</h2>
+				<h1>There is no order yet!</h1>
 			</div>
 		@else
-			<h1>{{ $carts->count() }} {{ str_plural('Order', $carts->count()) }}</h1>
+			@can('adminManager', auth()->user())
+				<h1>{{ $carts->count() }} {{ str_plural('Order', $carts->count()) }}</h1>
+			@endcan
+
+			@can('member', auth()->user())
+				<h1>{{ str_plural('Your Recent Order', $carts->count()) }}</h1>
+			@endcan
 
 			<table class="table table-condensed table-hover">
 				<thead>
@@ -40,17 +45,19 @@
 						<tr>
 							<td>
 								<strong class="text-info">{{ $cart->user->name }}</strong> <br>
-								<strong class="text-danger">{{ $cart->user->phone }}</strong> <br>
-								<strong class="text-success">{{ $cart->user->email }} <br></strong>
-								{{ $cart->user->address }} <br>
-								{{ $cart->user->city }} <br>
-								{{ $cart->user->post_code }}
+								<strong class="text-primary">
+									{{ $cart->user->address }} <br>
+									{{ $cart->user->city }} <br>
+									{{ $cart->user->post_code }}
+								</strong> <br>
+								<strong class="text-danger">{{ $cart->user->phone }}</strong>
 							</td>
 							<td>
-								@foreach ($cart->orders as $order)
-									{{ $order->qty }}
-									{{ $order->name }} <br>
-								@endforeach
+								<ul class="list-unstyled">
+									@foreach ($cart->orders as $order)
+										<li>{{ $order->qty }} {{ $order->name }}</li>
+									@endforeach
+								</ul>
 							</td>
 							<td>£{{ number_format($cart->total / 100, 2) }}</td>
 							<td>{{ nl2br($cart->note) }}</td>

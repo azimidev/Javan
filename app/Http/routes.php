@@ -21,6 +21,7 @@ Route::group(['prefix' => 'member', 'as' => 'member.'], function() {
 	Route::get('{user}/edit', 'SessionsController@edit')->name('edit');
 	Route::patch('{user}', 'SessionsController@update')->name('update');
 	Route::get('bookings', 'SessionsController@bookings')->name('bookings');
+	Route::get('orders', 'SessionsController@orders')->name('orders');
 });
 
 # Admin & Manager Profile
@@ -34,12 +35,13 @@ Route::resource('post', 'PostsController');
 Route::resource('products', 'ProductsController');
 Route::resource('cart', 'ShoppingCartsController');
 
+# Products Photo
 Route::post('/products/{product}/photo', 'ProductsController@addPhoto')->name('add.product.photo');
 Route::delete('/products/{product}/photo', 'ProductsController@deletePhoto')->name('delete.product.photo');
-
+# Posts Photo
 Route::post('/post/{slug}/photos', 'PhotosController@store')->name('add.photo');
 Route::delete('/photo/{photo}', 'PhotosController@destroy')->name('delete.photo');
-
+# Cart
 Route::get('menu/add/{product}', 'PagesController@addToCart')->name('add.to.cart');
 Route::get('menu/remove/{product}/{qty}', 'PagesController@removeFromCart')->name('remove.from.cart');
 Route::get('menu/destroy/cart', 'PagesController@destroyCart')->name('destroy.cart');

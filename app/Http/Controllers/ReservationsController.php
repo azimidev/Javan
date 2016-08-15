@@ -21,6 +21,7 @@ class ReservationsController extends Controller
 	 * Display a listing of the resource.
 	 *
 	 * @return \Illuminate\Http\Response
+	 * @throws \Exception
 	 */
 	public function index()
 	{

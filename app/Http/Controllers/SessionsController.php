@@ -2,7 +2,6 @@
 
 namespace Javan\Http\Controllers;
 
-use Cart;
 use Illuminate\Http\Request;
 use Javan\Reservation;
 
@@ -78,5 +77,27 @@ class SessionsController extends Controller
 		Reservation::cancelOldReservations();
 
 		return view('reservations.index', ['reservations' => $this->user->reservations()->paginate(50)]);
+	}
+
+	/**
+	 * @return \Illuminate\Contracts\View\Factory
+	 * \Illuminate\Http\RedirectResponse
+	 * \Illuminate\Routing\Redirector|\Illuminate\View\View
+	 */
+	public function orders()
+	{
+		if ($this->user->shoppingCarts->isEmpty()) {
+			return redirect('menu');
+		}
+
+		$carts = $this->user->shoppingCarts()->orderBy('created_at', 'DESC')->paginate(50);
+
+		$carts->transform(function($cart) {
+			$cart->orders = unserialize($cart->orders);
+
+			return $cart;
+		});
+
+		return view('cart.index', compact('carts'));
 	}
 }

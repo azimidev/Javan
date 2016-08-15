@@ -35,7 +35,7 @@
 					<li class="{{ active('login') }}"><a href="{{ url('/login') }}">Login</a></li>
 					<li class="{{ active('register') }}"><a href="{{ url('/register') }}">Register</a></li>
 				@else
-					<li class="{{ active('cart') }}"><a href="{{ route('cart.create') }}"><i class="fa fa-shopping-cart"></i> Cart</a>
+					<li class="{{ active('cart/create') }}"><a href="{{ route('cart.create') }}"><i class="fa fa-shopping-cart"></i> Cart</a>
 					</li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -50,7 +50,7 @@
 								<li><a href="{{ route('member.bookings') }}">
 										<i class="fa fa-calendar fa-fw"></i> Your Booking
 									</a></li>
-								<li><a href="#">
+								<li><a href="{{ route('member.orders') }}">
 										<i class="fa fa-cutlery fa-fw"></i> Your Orders
 									</a></li>
 							@endcan

@@ -3,15 +3,15 @@
 namespace Javan\Http\Controllers;
 
 use Cart;
-use Illuminate\Http\Request;
 use Instagram;
-use Javan\AppMailer;
-use Javan\Jobs\SendEmailConfirmation;
-use Javan\Jobs\SendEmailToAdmin;
 use Javan\Post;
-use Javan\Product;
-use Javan\Reservation;
 use Javan\User;
+use Javan\Product;
+use Javan\AppMailer;
+use Javan\Reservation;
+use Illuminate\Http\Request;
+use Javan\Jobs\SendEmailToAdmin;
+use Javan\Jobs\SendEmailConfirmation;
 
 class PagesController extends Controller
 {

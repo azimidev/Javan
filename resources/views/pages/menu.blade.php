@@ -10,11 +10,11 @@
 				<a class="btn btn-sm btn-warning" href="/images/menu/Javan-Restaurant-Menu.pdf" target="_blank"
 				   title="Javan Restaurant Menu">please click here</a>
 			</p>
-			<article class="col-md-8 col-md-offset-1">
+			<article class="col-md-7 col-md-offset-1">
 				@unless (javan_is_open())
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
-						We are closed now and cannot accept orders unless you want specific delivery time between 12:00 - 23:00
+						We are closed now and cannot accept orders unless you want specific delivery time between 13:00 - 23:00
 					</div>
 				@endunless
 				<div class="brand menu">
@@ -161,7 +161,7 @@
 
 				</div>
 			</article>
-			<aside class="col-md-3">
+			<aside class="col-md-4">
 				@include('partials.cart')
 				<div class="center">
 					<div class="row">

@@ -10,7 +10,7 @@
 				@unless (javan_is_open())
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
-						We are closed now and cannot accept orders unless you want specific delivery time between 12:00 - 23:00
+						We are closed now and cannot accept orders unless you want specific delivery time between 13:00 - 23:00
 					</div>
 				@endunless
 				<div class="panel panel-primary">
@@ -29,23 +29,23 @@
 									<span aria-hidden="true"><i class="material-icons">clear</i></span>
 								</button>
 								Make sure your details are correct before you make a payment if you see your details are incorrect
-								please
-								update them by <a class="alert-link" href="{{ route('member.edit', auth()->user()) }}">clicking here</a>
+								please update them by
+								<a class="alert-link" href="{{ route('member.edit', auth()->user()) }}">clicking here</a>
 							</div>
 						</div>
 
 						<dl class="dl-horizontal">
-							<dt>Name:</dt>
+							<dt>Name :</dt>
 							<dd>{{ auth()->user()->name ?: '-' }}</dd>
-							<dt>Email:</dt>
+							<dt>Email :</dt>
 							<dd>{{ auth()->user()->email ?: '-' }}</dd>
-							<dt>Address:</dt>
+							<dt>Address :</dt>
 							<dd>{{ auth()->user()->address ?: '-' }}</dd>
-							<dt>City:</dt>
+							<dt>City :</dt>
 							<dd>{{ auth()->user()->city ?: '-' }}</dd>
-							<dt>Post Code:</dt>
+							<dt>Post Code :</dt>
 							<dd>{{ auth()->user()->post_code ?: '-' }}</dd>
-							<dt>Phone:</dt>
+							<dt>Phone :</dt>
 							<dd>{{ auth()->user()->phone ?: '-' }}</dd>
 						</dl>
 					</div>
@@ -57,8 +57,8 @@
 						</div>
 					</div>
 					<div class="panel-body">
-						<form class="form-horizontal" action="{{ route('cart.store') }}" method="POST" role="form"
-						      id="payment-form">
+						<form action="{{ route('cart.store') }}" method="POST" role="form"
+						      class="form-horizontal" id="payment-form">
 							{{ csrf_field() }}
 
 							<noscript>
@@ -74,9 +74,10 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label" for="card-holder-name">Card Holder's Name</label>
 								<div class="col-sm-7">
-									<input type="text" name="cardholdername" maxlength="70" placeholder="Card Holder Name"
-									       class="card-holder-name form-control" id="card-holder-name" value="Amir Azimi">
-									<span class="help-block text-primary"></span>
+									<input type="text" name="cardholdername" maxlength="70" minlength="6" placeholder="Name on Card"
+									       class="card-holder-name form-control" id="card-holder-name" pattern="[A-Za-z\s]{6,70}"
+									       required>
+									<span class="help-block text-primary">Name as appeared on cart</span>
 								</div>
 							</div>
 
@@ -85,18 +86,18 @@
 								<label class="col-sm-3 control-label" for="cardnumber">Card Number</label>
 								<div class="col-sm-7">
 									<input type="text" id="cardnumber" minlength="16" maxlength="19" placeholder="Card Number"
-									       class="card-number form-control" value="4242424242424242" data-stripe="number">
-									<span class="help-block text-primary"></span>
+									       class="card-number form-control" data-stripe="number" pattern="[0-9]{16,19}" required>
+									<span class="help-block text-primary">16 digits card number in front of your card</span>
 								</div>
 							</div>
 
 							<!-- Expiry-->
 							<div class="form-group">
 								<label class="col-sm-3 control-label" for="exp-date">Card Expiry Date</label>
-								<div class="col-sm-9">
+								<div class="col-sm-7">
 									<div class="form-inline">
 										<select name="select2" data-stripe="exp_month" id="exp-date"
-										        class="card-expiry-month stripe-sensitive required form-control">
+										        class="card-expiry-month stripe-sensitive required form-control" required>
 											@for ($i = 0; $i < 12; $i++)
 												<option
 														value="{{ $i + 1 }}" {{ $i + 1 == date('m') + 1 ? 'selected' : '' }}>{{ $i + 1 }}</option>
@@ -104,7 +105,7 @@
 										</select>
 										<span> / </span>
 										<select name="select2" data-stripe="exp_year" id="exp-date"
-										        class="card-expiry-year stripe-sensitive required form-control">
+										        class="card-expiry-year stripe-sensitive required form-control" required>
 											@for ($i = 0; $i < 12; $i++)
 												<option
 														value="{{ $i + date('Y') }}" {{ $i === 0 ? 'selected' : '' }}>{{ $i + date('Y') }}</option>
@@ -116,11 +117,11 @@
 
 							<!-- CVV -->
 							<div class="form-group">
-								<label class="col-sm-3 control-label" for="cvv">CVV/CVV2</label>
+								<label class="col-sm-3 control-label" for="cvc">CVC / CVV</label>
 								<div class="col-sm-3">
-									<input type="text" id="cvv" placeholder="CVV" size="4" class="card-cvc form-control" value="123"
-									       data-stripe="cvc">
-									<span class="help-block text-primary"></span>
+									<input type="text" id="cvc" placeholder="CVC" size="4" class="card-cvc form-control"
+									       data-stripe="cvc" pattern="[0-9]{1,4}" minlength="1" maxlength="4" required>
+									<span class="help-block text-primary"> 3 or 4 digits on back of your card</span>
 								</div>
 							</div>
 
@@ -128,8 +129,14 @@
 								<label for="note" class="control-label col-sm-3">Instructions</label>
 								<div class="col-sm-7">
 									<textarea type="text" class="form-control" name="note" id="note"
-									          placeholder="Type Delivery Instruction"></textarea>
-									<span class="help-block text-primary">Ex: time of delivery, the house bell and etcetera</span>
+									          {{ javan_is_open() ? '' : 'required minlength=6' }}
+									          placeholder="{{ javan_is_open() ? 'Type Delivery Instruction' : 'We are closed now so please specify the delivery time here between 12:00 to 23:00'}}"></textarea>
+									@if (javan_is_open())
+										<span class="help-block text-primary">Ex: time of delivery, the house bell and etcetera</span>
+									@else
+										<span
+												class="help-block text-primary">Please specify the delivery time here between 13:00 to 23:00</span>
+									@endif
 								</div>
 							</div>
 
@@ -160,15 +167,12 @@
 		Stripe.setPublishableKey('{{ env('STRIPE_KEY') }}');
 
 		$(function() {
-
 			var $form = $('#payment-form');
 			$form.submit(function(event) {
 				// Disable the submit button to prevent repeated clicks:
 				$form.find('.submit').prop('disabled', true);
-
 				// Request a token from Stripe:
 				Stripe.card.createToken($form, stripeResponseHandler);
-
 				// Prevent the form from being submitted:
 				return false;
 			});
@@ -177,25 +181,18 @@
 				// Grab the form:
 				var $form = $('#payment-form');
 				if (response.error) { // Problem!
-
 					// Show the errors on the form:
 					$form.find('.payment-errors').text(response.error.message);
 					$form.find('.submit').prop('disabled', false); // Re-enable submission
-
 				} else { // Token was created!
-
 					// Get the token ID:
 					var token = response.id;
-
 					// Insert the token ID into the form so it gets submitted to the server:
 					$form.append($('<input type="hidden" name="stripeToken">').val(token));
-
 					// Submit the form:
 					$form.get(0).submit();
 				}
 			}
-
 		});
-
 	</script>
 @stop

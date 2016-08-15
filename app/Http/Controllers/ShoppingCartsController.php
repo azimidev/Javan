@@ -16,7 +16,8 @@ class ShoppingCartsController extends Controller
 	 */
 	public function __construct()
 	{
-		$this->middleware(['auth']);
+		$this->middleware('auth');
+		$this->middleware('admin.manager', ['except' => ['create', 'store']]);
 	}
 
 	/**
@@ -26,7 +27,17 @@ class ShoppingCartsController extends Controller
 	 */
 	public function index()
 	{
-		//
+		$sortBy    = request()->get('sortBy');
+		$direction = request()->get('direction');
+		$params    = compact('sortBy', 'direction');
+
+		if ($sortBy && $direction) {
+			$carts = ShoppingCart::with('user')->orderBy($params['sortBy'], $params['direction'])->paginate(50);
+		} else {
+			$carts = ShoppingCart::with('user')->orderBy('created_at', 'DESC')->paginate(50);
+		}
+
+		return view('cart.index', compact('carts'));
 	}
 
 	/**
@@ -36,6 +47,12 @@ class ShoppingCartsController extends Controller
 	 */
 	public function create()
 	{
+		if (Cart::content()->isEmpty()) {
+			flash()->error('Whoops!', 'Your Cart is empty');
+
+			return redirect('menu');
+		}
+
 		return view('cart.create');
 	}
 
@@ -51,25 +68,26 @@ class ShoppingCartsController extends Controller
 		$this->validate($request, [
 			'stripeToken' => 'required',
 		]);
-		ShoppingCart::create([
-			'user_id' => auth()->user()->id,
-			'content' => Cart::content()->toJson(),
-			'total'   => (int) Cart::total() * 100,
-			'status'  => TRUE,
-			'note'    => $request->input('note'),
-		]);
 		try {
-			Charge::create([
+			$charge = Charge::create([
 				'amount'      => Cart::total() * 100,
 				'currency'    => 'gbp',
 				'card'        => $request->input('stripeToken'),
 				'description' => 'Charge for ' . $request->input('cardholdername'),
 			]);
+			// dd($charge);
+			ShoppingCart::create([
+				'user_id' => auth()->user()->id,
+				'orders'  => serialize(Cart::content()),
+				'total'   => (int) Cart::total() * 100,
+				'status'  => TRUE,
+				'note'    => $request->input('note'),
+			]);
 			flash()->overlay('Payment was successfull', 'Your payment was successfull and delivery has been place');
 
 			Cart::destroy();
 
-			return back();
+			return redirect()->route('member.orders');
 		} catch (Exception $e) {
 			flash()->error('Error!', $e->getMessage());
 

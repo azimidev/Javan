@@ -51,11 +51,13 @@
 			</tfoot>
 		</table>
 		@if (request()->is('cart/create'))
-			<a href="{{ url('/menu') }}" class="btn btn-block btn-success btn-raised">
+			<a href="{{ url('/menu') }}" class="btn btn-block btn-primary btn-raised">
 				<i class="fa fa-arrow-left fa-lg fa-fw"></i> Go Back to Menu
 			</a>
-		@else
-			<a href="{{ route('cart.create') }}" class="btn btn-block btn-success btn-raised">Checkout</a>
+		@elseif (Cart::count())
+			<a href="{{ route('cart.create') }}" class="btn btn-block btn-success btn-raised">
+				<i class="fa fa-credit-card-alt fa-lg fa-fw"></i> Checkout
+			</a>
 		@endif
 	</div>
 </div>

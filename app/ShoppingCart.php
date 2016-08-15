@@ -8,7 +8,7 @@ class ShoppingCart extends Model
 {
 	protected $fillable = [
 		'user_id',
-		'content',
+		'orders',
 		'total',
 		'status',
 		'note',

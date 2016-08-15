@@ -114,7 +114,6 @@
 		var form = $(this).parents('form');
 		swal({
 			title              : "<h4>Are You Sure ?</h4>",
-			// text               : 'You won\'t be able to recover from this action again',
 			type               : "question",
 			showCancelButton   : true,
 			confirmButtonColor : "#4CAF50",

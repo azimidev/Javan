@@ -54,12 +54,12 @@
 	/**
 	 * Show tooltips
 	 */
-	$("[data-toggle='tooltip']").tooltip({animation : true});
+	$("[data-toggle='tooltip']").tooltip({animation : true, html : true});
 
 	/**
 	 * Show pop overs
 	 */
-	$('[data-toggle="popover"]').popover();
+	$('[data-toggle="popover"]').popover({html : true});
 
 	/**
 	 * Attribute data-remote for every form
@@ -98,7 +98,9 @@
 		'a#pjax, a#addToCart, a#removeFromCart, a#destroyCart',
 		'#pjax-container', {
 			type     : 'GET',
-			scrollTo : false
+			push     : false,
+			replace  : true,
+			scrollTo : false,
 		}
 	);
 
@@ -135,7 +137,7 @@
 	 * Reloading page every interval minute
 	 */
 	var reloading;
-	var interval = 5000;
+	var interval = 30000;
 
 	function checkReloading() {
 		if (window.location.hash == "#autoreload") {

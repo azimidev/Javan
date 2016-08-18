@@ -3,21 +3,25 @@
 namespace Javan\Http\Controllers;
 
 use Cart;
-use Exception;
 use Illuminate\Http\Request;
+use Javan\Billing\BillingInterface;
 use Javan\ShoppingCart;
-use Stripe\Charge;
 use Stripe\Stripe;
 
 class ShoppingCartsController extends Controller
 {
+	protected $billing;
+
 	/**
 	 * ShoppingCartsController constructor.
+	 *
+	 * @param \Javan\Billing\BillingInterface $billing
 	 */
-	public function __construct()
+	public function __construct(BillingInterface $billing)
 	{
 		$this->middleware('auth');
 		$this->middleware('admin.manager', ['except' => ['create', 'store', 'show']]);
+		$this->billing = $billing;
 	}
 
 	/**
@@ -37,6 +41,12 @@ class ShoppingCartsController extends Controller
 			$carts = ShoppingCart::with('user')->orderBy('created_at', 'DESC')->paginate(50);
 		}
 
+		$carts->transform(function($cart) {
+			$cart->orders = unserialize($cart->orders);
+
+			return $cart;
+		});
+
 		return view('cart.index', compact('carts'));
 	}
 
@@ -48,8 +58,6 @@ class ShoppingCartsController extends Controller
 	public function create()
 	{
 		if (Cart::content()->isEmpty()) {
-			flash()->error('Whoops!', 'Your Cart is empty');
-
 			return redirect('menu');
 		}
 
@@ -68,41 +76,35 @@ class ShoppingCartsController extends Controller
 		$this->validate($request, [
 			'stripeToken' => 'required',
 		]);
-		try {
-			$charge = Charge::create([
-				'amount'      => Cart::total() * 100,
-				'currency'    => 'gbp',
-				'card'        => $request->input('stripeToken'),
-				'description' => 'Charge for ' . $request->input('cardholdername'),
-			]);
-			// dd($charge);
-			ShoppingCart::create([
-				'user_id' => auth()->user()->id,
-				'orders'  => serialize(Cart::content()),
-				'total'   => (int) Cart::total() * 100,
-				'status'  => TRUE,
-				'note'    => $request->input('note'),
-			]);
-			// TODO: SEND EMAIL
-			flash()->overlay('Payment was successfull', 'Your payment was successfull and delivery has been place');
+		$charge = $this->billing->charge([
+			'email' => auth()->user()->email,
+			'token' => $request->input('stripeToken'),
+		]);
+		ShoppingCart::create([
+			'user_id'   => auth()->user()->id,
+			'charge_id' => $charge->id,
+			'orders'    => serialize(Cart::content()),
+			'total'     => (int) Cart::total() * 100,
+			'status'    => TRUE,
+			'note'      => $request->input('note'),
+		]);
+		// $this->dispatch(new SendEmailToAdmin($ShoppingCart));
+		// $this->dispatch(new SendEmailConfirmation($ShoppingCart));
+		// TODO Job 3: Make PDF and attach it
+		// $this->dispatch(new SendPdfAttachment($reservation));
+		Cart::destroy();
+		flash()->overlay('Payment was successfull', 'Delivery has been placed. We are going to send your delivery ASAP unless you have stated a specific delivery time in your delivery instructions. If you have any problems please call us on 020 8563 8553');
 
-			Cart::destroy();
-
-			return redirect()->route('member.orders');
-		} catch (Exception $e) {
-			flash()->error('Error!', $e->getMessage());
-
-			return back();
-		}
+		return redirect()->route('member.orders');
 	}
 
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param \Javan\ShoppingCart $shoppingCart
+	 * @param \Javan\ShoppingCart $cart
 	 * @return \Illuminate\Http\Response
 	 */
-	public function show(ShoppingCart $shoppingCart)
+	public function show(ShoppingCart $cart)
 	{
 		//
 	}
@@ -110,10 +112,10 @@ class ShoppingCartsController extends Controller
 	/**
 	 * Show the form for editing the specified resource.
 	 *
-	 * @param \Javan\ShoppingCart $shoppingCart
+	 * @param \Javan\ShoppingCart $cart
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit(ShoppingCart $shoppingCart)
+	public function edit(ShoppingCart $cart)
 	{
 		//
 	}
@@ -122,10 +124,10 @@ class ShoppingCartsController extends Controller
 	 * Update the specified resource in storage.
 	 *
 	 * @param  \Illuminate\Http\Request $request
-	 * @param \Javan\ShoppingCart $shoppingCart
+	 * @param \Javan\ShoppingCart $cart
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, ShoppingCart $shoppingCart)
+	public function update(Request $request, ShoppingCart $cart)
 	{
 		//
 	}
@@ -133,11 +135,16 @@ class ShoppingCartsController extends Controller
 	/**
 	 * Remove the specified resource from storage.
 	 *
-	 * @param \Javan\ShoppingCart $shoppingCart
+	 * @param \Javan\ShoppingCart $cart
 	 * @return \Illuminate\Http\Response
+	 * @throws \Exception
 	 */
-	public function destroy(ShoppingCart $shoppingCart)
+	public function destroy(ShoppingCart $cart)
 	{
-		//
+		$cart->delete();
+
+		flash()->success('Success', 'Cart has been deleted successfully');
+
+		return back();
 	}
 }

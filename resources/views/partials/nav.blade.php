@@ -35,11 +35,14 @@
 					<li class="{{ active('login') }}"><a href="{{ url('/login') }}">Login</a></li>
 					<li class="{{ active('register') }}"><a href="{{ url('/register') }}">Register</a></li>
 				@else
+					@if (Cart::count())
 					<li class="{{ active('cart/create') }}"><a href="{{ route('cart.create') }}">
 							<i class="fa fa-shopping-cart"></i> Cart
 							<span class="badge">{{ Cart::count() }}</span>
 						</a>
 					</li>
+					@endif
+
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 							{{ auth()->user()->name }} <span class="caret"></span>
@@ -64,7 +67,7 @@
 										<i class="fa fa-calendar fa-fw"></i> Manage Bookings
 									</a>
 								</li>
-								<li><a href="{{ url('#') }}">
+								<li><a href="{{ route('cart.index') }}">
 										<i class="fa fa-btn fa-cutlery fa-fw"></i> Manage Take Aways
 									</a></li>
 								<li><a href="{{ route('post.index') }}">

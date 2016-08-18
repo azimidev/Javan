@@ -155,6 +155,7 @@ return [
 		Javan\Providers\AuthServiceProvider::class,
 		Javan\Providers\EventServiceProvider::class,
 		Javan\Providers\RouteServiceProvider::class,
+		Javan\Providers\BillingServiceProvider::class,
 
 		Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
 		Intervention\Image\ImageServiceProvider::class,

@@ -13,7 +13,7 @@
 					@endunless
 					<p>For reservations or delivery please click on the buttons below</p>
 					<p>
-						<a href="#" class="btn btn-danger btn-raised btn-round btn-lg" data-toggle="modal" data-target="#myModal">
+						<a href="{{ route('member.orders') }}" class="btn btn-danger btn-raised btn-round btn-lg">
 							Take Away Orders
 						</a>
 						<a href="{{ route('member.bookings') }}" class="btn btn-info btn-raised btn-round btn-lg">
@@ -38,7 +38,7 @@
 						<a href="{{ route('reservations.index') }}" class="btn btn-info btn-raised btn-round">
 							Manage Bookings
 						</a>
-						<a href="#" class="btn btn-danger btn-raised btn-round">
+						<a href="{{ route('cart.index') }}" class="btn btn-danger btn-raised btn-round">
 							Manage Take Aways
 						</a>
 					</p>

@@ -26,10 +26,10 @@
 				<thead>
 					<tr>
 						<th>Details</th>
-						<th>{!! sort_reservations_by('date', 'Date') !!}</th>
-						<th>{!! sort_reservations_by('time', 'Time') !!}</th>
-						<th>{!! sort_reservations_by('seats', 'Seats') !!}</th>
-						<th>{!! sort_reservations_by('active', 'Active') !!}</th>
+						<th>{!! sort_column_by('date', 'Date') !!}</th>
+						<th>{!! sort_column_by('time', 'Time') !!}</th>
+						<th>{!! sort_column_by('seats', 'Seats') !!}</th>
+						<th>{!! sort_column_by('active', 'Active') !!}</th>
 						<th colspan="2">Actions</th>
 					</tr>
 				</thead>

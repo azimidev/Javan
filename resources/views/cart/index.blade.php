@@ -2,9 +2,11 @@
 
 @section('content')
 	<main class="main container">
-		<a href="{{ route('cart.create') }}" class="btn btn-raised btn-info pull-right">
-			<i class="fa fa-plus fa-lg"></i>
-		</a>
+		@can('member', auth()->user())
+			<a href="{{ url('menu') }}" class="btn btn-raised btn-info pull-right">
+				Continue Shopping
+			</a>
+		@endcan
 		@can('admin_manager', auth()->user())
 			<div class="togglebutton">
 				<label>
@@ -19,7 +21,7 @@
 				<h1>There is no order yet!</h1>
 			</div>
 		@else
-			@can('adminManager', auth()->user())
+			@can('admin_manager', auth()->user())
 				<h1>{{ $carts->count() }} {{ str_plural('Order', $carts->count()) }}</h1>
 			@endcan
 
@@ -31,11 +33,11 @@
 				<thead>
 					<tr>
 						<th>Details</th>
-						<th width="30%">Orders</th>
-						<th>{!! sort_carts_by('total', 'Total') !!}</th>
+						<th>Orders</th>
+						<th>{!! sort_column_by('total', 'Total') !!}</th>
 						<th width="30%">Note</th>
-						<th>{!! sort_carts_by('status', 'Status') !!}</th>
-						@can('adminManager', auth()->user())
+						<th>{!! sort_column_by('status', 'Status') !!}</th>
+						@can('admin_manager', auth()->user())
 							<th colspan="2">Actions</th>
 						@endcan
 					</tr>
@@ -61,18 +63,20 @@
 							</td>
 							<td>£{{ number_format($cart->total / 100, 2) }}</td>
 							<td>{{ nl2br($cart->note) }}</td>
-							<td>{!! $cart->status ? '<span class="label label-success">Accepted</span>' : '<span class="label label-danger">Rejected</span>' !!}</td>
-							@can('adminManager', auth()->user())
+							<td>{!! $cart->status ? '<span class="label label-success">Accepted & Paid</span>' : '<span class="label label-danger">Rejected & Refunded</span>' !!}</td>
+							@can('admin_manager', auth()->user())
 								<td>
 									<form action="{{ route('cart.destroy', $cart) }}" method="POST">
 										{{ csrf_field() }}
 										{{ method_field('DELETE') }}
-										<a href="{{ route('carts.edit', $cart) }}" class="btn btn-sm btn-raised btn-success">
-											Change
+										<a href="{{ route('cart.edit', $cart) }}" class="btn btn-sm btn-success">
+											<i class="fa fa-pencil-square-o"></i>
 										</a>
-										<button type="submit" class="btn btn-sm btn-raised btn-danger confirm">
-											Delete
-										</button>
+										@if (expired($cart->created_at))
+											<button type="submit" class="btn btn-sm btn-danger confirm">
+												<i class="fa fa-trash"></i>
+											</button>
+										@endif
 									</form>
 								</td>
 							@endcan

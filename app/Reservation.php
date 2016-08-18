@@ -15,6 +15,18 @@ class Reservation extends Model
 	];
 
 	/**
+	 * @throws \Exception
+	 */
+	public static function cancelOldReservations()
+	{
+		foreach (Reservation::all() as $reservation) {
+			if (expired($reservation->date)) {
+				$reservation->delete();
+			}
+		}
+	}
+
+	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
 	 */
 	public function user()
@@ -46,19 +58,5 @@ class Reservation extends Model
 	public function getDateAttribute($value)
 	{
 		return new Carbon($value);
-	}
-
-	/**
-	 * @throws \Exception
-	 */
-	public static function cancelOldReservations()
-	{
-		$bookings = Reservation::all();
-
-		foreach ($bookings as $booking) {
-			if (expired($booking->date)) {
-				$booking->delete();
-			}
-		}
 	}
 }

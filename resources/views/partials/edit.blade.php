@@ -3,7 +3,7 @@
 	<div class="col-sm-5">
 		<input type="text" class="form-control" name="name" id="name" placeholder="Name"
 		       value="{{ $user->name }}" pattern="[a-zA-Z\s]+">
-		<span class="help-block text-info">Your full name here</span>
+		<span class="help-block text-primary">Your full name here</span>
 	</div>
 </div>
 
@@ -12,7 +12,7 @@
 	<div class="col-sm-5">
 		<input type="email" class="form-control" name="email" id="email" placeholder="Email"
 		       value="{{ $user->email }}">
-		<span class="help-block text-info">Your email address is vert important</span>
+		<span class="help-block text-primary">Your email address is vert important</span>
 	</div>
 </div>
 
@@ -26,7 +26,7 @@
 					<option {{ $user->hasRole('manager') ? 'selected' : '' }} value="manager">Manager</option>
 					<option {{ $user->hasRole('member') ? 'selected' : '' }} value="member">Member</option>
 				</select>
-				<span class="help-block text-info">Choose a role</span>
+				<span class="help-block text-primary">Choose a role</span>
 			</div>
 		</div>
 	@endif
@@ -37,7 +37,7 @@
 	<div class="col-sm-5">
 		<input type="text" class="form-control" name="address" id="address" placeholder="Address"
 		       value="{{ $user->address }}" pattern="[\w\s\-]+" required>
-		<span class="help-block text-info">First line of your address</span>
+		<span class="help-block text-primary">First line of your address</span>
 	</div>
 </div>
 
@@ -46,7 +46,7 @@
 	<div class="col-sm-5">
 		<input type="text" class="form-control" name="city" id="city" placeholder="City"
 		       value="{{ $user->city }}" pattern="[\w\s\-,]+" required>
-		<span class="help-block text-info">City you live</span>
+		<span class="help-block text-primary">City you live</span>
 	</div>
 </div>
 
@@ -54,8 +54,9 @@
 	<label for="post_code" class="control-label col-sm-2">Post Code</label>
 	<div class="col-sm-5">
 		<input type="text" class="form-control" name="post_code" id="post_code" placeholder="Post Code"
-		       value="{{ $user->post_code }}" pattern="[\w\s\-]+" required>
-		<span class="help-block text-info">Your post code</span>
+		       value="{{ $user->post_code }}" required
+		       pattern="^((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) *[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2})$">
+		<span class="help-block text-primary">Your post code</span>
 	</div>
 </div>
 
@@ -63,8 +64,9 @@
 	<label for="phone" class="control-label col-sm-2">Phone</label>
 	<div class="col-sm-5">
 		<input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone"
-		       value="{{ $user->phone }}" required>
-		<span class="help-block text-info">Your phone or mobile number</span>
+		       value="{{ $user->phone }}" required
+		       pattern="^(?:(?:\(?(?:0(?:0|11)\)?[\s-]?\(?|\+)44\)?[\s-]?(?:\(?0\)?[\s-]?)?)|(?:\(?0))(?:(?:\d{5}\)?[\s-]?\d{4,5})|(?:\d{4}\)?[\s-]?(?:\d{5}|\d{3}[\s-]?\d{3}))|(?:\d{3}\)?[\s-]?\d{3}[\s-]?\d{3,4})|(?:\d{2}\)?[\s-]?\d{4}[\s-]?\d{4}))(?:[\s-]?(?:x|ext\.?|\#)\d{3,4})?$">
+		<span class="help-block text-primary">Your phone or mobile number</span>
 	</div>
 </div>
 

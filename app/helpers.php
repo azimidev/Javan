@@ -54,29 +54,12 @@ function javan_is_open()
 	return time() >= $opening_time && time() <= $closing_time;
 }
 
-function sort_reservations_by($column, $body)
+function sort_column_by($column, $body)
 {
-	$direction = (\Request::get('direction') == 'ASC') ? 'DESC' : 'ASC';
 
-	$route = route('reservations.index', ['sortBy' => $column, 'direction' => $direction]);
+	$direction = (request()->get('direction') == 'ASC') ? 'DESC' : 'ASC';
 
-	return '<a href=' . $route . '>' . $body . '</a>';
-}
-
-function sort_products_by($column, $body)
-{
-	$direction = (\Request::get('direction') == 'ASC') ? 'DESC' : 'ASC';
-
-	$route = route('products.index', ['sortBy' => $column, 'direction' => $direction]);
-
-	return '<a href=' . $route . '>' . $body . '</a>';
-}
-
-function sort_carts_by($column, $body)
-{
-	$direction = (\Request::get('direction') == 'ASC') ? 'DESC' : 'ASC';
-
-	$route = route('cart.index', ['sortBy' => $column, 'direction' => $direction]);
+	$route = route(request()->route()->getAction()['as'], ['sortBy' => $column, 'direction' => $direction]);
 
 	return '<a href=' . $route . '>' . $body . '</a>';
 }

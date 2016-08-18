@@ -12,6 +12,7 @@ class ShoppingCart extends Model
 		'total',
 		'status',
 		'note',
+		'charge_id'
 	];
 
 	/**

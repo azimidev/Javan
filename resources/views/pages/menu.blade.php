@@ -6,11 +6,12 @@
 		<main class="container">
 			@include('partials.notify-alert', ['data' => 'Cart is updated'])
 			<h1 class="text-warning">The Menu</h1>
-			<p class="text-warning">If you'd like to see the food details, download the PDF version of menu :
+			<p class="text-warning">To view PDF version of menu :
 				<a class="btn btn-sm btn-warning" href="/images/menu/Javan-Restaurant-Menu.pdf" target="_blank"
 				   title="Javan Restaurant Menu">please click here</a>
 			</p>
-			<article class="col-md-7 col-md-offset-1">
+			<p class="text-warning">Please hover your mouse on each food to see the descriptions</p>
+			<article class="col-md-8">
 				@unless (javan_is_open())
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
@@ -18,142 +19,131 @@
 					</div>
 				@endunless
 				<div class="brand menu">
-					<h3>Appetizers</h3>
+					<h2>Appetizers</h2>
+
 					<div class="row">
-						<div class="col-sm-9">
-							<ul class="list-unstyled">
-								@foreach ($appetizers as $appetizer)
-									<li>
-										<div class="pull-left">
-											{{ $appetizer->title }}
-										</div>
-										<div class="pull-right">
-											£ {{ number_format($appetizer->price / 100 , 2) }} &nbsp;
-											<a id="addToCart" href="{{ route('add.to.cart', $appetizer) }}"
-											   class="btn btn-xs btn-success btn-round btn-raised">
-												<i class="fa fa-plus fa-lg"></i>
-											</a>
-										</div>
-									</li>
-									<div class="clearfix"></div>
-								@endforeach
-							</ul>
-						</div>
+						@foreach ($appetizers as $appetizer)
+							<div class="col-xs-4">
+								<div class="thumbnail">
+									@if ($appetizer->image_path)
+										<a href="/{{ $appetizer->image_path }}" data-lity>
+											<img src="/{{ $appetizer->image_path }}"
+											     class="img-responsive" alt="mirza-ghasemi">
+										</a>
+									@endif
+									<div class="caption">
+										<h3 title="{{ $appetizer->description }}" data-toggle="tooltip"
+										    data-placement="bottom">{{ $appetizer->title }}</h3>
+										£ {{ number_format($appetizer->price / 100 , 2) }}
+										<a id="addToCart" href="{{ route('add.to.cart', $appetizer) }}"
+										   class="btn btn-sm btn-success btn-raised pull-right">
+											<i class="fa fa-plus fa-lg"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						@endforeach
+					</div>
+
+					<div class="clearfix"></div>
+					<h2>Main Course</h2>
+					<div class="row">
+						@foreach ($main_courses as $main_course)
+							<div class="col-xs-4">
+								<div class="thumbnail">
+									@if ($main_course->image_path)
+										<a href="/{{ $main_course->image_path }}" data-lity>
+											<img src="/{{ $main_course->image_path }}"
+											     class="img-responsive" alt="mirza-ghasemi">
+										</a>
+									@endif
+									<div class="caption">
+										<h3 title="{{ $main_course->description }}" data-toggle="tooltip"
+										    data-placement="bottom">{{ $main_course->title }}</h3>
+										£ {{ number_format($main_course->price / 100 , 2) }}
+										<a id="addToCart" href="{{ route('add.to.cart', $main_course) }}"
+										   class="btn btn-sm btn-success btn-raised pull-right">
+											<i class="fa fa-plus fa-lg"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						@endforeach
 					</div>
 					<div class="clearfix"></div>
-					<h3>Main Course</h3>
+					<h2>Sides & Extras</h2>
 					<div class="row">
-						<div class="col-sm-9">
-							<ul class="list-unstyled">
-								@foreach ($main_courses as $main_course)
-									<li>
-										<div class="pull-left">
-											{{ $main_course->title }}
-										</div>
-										<div class="pull-right">
-											£ {{ number_format($main_course->price / 100 , 2) }} &nbsp;
-											<a id="addToCart" href="{{ route('add.to.cart', $main_course) }}"
-											   class="btn btn-xs btn-success btn-round btn-raised">
-												<i class="fa fa-plus fa-lg"></i>
-											</a>
-										</div>
-									</li>
-									<div class="clearfix"></div>
-								@endforeach
-							</ul>
-						</div>
+						@foreach ($extras as $extra)
+							<div class="col-xs-4">
+								<div class="thumbnail">
+									@if ($extra->image_path)
+										<a href="/{{ $extra->image_path }}" data-lity>
+											<img src="/{{ $extra->image_path }}"
+											     class="img-responsive" alt="mirza-ghasemi">
+										</a>
+									@endif
+									<div class="caption">
+										<h3 title="{{ $extra->description }}" data-toggle="tooltip"
+										    data-placement="bottom">{{ $extra->title }}</h3>
+										£ {{ number_format($extra->price / 100 , 2) }}
+										<a id="addToCart" href="{{ route('add.to.cart', $extra) }}"
+										   class="btn btn-sm btn-success btn-raised pull-right">
+											<i class="fa fa-plus fa-lg"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						@endforeach
 					</div>
 					<div class="clearfix"></div>
-					<h3>Sides & Extras</h3>
+					<h2>Juice</h2>
 					<div class="row">
-						<div class="col-sm-9">
-							<ul class="list-unstyled">
-								@foreach ($extras as $extra)
-									<li>
-										<div class="pull-left">
-											{{ $extra->title }}
-										</div>
-										<div class="pull-right">
-											£ {{ number_format($extra->price / 100 , 2) }} &nbsp;
-											<a id="addToCart" href="{{ route('add.to.cart', $extra) }}"
-											   class="btn btn-xs btn-success btn-round btn-raised">
-												<i class="fa fa-plus fa-lg"></i>
-											</a>
-										</div>
-									</li>
-									<div class="clearfix"></div>
-								@endforeach
-							</ul>
-						</div>
+						@foreach ($juices as $juice)
+							<div class="col-xs-4">
+								<div class="thumbnail">
+									@if ($juice->image_path)
+										<a href="/{{ $juice->image_path }}" data-lity>
+											<img src="/{{ $juice->image_path }}"
+											     class="img-responsive" alt="mirza-ghasemi">
+										</a>
+									@endif
+									<div class="caption">
+										<h3 title="{{ $juice->description }}" data-toggle="tooltip"
+										    data-placement="bottom">{{ $juice->title }}</h3>
+										£ {{ number_format($juice->price / 100 , 2) }}
+										<a id="addToCart" href="{{ route('add.to.cart', $juice) }}"
+										   class="btn btn-sm btn-success btn-raised pull-right">
+											<i class="fa fa-plus fa-lg"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						@endforeach
 					</div>
 					<div class="clearfix"></div>
-					<h3>Beverages</h3>
+					<h2>Desserts</h2>
 					<div class="row">
-						<div class="col-sm-9">
-							<ul class="list-unstyled">
-								@foreach ($beverages as $beverage)
-									<li>
-										<div class="pull-left">
-											{{ $beverage->title }}
-										</div>
-										<div class="pull-right">
-											£ {{ number_format($beverage->price / 100 , 2) }} &nbsp;
-											<a id="addToCart" href="{{ route('add.to.cart', $beverage) }}"
-											   class="btn btn-xs btn-success btn-round btn-raised">
-												<i class="fa fa-plus fa-lg"></i>
-											</a>
-										</div>
-									</li>
-									<div class="clearfix"></div>
-								@endforeach
-							</ul>
-						</div>
-					</div>
-					<div class="clearfix"></div>
-					<h3>Juice</h3>
-					<div class="row">
-						<div class="col-sm-9">
-							<ul class="list-unstyled">
-								@foreach ($juices as $juice)
-									<li>
-										<div class="pull-left">
-											{{ $juice->title }}
-										</div>
-										<div class="pull-right">
-											£ {{ number_format($juice->price / 100 , 2) }} &nbsp;
-											<a id="addToCart" href="{{ route('add.to.cart', $juice) }}"
-											   class="btn btn-xs btn-success btn-round btn-raised">
-												<i class="fa fa-plus fa-lg"></i>
-											</a>
-										</div>
-									</li>
-									<div class="clearfix"></div>
-								@endforeach
-							</ul>
-						</div>
-					</div>
-					<div class="clearfix"></div>
-					<h3>Desserts</h3>
-					<div class="row">
-						<div class="col-sm-9">
-							<ul class="list-unstyled">
-								@foreach ($juices as $juice)
-									<li>
-										<div class="pull-left">
-											{{ $juice->title }}
-										</div>
-										<div class="pull-right">
-											£ {{ number_format($juice->price / 100 , 2) }} &nbsp;
-											<a id="addToCart" href="{{ route('add.to.cart', $juice) }}"
-											   class="btn btn-xs btn-success btn-round btn-raised">
-												<i class="fa fa-plus fa-lg"></i>
-											</a>
-										</div>
-									</li>
-									<div class="clearfix"></div>
-								@endforeach
-							</ul>
-						</div>
+						@foreach ($desserts as $dessert)
+							<div class="col-xs-4">
+								<div class="thumbnail">
+									@if ($dessert->image_path)
+										<a href="/{{ $dessert->image_path }}" data-lity>
+											<img src="/{{ $dessert->image_path }}"
+											     class="img-responsive" alt="mirza-ghasemi">
+										</a>
+									@endif
+									<div class="caption">
+										<h3 title="{{ $dessert->description }}" data-toggle="tooltip"
+										    data-placement="bottom">{{ $dessert->title }}</h3>
+										£ {{ number_format($dessert->price / 100 , 2) }}
+										<a id="addToCart" href="{{ route('add.to.cart', $dessert) }}"
+										   class="btn btn-sm btn-success btn-raised pull-right">
+											<i class="fa fa-plus fa-lg"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						@endforeach
 					</div>
 
 					<div class="clearfix"></div>
@@ -163,144 +153,22 @@
 			</article>
 			<aside class="col-md-4">
 				@include('partials.cart')
-				<div class="center">
-					<div class="row">
-						<div class="col-xs-6">
-							<a href="/images/foods/kookoo-sabzi.jpg" data-lity>
-								<img src="/images/foods/tn-kookoo-sabzi.jpg" width="100"
-								     class="img-raised img-space img-space img-thumbnail img-responsive" alt="kookoo-sabzi">
-							</a>
-						</div>
-						<div class="col-xs-6">
-							<a href="/images/foods/ash-reshteh.jpg" data-lity>
-								<img src="/images/foods/tn-ash-reshteh.jpg" width="100"
-								     class="img-raised img-space img-thumbnail img-responsive" alt="ash-reshteh">
-							</a>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-6">
-							<a href="/images/foods/mirza-ghasemi.jpg" data-lity>
-								<img src="/images/foods/tn-mirza-ghasemi.jpg" width="100"
-								     class="img-raised img-space img-thumbnail img-responsive" alt="mirza-ghasemi">
-							</a>
-						</div>
-						<div class="col-xs-6">
-							<a href="/images/foods/hummus.jpg" data-lity>
-								<img src="/images/foods/tn-hummus.jpg" width="100"
-								     class="img-raised img-space img-thumbnail img-responsive" alt="hummus">
-							</a>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-6">
-							<a href="/images/foods/panirsabzi.jpg" data-lity>
-								<img src="/images/foods/tn-panirsabzi.jpg" width="100"
-								     class="img-raised img-space img-thumbnail img-responsive" alt="panirsabzi">
-							</a>
-						</div>
-						<div class="col-xs-6">
-							<a href="/images/foods/salad-olivie.jpg" data-lity>
-								<img src="/images/foods/tn-salad-olivie.jpg" width="100"
-								     class="img-raised img-space img-thumbnail img-responsive" alt="salad-olivie">
-							</a>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-6">
-							<a href="/images/foods/salad-shirazi.jpg" data-lity>
-								<img src="/images/foods/tn-salad-shirazi.jpg" width="100"
-								     class="img-raised img-space img-thumbnail img-responsive" alt="salad-shirazi">
-							</a>
-						</div>
-						<div class="col-xs-6">
-							<a href="/images/foods/mast-o-khiar.jpg" data-lity>
-								<img src="/images/foods/tn-mast-o-khiar.jpg" width="100"
-								     class="img-raised img-space img-thumbnail img-responsive" alt="mast-o-khiar">
-							</a>
-						</div>
-					</div>
-
-					<div class="clearfix"></div>
-					<br><br><br>
-
-					<div class="row">
-						<div class="col-xs-6">
-							<a href="/images/foods/chelo-kabab.jpg" data-lity>
-								<img src="/images/foods/tn-chelo-kabab.jpg" width="100"
-								     class="img-raised img-space img-space img-thumbnail img-responsive" alt="chelo-kabab">
-							</a>
-						</div>
-						<div class="col-xs-6">
-							<a href="/images/foods/fesenjan.jpg" data-lity>
-								<img src="/images/foods/tn-fesenjan.jpg" width="100"
-								     class="img-raised img-space img-thumbnail img-responsive" alt="fesenjan">
-							</a>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-6">
-							<a href="/images/foods/gheymeh.jpg" data-lity>
-								<img src="/images/foods/tn-gheymeh.jpg" width="100"
-								     class="img-raised img-space img-thumbnail img-responsive" alt="gheymeh">
-							</a>
-						</div>
-						<div class="col-xs-6">
-							<a href="/images/foods/ghormeh-sabzi.jpg" data-lity>
-								<img src="/images/foods/tn-ghormeh-sabzi.jpg" width="100"
-								     class="img-raised img-space img-thumbnail img-responsive"
-								     alt="ghormeh-sabzi">
-							</a>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-6">
-							<a href="/images/foods/loobia-polo.jpg" data-lity>
-								<img src="/images/foods/tn-loobia-polo.jpg" width="100"
-								     class="img-raised img-space img-thumbnail img-responsive"
-								     alt="loobia-polo">
-							</a>
-						</div>
-						<div class="col-xs-6">
-							<a href="/images/foods/shishlik.jpg" data-lity>
-								<img src="/images/foods/tn-shishlik.jpg" width="100"
-								     class="img-raised img-space img-thumbnail img-responsive" alt="shishlik">
-							</a>
-						</div>
-					</div>
-
-					<div class="clearfix"></div>
-					<br><br><br>
-
-					<div class="row">
-						<div class="col-xs-6">
-							<a href="/images/foods/baklava.jpg" data-lity>
-								<img src="/images/foods/tn-baklava.jpg" width="100"
-								     class="img-raised img-space img-space img-thumbnail img-responsive" alt="baklava">
-							</a>
-						</div>
-						<div class="col-xs-6">
-							<a href="/images/foods/bastani-sonati-zafarani.jpg" data-lity>
-								<img src="/images/foods/tn-bastani-sonati-zafarani.jpg" width="100"
-								     class="img-raised img-space img-thumbnail img-responsive" alt="bastani-sonati-zafarani">
-							</a>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-6">
-							<a href="/images/foods/faloodeh.jpg" data-lity>
-								<img src="/images/foods/tn-faloodeh.jpg" width="100"
-								     class="img-raised img-space img-thumbnail img-responsive" alt="faloodeh">
-							</a>
-						</div>
-						<div class="col-xs-6">
-							<a href="/images/foods/Zoolbia-bamieh.jpg" data-lity>
-								<img src="/images/foods/tn-Zoolbia-bamieh.jpg" width="100"
-								     class="img-raised img-space img-thumbnail img-responsive" alt="Zoolbia-bamieh">
-							</a>
-						</div>
-					</div>
-				</div>
+				<div class="clearfix"></div>
+				<h2 class="text-warning">Beverages</h2>
+				<ul class="list-unstyled" style="line-height: 2em;">
+					@foreach ($beverages as $beverage)
+						<li>
+							<span class="text-warning">{{ $beverage->title }}</span>
+							<span class="text-right pull-right text-warning">
+								£ {{ number_format($beverage->price / 100 , 2) }} &nbsp;
+								<a id="addToCart" href="{{ route('add.to.cart', $beverage) }}"
+								   class="btn btn-xs btn-success btn-raised">
+									<i class="fa fa-plus fa-lg"></i>
+								</a>
+							</span>
+						</li>
+					@endforeach
+				</ul>
 			</aside>
 		</main>
 	</header>

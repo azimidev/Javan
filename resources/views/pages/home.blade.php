@@ -22,7 +22,7 @@
 				<p class="text-justify">
 					If you order food delivery by phone or with this website, <span class="underline">all delivery fees are
 						separate from the total food cost</span> and we deliver food only within London. <br>
-					<a href="#" class="btn btn-success btn-raised" data-toggle="modal" data-target="#myModal">
+					<a href="{{ url('menu') }}" class="btn btn-success btn-raised">
 						Order Food Delivery
 					</a>
 				</p>

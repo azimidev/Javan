@@ -17,10 +17,10 @@
 			<table class="table table-condensed table-hover">
 				<thead>
 					<tr>
-						<th>{!! sort_products_by('title', 'Title') !!}</th>
-						<th width="50%">{!! sort_products_by('description', 'Description') !!}</th>
-						<th>{!! sort_products_by('price', 'Price') !!}</th>
-						<th>{!! sort_products_by('category', 'Category') !!}</th>
+						<th>{!! sort_column_by('title', 'Title') !!}</th>
+						<th width="50%">{!! sort_column_by('description', 'Description') !!}</th>
+						<th>{!! sort_column_by('price', 'Price') !!}</th>
+						<th>{!! sort_column_by('category', 'Category') !!}</th>
 						<th colspan="2">Actions</th>
 					</tr>
 				</thead>

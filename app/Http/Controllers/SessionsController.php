@@ -90,7 +90,15 @@ class SessionsController extends Controller
 			return redirect('menu');
 		}
 
-		$carts = $this->user->shoppingCarts()->orderBy('created_at', 'DESC')->paginate(50);
+		$sortBy    = request()->get('sortBy');
+		$direction = request()->get('direction');
+		$params    = compact('sortBy', 'direction');
+
+		if ($sortBy && $direction) {
+			$carts = $this->user->shoppingCarts()->orderBy($params['sortBy'], $params['direction'])->paginate(50);
+		} else {
+			$carts = $this->user->shoppingCarts()->orderBy('created_at', 'DESC')->paginate(50);
+		}
 
 		$carts->transform(function($cart) {
 			$cart->orders = unserialize($cart->orders);

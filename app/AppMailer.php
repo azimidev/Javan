@@ -37,11 +37,11 @@ class AppMailer
 	 * @param $email
 	 * @param $data
 	 */
-	public function sendEmailConfirmationTo($email, $data)
+	public function sendReservationConfirmationTo($email, $data)
 	{
 		$this->data = $data;
 		$this->to   = $email;
-		$this->view = 'emails.confirmation';
+		$this->view = 'emails.reservation-confirmation';
 
 		$this->deliver();
 	}
@@ -50,11 +50,37 @@ class AppMailer
 	 * @param $email
 	 * @param $data
 	 */
-	public function sendEmailTo($email, $data)
+	public function sendReservationToAdmin($email, $data)
 	{
 		$this->data = $data;
 		$this->to   = $email;
-		$this->view = 'emails.reservation';
+		$this->view = 'emails.admin-reservation-notice';
+
+		$this->deliver();
+	}
+
+	/**
+	 * @param $email
+	 * @param $data
+	 */
+	public function sendOrderConfirmationTo($email, $data)
+	{
+		$this->data = $data;
+		$this->to   = $email;
+		$this->view = 'emails.order-confirmation';
+
+		$this->deliver();
+	}
+
+	/**
+	 * @param $email
+	 * @param $data
+	 */
+	public function sendOrderToAdmin($email, $data)
+	{
+		$this->data = $data;
+		$this->to   = $email;
+		$this->view = 'emails.admin-order-notice';
 
 		$this->deliver();
 	}

@@ -42,8 +42,12 @@ class StripeBilling implements BillingInterface
 	 */
 	public function refund(array $data)
 	{
-		return Refund::create([
-			'charge' => $data['charge'],
-		]);
+		try {
+			return Refund::create([
+				'charge' => $data['charge'],
+			]);
+		} catch (Exception $e) {
+			return flash()->error('Error!', $e->getMessage());
+		}
 	}
 }

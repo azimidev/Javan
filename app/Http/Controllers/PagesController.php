@@ -10,8 +10,8 @@ use Javan\Product;
 use Javan\AppMailer;
 use Javan\Reservation;
 use Illuminate\Http\Request;
-use Javan\Jobs\SendEmailToAdmin;
-use Javan\Jobs\SendEmailConfirmation;
+use Javan\Jobs\SendReservationToAdmin;
+use Javan\Jobs\SendReservationConfirmation;
 
 class PagesController extends Controller
 {
@@ -132,8 +132,8 @@ class PagesController extends Controller
 		$reservation->user_id = $user->id;
 		$reservation->save();
 
-		$this->dispatch(new SendEmailToAdmin($reservation));
-		$this->dispatch(new SendEmailConfirmation($reservation));
+		$this->dispatch(new SendReservationToAdmin($reservation));
+		$this->dispatch(new SendReservationConfirmation($reservation));
 
 		auth()->login($user);
 		flash()->success('Success', 'You have booked successfully and your are a member now');

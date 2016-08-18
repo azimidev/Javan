@@ -62,7 +62,7 @@
 								</ul>
 							</td>
 							<td>£{{ number_format($cart->total / 100, 2) }}</td>
-							<td>{{ nl2br($cart->note) }}</td>
+							<td>{!! nl2br($cart->note) !!}</td>
 							<td>{!! $cart->status ? '<span class="label label-success">Accepted & Paid</span>' : '<span class="label label-danger">Rejected & Refunded</span>' !!}</td>
 							@can('admin_manager', auth()->user())
 								<td>
@@ -75,10 +75,15 @@
 											</button>
 										</form>
 									@endif
-									@if ($cart->charge_id)
+									@if ($cart->status)
 										<form action="{{ route('cart.update', $cart) }}" method="POST">
 											{{ csrf_field() }}
 											{{ method_field('PATCH') }}
+											<button type="button" class="btn btn-sm btn-primary"
+											        data-toggle="popover" data-placement="left"
+											        title="<textarea name='refund_reason' class='form-control' placeholder='Reason to Reject'></textarea>">
+												<i class="fa fa-comment-o fa-lg"></i>
+											</button>
 											<button type="submit" class="btn btn-sm btn-info confirm" title="Refund">
 												<i class="fa fa-exchange fa-lg"></i>
 											</button>

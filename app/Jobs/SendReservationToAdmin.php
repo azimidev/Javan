@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Javan\AppMailer;
 use Javan\Reservation;
 
-class SendEmailConfirmation extends Job implements ShouldQueue
+class SendReservationToAdmin extends Job implements ShouldQueue
 {
 	use InteractsWithQueue, SerializesModels;
 	protected $reservation;
@@ -24,14 +24,12 @@ class SendEmailConfirmation extends Job implements ShouldQueue
 	}
 
 	/**
-	 * Create a new job instance.
+	 * Execute the job.
 	 *
 	 * @param \Javan\AppMailer $mailer
 	 */
 	public function handle(AppMailer $mailer)
 	{
-		$mailer->sendEmailConfirmationTo(
-			$this->reservation->user->email, $this->reservation->load('user')->toArray()
-		);
+		$mailer->sendReservationToAdmin(env('ADMIN_EMAIL'), $this->reservation->load('user')->toArray());
 	}
 }

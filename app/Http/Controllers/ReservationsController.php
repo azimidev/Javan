@@ -3,8 +3,8 @@
 namespace Javan\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Javan\Jobs\SendEmailConfirmation;
-use Javan\Jobs\SendEmailToAdmin;
+use Javan\Jobs\SendReservationConfirmation;
+use Javan\Jobs\SendReservationToAdmin;
 use Javan\Reservation;
 
 class ReservationsController extends Controller
@@ -69,8 +69,8 @@ class ReservationsController extends Controller
 		$reservation->user_id = $request->user()->id;
 		$reservation->save();
 
-		$this->dispatch(new SendEmailToAdmin($reservation));
-		$this->dispatch(new SendEmailConfirmation($reservation));
+		$this->dispatch(new SendReservationToAdmin($reservation));
+		$this->dispatch(new SendReservationConfirmation($reservation));
 		// TODO Job 3: Make PDF and attach it
 		// $this->dispatch(new SendPdfAttachment($reservation));
 

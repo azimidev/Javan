@@ -5,6 +5,8 @@ namespace Javan\Http\Controllers;
 use Cart;
 use Illuminate\Http\Request;
 use Javan\Billing\BillingInterface;
+use Javan\Jobs\SendOrderConfirmation;
+use Javan\Jobs\SendOrderToAdmin;
 use Javan\ShoppingCart;
 
 class ShoppingCartsController extends Controller
@@ -74,11 +76,11 @@ class ShoppingCartsController extends Controller
 		$this->validate($request, [
 			'stripeToken' => 'required',
 		]);
-		$charge = $this->billing->charge([
+		$charge       = $this->billing->charge([
 			'email' => auth()->user()->email,
 			'token' => $request->input('stripeToken'),
 		]);
-		ShoppingCart::create([
+		$ShoppingCart = ShoppingCart::create([
 			'user_id'   => auth()->user()->id,
 			'charge_id' => $charge->id,
 			'orders'    => serialize(Cart::content()),
@@ -86,8 +88,8 @@ class ShoppingCartsController extends Controller
 			'status'    => TRUE,
 			'note'      => $request->input('note'),
 		]);
-		// $this->dispatch(new SendEmailToAdmin($ShoppingCart));
-		// $this->dispatch(new SendEmailConfirmation($ShoppingCart));
+		$this->dispatch(new SendOrderToAdmin($ShoppingCart));
+		$this->dispatch(new SendOrderConfirmation($ShoppingCart));
 		// TODO Job 3: Make PDF and attach it
 		// $this->dispatch(new SendPdfAttachment($reservation));
 		Cart::destroy();
@@ -99,10 +101,11 @@ class ShoppingCartsController extends Controller
 	/**
 	 * Update the specified resource in storage.
 	 *
+	 * @param \Illuminate\Http\Request $request
 	 * @param \Javan\ShoppingCart $cart
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(ShoppingCart $cart)
+	public function update(Request $request, ShoppingCart $cart)
 	{
 		$refund = $this->billing->refund([
 			'charge' => $cart->charge_id,
@@ -110,9 +113,11 @@ class ShoppingCartsController extends Controller
 
 		$cart->update([
 			'refund_id' => $refund->id,
-			'charge_id' => NULL,
 			'status'    => FALSE,
+			'note'      => '<p class="text-danger">Reject Reason: ' . $request->input('refund_reason') . '</p>',
 		]);
+
+		// TODO: Send refund Email with refund_reason
 
 		flash()->success('Success', 'Payment has been refunded successfully');
 

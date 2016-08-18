@@ -27,13 +27,12 @@
 								<div class="thumbnail">
 									@if ($appetizer->image_path)
 										<a href="/{{ $appetizer->image_path }}" data-lity>
-											<img src="/{{ $appetizer->image_path }}"
-											     class="img-responsive" alt="mirza-ghasemi">
+											<img src="/{{ $appetizer->image_path }}" class="img-responsive" alt="mirza-ghasemi">
 										</a>
 									@endif
 									<div class="caption">
-										<h3 title="{{ $appetizer->description }}" data-toggle="tooltip"
-										    data-placement="bottom">{{ $appetizer->title }}</h3>
+										<h3 style="cursor:help;" title="{{ $appetizer->description }}" data-toggle="tooltip"
+										    data-placement="top">{{ $appetizer->title }}</h3>
 										£ {{ number_format($appetizer->price / 100 , 2) }}
 										<a id="addToCart" href="{{ route('add.to.cart', $appetizer) }}"
 										   class="btn btn-sm btn-success btn-raised pull-right">
@@ -53,13 +52,12 @@
 								<div class="thumbnail">
 									@if ($main_course->image_path)
 										<a href="/{{ $main_course->image_path }}" data-lity>
-											<img src="/{{ $main_course->image_path }}"
-											     class="img-responsive" alt="mirza-ghasemi">
+											<img src="/{{ $main_course->image_path }}" class="img-responsive" alt="mirza-ghasemi">
 										</a>
 									@endif
 									<div class="caption">
-										<h3 title="{{ $main_course->description }}" data-toggle="tooltip"
-										    data-placement="bottom">{{ $main_course->title }}</h3>
+										<h3 style="cursor:help;" title="{{ $main_course->description }}" data-toggle="tooltip"
+										    data-placement="top">{{ $main_course->title }}</h3>
 										£ {{ number_format($main_course->price / 100 , 2) }}
 										<a id="addToCart" href="{{ route('add.to.cart', $main_course) }}"
 										   class="btn btn-sm btn-success btn-raised pull-right">
@@ -78,13 +76,12 @@
 								<div class="thumbnail">
 									@if ($extra->image_path)
 										<a href="/{{ $extra->image_path }}" data-lity>
-											<img src="/{{ $extra->image_path }}"
-											     class="img-responsive" alt="mirza-ghasemi">
+											<img src="/{{ $extra->image_path }}" class="img-responsive" alt="mirza-ghasemi">
 										</a>
 									@endif
 									<div class="caption">
-										<h3 title="{{ $extra->description }}" data-toggle="tooltip"
-										    data-placement="bottom">{{ $extra->title }}</h3>
+										<h3 style="cursor:help;" title="{{ $extra->description }}" data-toggle="tooltip"
+										    data-placement="top">{{ $extra->title }}</h3>
 										£ {{ number_format($extra->price / 100 , 2) }}
 										<a id="addToCart" href="{{ route('add.to.cart', $extra) }}"
 										   class="btn btn-sm btn-success btn-raised pull-right">
@@ -103,13 +100,12 @@
 								<div class="thumbnail">
 									@if ($juice->image_path)
 										<a href="/{{ $juice->image_path }}" data-lity>
-											<img src="/{{ $juice->image_path }}"
-											     class="img-responsive" alt="mirza-ghasemi">
+											<img src="/{{ $juice->image_path }}" class="img-responsive" alt="mirza-ghasemi">
 										</a>
 									@endif
 									<div class="caption">
-										<h3 title="{{ $juice->description }}" data-toggle="tooltip"
-										    data-placement="bottom">{{ $juice->title }}</h3>
+										<h3 style="cursor:help;" title="{{ $juice->description }}" data-toggle="tooltip"
+										    data-placement="top">{{ $juice->title }}</h3>
 										£ {{ number_format($juice->price / 100 , 2) }}
 										<a id="addToCart" href="{{ route('add.to.cart', $juice) }}"
 										   class="btn btn-sm btn-success btn-raised pull-right">
@@ -128,13 +124,12 @@
 								<div class="thumbnail">
 									@if ($dessert->image_path)
 										<a href="/{{ $dessert->image_path }}" data-lity>
-											<img src="/{{ $dessert->image_path }}"
-											     class="img-responsive" alt="mirza-ghasemi">
+											<img src="/{{ $dessert->image_path }}" class="img-responsive" alt="mirza-ghasemi">
 										</a>
 									@endif
 									<div class="caption">
-										<h3 title="{{ $dessert->description }}" data-toggle="tooltip"
-										    data-placement="bottom">{{ $dessert->title }}</h3>
+										<h3 style="cursor:help;" title="{{ $dessert->description }}" data-toggle="tooltip"
+										    data-placement="top">{{ $dessert->title }}</h3>
 										£ {{ number_format($dessert->price / 100 , 2) }}
 										<a id="addToCart" href="{{ route('add.to.cart', $dessert) }}"
 										   class="btn btn-sm btn-success btn-raised pull-right">

@@ -6,7 +6,6 @@ use Cart;
 use Illuminate\Http\Request;
 use Javan\Billing\BillingInterface;
 use Javan\ShoppingCart;
-use Stripe\Stripe;
 
 class ShoppingCartsController extends Controller
 {
@@ -72,7 +71,6 @@ class ShoppingCartsController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		Stripe::setApiKey(env('STRIPE_SECRET'));
 		$this->validate($request, [
 			'stripeToken' => 'required',
 		]);
@@ -99,37 +97,26 @@ class ShoppingCartsController extends Controller
 	}
 
 	/**
-	 * Display the specified resource.
-	 *
-	 * @param \Javan\ShoppingCart $cart
-	 * @return \Illuminate\Http\Response
-	 */
-	public function show(ShoppingCart $cart)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param \Javan\ShoppingCart $cart
-	 * @return \Illuminate\Http\Response
-	 */
-	public function edit(ShoppingCart $cart)
-	{
-		//
-	}
-
-	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request $request
 	 * @param \Javan\ShoppingCart $cart
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, ShoppingCart $cart)
+	public function update(ShoppingCart $cart)
 	{
-		//
+		$refund = $this->billing->refund([
+			'charge' => $cart->charge_id,
+		]);
+
+		$cart->update([
+			'refund_id' => $refund->id,
+			'charge_id' => NULL,
+			'status'    => FALSE,
+		]);
+
+		flash()->success('Success', 'Payment has been refunded successfully');
+
+		return back();
 	}
 
 	/**

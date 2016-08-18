@@ -15,7 +15,8 @@ class CreateShoppingCartsTable extends Migration
 		Schema::create('shopping_carts', function(Blueprint $table) {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned()->index();
-			$table->string('charge_id')->index();
+			$table->string('charge_id')->index()->nullable();
+			$table->string('refund_id')->index()->nullable();
 			$table->text('content');
 			$table->integer('total');
 			$table->boolean('status');

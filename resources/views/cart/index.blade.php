@@ -66,18 +66,24 @@
 							<td>{!! $cart->status ? '<span class="label label-success">Accepted & Paid</span>' : '<span class="label label-danger">Rejected & Refunded</span>' !!}</td>
 							@can('admin_manager', auth()->user())
 								<td>
-									<form action="{{ route('cart.destroy', $cart) }}" method="POST">
-										{{ csrf_field() }}
-										{{ method_field('DELETE') }}
-										<a href="{{ route('cart.edit', $cart) }}" class="btn btn-sm btn-success">
-											<i class="fa fa-pencil-square-o"></i>
-										</a>
-										@if (expired($cart->created_at))
-											<button type="submit" class="btn btn-sm btn-danger confirm">
-												<i class="fa fa-trash"></i>
+									@if (expired($cart->created_at))
+										<form action="{{ route('cart.destroy', $cart) }}" method="POST">
+											{{ csrf_field() }}
+											{{ method_field('DELETE') }}
+											<button type="submit" class="btn btn-sm btn-danger confirm" title="Delete">
+												<i class="fa fa-trash fa-lg"></i>
 											</button>
-										@endif
-									</form>
+										</form>
+									@endif
+									@if ($cart->charge_id)
+										<form action="{{ route('cart.update', $cart) }}" method="POST">
+											{{ csrf_field() }}
+											{{ method_field('PATCH') }}
+											<button type="submit" class="btn btn-sm btn-info confirm" title="Refund">
+												<i class="fa fa-exchange fa-lg"></i>
+											</button>
+										</form>
+									@endif
 								</td>
 							@endcan
 						</tr>

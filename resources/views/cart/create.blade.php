@@ -10,13 +10,14 @@
 				@unless (javan_is_open())
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
-						We are closed now and cannot accept orders unless you want specific delivery time between 13:00 - 23:00
+						We are closed now and cannot accept orders unless you want specific delivery time between
+						<time datetime="13:00">13:00</time> - <time datetime="23:00">23:00</time>
 					</div>
 				@endunless
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<div class="panel-title">
-							Your Details
+							<i class="fa fa-info-circle fa-fw fa-lg"></i> Your Information
 						</div>
 					</div>
 					<div class="panel-body">
@@ -53,7 +54,7 @@
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<div class="panel-title">
-							Payment Details
+							<i class="fa fa-credit-card fa-fw fa-lg"></i> Payment Information
 						</div>
 					</div>
 					<div class="panel-body">
@@ -157,7 +158,8 @@
 								<div class="alert-icon"><i class="material-icons">error</i></div>
 								Payment form is not visible because one of your <strong>Address</strong>, <strong>Post
 									Code</strong> or <strong>Phone</strong> is empty
-								<a class="btn btn-sm btn-default btn-raised btn-round" href="{{ route('member.edit', auth()->user()) }}">Please Update Your Details</a>
+								<a class="btn btn-sm btn-default btn-raised btn-round"
+								   href="{{ route('member.edit', auth()->user()) }}">Please Update Your Details</a>
 							</div>
 						@endif
 					</div>
@@ -165,6 +167,26 @@
 			</article>
 			<aside class="col-md-4">
 				@include('partials.cart')
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<div class="panel-title">
+							<i class="fa fa-lock fa-fw fa-lg"></i> Security and Privacy
+						</div>
+					</div>
+					<div class="panel-body">
+						<p class="text-justify">
+							Just a friendly reminder about security and card payments in this website:
+						</p>
+						<p class="text-justify">
+							We use a service called <a href="https://stripe.com/gb/privacy" target="_blank">Stripe</a> for our
+							payments. This means <u>your credit card information does not touch our server</u> and it is passed
+							through <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security" target="_blank">SSL</a>
+							connection. Therefore, no matter if you are a member and regular customer <u>we never store your credit
+								card details</u> that is why everytime you purchase, you need to enter your credit card details again.
+							We know this is tedious but it's for your own and our customers security.
+						</p>
+					</div>
+				</div>
 			</aside>
 		</main>
 	</header>

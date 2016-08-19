@@ -74,12 +74,12 @@ class ShoppingCartsController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		$this->validate($request, [
-			'stripeToken' => 'required',
-		]);
+		// $this->validate($request, [
+		// 	'stripeToken' => 'required',
+		// ]);
 		$charge       = $this->billing->charge([
 			'email' => auth()->user()->email,
-			'token' => $request->input('stripeToken'),
+			'token' => $request->input('stripe-token'),
 		]);
 		$shoppingCart = ShoppingCart::create([
 			'user_id'   => auth()->user()->id,

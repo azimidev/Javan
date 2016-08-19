@@ -184,67 +184,67 @@
 @section('scripts')
 	<script src="https://js.stripe.com/v2/"></script>
 	<script>
-		(function() {
-			var StripeBilling = {
+		{{--(function() {--}}
+			{{--var StripeBilling = {--}}
 
-				init : function() {
-					this.form              = $('#payment-form');
-					this.submitButton      = this.form.find('.submit');
-					this.submitButtonValue = this.submitButton.val();
-					Stripe.setPublishableKey('{{ env('STRIPE_KEY') }}');
-					this.bindEvents();
-				},
+				{{--init : function() {--}}
+					{{--this.form              = $('#payment-form');--}}
+					{{--this.submitButton      = this.form.find('.submit');--}}
+					{{--this.submitButtonValue = this.submitButton.val();--}}
+					{{--Stripe.setPublishableKey('{{ env('STRIPE_KEY') }}');--}}
+					{{--this.bindEvents();--}}
+				{{--},--}}
 
-				bindEvents : function() {
-					this.form.on('submit', $.proxy(this.sendToken, this));
-				},
+				{{--bindEvents : function() {--}}
+					{{--this.form.on('submit', $.proxy(this.sendToken, this));--}}
+				{{--},--}}
 
-				sendToken : function(event) {
-					this.submitButton.val('One Moment').prop('disabled', true);
-					Stripe.createToken(this.form, $.proxy(this.stripeResponseHandler, this));
-					event.preventDefault();
-				},
+				{{--sendToken : function(event) {--}}
+					{{--this.submitButton.val('One Moment').prop('disabled', true);--}}
+					{{--Stripe.createToken(this.form, $.proxy(this.stripeResponseHandler, this));--}}
+					{{--event.preventDefault();--}}
+				{{--},--}}
 
-				stripeResponseHandler : function(status, response) {
-					if (response.error) {
-						this.form.find('.payment-errors').show().text(response.error.message);
-						return this.submitButton.prop('disabled', false).val(this.submitButtonValue);
-					}
+				{{--stripeResponseHandler : function(status, response) {--}}
+					{{--if (response.error) {--}}
+						{{--this.form.find('.payment-errors').show().text(response.error.message);--}}
+						{{--return this.submitButton.prop('disabled', false).val(this.submitButtonValue);--}}
+					{{--}--}}
 
-					$('<input>', {
-						type  : 'hidden',
-						name  : 'stripeToken',
-						value : response.id
-					}).appendTo(this.form);
+					{{--$('<input>', {--}}
+						{{--type  : 'hidden',--}}
+						{{--name  : 'stripe-token',--}}
+						{{--value : response.id--}}
+					{{--}).appendTo(this.form);--}}
 
-					this.form[0].submit();
+					{{--this.form[0].submit();--}}
+				{{--}--}}
+			{{--};--}}
+
+			{{--StripeBilling.init();--}}
+		{{--})();--}}
+
+			Stripe.setPublishableKey('{{ env('STRIPE_KEY') }}');
+
+		$(function() {
+			var $form = $('#payment-form');
+			$form.submit(function(event) {
+				$form.find('.submit').prop('disabled', true);
+				Stripe.card.createToken($form, stripeResponseHandler);
+				return false;
+			});
+
+			function stripeResponseHandler(status, response) {
+				var $form = $('#payment-form');
+				if (response.error) {
+					$form.find('.payment-errors').text(response.error.message);
+					$form.find('.submit').prop('disabled', false); // Re-enable submission
+				} else {
+					var token = response.id;
+					$form.append($('<input type="hidden" name="stripe-token">').val(token));
+					$form.get(0).submit();
 				}
-			};
-
-			StripeBilling.init();
-		})();
-
-		/**	Stripe.setPublishableKey('{{-- env('STRIPE_KEY') --}}');
-
-		 $(function() {
-		 var $form = $('#payment-form');
-		 $form.submit(function(event) {
-		 $form.find('.submit').prop('disabled', true);
-		 Stripe.card.createToken($form, stripeResponseHandler);
-		 return false;
-		 });
-
-		 function stripeResponseHandler(status, response) {
-		 var $form = $('#payment-form');
-		 if (response.error) {
-		 $form.find('.payment-errors').text(response.error.message);
-		 $form.find('.submit').prop('disabled', false); // Re-enable submission
-		 } else {
-		 var token = response.id;
-		 $form.append($('<input type="hidden" name="stripeToken">').val(token));
-		 $form.get(0).submit();
-		 }
-		 }
-		 });*/
+			}
+		});
 	</script>
 @stop

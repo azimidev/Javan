@@ -109,11 +109,6 @@
 		$('#notifyAlert').fadeIn('fast').delay(700).fadeOut('fast')
 	});
 
-	$(document).on('pjax:error', function(event, xhr, textStatus, errorThrown, options) {
-		options.success(xhr.responseText, textStatus, xhr);
-		return false;
-	});
-
 	/**
 	 * Confirmation class
 	 */

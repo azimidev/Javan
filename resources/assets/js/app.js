@@ -98,7 +98,7 @@
 		'a#pjax, a#addToCart, a#removeFromCart, a#destroyCart',
 		'#pjax-container', {
 			type     : 'GET',
-			// push     : false,
+			push     : false,
 			// replace  : true,
 			scrollTo : false,
 		}

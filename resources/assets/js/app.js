@@ -104,7 +104,7 @@ $(document).on("ready", function() {
 			push     : false,
 			replace  : true,
 			scrollTo : false,
-			timeout  : 5000,
+			// timeout  : 5000,
 		}
 	).on('pjax:success', function() {
 		$('#notifyAlert').fadeIn('fast').delay(700).fadeOut('fast')

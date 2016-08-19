@@ -19,9 +19,9 @@ body { background-color : $dark; }
 
 footer { color : white; }
 
-.text-bright { color : $bright; }
+.text-bright { color : $bright !important; }
 
-.text-twilight { color : $twilight; }
+.text-twilight { color : $twilight !important; }
 
 .main { padding-bottom : 3%; }
 
@@ -57,8 +57,6 @@ footer { color : white; }
 .openSnas { font-family : $openSans; }
 
 .btn { margin : 1% 0; }
-
-.bright { color : $bright !important; }
 
 .header { margin-top : -20px; }
 

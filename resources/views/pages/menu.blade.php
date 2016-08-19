@@ -5,12 +5,12 @@
 	        style="background-image: url('/images/menu-background.png');">
 		<main class="container">
 			@include('partials.notify-alert', ['data' => 'Cart is updated'])
-			<h1 class="text-warning">The Menu</h1>
-			<p class="text-warning">To view PDF version of menu :
-				<a class="btn btn-sm btn-warning" href="/images/menu/Javan-Restaurant-Menu.pdf" target="_blank"
-				   title="Javan Restaurant Menu">please click here</a>
+			<h1 class="text-warning"><i class="fa fa-cutlery fa-fw"></i> The Menu</h1>
+			<p class="text-warning"><i class="fa fa-info-circle fa-fw"></i> To view PDF version of menu please
+				<a class="btn-link text-bright" href="/images/menu/Javan-Restaurant-Menu.pdf" target="_blank"
+				   title="Javan Restaurant Menu">click here</a>
 			</p>
-			<p class="text-warning">Please hover your mouse on each food to see the descriptions</p>
+			<p class="text-warning"><i class="fa fa-info-circle fa-fw"></i> Please hover your mouse on each food to see the descriptions</p>
 			<article class="col-md-8">
 				@unless (javan_is_open())
 					<div class="alert alert-danger">
@@ -56,7 +56,8 @@
 									</li>
 									<li>
 										<a href="#desserts" data-toggle="tab">
-											<span class="hidden-xs">DST</span>
+											<span class="hidden-xs">Desserts</span>
+											<span class="visible-xs">DST</span>
 										</a>
 									</li>
 								</ul>

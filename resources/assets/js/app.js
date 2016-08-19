@@ -101,14 +101,9 @@
 			push     : false,
 			replace  : true,
 			scrollTo : false,
+			timeout  : 5000
 		}
 	);
-
-	$.pjax({
-		url       : xhr.getResponseHeader('Location'),
-		container : '#pjax-container',
-		timeout   : 4000 // pick a suitable timeout
-	});
 
 	$(document).on('pjax:success', function() {
 		$('#notifyAlert').fadeIn('fast').delay(700).fadeOut('fast')

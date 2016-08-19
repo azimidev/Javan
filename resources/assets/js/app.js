@@ -94,18 +94,18 @@ $(document).on("ready", function(){
 	/**
 	 * Pjax
 	 */
-	// $(document).pjax(
-	// 	'a#pjax, a#addToCart, a#removeFromCart, a#destroyCart',
-	// 	'#pjax-container', {
-	// 		type     : 'GET',
-	// 		push     : false,
-	// 		replace  : true,
-	// 		scrollTo : false,
-	// 		timeout  : 5000
-	// 	}
-	// ).on('pjax:success', function() {
-	// 	$('#notifyAlert').fadeIn('fast').delay(700).fadeOut('fast')
-	// });
+	$(document).pjax(
+		'a#pjax, a#addToCart, a#removeFromCart, a#destroyCart',
+		'#pjax-container', {
+			type     : 'GET',
+			push     : false,
+			replace  : true,
+			scrollTo : false,
+			timeout  : 5000
+		}
+	).on('pjax:success', function() {
+		$('#notifyAlert').fadeIn('fast').delay(700).fadeOut('fast')
+	});
 
 	/**
 	 * Confirmation class

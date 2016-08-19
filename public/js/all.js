@@ -17370,7 +17370,7 @@ $.support.pjax ? enable() : disable()
 			push     : false,
 			// replace  : true,
 			scrollTo : false,
-			timeout  : 5000
+			timeout  : 500
 		}
 	);
 

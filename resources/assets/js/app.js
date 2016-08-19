@@ -102,7 +102,6 @@ $(document).on("ready", function() {
 			replace  : true,
 			scrollTo : false,
 			timeout  : 5000,
-			target   : 'http://139.59.168.83/menu'
 		}
 	).on('pjax:success', function() {
 		$('#notifyAlert').fadeIn('fast').delay(700).fadeOut('fast')

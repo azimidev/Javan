@@ -1,4 +1,4 @@
-$(document).on("ready", function(){
+$(document).on("ready", function() {
 
 	/**
 	 * Material initialization
@@ -101,10 +101,27 @@ $(document).on("ready", function(){
 			push     : false,
 			replace  : true,
 			scrollTo : false,
-			timeout  : 5000
+			// timeout  : 5000
 		}
 	).on('pjax:success', function() {
 		$('#notifyAlert').fadeIn('fast').delay(700).fadeOut('fast')
+	});
+
+	if ($.pjax) {
+		$.pjax.defaults.timeout = 5000;
+	}
+
+	//this is the actual counter
+	var ajaxCounter = 0;
+
+	//this method is called whenever an ajax-request fires
+	$(document).ajaxSend(function() {
+		ajaxCounter++;
+	});
+
+	//this method is called whenever an ajax-request finishes...no matter of its result
+	$(document).ajaxComplete(function() {
+		ajaxCounter--;
 	});
 
 	/**

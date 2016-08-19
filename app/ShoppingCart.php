@@ -8,11 +8,12 @@ class ShoppingCart extends Model
 {
 	protected $fillable = [
 		'user_id',
+		'charge_id',
+		'refund_id',
 		'orders',
 		'total',
 		'status',
 		'note',
-		'charge_id'
 	];
 
 	/**

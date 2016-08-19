@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Javan\Billing\BillingInterface;
 use Javan\Jobs\SendOrderConfirmation;
 use Javan\Jobs\SendOrderToAdmin;
+use Javan\Jobs\SendRefundEmail;
 use Javan\ShoppingCart;
 
 class ShoppingCartsController extends Controller
@@ -58,7 +59,7 @@ class ShoppingCartsController extends Controller
 	 */
 	public function create()
 	{
-		if (Cart::content()->isEmpty()) {
+		if (less_than_minimum_order()) {
 			return redirect('menu');
 		}
 
@@ -80,18 +81,16 @@ class ShoppingCartsController extends Controller
 			'email' => auth()->user()->email,
 			'token' => $request->input('stripeToken'),
 		]);
-		$ShoppingCart = ShoppingCart::create([
+		$shoppingCart = ShoppingCart::create([
 			'user_id'   => auth()->user()->id,
 			'charge_id' => $charge->id,
 			'orders'    => serialize(Cart::content()),
-			'total'     => (int) Cart::total() * 100,
+			'total'     => Cart::total() * 100,
 			'status'    => TRUE,
 			'note'      => $request->input('note'),
 		]);
-		$this->dispatch(new SendOrderToAdmin($ShoppingCart));
-		$this->dispatch(new SendOrderConfirmation($ShoppingCart));
-		// TODO Job 3: Make PDF and attach it
-		// $this->dispatch(new SendPdfAttachment($reservation));
+		$this->dispatch(new SendOrderToAdmin($shoppingCart));
+		$this->dispatch(new SendOrderConfirmation($shoppingCart));
 		Cart::destroy();
 		flash()->overlay('Payment was successfull', 'Delivery has been placed. We are going to send your delivery ASAP unless you have stated a specific delivery time in your delivery instructions. If you have any problems please call us on 020 8563 8553');
 
@@ -114,10 +113,10 @@ class ShoppingCartsController extends Controller
 		$cart->update([
 			'refund_id' => $refund->id,
 			'status'    => FALSE,
-			'note'      => '<p class="text-danger">Reject Reason: ' . $request->input('refund_reason') . '</p>',
+			'note'      => $cart->note . '<br><br>Rejection Reason: <b style="color:red;">' . $request->input('refund_reason') . '</b>',
 		]);
 
-		// TODO: Send refund Email with refund_reason
+		$this->dispatch(new SendRefundEmail($cart));
 
 		flash()->success('Success', 'Payment has been refunded successfully');
 

@@ -27,7 +27,7 @@
 						<a href="{{ route('reservations.index') }}" class="btn btn-primary btn-raised btn-round">
 							Manage Bookings
 						</a>
-						<a href="#" class="btn btn-primary btn-raised btn-round">
+						<a href="{{ route('cart.index') }}" class="btn btn-primary btn-raised btn-round">
 							Manage Take Aways
 						</a>
 					</p>
@@ -79,7 +79,7 @@
 						</a>
 					</li>
 					<li>
-						<a class="btn btn-primary" href="#" data-toggle="modal" data-target="#myModal">
+						<a class="btn btn-primary" href="{{ route('member.orders') }}">
 							<i class="fa fa-cutlery fa-lg fa-fw"></i> Your Orders
 						</a>
 					</li>

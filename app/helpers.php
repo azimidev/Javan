@@ -54,6 +54,11 @@ function javan_is_open()
 	return time() >= $opening_time && time() <= $closing_time;
 }
 
+function less_than_minimum_order()
+{
+	return \Cart::total() < 20;
+}
+
 function sort_column_by($column, $body)
 {
 

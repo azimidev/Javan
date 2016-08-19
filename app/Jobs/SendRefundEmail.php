@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Javan\AppMailer;
 use Javan\ShoppingCart;
 
-class SendOrderConfirmation extends Job implements ShouldQueue
+class SendRefundEmail extends Job implements ShouldQueue
 {
 	use InteractsWithQueue, SerializesModels;
 	protected $cart;
@@ -30,7 +30,7 @@ class SendOrderConfirmation extends Job implements ShouldQueue
 	 */
 	public function handle(AppMailer $mailer)
 	{
-		$mailer->sendOrderConfirmationTo(
+		$mailer->sendRefundEmail(
 			$this->cart->user->email, $this->cart->load('user')->toArray()
 		);
 	}

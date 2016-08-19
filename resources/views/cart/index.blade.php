@@ -66,29 +66,21 @@
 							<td>{!! $cart->status ? '<span class="label label-success">Accepted & Paid</span>' : '<span class="label label-danger">Rejected & Refunded</span>' !!}</td>
 							@can('admin_manager', auth()->user())
 								<td>
-									@if (expired($cart->created_at))
-										<form action="{{ route('cart.destroy', $cart) }}" method="POST">
-											{{ csrf_field() }}
-											{{ method_field('DELETE') }}
+									<form action="{{ route('cart.destroy', $cart) }}" method="POST">
+										{{ csrf_field() }}
+										{{ method_field('DELETE') }}
+										@if ($cart->status)
+											<button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+											        data-target="#refundModal">
+												<i class="fa fa-exchange fa-lg"></i>
+											</button>
+										@endif
+										@if (expired($cart->created_at))
 											<button type="submit" class="btn btn-sm btn-danger confirm" title="Delete">
 												<i class="fa fa-trash fa-lg"></i>
 											</button>
-										</form>
-									@endif
-									@if ($cart->status)
-										<form action="{{ route('cart.update', $cart) }}" method="POST">
-											{{ csrf_field() }}
-											{{ method_field('PATCH') }}
-											<button type="button" class="btn btn-sm btn-primary"
-											        data-toggle="popover" data-placement="left"
-											        title="<textarea name='refund_reason' class='form-control' placeholder='Reason to Reject'></textarea>">
-												<i class="fa fa-comment-o fa-lg"></i>
-											</button>
-											<button type="submit" class="btn btn-sm btn-info confirm" title="Refund">
-												<i class="fa fa-exchange fa-lg"></i>
-											</button>
-										</form>
-									@endif
+										@endif
+									</form>
 								</td>
 							@endcan
 						</tr>
@@ -100,4 +92,31 @@
 			</div>
 		@endif
 	</main>
+@stop
+
+@section('scripts')
+	<div class="modal fade" id="refundModal" tabindex="-1" role="dialog"
+	     aria-labelledby="refundModalLabel"
+	     aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h2 class="modal-title" id="refundModalLabel">Reason To Refund</h2>
+				</div>
+				<div class="modal-body">
+					<form class="form" action="{{ route('cart.update', $cart) }}" method="POST">
+						{{ csrf_field() }}
+						{{ method_field('PATCH') }}
+						<textarea name='refund_reason' class='form-control'
+						          placeholder='Reason to Reject'></textarea>
+						<button type='submit' class='btn btn-danger btn-raised' title='Refund'>Refund</button>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 @stop

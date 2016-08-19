@@ -6,10 +6,11 @@ use Illuminate\Contracts\Mail\Mailer;
 class AppMailer
 {
 	protected $mailer;
-	protected $from = 'javanlondon@zoho.com';
+	protected $from    = 'javanlondon@zoho.com';
 	protected $to;
+	protected $subject = 'Enquiry';
 	protected $view;
-	protected $data = [];
+	protected $data    = [];
 
 	/**
 	 * Mailer constructor.
@@ -39,9 +40,10 @@ class AppMailer
 	 */
 	public function sendReservationConfirmationTo($email, $data)
 	{
-		$this->data = $data;
-		$this->to   = $email;
-		$this->view = 'emails.reservation-confirmation';
+		$this->data    = $data;
+		$this->to      = $email;
+		$this->subject = 'Your Booking Confirmation';
+		$this->view    = 'emails.reservation-confirmation';
 
 		$this->deliver();
 	}
@@ -52,9 +54,10 @@ class AppMailer
 	 */
 	public function sendReservationToAdmin($email, $data)
 	{
-		$this->data = $data;
-		$this->to   = $email;
-		$this->view = 'emails.admin-reservation-notice';
+		$this->data    = $data;
+		$this->to      = $email;
+		$this->subject = 'New Booking Reservation';
+		$this->view    = 'emails.admin-reservation-notice';
 
 		$this->deliver();
 	}
@@ -65,9 +68,10 @@ class AppMailer
 	 */
 	public function sendOrderConfirmationTo($email, $data)
 	{
-		$this->data = $data;
-		$this->to   = $email;
-		$this->view = 'emails.order-confirmation';
+		$this->data    = $data;
+		$this->to      = $email;
+		$this->subject = 'Your Order Confirmation';
+		$this->view    = 'emails.order-confirmation';
 
 		$this->deliver();
 	}
@@ -78,9 +82,24 @@ class AppMailer
 	 */
 	public function sendOrderToAdmin($email, $data)
 	{
-		$this->data = $data;
-		$this->to   = $email;
-		$this->view = 'emails.admin-order-notice';
+		$this->data    = $data;
+		$this->to      = $email;
+		$this->subject = 'New Delivery Order';
+		$this->view    = 'emails.admin-order-notice';
+
+		$this->deliver();
+	}
+
+	/**
+	 * @param $email
+	 * @param $data
+	 */
+	public function sendRefundEmail($email, $data)
+	{
+		$this->data    = $data;
+		$this->to      = $email;
+		$this->subject = 'Order Rejected & Refunded!';
+		$this->view    = 'emails.refund-order';
 
 		$this->deliver();
 	}
@@ -104,7 +123,7 @@ class AppMailer
 	public function deliver($file = NULL)
 	{
 		$this->mailer->send($this->view, $this->data, function($message) use ($file) {
-			$message->from($this->from, 'Javan Restaurant')->to($this->to)->subject('Enquiry');
+			$message->from($this->from, 'Javan Restaurant')->to($this->to)->subject($this->subject);
 			if ($file) {
 				$message->attachData($file, 'attachment.pdf');
 			}

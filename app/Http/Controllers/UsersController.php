@@ -20,7 +20,7 @@ class UsersController extends Controller
 	 */
 	public function index()
 	{
-		$users = User::isMember()->orderBy('created_at', 'desc')->paginate(50);
+		$users = User::isMember()->orderBy('created_at', 'DESC')->paginate(50);
 
 		return view('user.index', compact('users'));
 	}
@@ -30,7 +30,7 @@ class UsersController extends Controller
 	 */
 	public function adminIndex()
 	{
-		$users = User::isAdmin()->orderBy('created_at', 'desc')->paginate(50);
+		$users = User::isAdmin()->orderBy('created_at', 'DESC')->paginate(50);
 
 		return view('user.index', compact('users'));
 	}
@@ -40,7 +40,7 @@ class UsersController extends Controller
 	 */
 	public function managerIndex()
 	{
-		$users = User::isManager()->orderBy('created_at', 'desc')->paginate(50);
+		$users = User::isManager()->orderBy('created_at', 'DESC')->paginate(50);
 
 		return view('user.index', compact('users'));
 	}

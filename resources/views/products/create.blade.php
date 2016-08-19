@@ -18,7 +18,6 @@
 		</article>
 		<aside>
 			<div class="col-sm-4">
-				<h2><i class="fa fa-info-circle"></i> Information</h2>
 			</div>
 		</aside>
 	</main>

@@ -14,7 +14,7 @@
 				<h1><i class="fa fa-frown-o fa-lg"></i></h1>
 			</div>
 		@else
-			<h1>List of {{ $users->count() }} Users</h1>
+			<h1>List of {{ $users->count() }} {{ str_plural('User', $users->count()) }}</h1>
 			<table class="table table-condensed table-hover">
 				<thead>
 					<tr>

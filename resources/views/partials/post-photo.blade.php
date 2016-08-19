@@ -8,6 +8,17 @@
 				<div class="text-primary dz-message" data-dz-message>Upload Photos Here</div>
 			</form>
 		@endif
+		@unless (auth()->user()->owns($post))
+			<div class="alert alert-info">
+				<div class="container-fluid">
+					<div class="alert-icon"><i class="material-icons">info</i></div>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true"><i class="material-icons">clear</i></span>
+					</button>
+					You cannot edit the post or update ant photos because you don't have authorization.
+				</div>
+			</div>
+		@endunless
 		@unless ($post->photos->isEmpty())
 			<h2><i class="fa fa-picture-o fa-fw"></i> Photos Uploaded</h2>
 			@foreach ($post->photos->chunk(2) as $set)

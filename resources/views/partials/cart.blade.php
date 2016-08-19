@@ -54,9 +54,11 @@
 			<a href="{{ url('/menu') }}" class="btn btn-block btn-primary btn-raised">
 				<i class="fa fa-arrow-left fa-lg fa-fw"></i> Go Back to Menu
 			</a>
-		@elseif (Cart::count())
+		@elseif (less_than_minimum_order())
+			<p class="label label-info">minimum order is £20</p>
+		@else
 			<a href="{{ route('cart.create') }}" class="btn btn-block btn-success btn-raised">
-				<i class="fa fa-credit-card-alt fa-lg fa-fw"></i> Checkout
+				Checkout
 			</a>
 		@endif
 	</div>

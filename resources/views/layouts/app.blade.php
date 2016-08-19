@@ -33,9 +33,8 @@
 @include('partials.nav')
 @include('partials.errors')
 @yield('content')
-@include('partials.modal')
+{{--@include('partials.modal')--}}
 @include('partials.footer')
-
 <script src="https://use.fontawesome.com/ed7ef479e3.js"></script>
 <script src="{{ elixir('js/all.js') }}"></script>
 @yield('scripts')

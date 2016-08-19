@@ -11,13 +11,15 @@
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
 						We are closed now and cannot accept orders unless you want specific delivery time between
-						<time datetime="13:00">13:00</time> - <time datetime="23:00">23:00</time>
+						<time datetime="13:00">13:00</time>
+						-
+						<time datetime="23:00">23:00</time>
 					</div>
 				@endunless
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<div class="panel-title">
-							<i class="fa fa-info-circle fa-fw fa-lg"></i> Your Information
+							<i class="fa fa-info-circle fa-fw fa-lg"></i> Check Your Information
 						</div>
 					</div>
 					<div class="panel-body">
@@ -29,9 +31,8 @@
 								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 									<span aria-hidden="true"><i class="material-icons">clear</i></span>
 								</button>
-								Make sure your information is correct before you make a payment if you see your information is incorrect
-								please <a class="alert-link" href="{{ route('member.edit', auth()->user()) }}">click here</a> to update
-								your information.
+								Make sure your information is correct before you make a payment
+								<a class="alert-link" href="{{ route('member.edit', auth()->user()) }}">click here</a> to update it
 							</div>
 						</div>
 
@@ -71,17 +72,6 @@
 											for more informations.</p>
 									</div>
 								</noscript>
-
-								<!-- Card Holder Name -->
-								<div class="form-group">
-									<label class="col-sm-3 control-label" for="card-holder-name">Card Holder's Name</label>
-									<div class="col-sm-7">
-										<input type="text" name="cardholdername" maxlength="70" minlength="6" placeholder="Name on Card"
-										       class="card-holder-name form-control" id="card-holder-name" pattern="[A-Za-z\s]{6,70}"
-										       required>
-										<span class="help-block text-primary">Name as appeared on cart</span>
-									</div>
-								</div>
 
 								<!-- Card Number -->
 								<div class="form-group">
@@ -194,35 +184,44 @@
 @section('scripts')
 	<script src="https://js.stripe.com/v2/"></script>
 	<script>
-		Stripe.setPublishableKey('{{ env('STRIPE_KEY') }}');
+		(function() {
+			var StripeBilling = {
 
-		$(function() {
-			var $form = $('#payment-form');
-			$form.submit(function(event) {
-				// Disable the submit button to prevent repeated clicks:
-				$form.find('.submit').prop('disabled', true);
-				// Request a token from Stripe:
-				Stripe.card.createToken($form, stripeResponseHandler);
-				// Prevent the form from being submitted:
-				return false;
-			});
+				init : function() {
+					this.form              = $('#payment-form');
+					this.submitButton      = this.form.find('.submit');
+					this.submitButtonValue = this.submitButton.val();
+					Stripe.setPublishableKey('{{ env('STRIPE_KEY') }}');
+					this.bindEvents();
+				},
 
-			function stripeResponseHandler(status, response) {
-				// Grab the form:
-				var $form = $('#payment-form');
-				if (response.error) { // Problem!
-					// Show the errors on the form:
-					$form.find('.payment-errors').text(response.error.message);
-					$form.find('.submit').prop('disabled', false); // Re-enable submission
-				} else { // Token was created!
-					// Get the token ID:
-					var token = response.id;
-					// Insert the token ID into the form so it gets submitted to the server:
-					$form.append($('<input type="hidden" name="stripeToken">').val(token));
-					// Submit the form:
-					$form.get(0).submit();
+				bindEvents : function() {
+					this.form.on('submit', $.proxy(this.sendToken, this));
+				},
+
+				sendToken : function(event) {
+					this.submitButton.val('One Moment').prop('disabled', true);
+					Stripe.createToken(this.form, $.proxy(this.stripeResponseHandler, this));
+					event.preventDefault();
+				},
+
+				stripeResponseHandler : function(status, response) {
+					if (response.error) {
+						this.form.find('.payment-errors').show().text(response.error.message);
+						return this.submitButton.prop('disabled', false).val(this.submitButtonValue);
+					}
+
+					$('<input>', {
+						type  : 'hidden',
+						name  : 'stripeToken',
+						value : response.id
+					}).appendTo(this.form);
+
+					this.form[0].submit();
 				}
-			}
-		});
+			};
+
+			StripeBilling.init();
+		})();
 	</script>
 @stop

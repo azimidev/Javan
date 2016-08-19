@@ -99,9 +99,8 @@
 		'#pjax-container', {
 			type     : 'GET',
 			push     : false,
-			// replace  : true,
+			replace  : true,
 			scrollTo : false,
-			timeout  : 15500
 		}
 	);
 

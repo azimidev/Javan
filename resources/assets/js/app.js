@@ -1,4 +1,4 @@
-$(document).on("ready", function() {
+$(document).on("ready", function(){
 
 	/**
 	 * Material initialization
@@ -94,18 +94,16 @@ $(document).on("ready", function() {
 	/**
 	 * Pjax
 	 */
-	$(document).on("ready", function() {
-		pjax(
-			'a#pjax, a#addToCart, a#removeFromCart, a#destroyCart',
-			'#pjax-container', {
-				type     : 'GET',
-				push     : false,
-				// replace  : true,
-				scrollTo : false,
-				timeout  : 5000
-			}
-		)
-	});
+	$(document).pjax(
+		'a#pjax, a#addToCart, a#removeFromCart, a#destroyCart',
+		'#pjax-container', {
+			type     : 'GET',
+			push     : false,
+			// replace  : true,
+			scrollTo : false,
+			timeout  : 5000
+		}
+	);
 
 	$(document).on('pjax:success', function() {
 		$('#notifyAlert').fadeIn('fast').delay(700).fadeOut('fast')

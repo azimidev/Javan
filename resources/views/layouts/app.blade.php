@@ -28,7 +28,6 @@
 	<link href="{{ elixir('css/app.css') }}" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet">
 	<link rel="shortcut icon" type="image/png" href="/images/favicon.png">
-	<script src="{{ elixir('js/all.js') }}"></script>
 </head>
 <body id="app-layout">
 @include('partials.nav')
@@ -37,6 +36,7 @@
 {{--@include('partials.modal')--}}
 @include('partials.footer')
 <script src="https://use.fontawesome.com/ed7ef479e3.js"></script>
+<script src="{{ elixir('js/all.js') }}"></script>
 @yield('scripts')
 @include('partials.flash')
 @include('partials.addthis')

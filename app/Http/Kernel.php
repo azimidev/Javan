@@ -14,6 +14,7 @@ class Kernel extends HttpKernel
 	 */
 	protected $middleware = [
 		\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+		\Spatie\Pjax\Middleware\FilterIfPjax::class,
 	];
 	/**
 	 * The application's route middleware groups.
@@ -27,7 +28,7 @@ class Kernel extends HttpKernel
 			\Illuminate\Session\Middleware\StartSession::class,
 			\Illuminate\View\Middleware\ShareErrorsFromSession::class,
 			\Javan\Http\Middleware\VerifyCsrfToken::class,
-			\Javan\Http\Middleware\PjaxMiddleware::class,
+			// \Javan\Http\Middleware\PjaxMiddleware::class,
 		],
 
 		'api' => [

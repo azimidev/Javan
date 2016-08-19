@@ -105,11 +105,6 @@
 		}
 	);
 
-	$(document).on('pjax:timeout', function(event) {
-		// Prevent default timeout redirection behavior
-		event.preventDefault()
-	})
-
 	$(document).on('pjax:success', function() {
 		$('#notifyAlert').fadeIn('fast').delay(700).fadeOut('fast')
 	});

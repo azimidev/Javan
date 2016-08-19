@@ -1,4 +1,4 @@
-(function() {
+$(document).on("ready", function(){
 
 	/**
 	 * Material initialization
@@ -105,9 +105,9 @@
 		}
 	);
 
-	// $(document).on('pjax:success', function() {
-	// 	$('#notifyAlert').fadeIn('fast').delay(700).fadeOut('fast')
-	// });
+	$(document).on('pjax:success', function() {
+		$('#notifyAlert').fadeIn('fast').delay(700).fadeOut('fast')
+	});
 
 	/**
 	 * Confirmation class
@@ -163,4 +163,4 @@
 
 	checkReloading();
 
-})();
+});

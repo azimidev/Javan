@@ -72,7 +72,7 @@
 										<div class="col-sm-4">
 											<div class="thumbnail">
 												@if ($appetizer->image_path)
-													<a href="/{{ $appetizer->image_path }}" data-lity>
+													<a href="/{{ $appetizer->image_path }}" data-lity onclick="return false">
 														<img src="/{{ $appetizer->image_path }}" class="img-responsive" alt="mirza-ghasemi">
 													</a>
 												@endif
@@ -96,7 +96,7 @@
 										<div class="col-sm-4">
 											<div class="thumbnail">
 												@if ($main_course->image_path)
-													<a href="/{{ $main_course->image_path }}" data-lity>
+													<a href="/{{ $main_course->image_path }}" data-lity onclick="return false">
 														<img src="/{{ $main_course->image_path }}" class="img-responsive" alt="mirza-ghasemi">
 													</a>
 												@endif
@@ -120,7 +120,7 @@
 										<div class="col-sm-4">
 											<div class="thumbnail">
 												@if ($extra->image_path)
-													<a href="/{{ $extra->image_path }}" data-lity>
+													<a href="/{{ $extra->image_path }}" data-lity onclick="return false">
 														<img src="/{{ $extra->image_path }}" class="img-responsive" alt="mirza-ghasemi">
 													</a>
 												@endif
@@ -144,7 +144,7 @@
 										<div class="col-sm-4">
 											<div class="thumbnail">
 												@if ($beverage->image_path)
-													<a href="/{{ $beverage->image_path }}" data-lity>
+													<a href="/{{ $beverage->image_path }}" data-lity onclick="return false">
 														<img src="/{{ $beverage->image_path }}" class="img-responsive" alt="mirza-ghasemi">
 													</a>
 												@endif
@@ -167,7 +167,7 @@
 										<div class="col-sm-4">
 											<div class="thumbnail">
 												@if ($juice->image_path)
-													<a href="/{{ $juice->image_path }}" data-lity>
+													<a href="/{{ $juice->image_path }}" data-lity onclick="return false">
 														<img src="/{{ $juice->image_path }}" class="img-responsive" alt="mirza-ghasemi">
 													</a>
 												@endif
@@ -190,7 +190,7 @@
 										<div class="col-sm-4">
 											<div class="thumbnail">
 												@if ($dessert->image_path)
-													<a href="/{{ $dessert->image_path }}" data-lity>
+													<a href="/{{ $dessert->image_path }}" data-lity onclick="return false">
 														<img src="/{{ $dessert->image_path }}" class="img-responsive" alt="mirza-ghasemi">
 													</a>
 												@endif

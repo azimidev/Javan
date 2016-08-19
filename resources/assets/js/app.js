@@ -94,6 +94,9 @@ $(document).on("ready", function() {
 	/**
 	 * Pjax
 	 */
+	$(document).on('pjax:timeout', function() {
+		return false;
+	});
 	$(document).pjax(
 		'a#pjax, a#addToCart, a#removeFromCart, a#destroyCart',
 		'#pjax-container', {
@@ -105,11 +108,6 @@ $(document).on("ready", function() {
 		}
 	).on('pjax:success', function() {
 		$('#notifyAlert').fadeIn('fast').delay(700).fadeOut('fast')
-	});
-
-	$(document).on('pjax:error', function(event, xhr, textStatus, errorThrown, options) {
-		options.success(xhr.responseText, textStatus, xhr);
-		return false;
 	});
 
 	/**

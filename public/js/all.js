@@ -17370,12 +17370,13 @@ $.support.pjax ? enable() : disable()
 			push     : false,
 			// replace  : true,
 			scrollTo : false,
+			timeout  : 15500
 		}
 	);
 
-	// $(document).on('pjax:success', function() {
-	// 	$('#notifyAlert').fadeIn('fast').delay(700).fadeOut('fast')
-	// });
+	$(document).on('pjax:success', function() {
+		$('#notifyAlert').fadeIn('fast').delay(700).fadeOut('fast')
+	});
 
 	/**
 	 * Confirmation class

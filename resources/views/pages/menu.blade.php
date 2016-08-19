@@ -72,7 +72,7 @@
 										<div class="col-sm-4">
 											<div class="thumbnail">
 												@if ($appetizer->image_path)
-													<a href="/{{ $appetizer->image_path }}" data-lity onclick="return false">
+													<a href="/{{ $appetizer->image_path }}" data-lity>
 														<img src="/{{ $appetizer->image_path }}" class="img-responsive" alt="mirza-ghasemi">
 													</a>
 												@endif
@@ -80,7 +80,7 @@
 													<h3 style="cursor:help;" title="{{ $appetizer->description }}" data-toggle="tooltip"
 													    data-placement="top">{{ $appetizer->title }}</h3>
 													£ {{ number_format($appetizer->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
-													<a id="addToCart" href="{{ route('add.to.cart', $appetizer) }}"
+													<a id="addToCart" href="{{ route('add.to.cart', $appetizer) }}" onclick="return false"
 													   class="btn btn-sm btn-success btn-raised">
 														<i class="fa fa-plus fa-lg"></i>
 													</a>
@@ -96,7 +96,7 @@
 										<div class="col-sm-4">
 											<div class="thumbnail">
 												@if ($main_course->image_path)
-													<a href="/{{ $main_course->image_path }}" data-lity onclick="return false">
+													<a href="/{{ $main_course->image_path }}" data-lity>
 														<img src="/{{ $main_course->image_path }}" class="img-responsive" alt="mirza-ghasemi">
 													</a>
 												@endif
@@ -104,7 +104,7 @@
 													<h3 style="cursor:help;" title="{{ $main_course->description }}" data-toggle="tooltip"
 													    data-placement="top">{{ $main_course->title }}</h3>
 													£ {{ number_format($main_course->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
-													<a id="addToCart" href="{{ route('add.to.cart', $main_course) }}"
+													<a id="addToCart" href="{{ route('add.to.cart', $main_course) }}" onclick="return false"
 													   class="btn btn-sm btn-success btn-raised">
 														<i class="fa fa-plus fa-lg"></i>
 													</a>
@@ -120,7 +120,7 @@
 										<div class="col-sm-4">
 											<div class="thumbnail">
 												@if ($extra->image_path)
-													<a href="/{{ $extra->image_path }}" data-lity onclick="return false">
+													<a href="/{{ $extra->image_path }}" data-lity>
 														<img src="/{{ $extra->image_path }}" class="img-responsive" alt="mirza-ghasemi">
 													</a>
 												@endif
@@ -128,7 +128,7 @@
 													<h3 style="cursor:help;" title="{{ $extra->description }}" data-toggle="tooltip"
 													    data-placement="top">{{ $extra->title }}</h3>
 													£ {{ number_format($extra->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
-													<a id="addToCart" href="{{ route('add.to.cart', $extra) }}"
+													<a id="addToCart" href="{{ route('add.to.cart', $extra) }}" onclick="return false"
 													   class="btn btn-sm btn-success btn-raised">
 														<i class="fa fa-plus fa-lg"></i>
 													</a>
@@ -144,14 +144,14 @@
 										<div class="col-sm-4">
 											<div class="thumbnail">
 												@if ($beverage->image_path)
-													<a href="/{{ $beverage->image_path }}" data-lity onclick="return false">
+													<a href="/{{ $beverage->image_path }}" data-lity>
 														<img src="/{{ $beverage->image_path }}" class="img-responsive" alt="mirza-ghasemi">
 													</a>
 												@endif
 												<div class="caption">
 													<h3>{{ $beverage->title }}</h3>
 													£ {{ number_format($beverage->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
-													<a id="addToCart" href="{{ route('add.to.cart', $beverage) }}"
+													<a id="addToCart" href="{{ route('add.to.cart', $beverage) }}" onclick="return false"
 													   class="btn btn-sm btn-success btn-raised">
 														<i class="fa fa-plus fa-lg"></i>
 													</a>
@@ -167,14 +167,14 @@
 										<div class="col-sm-4">
 											<div class="thumbnail">
 												@if ($juice->image_path)
-													<a href="/{{ $juice->image_path }}" data-lity onclick="return false">
+													<a href="/{{ $juice->image_path }}" data-lity>
 														<img src="/{{ $juice->image_path }}" class="img-responsive" alt="mirza-ghasemi">
 													</a>
 												@endif
 												<div class="caption">
 													<h3>{{ $juice->title }}</h3>
 													£ {{ number_format($juice->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
-													<a id="addToCart" href="{{ route('add.to.cart', $juice) }}"
+													<a id="addToCart" href="{{ route('add.to.cart', $juice) }}" onclick="return false"
 													   class="btn btn-sm btn-success btn-raised">
 														<i class="fa fa-plus fa-lg"></i>
 													</a>
@@ -190,7 +190,7 @@
 										<div class="col-sm-4">
 											<div class="thumbnail">
 												@if ($dessert->image_path)
-													<a href="/{{ $dessert->image_path }}" data-lity onclick="return false">
+													<a href="/{{ $dessert->image_path }}" data-lity>
 														<img src="/{{ $dessert->image_path }}" class="img-responsive" alt="mirza-ghasemi">
 													</a>
 												@endif
@@ -198,7 +198,7 @@
 													<h3 style="cursor:help;" title="{{ $dessert->description }}" data-toggle="tooltip"
 													    data-placement="top">{{ $dessert->title }}</h3>
 													£ {{ number_format($dessert->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
-													<a id="addToCart" href="{{ route('add.to.cart', $dessert) }}"
+													<a id="addToCart" href="{{ route('add.to.cart', $dessert) }}" onclick="return false"
 													   class="btn btn-sm btn-success btn-raised">
 														<i class="fa fa-plus fa-lg"></i>
 													</a>

@@ -17363,9 +17363,6 @@ $(document).on("ready", function() {
 	/**
 	 * Pjax
 	 */
-	$(document).on('pjax:timeout', function() {
-		return false;
-	});
 	$(document).pjax(
 		'a#pjax, a#addToCart, a#removeFromCart, a#destroyCart',
 		'#pjax-container', {
@@ -17373,7 +17370,7 @@ $(document).on("ready", function() {
 			push     : false,
 			replace  : true,
 			scrollTo : false,
-			// timeout  : 5000,
+			timeout  : 3500,
 		}
 	).on('pjax:success', function() {
 		$('#notifyAlert').fadeIn('fast').delay(700).fadeOut('fast')

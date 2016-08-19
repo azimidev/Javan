@@ -214,7 +214,7 @@
 
 			</article>
 			<aside class="col-md-4">
-				<div id="pjax-container">@include('partials.cart')</div>
+				@include('partials.cart')
 				<div class="brand menu">
 					<div class="clearfix"></div>
 					<p class="lead pull-right">We Serve Shisha</p>

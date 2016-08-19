@@ -1,4 +1,4 @@
-<div class="panel panel-primary">
+<div class="panel panel-primary" id="pjax-container">
 	<div class="panel-heading">
 		<div class="panel-title">
 			<i class="fa fa-shopping-cart fa-fw fa-lg"></i> Shopping Cart

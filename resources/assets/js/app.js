@@ -101,27 +101,11 @@ $(document).on("ready", function() {
 			push     : false,
 			replace  : true,
 			scrollTo : false,
-			timeout  : 10000
+			timeout  : 5000,
+			target   : 'http://139.59.168.83/menu'
 		}
 	).on('pjax:success', function() {
 		$('#notifyAlert').fadeIn('fast').delay(700).fadeOut('fast')
-	});
-
-	if ($.pjax) {
-		$.pjax.defaults.timeout = 10000;
-	}
-
-	//this is the actual counter
-	var ajaxCounter = 0;
-
-	//this method is called whenever an ajax-request fires
-	$(document).ajaxSend(function() {
-		ajaxCounter++;
-	});
-
-	//this method is called whenever an ajax-request finishes...no matter of its result
-	$(document).ajaxComplete(function() {
-		ajaxCounter--;
 	});
 
 	/**

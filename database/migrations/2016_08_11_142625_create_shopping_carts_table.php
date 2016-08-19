@@ -17,7 +17,7 @@ class CreateShoppingCartsTable extends Migration
 			$table->integer('user_id')->unsigned()->index();
 			$table->string('charge_id')->index()->nullable();
 			$table->string('refund_id')->index()->nullable();
-			$table->text('content');
+			$table->text('orders');
 			$table->integer('total');
 			$table->boolean('status');
 			$table->text('note');

@@ -10,7 +10,8 @@
 				<a class="btn-link text-bright" href="/images/menu/Javan-Restaurant-Menu.pdf" target="_blank"
 				   title="Javan Restaurant Menu">click here</a>
 			</p>
-			<p class="text-warning"><i class="fa fa-info-circle fa-fw"></i> Please hover your mouse on each food to see the descriptions</p>
+			<p class="text-warning"><i class="fa fa-info-circle fa-fw"></i>
+				Please hover your mouse on each food to see the descriptions</p>
 			<article class="col-md-8">
 				@unless (javan_is_open())
 					<div class="alert alert-danger">
@@ -18,29 +19,6 @@
 						We are closed now and cannot accept orders unless you want specific delivery time between 13:00 - 23:00
 					</div>
 				@endunless
-
-					<div class="row">
-						@foreach ($appetizers as $appetizer)
-							<div class="col-sm-4">
-								<div class="thumbnail">
-									@if ($appetizer->image_path)
-										<a href="/{{ $appetizer->image_path }}" data-lity>
-											<img src="/{{ $appetizer->image_path }}" class="img-responsive" alt="mirza-ghasemi">
-										</a>
-									@endif
-									<div class="caption">
-										<h3 style="cursor:help;" title="{{ $appetizer->description }}" data-toggle="tooltip"
-										    data-placement="top">{{ $appetizer->title }}</h3>
-										£ {{ number_format($appetizer->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
-										<a id="addToCart" href="{{ route('add.to.cart', $appetizer) }}"
-										   class="btn btn-sm btn-success btn-raised">
-											<i class="fa fa-plus fa-lg"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-						@endforeach
-					</div>
 
 				<div class="card card-nav-tabs card-plain">
 					<div class="header header-primary">

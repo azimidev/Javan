@@ -34,11 +34,7 @@ $(document).on("ready", function() {
 	/**
 	 * Alert fade in and out
 	 */
-	$('.alert-dismissible')
-		.fadeIn(500)
-		.delay(7000)
-		.fadeOut(500)
-		.addClass('animated tada');
+	$('.alert-dismissible').fadeIn(500).delay(7000).fadeOut(500).addClass('animated tada');
 
 	/**
 	 * This function will make menus drop automatically

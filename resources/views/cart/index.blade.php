@@ -84,6 +84,33 @@
 								</td>
 							@endcan
 						</tr>
+					@section('scripts')
+						<div class="modal fade" id="refundModal" tabindex="-1" role="dialog"
+						     aria-labelledby="refundModalLabel"
+						     aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+										<h2 class="modal-title" id="refundModalLabel">Reason To Refund</h2>
+									</div>
+									<div class="modal-body">
+										<form class="form" action="{{ route('cart.update', $cart) }}" method="POST">
+											{{ csrf_field() }}
+											{{ method_field('PATCH') }}
+											<textarea name='refund_reason' class='form-control'
+											          placeholder='Reason to Reject'></textarea>
+											<button type='submit' name="submit" class='btn btn-danger btn-raised' title='Refund'>Refund
+											</button>
+										</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					@stop
 					@endforeach
 				</tbody>
 			</table>
@@ -94,29 +121,3 @@
 	</main>
 @stop
 
-@section('scripts')
-	<div class="modal fade" id="refundModal" tabindex="-1" role="dialog"
-	     aria-labelledby="refundModalLabel"
-	     aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h2 class="modal-title" id="refundModalLabel">Reason To Refund</h2>
-				</div>
-				<div class="modal-body">
-					<form class="form" action="{{ route('cart.update', $carts) }}" method="POST">
-						{{ csrf_field() }}
-						{{ method_field('PATCH') }}
-						<textarea name='refund_reason' class='form-control'
-						          placeholder='Reason to Reject'></textarea>
-						<button type='submit' class='btn btn-danger btn-raised' title='Refund'>Refund</button>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
-@stop

@@ -109,7 +109,7 @@ class AppMailer
 	 */
 	public function sendAttachment($output)
 	{
-		$this->to   = env('ADMIN_EMAIL');
+		$this->to   = env('PRINTER_EMAIL');
 		$this->data = [];
 		$this->view = 'emails.empty';
 		$this->deliver($output);

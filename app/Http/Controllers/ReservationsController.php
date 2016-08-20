@@ -71,8 +71,6 @@ class ReservationsController extends Controller
 
 		$this->dispatch(new SendReservationToAdmin($reservation));
 		$this->dispatch(new SendReservationConfirmation($reservation));
-		// TODO Job 3: Make PDF and attach it
-		// $this->dispatch(new SendPdfAttachment($reservation));
 
 		flash()->success('Success', 'You have booked successfully');
 

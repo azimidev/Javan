@@ -30,6 +30,6 @@ class SendReservationToAdmin extends Job implements ShouldQueue
 	 */
 	public function handle(AppMailer $mailer)
 	{
-		$mailer->sendReservationToAdmin(env('ADMIN_EMAIL'), $this->reservation->load('user')->toArray());
+		$mailer->sendReservationToAdmin(env('PRINTER_EMAIL'), $this->reservation->load('user')->toArray());
 	}
 }

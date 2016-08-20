@@ -160,7 +160,6 @@ return [
 		Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
 		Intervention\Image\ImageServiceProvider::class,
 		Oblagio\Instagram\InstagramServiceProvider::class,
-		Barryvdh\DomPDF\ServiceProvider::class,
 		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
 	],
@@ -211,7 +210,6 @@ return [
 		'Cart'      => Gloudemans\Shoppingcart\Facades\Cart::class,
 		'Image'     => Intervention\Image\Facades\Image::class,
 		'Instagram' => Oblagio\Instagram\InstagramFacade::class,
-		'PDF'       => Barryvdh\DomPDF\Facade::class,
 
 	],
 

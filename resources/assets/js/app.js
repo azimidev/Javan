@@ -1,4 +1,4 @@
-$(document).on("ready", function() {
+(function() {
 
 	/**
 	 * Material initialization
@@ -16,6 +16,22 @@ $(document).on("ready", function() {
 	 * Add bg class for login and register page
 	 */
 	$('.login, .register').parent().addClass('bg');
+
+	/**
+	 * Bootstrap Date picker
+	 * @type {Date}
+	 */
+	var nowTemp = new Date();
+	var now     = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+	$('#date').datepicker({
+		format    : 'yyyy-mm-dd',
+		startDate : new Date(),
+		minDate   : new Date(),
+		onRender  : function(date) {
+			return date.valueOf() < now.valueOf() ? 'disabled' : '';
+		}
+	});
 
 	/**
 	 * Alert fade in and out
@@ -143,4 +159,4 @@ $(document).on("ready", function() {
 
 	checkReloading();
 
-});
+})();

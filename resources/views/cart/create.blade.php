@@ -4,7 +4,7 @@
 	<header class="header header-filter"
 	        style="background-image: url('/images/menu-background.png');">
 		<main class="container">
-			@include('partials.notify-alert', ['data' => 'Cart is updated'])
+			@include('partials.notify-alert', ['data' => 'Cart Updated'])
 			<h1 class="text-warning">Shopping Cart</h1>
 			<article class="col-md-8">
 				@unless (javan_is_open())
@@ -184,48 +184,47 @@
 @section('scripts')
 	<script src="https://js.stripe.com/v2/"></script>
 	<script>
-		{{--(function() {--}}
-			{{--var StripeBilling = {--}}
+		(function() {
+			var StripeBilling = {
 
-				{{--init : function() {--}}
-					{{--this.form              = $('#payment-form');--}}
-					{{--this.submitButton      = this.form.find('.submit');--}}
-					{{--this.submitButtonValue = this.submitButton.val();--}}
-					{{--Stripe.setPublishableKey('{{ env('STRIPE_KEY') }}');--}}
-					{{--this.bindEvents();--}}
-				{{--},--}}
+				init : function() {
+					this.form              = $('#payment-form');
+					this.submitButton      = this.form.find('.submit');
+					this.submitButtonValue = this.submitButton.val();
+					Stripe.setPublishableKey('{{ env('STRIPE_KEY') }}');
+					this.bindEvents();
+				},
 
-				{{--bindEvents : function() {--}}
-					{{--this.form.on('submit', $.proxy(this.sendToken, this));--}}
-				{{--},--}}
+				bindEvents : function() {
+					this.form.on('submit', $.proxy(this.sendToken, this));
+				},
 
-				{{--sendToken : function(event) {--}}
-					{{--this.submitButton.val('One Moment').prop('disabled', true);--}}
-					{{--Stripe.createToken(this.form, $.proxy(this.stripeResponseHandler, this));--}}
-					{{--event.preventDefault();--}}
-				{{--},--}}
+				sendToken : function(event) {
+					this.submitButton.val('One Moment').prop('disabled', true);
+					Stripe.createToken(this.form, $.proxy(this.stripeResponseHandler, this));
+					event.preventDefault();
+				},
 
-				{{--stripeResponseHandler : function(status, response) {--}}
-					{{--if (response.error) {--}}
-						{{--this.form.find('.payment-errors').show().text(response.error.message);--}}
-						{{--return this.submitButton.prop('disabled', false).val(this.submitButtonValue);--}}
-					{{--}--}}
+				stripeResponseHandler : function(status, response) {
+					if (response.error) {
+						this.form.find('.payment-errors').show().text(response.error.message);
+						return this.submitButton.prop('disabled', false).val(this.submitButtonValue);
+					}
 
-					{{--$('<input>', {--}}
-						{{--type  : 'hidden',--}}
-						{{--name  : 'stripe-token',--}}
-						{{--value : response.id--}}
-					{{--}).appendTo(this.form);--}}
+					$('<input>', {
+						type  : 'hidden',
+						name  : 'stripe-token',
+						value : response.id
+					}).appendTo(this.form);
 
-					{{--this.form[0].submit();--}}
-				{{--}--}}
-			{{--};--}}
+					this.form[0].submit();
+				}
+			};
 
-			{{--StripeBilling.init();--}}
-		{{--})();--}}
+			StripeBilling.init();
+		})();
 
-			Stripe.setPublishableKey('{{ env('STRIPE_KEY') }}');
-
+		/*Stripe.setPublishableKey('{{ env('STRIPE_KEY') }}');
 		$(function() {
 			var $form = $('#payment-form');
 			$form.submit(function(event) {
@@ -233,7 +232,6 @@
 				Stripe.card.createToken($form, stripeResponseHandler);
 				return false;
 			});
-
 			function stripeResponseHandler(status, response) {
 				var $form = $('#payment-form');
 				if (response.error) {
@@ -245,6 +243,6 @@
 					$form.get(0).submit();
 				}
 			}
-		});
+		});*/
 	</script>
 @stop

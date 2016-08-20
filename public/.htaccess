@@ -3,12 +3,7 @@
         Options -MultiViews
     </IfModule>
 
-	Options -MultiViews
     RewriteEngine On
-
-    # Remove WWW
-     RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
-     RewriteRule ^(.*)$ http://%1/$1 [R=301,NC,L]
 
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d

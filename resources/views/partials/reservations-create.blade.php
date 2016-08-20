@@ -2,7 +2,8 @@
 	<label for="date" class="control-label col-sm-2">Date</label>
 	<div class="col-sm-5">
 		<input class="datepicker form-control" type="text" name="date" id="date" placeholder="Date"
-		       value="{{ date('Y-m-d') }}" pattern="[0-9\-]+" required>
+		       value="{{ date('Y-m-d') }}" pattern="[0-9\-]+"
+		       data-date="{{ date('Y-m-d') }}" data-date-format="yyyy-mm-dd" required>
 		<span class="help-block text-info">Your full date here</span>
 	</div>
 </div>

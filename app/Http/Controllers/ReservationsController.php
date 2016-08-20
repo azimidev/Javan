@@ -54,16 +54,21 @@ class ReservationsController extends Controller
 	 * Store a newly created resource in storage.
 	 *
 	 * @param  \Illuminate\Http\Request $request
-	 * @param \Javan\AppMailer $mailer
-	 * @return \Illuminate\Http\Response
+	 * @return \Illuminate\Http\RedirectResponse
 	 */
 	public function store(Request $request)
 	{
 		$this->validate($request, [
-			'date'  => 'required',
+			'date'  => 'required|date',
 			'time'  => 'required',
 			'seats' => 'required|max:25',
 		]);
+
+		if (strtotime($request->input('date') . ' ' . $request->input('time')) < time()) {
+			flash()->error('Error!', 'You cannot book the past');
+
+			return back()->withInput();
+		}
 
 		$reservation          = new Reservation($request->all());
 		$reservation->user_id = $request->user()->id;

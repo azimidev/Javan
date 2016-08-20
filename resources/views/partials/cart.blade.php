@@ -55,7 +55,7 @@
 				<i class="fa fa-arrow-left fa-lg fa-fw"></i> Go Back to Menu
 			</a>
 		@elseif (less_than_minimum_order())
-			<p class="label label-info">minimum order is £20</p>
+			<p class="label label-info">minimum order is £{{ env('MINIMUM_ORDER') }}</p>
 		@else
 			<a href="{{ route('cart.create') }}" class="btn btn-block btn-success btn-raised">
 				Checkout

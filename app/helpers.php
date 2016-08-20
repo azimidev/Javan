@@ -56,7 +56,7 @@ function javan_is_open()
 
 function less_than_minimum_order()
 {
-	return \Cart::total() < 20;
+	return \Cart::total() < env('MINIMUM_ORDER');
 }
 
 function sort_column_by($column, $body)

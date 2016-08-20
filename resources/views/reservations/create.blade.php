@@ -18,7 +18,8 @@
 			<div class="col-sm-4">
 				<h2><i class="fa fa-info-circle fa-fw"></i> Information</h2>
 				<p class="text-justify alert alert-info">
-					For parties more than 25 people please call us on <a href="tel:02085638553" class="alert-link">02085638553</a></p>
+					For parties more than 25 people please call us on <a href="tel:02085638553" class="alert-link">02085638553</a>
+				</p>
 				<p class="text-justify">
 					Please make sure you have inserted yur number <strong>preferably mobile number</strong> correctly in your
 					profile in case we want to contact you urgently to avoid any disappointments.
@@ -42,4 +43,20 @@
 			</div>
 		</aside>
 	</main>
+@stop
+
+@section('scripts')
+	<script>
+		(function() {
+			var nowTemp = new Date();
+			var now     = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+			$('#date').datepicker({
+				format   : 'yyyy-mm-dd',
+				minDate  : now,
+				onRender : function(date) {
+					return date.valueOf() < now.valueOf() ? 'disabled' : '';
+				}
+			});
+		})();
+	</script>
 @stop

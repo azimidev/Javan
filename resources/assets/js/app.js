@@ -18,20 +18,6 @@ $(document).on("ready", function() {
 	$('.login, .register').parent().addClass('bg');
 
 	/**
-	 * Bootstrap Date picker
-	 * @type {Date}
-	 */
-	var nowTemp = new Date();
-	var now     = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-
-	$('#date').datepicker({
-		format   : 'yyyy-mm-dd',
-		onRender : function(date) {
-			return date.valueOf() < now.valueOf() ? 'disabled' : '';
-		}
-	});
-
-	/**
 	 * Alert fade in and out
 	 */
 	$('.alert-dismissible').fadeIn(500).delay(7000).fadeOut(500).addClass('animated tada');

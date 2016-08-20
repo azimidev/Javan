@@ -2,9 +2,10 @@
 
 @section('content')
 	<div class="header">
-		<div>
-			<iframe width="100%" height="450" frameborder="0" allowfullscreen
-			        src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJm0npDkoOdkgR65Z2_pEgI3Y&key={{ env('GOOGLE_API_KEY') }}">
+		<div style="overflow: hidden; height: 450px;">
+			<iframe width="100%" height="650" frameborder="0"
+			        src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJm0npDkoOdkgR65Z2_pEgI3Y&key={{ env('GOOGLE_API_KEY') }}"
+			        allowfullscreen style="margin-top:-120px;">
 			</iframe>
 		</div>
 	</div>

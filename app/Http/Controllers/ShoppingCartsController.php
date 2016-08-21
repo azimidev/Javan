@@ -79,9 +79,6 @@ class ShoppingCartsController extends Controller
 
 			return redirect('menu');
 		}
-		// $this->validate($request, [
-		// 	'stripeToken' => 'required',
-		// ]);
 		$charge       = $this->billing->charge([
 			'email' => auth()->user()->email,
 			'token' => $request->input('stripe-token'),

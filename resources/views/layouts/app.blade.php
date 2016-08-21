@@ -15,7 +15,7 @@
 	<meta property="og:url" content="{{ request()->fullUrl() }}"/>
 	<meta property="og:title" content="Javan Restaurant"/>
 	<meta property="og:type" content="article"/>
-	<meta property="og:image" content="{{ request()->getHost() }}/images/Javan-Logo.png"/>
+	<meta property="og:image" content="{{ request()->root() }}/images/Javan-Logo.png"/>
 	<meta property="article:author" content="https://www.facebook.com/JavanLondonLtd"/>
 	<meta property="og:locale" content="en_UK"/>
 	<meta property="og:description" content="Top Quality Persian Cuisine in London"/>
@@ -23,7 +23,7 @@
 	<meta name="twitter:card" content="summary"/>
 	<meta name="twitter:title" content="Javan Restaurant"/>
 	<meta name="twitter:description" content="Top Quality Persian Cuisine in London"/>
-	<meta name="twitter:image" content="{{ request()->getHost() }}/images/Javan-Logo.png"/>
+	<meta name="twitter:image" content="{{ request()->root() }}/images/Javan-Logo.png"/>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="{{ elixir('css/app.css') }}" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet">

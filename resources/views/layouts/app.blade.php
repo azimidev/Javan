@@ -9,10 +9,10 @@
 	<meta name="description" content="Top Quality Persian Cuisine in London"/>
 	<meta name="keywords" content="Persian, Restaurant, London, Iranian, Cuisine"/>
 	<meta name="copyright" content="javan-restaurant.co.uk">
-	<meta name="author" content="Javan"/>
+	<meta name="author" content="Javan Restaurant"/>
 	<meta name="application-name" content="Javan"/>
 	<!--Facebook Tags-->
-	<meta property="og:url" content="{{ Request::path() }}"/>
+	<meta property="og:url" content="{{ request()->fullUrl() }}"/>
 	<meta property="og:title" content="Javan Restaurant"/>
 	<meta property="og:type" content="article"/>
 	<meta property="og:image" content="/images/misc/parsclick-logo.png"/>

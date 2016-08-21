@@ -102,7 +102,7 @@
 			timeout  : 3500,
 		}
 	).on('pjax:success', function() {
-		$('#notifyAlert').fadeIn('fast').delay(700).fadeOut('fast')
+		$('#notifyAlert').fadeIn('fast').delay(700).fadeOut('fast');
 	});
 
 	/**

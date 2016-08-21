@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'About Us - Javan Restaurant London')
 @section('content')
 	<div class="header header-filter"
 	     style="background-image: url('/images/carousel/baghalipolo.jpg'); background-size: cover; height : 350px;">

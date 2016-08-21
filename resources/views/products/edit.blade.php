@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Edit Product - Javan Restaurant London')
 @section('content')
 	<main class="container main">
 		<article>

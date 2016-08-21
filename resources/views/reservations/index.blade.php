@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'All Reservations - Javan Restaurant London')
 @section('content')
 	<main class="main container">
 		<a href="{{ route('reservations.create') }}" class="btn btn-raised btn-info pull-right">

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Menu - Javan Restaurant London')
 @section('content')
 	<header class="header header-filter"
 	        style="background-image: url('/images/menu-background.png');">

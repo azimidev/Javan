@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Create Post - Javan Restaurant London')
 @section('content')
 	<section class="main container">
 		<div class="col-sm-8">

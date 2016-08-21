@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', $post->subject . ' - Javan Restaurant London')
 @section('content')
 	<main class="main container">
 		<article>

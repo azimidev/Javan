@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'All Posts - Javan Restaurant London')
 @section('content')
 	<main class="container main">
 		@can('admin_manager', auth()->user())

@@ -74,6 +74,11 @@ class ShoppingCartsController extends Controller
 	 */
 	public function store(Request $request)
 	{
+		if (less_than_minimum_order()) {
+			flash()->error('Error', 'Sorry but the minimum order is £' . env('MINIMUM_ORDER'));
+
+			return redirect('menu');
+		}
 		// $this->validate($request, [
 		// 	'stripeToken' => 'required',
 		// ]);
@@ -113,7 +118,8 @@ class ShoppingCartsController extends Controller
 		$cart->update([
 			'refund_id' => $refund->id,
 			'status'    => FALSE,
-			'note'      => $cart->note . '<br><br>Rejection Reason: <b style="color:red;">' . $request->input('refund_reason') . '</b>',
+			'note'      => $cart->note . '<br><br>Rejection Reason: <b style="color:red;">' .
+			               $request->input('refund_reason') . '</b>',
 		]);
 
 		$this->dispatch(new SendRefundEmail($cart));

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', $user->name . 'Profile - Javan Restaurant London')
 @section('content')
 	<main class="container main">
 		<article>

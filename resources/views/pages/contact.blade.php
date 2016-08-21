@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Contact US - Javan Restaurant London')
 @section('content')
 	<div class="header">
 		<div>

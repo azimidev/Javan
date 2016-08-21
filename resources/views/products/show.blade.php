@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', $products->title . ' - Javan Restaurant London')
 @section('content')
 	<main class="main container">
 		<article class="col-md-8">

@@ -11,6 +11,11 @@
 	<meta name="copyright" content="javan-restaurant.co.uk">
 	<meta name="author" content="Javan Restaurant"/>
 	<meta name="application-name" content="Javan"/>
+	<!--GEO Tags-->
+	<meta name="geo.region" content="GB-HMF"/>
+	<meta name="geo.placename" content="London"/>
+	<meta name="geo.position" content="51.5;-0.2"/>
+	<meta name="ICBM" content="51.5, -0.2"/>
 	<!--Facebook Tags-->
 	<meta property="og:url" content="{{ request()->fullUrl() }}"/>
 	<meta property="og:title" content="Javan Restaurant"/>

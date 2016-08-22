@@ -7,6 +7,7 @@
 			<div class="col-md-8">
 				<h1>Welcome to Javan Restaurant's Page</h1>
 				<h2>Reservation</h2>
+				@include('partials.yelp-reservation')
 				<p class="text-justify">
 					We value and love our customers and would like to welcome you and surprise you every time you visit us in your
 					restaurant. We have online table reservation available online or over the phone:

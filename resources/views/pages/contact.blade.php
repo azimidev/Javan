@@ -89,14 +89,24 @@
 					<strong>Javan Restaurant</strong> <br>
 					291-293 King Street <br>
 					Hammersmith <br>
-					London <br>
-					<abbr title="Phone">Phone:</abbr> 020 8563 8553
+					London
+				</address>
+
+				<address>
+					<strong>Phone</strong> <br>
+					<a href="tel:02085638553">020 8563 8553</a>
 				</address>
 
 				<address>
 					<strong>Email</strong> <br>
 					<a href="mailto:info@javan-restaurant.co.uk">info@javan-restaurant.co.uk</a>
 				</address>
+
+				<address>
+					<strong>Opening Hours</strong> <br>
+					Monday to Sunday 12:00 - 23:00
+				</address>
+
 			</section>
 		</aside>
 	</main>

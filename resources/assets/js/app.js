@@ -6,6 +6,11 @@
 	$.material.init();
 
 	/**
+	 * jQuery Cookie Bar initialization
+	 */
+	$.cookieBar();
+
+	/**
 	 * Carousel Auto Play
 	 */
 	$('.carousel').carousel({
@@ -158,10 +163,5 @@
 	});
 
 	checkReloading();
-
-	/**
-	 * jQuery Cookie Bar initialization
-	 */
-	$.cookieBar();
 
 })();

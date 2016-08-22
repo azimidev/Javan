@@ -37,7 +37,14 @@
 						Terms & Conditions
 					</a>
 				</p>
-
+				<h2>Opening Hours</h2>
+				<p class="text-justify">
+					We are open <b>everyday</b> from <b>12:00</b> ro <b>23:00</b>
+				</p>
+				<h2>Contact Number</h2>
+				<p class="text-justify">
+					020 8563 8553
+				</p>
 			</div>
 		</article>
 		<aside>

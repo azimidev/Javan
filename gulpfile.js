@@ -38,6 +38,7 @@ elixir(function(mix) {
 			'dropzone.js',
 			'jquery.pjax.js',
 			'lity.js',
+			'jquery.cookiebar.js',
 			'app.js'
 		])
 		.version([

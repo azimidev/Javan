@@ -159,4 +159,9 @@
 
 	checkReloading();
 
+	/**
+	 * jQuery Cookie Bar initialization
+	 */
+	$.cookieBar();
+
 })();

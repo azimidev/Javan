@@ -103,6 +103,25 @@
 
 					</fieldset>
 				</form>
+				<hr>
+				<div class="alert alert-inverse">
+					<p class="text-justify">
+						<i class="fa fa-info-circle fa-lg fa-fw"></i>
+						If you don't like to register simply use Yelp Reservation
+					</p>
+				</div>
+				<h2><i class="fa fa-yelp fa-fw"></i> Use Yelp Reservation</h2>
+				<iframe id="seatme-widget" frameborder="0" width="640" height="60"
+				        src="https://www.yelpreservations.com/api/v3/widget.htm?restaurant_id=40398b29-e813-43b8-8db7-b7dbce12b128&color=%23c41200&color-scheme=light&orientation=horizontal"></iframe>
+				<style type="text/css">
+					#seatme-link a:link { text-decoration : none; color : #b3b3b3 }
+					#seatme-link a:hover { text-decoration : none; color : #066382 }
+					#seatme-link a:visited { text-decoration : none; color : #066382 }
+				</style>
+				<div id="seatme-link">
+					<a style="font: normal 9px Helvetica Neue, Helvetica, sans-serif; margin-left:15px;"
+					   href="https://www.yelpreservations.com/">RESTAURANT RESERVATIONS BY YELP</a>
+				</div>
 			</div>
 		</article>
 		<aside>

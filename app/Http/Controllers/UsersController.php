@@ -65,9 +65,7 @@ class UsersController extends Controller
 			'password' => 'required|min:6',
 
 		]);
-
 		User::create($request->all());
-
 		flash()->success('Success', 'User was created');
 
 		return back();
@@ -95,7 +93,6 @@ class UsersController extends Controller
 		]);
 
 		$user->update($request->all());
-
 		flash()->success('Success', 'Member\'s profile was updated');
 
 		return back();
@@ -109,7 +106,6 @@ class UsersController extends Controller
 	public function destroy(User $user)
 	{
 		$user->delete();
-
 		flash()->success('Success', 'User was deleted');
 
 		return back();

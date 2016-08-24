@@ -80,6 +80,7 @@ class ShoppingCartsController extends Controller
 			return redirect('menu');
 		}
 		$charge       = $this->billing->charge([
+			'total' => Cart::total() * 100,
 			'email' => auth()->user()->email,
 			'token' => $request->input('stripe-token'),
 		]);
@@ -108,10 +109,7 @@ class ShoppingCartsController extends Controller
 	 */
 	public function update(Request $request, ShoppingCart $cart)
 	{
-		$refund = $this->billing->refund([
-			'charge' => $cart->charge_id,
-		]);
-
+		$refund = $this->billing->refund(['charge' => $cart->charge_id]);
 		$cart->update([
 			'refund_id' => $refund->id,
 			'status'    => FALSE,
@@ -120,7 +118,6 @@ class ShoppingCartsController extends Controller
 		]);
 
 		$this->dispatch(new SendRefundEmail($cart));
-
 		flash()->success('Success', 'Payment has been refunded successfully');
 
 		return back();
@@ -136,7 +133,6 @@ class ShoppingCartsController extends Controller
 	public function destroy(ShoppingCart $cart)
 	{
 		$cart->delete();
-
 		flash()->success('Success', 'Cart has been deleted successfully');
 
 		return back();

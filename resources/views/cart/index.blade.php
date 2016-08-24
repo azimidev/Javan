@@ -95,12 +95,14 @@
 										<h2 class="modal-title" id="refundModalLabel">Reason To Refund</h2>
 									</div>
 									<div class="modal-body">
-										<form class="form" action="{{ route('cart.update', $cart) }}" method="POST">
+										<form class="form" action="{{ route('cart.update', $cart) }}" method="POST" data-remote>
 											{{ csrf_field() }}
 											{{ method_field('PATCH') }}
 											<textarea name='refund_reason' class='form-control'
 											          placeholder='Reason to Reject'></textarea>
-											<button type='submit' name="submit" class='btn btn-danger btn-raised' title='Refund'>Refund
+											<button type='submit' name="submit" class='btn btn-danger btn-raised' title='Refund'
+											        data-loading-text="One Moment... <i class='fa fa-spinner fa-pulse'></i>">
+												Refund
 											</button>
 										</form>
 									</div>

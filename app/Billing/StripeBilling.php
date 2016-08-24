@@ -26,7 +26,7 @@ class StripeBilling implements BillingInterface
 	{
 		try {
 			return Charge::create([
-				'amount'      => Cart::total() * 100,
+				'amount'      => $data['total'],
 				'currency'    => 'gbp',
 				'card'        => $data['token'],
 				'description' => $data['email'],

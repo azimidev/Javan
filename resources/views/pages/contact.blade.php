@@ -13,8 +13,7 @@
 		<article>
 			<section class="col-md-offset-1 col-md-7">
 
-				<form class="contactus form-horizontal" action="{{ route('send.email') }}" method="POST" role="form"
-				      data-remote>
+				<form class="contactus form-horizontal" action="{{ route('send.email') }}" method="POST" role="form" data-remote>
 					{{ csrf_field() }}
 					<fieldset>
 						<legend>Please <span class="text-primary">don't</span> use this form for reservations or delivery</legend>

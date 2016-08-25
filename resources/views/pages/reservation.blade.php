@@ -58,7 +58,7 @@
 							@if ($errors->has('email'))
 								<span class="help-block text-danger"><strong>{{ $errors->first('email') }}</strong></span>
 							@else
-								<span class="help-block text-primary">Your full email here</span>
+								<span class="help-block text-primary">Your email here</span>
 							@endif
 						</div>
 					</div>

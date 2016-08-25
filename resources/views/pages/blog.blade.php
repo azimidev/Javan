@@ -19,7 +19,7 @@
 			<article>
 				<div class="col-md-8 col-xs-12">
 					@if ($post)
-						@section('title', $post->subject)
+					@section('title') {{ $post->subject }} @stop
 					@include('partials.post-show', ['post' => $post])
 					@include('partials.disqus')
 					@else

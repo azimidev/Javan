@@ -24,9 +24,9 @@
 						If you don't like to register simply use Yelp Reservation
 					</p>
 				</div>
-				<hr>
 				<h2><i class="fa fa-yelp fa-fw"></i> Use Yelp Reservation</h2>
 				@include('partials.yelp-reservation')
+				<hr>
 				<form class="form-horizontal" action="{{ route('store.reservation') }}" method="POST" role="form">
 					<fieldset>
 						<legend>Please complete the form below</legend>

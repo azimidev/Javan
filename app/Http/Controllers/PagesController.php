@@ -73,7 +73,7 @@ class PagesController extends Controller
 	{
 		$posts = Post::visible()->with('user', 'photos')->orderBy('created_at', 'DESC')->paginate(20);
 
-		$post = $slug ? Post::slug($slug)->orderBy('created_at', 'DESC') : NULL;
+		$post = $slug ? Post::slug($slug) : NULL;
 
 		return view('pages.blog', compact('posts', 'post'));
 	}

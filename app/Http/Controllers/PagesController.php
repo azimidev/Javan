@@ -12,6 +12,7 @@ use Javan\Post;
 use Javan\Product;
 use Javan\Reservation;
 use Javan\User;
+use Mockery\CountValidator\Exception;
 
 class PagesController extends Controller
 {

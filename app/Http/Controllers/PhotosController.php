@@ -21,6 +21,7 @@ class PhotosController extends Controller
 	/**
 	 * @param $slug
 	 * @param \Javan\Http\Requests\PhotoRequest $request
+	 * @throws \Illuminate\Database\Eloquent\MassAssignmentException
 	 */
 	public function store($slug, PhotoRequest $request)
 	{
@@ -34,6 +35,7 @@ class PhotosController extends Controller
 	/**
 	 * @param \Javan\Photo $photo
 	 * @return \Illuminate\Http\RedirectResponse
+	 * @throws \Exception
 	 */
 	public function destroy(Photo $photo)
 	{

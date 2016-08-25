@@ -1,7 +1,5 @@
 <?php
 
-use Carbon\Carbon;
-
 function flash($title = NULL, $message = NULL)
 {
 	$flash = app('Javan\Http\Flash');
@@ -38,12 +36,12 @@ function select_times_of_day()
 
 function expired($date)
 {
-	return $date->lt(Carbon::today());
+	return $date->lt(Carbon\Carbon::today());
 }
 
 function today($date)
 {
-	return $date->eq(Carbon::today());
+	return $date->eq(Carbon\Carbon::today());
 }
 
 function javan_is_open()

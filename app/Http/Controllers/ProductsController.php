@@ -61,7 +61,6 @@ class ProductsController extends Controller
 		]);
 
 		$product = Product::create($request->all());
-
 		flash()->success('Success', 'Product has been added to the menu');
 
 		return redirect()->route('products.show', $product->id);
@@ -105,7 +104,6 @@ class ProductsController extends Controller
 		]);
 
 		$products->update($request->all());
-
 		flash()->success('Success', 'Menu has been updated');
 
 		return redirect()->route('products.show', $products->id);
@@ -121,7 +119,6 @@ class ProductsController extends Controller
 	public function destroy(Product $products)
 	{
 		$products->delete();
-
 		flash()->success('Success', 'Product has been removed');
 
 		return back();
@@ -153,9 +150,7 @@ class ProductsController extends Controller
 	public function deletePhoto(Product $product)
 	{
 		File::delete([$product->image_path]);
-
 		$product->update(['image_path' => NULL]);
-
 		flash()->success('Success', 'Image has been deleted');
 
 		return back();

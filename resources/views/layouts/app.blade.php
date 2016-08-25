@@ -7,10 +7,10 @@
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 	<meta name="description" content="Top Quality Persian Cuisine in London"/>
-	<meta name="keywords" content="Persian, Restaurant, London, Iranian, Cuisine"/>
+	<meta name="keywords" content="Persian, Restaurant, London, Chelo, Kabab, Iranian, Cuisine, Take-Aways, Naan, Delivery, Hammersmith, Chiswick"/>
 	<meta name="copyright" content="javan-restaurant.co.uk">
-	<meta name="author" content="Javan Restaurant"/>
-	<meta name="application-name" content="Javan"/>
+	<meta name="author" content="Javan Restaurant London"/>
+	<meta name="application-name" content="Javan Restaurant London"/>
 	<!--GEO Tags-->
 	<meta name="geo.region" content="GB-HMF"/>
 	<meta name="geo.placename" content="London"/>

@@ -2,7 +2,6 @@
 
 namespace Javan\Billing;
 
-use Cart;
 use Exception;
 use Stripe\Charge;
 use Stripe\Refund;
@@ -43,9 +42,7 @@ class StripeBilling implements BillingInterface
 	public function refund(array $data)
 	{
 		try {
-			return Refund::create([
-				'charge' => $data['charge'],
-			]);
+			return Refund::create(['charge' => $data['charge']]);
 		} catch (Exception $e) {
 			return flash()->error('Error!', $e->getMessage());
 		}

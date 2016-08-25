@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@section('title', 'Blog - Javan Restaurant London')
 @section('content')
 	<div class="header header-filter"
 	     style="background-image: url('/images/carousel/chelo-chenjeh.jpg'); background-size: cover; height : 300px;">
@@ -19,9 +18,9 @@
 			<article>
 				<div class="col-md-8 col-xs-12">
 					@if ($post)
-					@section('title') {{ $post->subject }} @stop
-					@include('partials.post-show', ['post' => $post])
-					@include('partials.disqus')
+						@section('title') {{ $post->subject }} @stop
+						@include('partials.post-show', ['post' => $post])
+						@include('partials.disqus')
 					@else
 						@include('partials.post-show', ['post' => $posts->first()])
 					@endif

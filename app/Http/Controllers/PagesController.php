@@ -117,10 +117,16 @@ class PagesController extends Controller
 			'email'    => 'required|email|max:255|unique:users',
 			'phone'    => 'required|numeric',
 			'password' => 'required|min:6|confirmed',
-			'date'     => 'required',
+			'date'     => 'required|date',
 			'time'     => 'required',
-			'seats'    => 'required|max:50',
+			'seats'    => 'required|max:25',
 		]);
+
+		if (strtotime($request->input('date') . ' ' . $request->input('time')) < time()) {
+			flash()->error('Error!', 'You cannot book the past. Try to change the date and time');
+
+			return back()->withInput();
+		}
 
 		$user = User::create([
 			'name'     => $request->input('name'),

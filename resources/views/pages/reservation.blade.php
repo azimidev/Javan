@@ -8,7 +8,7 @@
 				<div class="col-sm-8 col-sm-offset-2">
 					<div class="brand">
 						<h1>Guest Reservation</h1>
-						<h3>Book a table as a guest and become a member</h3>
+						<h3>Book a table as a guest</h3>
 					</div>
 				</div>
 			</div>
@@ -45,7 +45,7 @@
 							@if ($errors->has('name'))
 								<span class="help-block text-danger"><strong>{{ $errors->first('name') }}</strong></span>
 							@else
-								<span class="help-block text-info">Your full name here</span>
+								<span class="help-block text-primary">Your full name here</span>
 							@endif
 						</div>
 					</div>
@@ -58,7 +58,7 @@
 							@if ($errors->has('email'))
 								<span class="help-block text-danger"><strong>{{ $errors->first('email') }}</strong></span>
 							@else
-								<span class="help-block text-info">Your full email here</span>
+								<span class="help-block text-primary">Your full email here</span>
 							@endif
 						</div>
 					</div>
@@ -71,7 +71,7 @@
 							@if ($errors->has('phone'))
 								<span class="help-block text-danger"><strong>{{ $errors->first('phone') }}</strong></span>
 							@else
-								<span class="help-block text-info">Your phone here in case we want to contact you</span>
+								<span class="help-block text-primary">Your phone here in case we want to contact you</span>
 							@endif
 						</div>
 					</div>
@@ -85,7 +85,7 @@
 							@if ($errors->has('password'))
 								<span class="help-block text-danger"><strong>{{ $errors->first('password') }}</strong></span>
 							@else
-								<span class="help-block text-info">Your password here</span>
+								<span class="help-block text-primary">Your password here</span>
 							@endif
 						</div>
 					</div>
@@ -101,7 +101,7 @@
 										class="help-block text-danger"><strong>{{ $errors->first('password_confirmation') }}</strong>
 									</span>
 							@else
-								<span class="help-block text-info">Your password here again</span>
+								<span class="help-block text-primary">Your password here again</span>
 							@endif
 						</div>
 					</div>

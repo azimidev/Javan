@@ -18,6 +18,15 @@
 	<main class="main main-raised container">
 		<article>
 			<div class="col-sm-8">
+				<div class="alert alert-inverse">
+					<p class="text-justify">
+						<i class="fa fa-info-circle fa-lg fa-fw"></i>
+						If you don't like to register simply use Yelp Reservation
+					</p>
+				</div>
+				<hr>
+				<h2><i class="fa fa-yelp fa-fw"></i> Use Yelp Reservation</h2>
+				@include('partials.yelp-reservation')
 				<form class="form-horizontal" action="{{ route('store.reservation') }}" method="POST" role="form">
 					<fieldset>
 						<legend>Please complete the form below</legend>
@@ -103,15 +112,6 @@
 
 					</fieldset>
 				</form>
-				<hr>
-				<div class="alert alert-inverse">
-					<p class="text-justify">
-						<i class="fa fa-info-circle fa-lg fa-fw"></i>
-						If you don't like to register simply use Yelp Reservation
-					</p>
-				</div>
-				<h2><i class="fa fa-yelp fa-fw"></i> Use Yelp Reservation</h2>
-				@include('partials.yelp-reservation')
 			</div>
 		</article>
 		<aside>

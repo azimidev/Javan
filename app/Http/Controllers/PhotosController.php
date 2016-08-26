@@ -26,7 +26,6 @@ class PhotosController extends Controller
 	public function store($slug, PhotoRequest $request)
 	{
 		$post = Post::slug($slug);
-
 		$photo = Photo::fromFile($request->file('photo'))->upload();
 
 		return $post->photos()->save($photo);
@@ -40,18 +39,14 @@ class PhotosController extends Controller
 	public function destroy(Photo $photo)
 	{
 		if ( ! auth()->user()->owns($photo->post)) {
-
 			if (request()->ajax()) {
 				return response(['message' => 'Unauthorized Action!'], 403);
 			}
-
 			flash()->error('Unauthorized Action!', 'You are not authorized to do this action');
 
 			return back();
 		}
-
 		$photo->delete();
-
 		flash()->success('Success', 'Your photo was deleted');
 
 		return back();

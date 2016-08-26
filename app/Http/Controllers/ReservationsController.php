@@ -65,7 +65,7 @@ class ReservationsController extends Controller
 		]);
 
 		if (strtotime($request->input('date') . ' ' . $request->input('time')) < time()) {
-			flash()->error('Error!', 'You cannot book the past');
+			flash()->error('Error!', 'You cannot book the past.');
 
 			return back()->withInput();
 		}
@@ -138,7 +138,6 @@ class ReservationsController extends Controller
 	public function destroy(Reservation $reservations)
 	{
 		$reservations->delete();
-
 		flash()->success('Success', 'Reservation was canceled and deleted');
 
 		return back();

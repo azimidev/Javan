@@ -15,7 +15,6 @@ class SessionsController extends Controller
 	public function __construct()
 	{
 		$this->middleware(['auth']);
-
 		$this->user = auth()->user();
 	}
 
@@ -97,7 +96,7 @@ class SessionsController extends Controller
 		if ($sortBy && $direction) {
 			$carts = $this->user->shoppingCarts()->orderBy($params['sortBy'], $params['direction'])->paginate(50);
 		} else {
-			$carts = $this->user->shoppingCarts()->orderBy('created_at', 'DESC')->paginate(50);
+			$carts = $this->user->shoppingCarts()->latest()->paginate(50);
 		}
 
 		$carts->transform(function($cart) {

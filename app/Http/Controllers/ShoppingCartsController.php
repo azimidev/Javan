@@ -40,7 +40,7 @@ class ShoppingCartsController extends Controller
 		if ($sortBy && $direction) {
 			$carts = ShoppingCart::with('user')->orderBy($params['sortBy'], $params['direction'])->paginate(50);
 		} else {
-			$carts = ShoppingCart::with('user')->orderBy('created_at', 'DESC')->paginate(50);
+			$carts = ShoppingCart::with('user')->latest()->paginate(50);
 		}
 
 		$carts->transform(function($cart) {
@@ -67,7 +67,7 @@ class ShoppingCartsController extends Controller
 	}
 
 	/**
-	 * Store a newly created resource in storage.
+	 * Charge and store a newly created resource in storage.
 	 *
 	 * @param  \Illuminate\Http\Request $request
 	 * @return \Illuminate\Http\Response
@@ -101,7 +101,7 @@ class ShoppingCartsController extends Controller
 	}
 
 	/**
-	 * Update the specified resource in storage.
+	 * Refund the specified resource in storage.
 	 *
 	 * @param \Illuminate\Http\Request $request
 	 * @param \Javan\ShoppingCart $cart

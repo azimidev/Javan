@@ -36,7 +36,7 @@
 	<label for="address" class="control-label col-sm-2">Address</label>
 	<div class="col-sm-5">
 		<input type="text" class="form-control" name="address" id="address" placeholder="Address"
-		       value="{{ $user->address }}" pattern="[\w\s\-]+" required>
+		       value="{{ $user->address }}" pattern="[\w\s\-,]+" required>
 		<span class="help-block text-primary">First line of your address</span>
 	</div>
 </div>
@@ -65,7 +65,7 @@
 	<div class="col-sm-5">
 		<input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone"
 		       value="{{ $user->phone }}" required
-		       pattern="^(?:(?:\(?(?:0(?:0|11)\)?[\s-]?\(?|\+)44\)?[\s-]?(?:\(?0\)?[\s-]?)?)|(?:\(?0))(?:(?:\d{5}\)?[\s-]?\d{4,5})|(?:\d{4}\)?[\s-]?(?:\d{5}|\d{3}[\s-]?\d{3}))|(?:\d{3}\)?[\s-]?\d{3}[\s-]?\d{3,4})|(?:\d{2}\)?[\s-]?\d{4}[\s-]?\d{4}))(?:[\s-]?(?:x|ext\.?|\#)\d{3,4})?$">
+		       pattern="^(?:(?:\(?(?:0(?:0|11)\)?[\s-]?\(?|\+)44\)?[\s-]?(?:\(?0\)?[\s-]?)?)|(?:\(?0))(?:(?:\d{5}\)?[\s-]?\d{4,5})|(?:\d{4}\)?[\s-]?(?:\d{5}|\d{3}[\s-]?\d{3}))|(?:\d{3}\)?[\s-]?\d{3}[\s-]?\d{3,4})|(?:\d{2}\)?[\s-]?\d{4}[\s-]?\d{4}))(?:[\s-]?(?:x|ext\.?|#)\d{3,4})?$">
 		<span class="help-block text-primary">Your phone or mobile number</span>
 	</div>
 </div>

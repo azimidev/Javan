@@ -2,9 +2,7 @@
 
 namespace Javan\Http\Controllers;
 
-use Javan\Http\Requests\PhotoRequest;
 use Javan\Http\Requests\PostRequest;
-use Javan\Photo;
 use Javan\Post;
 
 class PostsController extends Controller
@@ -25,7 +23,7 @@ class PostsController extends Controller
 	 */
 	public function index()
 	{
-		$posts = Post::with('user', 'photos')->paginate(50);
+		$posts = Post::with('user', 'photos')->latest()->paginate(50);
 
 		return view('posts.index', compact('posts'));
 	}
@@ -67,9 +65,7 @@ class PostsController extends Controller
 		// 	$post->slug = str_slug($request->subject) . '-' . $index++;
 		// }
 
-		$latestSlug = Post::whereRaw("slug RLIKE '^{$post->slug}(-[0-9]*)?$'")
-		                  ->orderBy('id')
-		                  ->pluck('slug');
+		$latestSlug = Post::whereRaw("slug RLIKE '^{$post->slug}(-[0-9]*)?$'")->orderBy('id')->pluck('slug');
 
 		if ( ! $latestSlug->isEmpty()) {
 			$pieces = explode('-', $latestSlug);

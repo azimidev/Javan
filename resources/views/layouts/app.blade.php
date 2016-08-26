@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-	<meta name="description" content="Top Quality Persian Cuisine Restaurant in London"/>
+	<meta name="description" content="Authentic Persian Cuisine Licenced Restaurant in West London, Hammersmith, Chiswick With Live Music on Weekends and Great Traditional Interior Design and Shisha"/>
 	<meta name="keywords" content="Persian, Restaurant, London, Chelo, Kabab, Iranian, Cuisine, Take-Aways, Naan, Delivery, Hammersmith, Chiswick"/>
 	<meta name="copyright" content="javan-restaurant.co.uk">
 	<meta name="author" content="Javan Restaurant London"/>
@@ -23,11 +23,11 @@
 	<meta property="og:image" content="{{ request()->root() }}/images/Javan-Facebook-Logo.png"/>
 	<meta property="article:author" content="https://www.facebook.com/JavanLondonLtd"/>
 	<meta property="og:locale" content="en_UK"/>
-	<meta property="og:description" content="Top Quality Persian Cuisine in London"/>
+	<meta property="og:description" content="Authentic Persian Cuisine Licenced Restaurant in West London, Hammersmith, Chiswick With Live Music on Weekends and Great Traditional Interior Design and Shisha"/>
 	<!--Twitter Tags-->
 	<meta name="twitter:card" content="summary"/>
 	<meta name="twitter:title" content="Javan Restaurant"/>
-	<meta name="twitter:description" content="Top Quality Persian Cuisine Restaurant in London"/>
+	<meta name="twitter:description" content="Authentic Persian Cuisine Licenced Restaurant in West London, Hammersmith, Chiswick With Live Music on Weekends and Great Traditional Interior Design and Shisha"/>
 	<meta name="twitter:image" content="{{ request()->root() }}/images/Javan-Twitter-Logo.png"/>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="{{ elixir('css/app.css') }}" rel="stylesheet">

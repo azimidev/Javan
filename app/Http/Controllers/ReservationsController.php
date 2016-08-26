@@ -34,7 +34,7 @@ class ReservationsController extends Controller
 		if ($sortBy && $direction) {
 			$reservations = Reservation::with('user')->orderBy($params['sortBy'], $params['direction'])->paginate(50);
 		} else {
-			$reservations = Reservation::with('user')->paginate(50);
+			$reservations = Reservation::with('user')->latest()->paginate(50);
 		}
 
 		return view('reservations.index', compact('reservations'));

@@ -1,16 +1,4 @@
-<a class="twitter-timeline" href="https://twitter.com/JavanLondon" data-widget-id="758464024233246721"
-   data-link-color="#9C27B0" data-chrome="nofooter noheader noscrollbar transparent" data-related="twitterapi,twitter"
-   data-aria-polite="assertive" data-width="100%" lang="EN">
-</a>
-
-<script>
-	!function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-		if (!d.getElementById(id)) {
-			js     = d.createElement(s);
-			js.id  = id;
-			js.src = p + "://platform.twitter.com/widgets.js";
-			fjs.parentNode.insertBefore(js, fjs);
-		}
-	}(document, "script", "twitter-wjs");
-</script>
+<a class="twitter-timeline" href="https://twitter.com/JavanLondon" data-link-color="#9C27B0"
+   data-chrome="nofooter noheader noscrollbar transparent" data-related="twitterapi,twitter"
+   data-aria-polite="assertive" data-width="100%" lang="EN">Tweets by JavanLondon</a>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

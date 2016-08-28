@@ -36,7 +36,7 @@
 					<li class="{{ active('register') }}"><a href="{{ url('/register') }}">Register</a></li>
 				@else
 					@if (Cart::count())
-					<li class="{{ active('cart/create') }}"><a href="{{ route('cart.create') }}">
+					<li class="{{ active('cart/create') }} btn-default"><a href="{{ route('cart.create') }}">
 							<i class="fa fa-shopping-cart"></i> Cart
 							<span class="badge">{{ Cart::count() }}</span>
 						</a>

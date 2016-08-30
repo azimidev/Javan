@@ -5,7 +5,9 @@
 		@include('partials.carousel')
 		<article>
 			<div class="col-md-8">
-				<h1>Welcome to Javan Restaurant's Page</h1>
+				<a href="{{ url('menu') }}" class="btn btn-success btn-raised btn-round btn-lg btn-block">
+					Order Food Online
+				</a>
 				<h2>Reservation</h2>
 				@include('partials.yelp-reservation')
 				<p class="text-justify">

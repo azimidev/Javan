@@ -96,11 +96,11 @@ aside {
 
 .dropzone { border : dashed 2px $primary; background-color : $beige; }
 
-.carousel-caption > * { color : white; font-weight : lighter; font-family : $openSans; }
+.carousel-caption > * { color : white; font-weight : lighter; font-family : $lato; }
 
 .carousel-caption {
 	text-align                 : left;
-	background-color           : rgba(0, 0, 0, 0.3);
+	background-color           : rgba(0, 0, 0, 0.4);
 	padding-left               : 2%;
 	right                      : 60%;
 	left                       : 0;

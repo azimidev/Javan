@@ -30,7 +30,7 @@
 				<div class="item">
 					<img src="/images/carousel/baghalipolo.jpg" alt="Baghali Polo Ba Mahicheh">
 					<div class="carousel-caption">
-						<h3>Try the Real Persian Taste</h3>
+						<h3>Try the Real Persian Cuisine</h3>
 					</div>
 				</div>
 				<div class="item">
@@ -42,13 +42,13 @@
 				<div class="item">
 					<img src="/images/carousel/joojeh-kabab.jpg" alt="Joojeh Kabab">
 					<div class="carousel-caption">
-						<h3>Try us and see what's everyone is talking about</h3>
+						<h3>Try us and see what everyone is talking about</h3>
 					</div>
 				</div>
 				<div class="item">
 					<img src="/images/carousel/zereshk-polo-ba-morgh-1.jpg" alt="Zereshk Polo Ba Morgh">
 					<div class="carousel-caption">
-						<h3>Fresh hot baked Naan bread</h3>
+						<h3>Fresh hot baked home made Naan bread</h3>
 					</div>
 				</div>
 				<div class="item">

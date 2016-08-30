@@ -28,7 +28,9 @@ $factory->define(Javan\User::class, function(Faker\Generator $faker) {
 
 $factory->define(Javan\Reservation::class, function(Faker\Generator $faker) {
 	return [
-		'user_id' => factory(Javan\User::class)->create()->id,
+		'user_id' => function() {
+			return factory(Javan\User::class)->create()->id;
+		},
 		'start'   => $faker->dateTime,
 		'end'     => $faker->dateTime,
 		'seats'   => $faker->numberBetween(1, 4),
@@ -38,7 +40,9 @@ $factory->define(Javan\Reservation::class, function(Faker\Generator $faker) {
 
 $factory->define(Javan\Post::class, function(Faker\Generator $faker) {
 	return [
-		'user_id' => factory(Javan\User::class)->create()->id,
+		'user_id' => function() {
+			return factory(Javan\User::class)->create()->id;
+		},
 		'slug'    => str_slug($faker->sentence),
 		'subject' => $faker->sentence,
 		'body'    => $faker->paragraph(1, TRUE),

@@ -44,7 +44,8 @@
 			</ul>
 		</nav>
 		<nav class="copyright navbar-right">
-			&copy; {{ date('Y') }} Javan Restaurant
+			&copy; {{ date('Y') }} Javan Restaurant <br>
+			Designed and Created by Hassan Azimi
 			<div>
 				<a href="https://www.facebook.com/JavanLondonLtd" class="btn-link" target="_blank" title="Facebook">
 					<i class="fa fa-facebook-square fa-fw fa-3x"></i>

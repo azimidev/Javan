@@ -131,7 +131,7 @@
 					<dd>50</dd>
 					<dt>Earliest Start Time:</dt>
 					<dd>3 PM</dd>
-					<dt>Latest Start Time:</dt>
+					<dt>Latest End Time:</dt>
 					<dd>10:30 PM</dd>
 					<dt>What's Included:</dt>
 					<dd>1 Mixed Grilled for 4 Person</dd>

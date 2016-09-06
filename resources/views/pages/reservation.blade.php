@@ -113,7 +113,7 @@
 		</article>
 		<aside>
 			<div class="col-sm-4">
-				<img src="/images/ad/Javan-Ad.png" alt="Javan Restaurant Ad" width="100%">
+				<img src="/images/ad/Javan_in_and_out.png" alt="Javan Restaurant Interior and Exterior" width="100%">
 				<h2><i class="fa fa-info fa-fw"></i> Private Dining and Parties</h2>
 				<p class="text-justify">
 					We have a space for about 60 people downstairs which is ideal for your celebrations and private parties.

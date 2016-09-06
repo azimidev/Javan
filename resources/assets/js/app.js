@@ -31,8 +31,6 @@
 
 	$('#date').datepicker({
 		format    : 'yyyy-mm-dd',
-		startDate : new Date(),
-		minDate   : new Date(),
 		onRender  : function(date) {
 			return date.valueOf() < now.valueOf() ? 'disabled' : '';
 		}

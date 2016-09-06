@@ -43,6 +43,7 @@ class Kernel extends HttpKernel
 	protected $routeMiddleware = [
 		'must.own.post' => \Javan\Http\Middleware\MustOwnPost::class,
 		'auth'          => \Javan\Http\Middleware\Authenticate::class,
+		'active'        => \Javan\Http\Middleware\MustBeActive::class,
 		'admin'         => \Javan\Http\Middleware\MustBeAdmin::class,
 		'manager'       => \Javan\Http\Middleware\MustBeManager::class,
 		'admin.manager' => \Javan\Http\Middleware\MustBeAdminOrManager::class,

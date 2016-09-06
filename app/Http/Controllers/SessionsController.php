@@ -14,7 +14,7 @@ class SessionsController extends Controller
 	 */
 	public function __construct()
 	{
-		$this->middleware(['auth']);
+		$this->middleware(['auth', 'active']);
 		$this->user = auth()->user();
 	}
 

@@ -108,15 +108,6 @@ class User extends Authenticatable
 	}
 
 	/**
-	 * @param $query
-	 * @return mixed
-	 */
-	public function scopeisActive($query)
-	{
-		return $query->where('active', TRUE);
-	}
-
-	/**
 	 * This is how to use:
 	 * $user->hasRole('manager');
 	 *

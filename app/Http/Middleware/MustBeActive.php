@@ -4,7 +4,7 @@ namespace Javan\Http\Middleware;
 
 use Closure;
 
-class MustOwnPost
+class MustBeActive
 {
 	/**
 	 * Handle an incoming request.
@@ -12,17 +12,16 @@ class MustOwnPost
 	 * @param  \Illuminate\Http\Request $request
 	 * @param  \Closure $next
 	 * @return mixed
-	 * @throws \Illuminate\Auth\Access\AuthorizationException
 	 */
 	public function handle($request, Closure $next)
 	{
-		if ( ! $request->user()->owns($request->post)) {
-
+		if ( ! $request->user()->active) {
 			if ($request->ajax() || $request->wantsJson()) {
-				return response('Unauthorized Action!', 403);
+				return response('Profile Deactivated!', 403);
 			}
 
-			flash()->error('Unauthorized Action!', 'You are not authorized to do this action');
+			auth()->logout();
+			flash()->overlay('Profile Deactivated!', 'You profile have been deactivated by admins for some reason!', 'error');
 
 			return back();
 		}

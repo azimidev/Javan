@@ -29,7 +29,7 @@
 	var nowTemp = new Date();
 	var now     = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 
-	$('#date').datepicker({
+	$('#date, .datepicker').datepicker({
 		format    : 'yyyy-mm-dd',
 		onRender  : function(date) {
 			return date.valueOf() < now.valueOf() ? 'disabled' : '';

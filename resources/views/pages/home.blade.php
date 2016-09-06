@@ -14,7 +14,8 @@
 					We value and love our customers and would like to welcome you and surprise you every time you visit us in your
 					restaurant. We have online table reservation available online or over the phone:
 					<a href="tel:02085638553" class="btn-link" target="_blank">02085638553</a> <br>
-					<a href="{{ auth()->check() ? route('member.bookings') : route('create.reservation') }}" class="btn btn-info btn-raised">
+					<a href="{{ auth()->check() ? route('member.bookings') : route('create.reservation') }}"
+					   class="btn btn-info btn-raised">
 						Reserve Table Online
 					</a>
 				</p>

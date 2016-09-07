@@ -11,13 +11,6 @@
 	$.cookieBar();
 
 	/**
-	 * Carousel Auto Play
-	 */
-	$('.carousel').carousel({
-		interval : 4000
-	});
-
-	/**
 	 * Add bg class for login and register page
 	 */
 	$('.login, .register').parent().addClass('bg');

@@ -45,5 +45,6 @@
 @yield('scripts')
 @include('partials.flash')
 @include('partials.addthis')
+@include('partials.google-analytics')
 </body>
 </html>

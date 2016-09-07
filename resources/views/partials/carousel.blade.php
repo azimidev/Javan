@@ -16,7 +16,7 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
 				<div class="item active">
-					<img src="/images/carousel/Joojeh.jpg" alt="Joojeh">
+					<img src="/images/carousel/1.jpg" alt="Javan Restaurant Exterior">
 					<div class="carousel-caption">
 						<h2>Javan Restaurant</h2>
 						<h4>
@@ -28,13 +28,13 @@
 					</div>
 				</div>
 				<div class="item">
-					<img src="/images/carousel/baghalipolo.jpg" alt="Baghali Polo Ba Mahicheh">
+					<img src="/images/carousel/2.jpg" alt="Javan Restaurant Live Music">
 					<div class="carousel-caption">
 						<h3>Try the Real Persian Cuisine</h3>
 					</div>
 				</div>
 				<div class="item">
-					<img src="/images/carousel/chelo-chenjeh.jpg" alt="Chelo Chenjeh">
+					<img src="/images/carousel/3.jpg" alt="Javan Restaurant Private Party">
 					<div class="carousel-caption">
 						<h3>Top Quality Persian Cuisine</h3>
 					</div>

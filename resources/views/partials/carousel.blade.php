@@ -30,31 +30,31 @@
 				<div class="item">
 					<img src="/images/carousel/2.jpg" alt="Javan Restaurant Live Music">
 					<div class="carousel-caption">
-						<h3>Try the Real Persian Cuisine</h3>
+						<h3>We Only Use Finest Baby Lamb Fillets</h3>
 					</div>
 				</div>
 				<div class="item">
-					<img src="/images/carousel/3.jpg" alt="Javan Restaurant Private Party">
+					<img src="/images/carousel/3.jpg" alt="Javan Restaurant Interior Ground Floor">
+					<div class="carousel-caption">
+						<h3>Traditional Interior Design <br> Shisha Place and Outside Sitting</h3>
+					</div>
+				</div>
+				<div class="item">
+					<img src="/images/carousel/4.jpg" alt="Joojeh Kabab">
+					<div class="carousel-caption">
+						<h3>Plenty Space for Private Parties</h3>
+					</div>
+				</div>
+				<div class="item">
+					<img src="/images/carousel/5.jpg" alt="Zereshk Polo Ba Morgh">
 					<div class="carousel-caption">
 						<h3>Top Quality Persian Cuisine</h3>
 					</div>
 				</div>
 				<div class="item">
-					<img src="/images/carousel/joojeh-kabab.jpg" alt="Joojeh Kabab">
+					<img src="/images/carousel/6.jpg" alt="Zereshk Polo Ba Morgh">
 					<div class="carousel-caption">
-						<h3>Try us and see what everyone is talking about</h3>
-					</div>
-				</div>
-				<div class="item">
-					<img src="/images/carousel/zereshk-polo-ba-morgh-1.jpg" alt="Zereshk Polo Ba Morgh">
-					<div class="carousel-caption">
-						<h3>Fresh hot baked home made Naan bread</h3>
-					</div>
-				</div>
-				<div class="item">
-					<img src="/images/carousel/zereshk-polo-ba-morgh-2.jpg" alt="Zereshk Polo Ba Morgh">
-					<div class="carousel-caption">
-						<h3>We only use finest baby lamb fillets</h3>
+						<h3>Live Music Firdays and or Saturdays</h3>
 					</div>
 				</div>
 			</div>

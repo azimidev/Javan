@@ -218,6 +218,7 @@
 				@include('partials.cart')
 				<div class="brand menu">
 					<div class="clearfix"></div>
+					<img src="/images/restaurant/shisha.png" alt="Javan Restaurant Hammersmith Shisha Place" width="100%">
 					<p class="lead pull-right">We Serve Shisha</p>
 				</div>
 			</aside>

@@ -54,7 +54,7 @@
 				<div class="item">
 					<img src="/images/carousel/6.jpg" alt="Zereshk Polo Ba Morgh">
 					<div class="carousel-caption">
-						<h3>Live Music Firdays and or Saturdays</h3>
+						<h3>We Love Our Customers</h3>
 					</div>
 				</div>
 			</div>

@@ -2,7 +2,7 @@
 @section('title', ($post ? $post->subject : 'Blog') . ' - Javan Restaurant London')
 @section('content')
 	<div class="header header-filter"
-	     style="background-image: url('/images/carousel/chelo-chenjeh.jpg'); background-size: cover; height : 300px;">
+	     style="background-image: url('/images/background/background-3.jpg'); background-size: cover; height : 300px;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">

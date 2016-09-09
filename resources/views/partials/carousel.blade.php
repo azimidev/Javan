@@ -42,7 +42,7 @@
 				<div class="item">
 					<img src="/images/carousel/4.jpg" alt="Joojeh Kabab">
 					<div class="carousel-caption">
-						<h3>Plenty Space for Private Parties</h3>
+						<h3>We Love Our Customers</h3>
 					</div>
 				</div>
 				<div class="item">
@@ -54,7 +54,7 @@
 				<div class="item">
 					<img src="/images/carousel/6.jpg" alt="Zereshk Polo Ba Morgh">
 					<div class="carousel-caption">
-						<h3>We Love Our Customers</h3>
+						<h3>Plenty Space for Private Parties</h3>
 					</div>
 				</div>
 			</div>

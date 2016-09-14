@@ -2,7 +2,7 @@
 @section('title', 'About Us - Javan Restaurant London')
 @section('content')
 	<div class="header header-filter"
-	     style="background-image: url('/images/carousel/baghalipolo.jpg'); background-size: cover; height : 350px;">
+	     style="background-image: url('/images/background/background-2.jpg'); background-size: cover; height : 350px;">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-8 col-sm-offset-2">

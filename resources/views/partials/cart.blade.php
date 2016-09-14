@@ -38,7 +38,7 @@
 			<tfoot>
 				<tr>
 					<td>&nbsp;</td>
-					<td class="text-right">Tax :</td>
+					<td class="text-right">VAT :</td>
 					<td>£{{ Cart::tax() }}</td>
 					<td>&nbsp;</td>
 				</tr>

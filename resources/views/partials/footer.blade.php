@@ -73,6 +73,8 @@
 					</span>
 				</a>
 			</div>
+			@include('partials.news')
 		</nav>
 	</div>
+
 </footer>

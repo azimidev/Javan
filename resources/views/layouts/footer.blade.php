@@ -47,10 +47,11 @@
 					<i title="Stripe" class="fa fa-cc-stripe fa-fw fa-3x"></i>
 				</li>
 			</ul>
+			<br>
+			&copy; {{ date('Y') }} Javan Restaurant London <br>
+			<small>Designed and Created by Hassan Azimi</small>
 		</nav>
 		<nav class="copyright navbar-right">
-			&copy; {{ date('Y') }} Javan Restaurant <br>
-			<small>Designed and Created by Hassan Azimi</small>
 			<div>
 				<a href="https://www.facebook.com/JavanLondonLtd" class="btn-link" target="_blank" title="Facebook">
 					<i class="fa fa-facebook-square fa-fw fa-3x"></i>

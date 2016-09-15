@@ -35,11 +35,11 @@
 	<link rel="shortcut icon" type="image/png" href="/images/favicon.png">
 </head>
 <body id="app-layout">
-@include('partials.nav')
-@include('partials.errors')
+@include('layouts.nav')
+@include('errors.errors')
 @yield('content')
 {{--@include('partials.modal')--}}
-@include('partials.footer')
+@include('layouts.footer')
 <script src="https://use.fontawesome.com/ed7ef479e3.js"></script>
 <script src="{{ elixir('js/all.js') }}"></script>
 @yield('scripts')

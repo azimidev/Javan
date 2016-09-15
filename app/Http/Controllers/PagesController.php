@@ -64,13 +64,14 @@ class PagesController extends Controller
 		return view('pages.information');
 	}
 
+	/**
+	 * @return \Illuminate\Http\Response|\Javan\Http\Controllers\PagesController
+	 */
 	public function feed()
 	{
 		$data['posts'] = Post::with('user', 'photos')->latest()->limit(10)->get();
 
-		return response()->view('pages.rss', $data, 200, [
-			'Content-Type' => 'application/atom+xml; charset=UTF-8',
-		]);
+		return response()->view('pages.rss', $data)->header('Content-Type', 'application/atom+xml; charset=UTF-8');
 	}
 
 	/**

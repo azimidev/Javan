@@ -2,6 +2,7 @@
 
 namespace Javan\Http\Controllers;
 
+use Cache;
 use Cart;
 use Illuminate\Http\Request;
 use Instagram;
@@ -69,9 +70,15 @@ class PagesController extends Controller
 	 */
 	public function feed()
 	{
-		$data['posts'] = Post::with('user', 'photos')->latest()->limit(10)->get();
+		if (Cache::has('rss')) {
+			$posts = Cache::pull('rss');
+		} else {
+			$posts = Cache::remember('rss', 1440, function() {
+				return Post::with('user', 'photos')->latest()->limit(10)->get();
+			});
+		}
 
-		return response()->view('pages.rss', $data)->header('Content-Type', 'application/atom+xml; charset=UTF-8');
+		return response()->view('pages.rss', compact('posts'))->header('Content-Type', 'application/atom+xml; charset=UTF-8');
 	}
 
 	/**

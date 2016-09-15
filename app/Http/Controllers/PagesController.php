@@ -78,7 +78,8 @@ class PagesController extends Controller
 			});
 		}
 
-		return response()->view('pages.rss', compact('posts'))->header('Content-Type', 'application/atom+xml; charset=UTF-8');
+		return response()->view('pages.rss', compact('posts'))
+		                 ->header('Content-Type', 'application/atom+xml; charset=UTF-8');
 	}
 
 	/**

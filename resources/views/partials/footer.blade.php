@@ -27,6 +27,11 @@
 						Terms & Conditions
 					</a>
 				</li>
+				<li>
+					<a href="{{ url('/feed') }}">
+						RSS
+					</a>
+				</li>
 			</ul>
 			<ul class="hidden-xs">
 				<li>

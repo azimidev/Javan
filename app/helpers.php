@@ -90,3 +90,14 @@ function status($model)
 		return '<span class="badge">UPDATED</span>';
 	}
 }
+
+function rss_tag_uri($post)
+{
+	$parsedUrl = parse_url(route('blog', $post->slug));
+	$output[]  = 'tag:';
+	$output[]  = $parsedUrl['host'] . ',';
+	$output[]  = $post->updated_at->format('Y-m-d') . ':';
+	$output[]  = $parsedUrl['path'];
+
+	return implode('', $output);
+}

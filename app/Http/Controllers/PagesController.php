@@ -12,7 +12,6 @@ use Javan\Post;
 use Javan\Product;
 use Javan\Reservation;
 use Javan\User;
-use Mockery\CountValidator\Exception;
 
 class PagesController extends Controller
 {
@@ -63,6 +62,15 @@ class PagesController extends Controller
 	public function information()
 	{
 		return view('pages.information');
+	}
+
+	public function feed()
+	{
+		$data['posts'] = Post::with('user', 'photos')->latest()->limit(10)->get();
+
+		return response()->view('pages.rss', $data, 200, [
+			'Content-Type' => 'application/atom+xml; charset=UTF-8',
+		]);
 	}
 
 	/**

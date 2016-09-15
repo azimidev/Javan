@@ -15,7 +15,7 @@
 			<title>{{ $post->subject }}</title>
 			<link>{{ route('blog', $post->slug) }}</link>
 			<id>{{ rss_tag_uri($post) }}</id>
-			<summary>{!! str_limit($post->body, 200) !!}</summary>
+			<summary>{{ str_limit($post->body, 200) }}</summary>
 		</entry>
 	@endforeach
 </feed>

@@ -18,7 +18,7 @@
 			<!-- Left Side Of Navbar -->
 			<ul class="nav navbar-nav">
 				<li class="{{ active('about') }}"><a href="{{ url('/about') }}">About</a></li>
-				<li class="{{ active('menu') }}"><a href="{{ url('/menu') }}">Menu</a></li>
+				<li class="{{ active('Persian-Food-Delivery-London') }}"><a href="{{ url('/Persian-Food-Delivery-London') }}">Menu</a></li>
 				@if (auth()->guest())
 					<li class="{{ active('guest/reservation') }}"><a href="{{ route('create.reservation') }}">Reservation</a></li>
 				@else

@@ -3,7 +3,7 @@
 # Pages
 Route::get('/', 'PagesController@home');
 Route::get('about', 'PagesController@about');
-Route::get('/menu', 'PagesController@menu');
+Route::get('/Persian-Food-Delivery-London', 'PagesController@menu');
 Route::get('about', 'PagesController@about');
 Route::get('contact', 'PagesController@contact');
 Route::get('information', 'PagesController@information');

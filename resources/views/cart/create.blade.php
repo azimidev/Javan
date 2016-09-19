@@ -160,7 +160,7 @@
 			</article>
 			<aside class="col-md-4">
 				@include('partials.cart')
-				<div class="panel panel-info">
+				<div class="panel">
 					<div class="panel-heading">
 						<div class="panel-title">
 							<i class="fa fa-lock fa-fw fa-lg"></i> Security and Privacy

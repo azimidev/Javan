@@ -11,7 +11,9 @@
 						<input type="hidden" value="JavanRestaurant" name="uri"/>
 						<input type="hidden" name="loc" value="en_US"/>
 						<span class="input-group-btn">
-							<button type="submit" class="btn btn-primary btn-raised btn-sm"><i class="fa fa-envelope"></i></button>
+							<button type="submit" class="btn btn-primary btn-raised btn-sm">
+								<i class="material-icons">send</i>
+							</button>
 						</span>
 					</div>
 				</div>

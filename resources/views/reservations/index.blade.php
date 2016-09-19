@@ -2,7 +2,7 @@
 @section('title', 'All Reservations - Javan Restaurant London')
 @section('content')
 	<main class="main container">
-		<a href="{{ route('reservations.create') }}" class="btn btn-raised btn-info pull-right">
+		<a href="{{ route('reservations.create') }}" class="btn btn-raised btn-success pull-right">
 			<i class="fa fa-plus fa-lg"></i>
 		</a>
 		@can('admin_manager', auth()->user())

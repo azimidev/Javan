@@ -2,7 +2,7 @@
 @section('title', 'All Products - Javan Restaurant London')
 @section('content')
 	<main class="main container">
-		<a href="{{ route('products.create') }}" class="btn btn-raised btn-info pull-right">
+		<a href="{{ route('products.create') }}" class="btn btn-raised btn-success pull-right">
 			<i class="fa fa-plus fa-lg"></i>
 		</a>
 		@if ($products->isEmpty())

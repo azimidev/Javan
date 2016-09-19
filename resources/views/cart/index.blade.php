@@ -3,7 +3,7 @@
 @section('content')
 	<main class="main container">
 		@can('member', auth()->user())
-			<a href="{{ url('menu') }}" class="btn btn-raised btn-info pull-right">
+			<a href="{{ url('menu') }}" class="btn btn-raised btn-success pull-right">
 				Continue Shopping
 			</a>
 		@endcan

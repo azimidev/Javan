@@ -3,7 +3,7 @@
 @section('content')
 	<main class="container main">
 		@can('admin', auth()->user())
-			<a href="{{ route('user.create') }}" class="btn btn-raised btn-info pull-right">
+			<a href="{{ route('user.create') }}" class="btn btn-raised btn-success pull-right">
 				<i class="fa fa-plus fa-lg"></i>
 			</a>
 		@endcan

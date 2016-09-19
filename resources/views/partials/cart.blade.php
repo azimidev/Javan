@@ -1,10 +1,10 @@
-<div class="panel panel-primary" id="pjax-container">
+<div class="panel panel-success" id="pjax-container">
 	<div class="panel-heading">
 		<div class="panel-title">
 			<i class="fa fa-shopping-cart fa-fw fa-lg"></i> Shopping Cart
 			@if (Cart::count())
 				<span class="badge">{{ Cart::count() }}</span>
-				<a id="destroyCart" title="Clear Cart" class="close" href="{{ route('destroy.cart') }}">
+				<a id="destroyCart" title="Clear Cart" class="close" href="{{ route('destroy.cart') }}" data-toggle="tooltip">
 					<i class="material-icons">clear</i>
 				</a>
 			@endif
@@ -29,7 +29,7 @@
 						<td>
 							<a id="removeFromCart" href="{{ route('remove.from.cart', [$row->rowId, $row->qty]) }}"
 							   class="text-danger">
-								<i class="fa fa-times"></i>
+								<i class="material-icons">clear</i>
 							</a>
 						</td>
 					</tr>
@@ -55,7 +55,7 @@
 				<i class="fa fa-arrow-left fa-lg fa-fw"></i> Continue Shopping
 			</a>
 		@elseif (less_than_minimum_order())
-			<p class="label label-info">minimum order is £{{ env('MINIMUM_ORDER') }}</p>
+			<p class="label label-success">minimum order is £{{ env('MINIMUM_ORDER') }}</p>
 		@else
 			<a href="{{ route('cart.create') }}" class="btn btn-block btn-success btn-raised">
 				Checkout

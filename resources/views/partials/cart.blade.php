@@ -51,7 +51,7 @@
 			</tfoot>
 		</table>
 		@if (request()->is('cart/create'))
-			<a href="{{ url('/menu') }}" class="btn btn-block btn-primary btn-raised">
+			<a href="{{ route('menu') }}" class="btn btn-block btn-primary btn-raised">
 				<i class="fa fa-arrow-left fa-lg fa-fw"></i> Continue Shopping
 			</a>
 		@elseif (less_than_minimum_order())

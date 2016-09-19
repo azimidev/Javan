@@ -12,27 +12,27 @@ class Flash
 		]);
 	}
 
-	public function info($title, $message)
+	public function info($title, $message = '')
 	{
 		return $this->create($title, $message, 'info');
 	}
 
-	public function success($title, $message)
+	public function success($title, $message = '')
 	{
 		return $this->create($title, $message, 'success');
 	}
 
-	public function warning($title, $message)
+	public function warning($title, $message = '')
 	{
 		return $this->create($title, $message, 'warning');
 	}
 
-	public function error($title, $message)
+	public function error($title, $message = '')
 	{
 		return $this->create($title, $message, 'error');
 	}
 
-	public function overlay($title, $message, $level = 'success')
+	public function overlay($title, $message = '', $level = 'success')
 	{
 		return $this->create($title, $message, $level, 'flash_message_overlay');
 	}

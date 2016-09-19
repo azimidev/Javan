@@ -197,4 +197,15 @@ class PagesController extends Controller
 
 		return back();
 	}
+
+	public function deliverable()
+	{
+		$this->validate(request(), [
+			'post_code' => 'required|min:2',
+		]);
+
+		$destination = urlencode(trim(request()->input('post_code')));
+
+		return deliverable($destination);
+	}
 }

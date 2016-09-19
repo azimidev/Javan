@@ -7,7 +7,7 @@
 			@include('partials.notify-alert', ['data' => 'Cart Updated'])
 			<h1 class="text-warning">Shopping Cart</h1>
 			<article class="col-md-8">
-				@unless (javan_is_open())
+				@unless(javan_is_open())
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
 						We are closed now and cannot accept orders unless you want specific delivery time between
@@ -23,18 +23,19 @@
 						</div>
 					</div>
 					<div class="panel-body">
-						<div class="alert alert-warning">
-							<div class="container-fluid">
-								<div class="alert-icon">
-									<i class="material-icons">warning</i>
+						@unless(deliverable(auth()->user()->post_code)['status'])
+							<div class="alert alert-warning">
+								<div class="container-fluid">
+									<div class="alert-icon">
+										<i class="material-icons">warning</i>
+									</div>
+									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										<span aria-hidden="true"><i class="material-icons">clear</i></span>
+									</button>
+									Is your information correct? It seems we don't cover your area!
 								</div>
-								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-									<span aria-hidden="true"><i class="material-icons">clear</i></span>
-								</button>
-								Make sure your information is correct before you make a payment
-								<a class="alert-link" href="{{ route('member.edit', auth()->user()) }}">click here</a> to update it
 							</div>
-						</div>
+						@endunless
 
 						<dl class="dl-horizontal">
 							<dt>Name :</dt>
@@ -49,6 +50,8 @@
 							<dd>{{ auth()->user()->post_code ?: '-' }}</dd>
 							<dt>Phone :</dt>
 							<dd>{{ auth()->user()->phone ?: '-' }}</dd>
+							<dt>&nbsp;</dt>
+							<dd><a class="btn btn-raised btn-primary" href="{{ route('member.edit', auth()->user()) }}">Update</a></dd>
 						</dl>
 					</div>
 				</div>

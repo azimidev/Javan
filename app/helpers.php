@@ -101,3 +101,42 @@ function rss_tag_uri($post)
 
 	return implode('', $output);
 }
+
+function deliverable($destination)
+{
+	$address  = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=' .
+		'291+King+Street+W6+9NH' . '&destinations=' . $destination . '&key=' . env('GOOGLE_API_KEY');
+
+	$client   = new GuzzleHttp\Client();
+	$request  = $client->get($address);
+	$response = json_decode($request->getBody()->getContents(), TRUE);
+
+	if ($response['status'] === 'OK' && $response['rows'][0]['elements'][0]['status'] === 'OK') {
+
+		if ($response['rows'][0]['elements'][0]['distance']['value'] <= 4830) {
+
+			return [
+				'status' => TRUE,
+				'title'  => 'Yes We Deliver in Your Area',
+				'text'   => '<b>Your address:</b> ' .
+					array_shift($response['destination_addresses']) . '<br>' .
+					'<b>Estimated Distance:</b> ' . $response['rows'][0]['elements'][0]['distance']['text'] . '<br>' .
+					'<b>Estimated Delivery:</b> ' . $response['rows'][0]['elements'][0]['duration']['text'],
+			];
+		}
+
+		return [
+			'status' => FALSE,
+			'title'  => 'Sorry We Don\'t Deliver in Your Area',
+			'text'   => '<b>Your address:</b> ' .
+				array_shift($response['destination_addresses']) . '<br>' .
+				'<b>Estimated Distance:</b> ' . $response['rows'][0]['elements'][0]['distance']['text'],
+		];
+	}
+
+	return [
+		'status' => FALSE,
+		'title'  => 'We couldn\'t find your address !',
+		'text'   => 'Please type your post code correctly Ex: XXX XXX',
+	];
+}

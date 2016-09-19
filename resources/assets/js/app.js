@@ -30,8 +30,8 @@
 	var now     = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 
 	$('#date, .datepicker').datepicker({
-		format    : 'yyyy-mm-dd',
-		onRender  : function(date) {
+		format   : 'yyyy-mm-dd',
+		onRender : function(date) {
 			return date.valueOf() < now.valueOf() ? 'disabled' : '';
 		}
 	});
@@ -70,6 +70,41 @@
 		setTimeout(function() {
 			$btn.button('reset');
 		}, 3600000); // 1000*60*60 (1 hour)
+	});
+
+	/**
+	 * Attribute data-ajax for every form
+	 */
+	$('form#deliverable' +
+		'').on('submit', function(e) {
+		var form   = $(this);
+		var method = form.find('input[name="_method"]').val() || 'POST';
+		var url    = form.prop('action');
+		$.ajax({
+			type    : method,
+			url     : url,
+			data    : form.serialize(),
+			success : function(data) {
+				form.find('input').val('');
+				swal({
+					title             : data['title'],
+					text              : data['text'],
+					type              : 'info',
+					confirmButtonText : 'Okay'
+				});
+			},
+			error   : function(data) {
+				var errors = $.parseJSON(data.responseText);
+				$.each(errors, function(index, value) {
+					swal({
+						title             : value.toString(),
+						type              : 'error',
+						confirmButtonText : 'Oh Okay'
+					});
+				});
+			}
+		});
+		e.preventDefault();
 	});
 
 	/**

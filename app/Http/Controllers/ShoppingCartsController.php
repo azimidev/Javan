@@ -60,7 +60,7 @@ class ShoppingCartsController extends Controller
 	public function create()
 	{
 		if (less_than_minimum_order()) {
-			return redirect('menu');
+			return redirect()->route('menu');
 		}
 
 		return view('cart.create');
@@ -77,7 +77,15 @@ class ShoppingCartsController extends Controller
 		if (less_than_minimum_order()) {
 			flash()->error('Error', 'Sorry but the minimum order is £' . env('MINIMUM_ORDER'));
 
-			return redirect('menu');
+			return redirect()->route('menu');
+		}
+
+		$deliverable = deliverable(auth()->user()->post_code);
+
+		if ( ! $deliverable['status']) {
+			flash()->overlay($deliverable['title'], $deliverable['text'], 'error');
+
+			return back();
 		}
 		$charge       = $this->billing->charge([
 			'total' => Cart::total() * 100,
@@ -114,7 +122,7 @@ class ShoppingCartsController extends Controller
 			'refund_id' => $refund->id,
 			'status'    => FALSE,
 			'note'      => $cart->note . '<br><br>Rejection Reason: <b style="color:red;">' .
-			               $request->input('refund_reason') . '</b>',
+				$request->input('refund_reason') . '</b>',
 		]);
 
 		$this->dispatch(new SendRefundEmail($cart));

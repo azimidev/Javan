@@ -32,7 +32,7 @@
 									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 										<span aria-hidden="true"><i class="material-icons">clear</i></span>
 									</button>
-									Is your information correct? It seems we don't cover your area!
+									Is your information correct? It seems we cannot deliver to your address!
 								</div>
 							</div>
 						@endunless

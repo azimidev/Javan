@@ -105,7 +105,7 @@ function rss_tag_uri($post)
 function deliverable($destination)
 {
 	$address = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=' .
-		'291+King+Street+W6+9NH' . '&destinations=' . $destination . '&key=' . env('GOOGLE_API_KEY');
+		'291+King+Street+W6+9NH' . '&destinations=' . $destination . 'London+UK' . '&key=' . env('GOOGLE_API_KEY');
 
 	$client   = new GuzzleHttp\Client();
 	$request  = $client->get($address);

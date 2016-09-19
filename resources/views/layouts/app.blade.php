@@ -35,6 +35,13 @@
 	<link rel="shortcut icon" type="image/png" href="/images/favicon.png">
 </head>
 <body id="app-layout">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+	(adsbygoogle = window.adsbygoogle || []).push({
+		google_ad_client: "ca-pub-7301263638062324",
+		enable_page_level_ads: true
+	});
+</script>
 @include('layouts.nav')
 @include('errors.errors')
 @yield('content')

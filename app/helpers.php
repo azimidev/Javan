@@ -104,7 +104,7 @@ function rss_tag_uri($post)
 
 function deliverable($destination)
 {
-	$address  = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=' .
+	$address = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=' .
 		'291+King+Street+W6+9NH' . '&destinations=' . $destination . '&key=' . env('GOOGLE_API_KEY');
 
 	$client   = new GuzzleHttp\Client();
@@ -130,7 +130,8 @@ function deliverable($destination)
 			'title'  => 'Sorry We Don\'t Deliver in Your Area',
 			'text'   => '<b>Your address:</b> ' .
 				array_shift($response['destination_addresses']) . '<br>' .
-				'<b>Estimated Distance:</b> ' . $response['rows'][0]['elements'][0]['distance']['text'],
+				'<b>Estimated Distance:</b> ' . $response['rows'][0]['elements'][0]['distance']['text'] . '<br>' .
+				'Order by phone if you\'re willing to pay for the delivery charge',
 		];
 	}
 

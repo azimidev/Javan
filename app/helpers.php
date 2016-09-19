@@ -113,7 +113,7 @@ function deliverable($destination)
 
 	if ($response['status'] === 'OK' && $response['rows'][0]['elements'][0]['status'] === 'OK') {
 
-		if ($response['rows'][0]['elements'][0]['distance']['value'] <= 4830) {
+		if ($response['rows'][0]['elements'][0]['distance']['value'] <= 5000) {
 
 			return [
 				'status' => TRUE,

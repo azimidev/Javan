@@ -131,7 +131,8 @@ function deliverable($destination)
 			'text'   => '<b>Your address:</b> ' .
 				array_shift($response['destination_addresses']) . '<br>' .
 				'<b>Estimated Distance:</b> ' . $response['rows'][0]['elements'][0]['distance']['text'] . '<br><br>' .
-				'<small>Order by phone if you\'re willing to pay for the delivery charge</small>',
+				'<small>Order by phone if you\'re willing to pay for the delivery charge</small>'. '<br>' .
+				'<small>020 8563 8553</small>'
 		];
 	}
 

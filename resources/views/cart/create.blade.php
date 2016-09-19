@@ -51,7 +51,8 @@
 							<dt>Phone :</dt>
 							<dd>{{ auth()->user()->phone ?: '-' }}</dd>
 							<dt>&nbsp;</dt>
-							<dd><a class="btn btn-raised btn-primary" href="{{ route('member.edit', auth()->user()) }}">Update</a></dd>
+							<dd><a class="btn btn-raised btn-primary" href="{{ route('member.edit', auth()->user()) }}">Update</a>
+							</dd>
 						</dl>
 					</div>
 				</div>
@@ -187,6 +188,7 @@
 @section('scripts')
 	<script src="https://js.stripe.com/v2/"></script>
 	<script>
+		/* <![CDATA[ */
 		(function() {
 			var StripeBilling = {
 
@@ -226,5 +228,18 @@
 
 			StripeBilling.init();
 		})();
+		/* ]]> */
 	</script>
+	<!-- Google Code for Order Delivery Conversion Page -->
+	<script>
+		/* <![CDATA[ */
+		var google_conversion_id       = 970353518;
+		var google_conversion_language = "en";
+		var google_conversion_format   = "3";
+		var google_conversion_color    = "ffffff";
+		var google_conversion_label    = "Ng3DCPnorGoQ7tbZzgM";
+		var google_remarketing_only    = false;
+		/* ]]> */
+	</script>
+	<script src="//www.googleadservices.com/pagead/conversion.js"></script>
 @stop

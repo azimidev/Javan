@@ -20,7 +20,7 @@
 			</div>
 			<a href="//feeds.feedburner.com/JavanRestaurant">
 				<img src="//feeds.feedburner.com/~fc/JavanRestaurant?bg=AA00FF&amp;fg=ffffff&amp;anim=1"
-				     height="26" width="88" style="border:0" alt="FeedBurner"/>
+				     height="26" width="88" style="border:0;" alt="FeedBurner"/>
 			</a>
 		</form>
 	</div>

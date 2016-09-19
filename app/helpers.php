@@ -117,7 +117,7 @@ function deliverable($destination)
 
 			return [
 				'status' => TRUE,
-				'title'  => 'Yes We Deliver in Your Area',
+				'title'  => '<span class="text-success">Yes We Deliver in Your Area</span>',
 				'text'   => '<b>Your address:</b> ' .
 					array_shift($response['destination_addresses']) . '<br>' .
 					'<b>Estimated Distance:</b> ' . $response['rows'][0]['elements'][0]['distance']['text'] . '<br>' .
@@ -127,7 +127,7 @@ function deliverable($destination)
 
 		return [
 			'status' => FALSE,
-			'title'  => 'Sorry We Don\'t Deliver in Your Area',
+			'title'  => '<span class="text-danger">Sorry We Don\'t Deliver in Your Area</span>',
 			'text'   => '<b>Your address:</b> ' .
 				array_shift($response['destination_addresses']) . '<br>' .
 				'<b>Estimated Distance:</b> ' . $response['rows'][0]['elements'][0]['distance']['text'] . '<br><br>' .

@@ -29,9 +29,7 @@
 	<meta name="twitter:title" content="Javan Restaurant"/>
 	<meta name="twitter:description" content="Authentic Persian Cuisine Licenced Restaurant in West London, Hammersmith, Chiswick With Live Music on Weekends and Great Traditional Interior Design and Shisha"/>
 	<meta name="twitter:image" content="{{ request()->root() }}/images/Javan-Twitter-Logo.png"/>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="{{ elixir('css/app.css') }}" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet">
 	<link rel="shortcut icon" type="image/png" href="/images/favicon.png">
 </head>
 <body id="app-layout">

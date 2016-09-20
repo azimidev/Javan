@@ -230,7 +230,6 @@
 		})();
 		/* ]]> */
 	</script>
-	<!-- Google Code for Order Delivery Conversion Page -->
 	<script>
 		/* <![CDATA[ */
 		var google_conversion_id       = 970353518;

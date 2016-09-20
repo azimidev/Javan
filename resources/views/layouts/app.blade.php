@@ -38,7 +38,6 @@
 @yield('content')
 {{--@include('partials.modal')--}}
 @include('layouts.footer')
-<script src="https://use.fontawesome.com/ed7ef479e3.js"></script>
 <script src="{{ elixir('js/all.js') }}"></script>
 @yield('scripts')
 @include('partials.flash')

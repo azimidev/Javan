@@ -28,6 +28,7 @@ elixir(function(mix) {
 		// either use `babel` or `scripts`
 		// don't use them together!
 		.scripts([
+			'font-awesome.js', // https://use.fontawesome.com/ed7ef479e3.js
 			'jquery.js',
 			'bootstrap.js',
 			'material.min.js',

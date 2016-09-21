@@ -81,10 +81,14 @@
 													<h3 style="cursor:help;" title="{{ $appetizer->description }}" data-toggle="tooltip"
 													    data-placement="top">{{ $appetizer->title }}</h3>
 													£ {{ number_format($appetizer->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
-													<a id="addToCart" href="{{ route('add.to.cart', $appetizer) }}"
-													   class="btn btn-sm btn-success btn-raised">
-														<i class="fa fa-plus fa-lg"></i>
-													</a>
+													@if ($appetizer->available)
+														<a id="addToCart" href="{{ route('add.to.cart', $appetizer) }}"
+														   class="btn btn-sm btn-success btn-raised">
+															<i class="fa fa-plus fa-lg"></i>
+														</a>
+													@else
+														<span class="label label-danger">Not Available</span>
+													@endif
 												</div>
 											</div>
 										</div>
@@ -105,10 +109,14 @@
 													<h3 style="cursor:help;" title="{{ $main_course->description }}" data-toggle="tooltip"
 													    data-placement="top">{{ $main_course->title }}</h3>
 													£ {{ number_format($main_course->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
-													<a id="addToCart" href="{{ route('add.to.cart', $main_course) }}"
-													   class="btn btn-sm btn-success btn-raised">
-														<i class="fa fa-plus fa-lg"></i>
-													</a>
+													@if ($main_course->available)
+														<a id="addToCart" href="{{ route('add.to.cart', $main_course) }}"
+														   class="btn btn-sm btn-success btn-raised">
+															<i class="fa fa-plus fa-lg"></i>
+														</a>
+													@else
+														<span class="label label-danger">Not Available</span>
+													@endif
 												</div>
 											</div>
 										</div>
@@ -129,10 +137,14 @@
 													<h3 style="cursor:help;" title="{{ $extra->description }}" data-toggle="tooltip"
 													    data-placement="top">{{ $extra->title }}</h3>
 													£ {{ number_format($extra->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
-													<a id="addToCart" href="{{ route('add.to.cart', $extra) }}"
-													   class="btn btn-sm btn-success btn-raised">
-														<i class="fa fa-plus fa-lg"></i>
-													</a>
+													@if ($extra->available)
+														<a id="addToCart" href="{{ route('add.to.cart', $extra) }}"
+														   class="btn btn-sm btn-success btn-raised">
+															<i class="fa fa-plus fa-lg"></i>
+														</a>
+													@else
+														<span class="label label-danger">Not Available</span>
+													@endif
 												</div>
 											</div>
 										</div>
@@ -152,10 +164,14 @@
 												<div class="caption">
 													<h3>{{ $beverage->title }}</h3>
 													£ {{ number_format($beverage->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
-													<a id="addToCart" href="{{ route('add.to.cart', $beverage) }}"
-													   class="btn btn-sm btn-success btn-raised">
-														<i class="fa fa-plus fa-lg"></i>
-													</a>
+													@if ($beverage->available)
+														<a id="addToCart" href="{{ route('add.to.cart', $beverage) }}"
+														   class="btn btn-sm btn-success btn-raised">
+															<i class="fa fa-plus fa-lg"></i>
+														</a>
+													@else
+														<span class="label label-danger">Not Available</span>
+													@endif
 												</div>
 											</div>
 										</div>
@@ -175,10 +191,14 @@
 												<div class="caption">
 													<h3>{{ $juice->title }}</h3>
 													£ {{ number_format($juice->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
-													<a id="addToCart" href="{{ route('add.to.cart', $juice) }}"
-													   class="btn btn-sm btn-success btn-raised">
-														<i class="fa fa-plus fa-lg"></i>
-													</a>
+													@if ($juice->available)
+														<a id="addToCart" href="{{ route('add.to.cart', $juice) }}"
+														   class="btn btn-sm btn-success btn-raised">
+															<i class="fa fa-plus fa-lg"></i>
+														</a>
+													@else
+														<span class="label label-danger">Not Available</span>
+													@endif
 												</div>
 											</div>
 										</div>
@@ -199,10 +219,14 @@
 													<h3 style="cursor:help;" title="{{ $dessert->description }}" data-toggle="tooltip"
 													    data-placement="top">{{ $dessert->title }}</h3>
 													£ {{ number_format($dessert->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
-													<a id="addToCart" href="{{ route('add.to.cart', $dessert) }}"
-													   class="btn btn-sm btn-success btn-raised">
-														<i class="fa fa-plus fa-lg"></i>
-													</a>
+													@if ($dessert->available)
+														<a id="addToCart" href="{{ route('add.to.cart', $dessert) }}"
+														   class="btn btn-sm btn-success btn-raised">
+															<i class="fa fa-plus fa-lg"></i>
+														</a>
+													@else
+														<span class="label label-danger">Not Available</span>
+													@endif
 												</div>
 											</div>
 										</div>

@@ -13,6 +13,8 @@
 				<dd>£ {{ number_format($products->price / 100, 2) }}</dd>
 				<dt>Category:</dt>
 				<dd><span class="label label-info">{{ $products->category }}</span></dd>
+				<dt>Available:</dt>
+				<dd>{!! $products->available ? '<span class="label label-success">YES</span>' : '<span class="label label-danger">NO</span>' !!}</dd>
 			</dl>
 			<div class="col-lg-offset-2">
 				<a href="{{ route('products.index') }}" class="btn btn-raised btn-danger">

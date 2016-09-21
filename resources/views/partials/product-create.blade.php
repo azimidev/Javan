@@ -41,6 +41,17 @@
 	</div>
 </div>
 
+<div class="form-group">
+	<label for="available" class="control-label col-sm-2"></label>
+	<div class="togglebutton">
+		<label>
+			<input type="hidden" name="available" value="0">
+			<input name="available" id="available" type="checkbox" value="1">
+			<label class="control-label">Available ?</label>
+		</label>
+	</div>
+</div>
+
 <div class="col-sm-offset-2">
 	<button type="submit" class="btn btn-raised btn-primary">
 		<i class="fa fa-pencil-square-o fa-lg"></i>

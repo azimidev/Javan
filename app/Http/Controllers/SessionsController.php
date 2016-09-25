@@ -86,7 +86,7 @@ class SessionsController extends Controller
 	public function orders()
 	{
 		if ($this->user->shoppingCarts->isEmpty()) {
-			return redirect('menu');
+			return redirect()->route('menu');
 		}
 
 		$sortBy    = request()->get('sortBy');

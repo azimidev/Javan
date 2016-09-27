@@ -59,7 +59,6 @@ function less_than_minimum_order()
 	if (is_numeric($total)) {
 		return $total < env('MINIMUM_ORDER');
 	}
-	throw new 'Total in not a number';
 }
 
 function sort_column_by($column, $body)

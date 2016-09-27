@@ -56,9 +56,7 @@ function less_than_minimum_order()
 {
 	$total = (int) str_replace(',', '', \Cart::total());
 
-	if (is_numeric($total)) {
-		return $total < env('MINIMUM_ORDER');
-	}
+	return $total < env('MINIMUM_ORDER');
 }
 
 function sort_column_by($column, $body)

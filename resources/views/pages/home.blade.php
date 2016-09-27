@@ -5,7 +5,7 @@
 		@include('partials.carousel')
 		<article>
 			<div class="col-md-8">
-				<a href="{{ url('menu') }}" class="btn btn-success btn-raised btn-round btn-lg btn-block">
+				<a href="{{ route('menu') }}" class="btn btn-success btn-raised btn-round btn-lg btn-block">
 					Order Food Online
 				</a>
 				<h2>Reservation</h2>

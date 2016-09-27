@@ -4,6 +4,7 @@
 Route::get('/', 'PagesController@home');
 Route::get('about', 'PagesController@about');
 Route::get('Persian-Food-Delivery-London', 'PagesController@menu')->name('menu');
+Route::get('menu', function() { return redirect()->route('menu'); });
 Route::post('deliverable', 'PagesController@deliverable');
 Route::get('about', 'PagesController@about');
 Route::get('contact', 'PagesController@contact');

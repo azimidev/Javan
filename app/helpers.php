@@ -54,7 +54,12 @@ function javan_is_open()
 
 function less_than_minimum_order()
 {
-	return \Cart::total() < env('MINIMUM_ORDER');
+	$total = (int) str_replace(',', '', \Cart::total());
+
+	if (is_numeric($total)) {
+		return $total < env('MINIMUM_ORDER');
+	}
+	throw new 'Total in not a number';
 }
 
 function sort_column_by($column, $body)
@@ -131,8 +136,8 @@ function deliverable($destination)
 			'text'   => '<b>Your address:</b> ' .
 				array_shift($response['destination_addresses']) . '<br>' .
 				'<b>Estimated Distance:</b> ' . $response['rows'][0]['elements'][0]['distance']['text'] . '<br><br>' .
-				'Order by phone if you\'re willing to pay for the delivery charge'. '<br>' .
-				'<b>020 8563 8553</b>'
+				'Order by phone if you\'re willing to pay for the delivery charge' . '<br>' .
+				'<b>020 8563 8553</b>',
 		];
 	}
 

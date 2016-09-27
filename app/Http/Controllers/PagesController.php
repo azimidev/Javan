@@ -200,9 +200,7 @@ class PagesController extends Controller
 
 	public function deliverable()
 	{
-		$this->validate(request(), [
-			'post_code' => 'required|min:2',
-		]);
+		$this->validate(request(), ['post_code' => 'required|min:2']);
 
 		$destination = urlencode(trim(request()->input('post_code')));
 

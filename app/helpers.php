@@ -61,7 +61,6 @@ function less_than_minimum_order()
 
 function sort_column_by($column, $body)
 {
-
 	$direction = (request()->get('direction') == 'ASC') ? 'DESC' : 'ASC';
 
 	$route = route(request()->route()->getAction()['as'], ['sortBy' => $column, 'direction' => $direction]);

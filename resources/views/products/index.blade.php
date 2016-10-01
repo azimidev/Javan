@@ -26,7 +26,7 @@
 				</thead>
 				<tbody>
 					@foreach ($products as $product)
-						<tr>
+						<tr class="{{ $product->available ? 'success' : 'danger' }}">
 							<td>{{ $product->title }}</td>
 							<td>{{ $product->description }}</td>
 							<td><span class="label label-danger">£ {{ number_format($product->price / 100, 2) }}</span></td>

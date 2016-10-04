@@ -5,9 +5,6 @@
 	        style="background-image: url('/images/menu-background.png');">
 		<main class="container">
 			@include('partials.notify-alert', ['data' => 'Cart Updated'])
-			<h2 style="position: fixed; z-index: 100; right: 10px; top: 20px;" class="visible-xs">
-				<a class="text-info" href="#pjax-container"><i class="fa fa-shopping-cart fa-fw"></i></a>
-			</h2>
 			<h1 class="text-warning"><i class="fa fa-cutlery fa-fw"></i> The Menu</h1>
 			<p class="text-bright"><i class="fa fa-info-circle fa-fw"></i> To view PDF version of menu please
 				<a class="btn-link text-bright underline" href="/images/menu/Javan-Restaurant-Menu.pdf" target="_blank"

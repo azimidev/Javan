@@ -1,3 +1,6 @@
+<p style="position: fixed; z-index: 100; right: 10px; top: 30px; font-size: 40px;" class="visible-xs">
+	<a class="text-info" href="#pjax-container"><i class="fa fa-shopping-cart fa-fw"></i></a>
+</p>
 <div class="panel panel-success" id="pjax-container">
 	<div class="panel-heading">
 		<div class="panel-title">

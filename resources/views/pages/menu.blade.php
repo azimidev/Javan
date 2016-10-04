@@ -5,6 +5,9 @@
 	        style="background-image: url('/images/menu-background.png');">
 		<main class="container">
 			@include('partials.notify-alert', ['data' => 'Cart Updated'])
+			<h1 class="pull-right visible-xs">
+				<a class="text-info" href="#pjax-container"><i class="fa fa-shopping-cart fa-fw"></i></a>
+			</h1>
 			<h1 class="text-warning"><i class="fa fa-cutlery fa-fw"></i> The Menu</h1>
 			<p class="text-bright"><i class="fa fa-info-circle fa-fw"></i> To view PDF version of menu please
 				<a class="btn-link text-bright underline" href="/images/menu/Javan-Restaurant-Menu.pdf" target="_blank"
@@ -82,9 +85,11 @@
 													</a>
 												@endif
 												<div class="caption">
-													<h3 class="hidden-xs" style="cursor:help;" title="{{ $appetizer->description }}" data-toggle="tooltip"
+													<h3 class="hidden-xs" style="cursor:help;" title="{{ $appetizer->description }}"
+													    data-toggle="tooltip"
 													    data-placement="top">{{ $appetizer->title }}</h3>
-													<h5 class="visible-xs" style="cursor:help;" title="{{ $appetizer->description }}" data-toggle="tooltip"
+													<h5 class="visible-xs" style="cursor:help;" title="{{ $appetizer->description }}"
+													    data-toggle="tooltip"
 													    data-placement="top">{{ $appetizer->title }}</h5>
 													£ {{ number_format($appetizer->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
 													@if ($appetizer->available)
@@ -112,9 +117,11 @@
 													</a>
 												@endif
 												<div class="caption">
-													<h3 class="hidden-xs" style="cursor:help;" title="{{ $main_course->description }}" data-toggle="tooltip"
+													<h3 class="hidden-xs" style="cursor:help;" title="{{ $main_course->description }}"
+													    data-toggle="tooltip"
 													    data-placement="top">{{ $main_course->title }}</h3>
-													<h5 class="visible-xs" style="cursor:help;" title="{{ $main_course->description }}" data-toggle="tooltip"
+													<h5 class="visible-xs" style="cursor:help;" title="{{ $main_course->description }}"
+													    data-toggle="tooltip"
 													    data-placement="top">{{ $main_course->title }}</h5>
 													£ {{ number_format($main_course->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
 													@if ($main_course->available)
@@ -142,9 +149,11 @@
 													</a>
 												@endif
 												<div class="caption">
-													<h3 class="hidden-xs" style="cursor:help;" title="{{ $extra->description }}" data-toggle="tooltip"
+													<h3 class="hidden-xs" style="cursor:help;" title="{{ $extra->description }}"
+													    data-toggle="tooltip"
 													    data-placement="top">{{ $extra->title }}</h3>
-													<h5 class="visible-xs" style="cursor:help;" title="{{ $extra->description }}" data-toggle="tooltip"
+													<h5 class="visible-xs" style="cursor:help;" title="{{ $extra->description }}"
+													    data-toggle="tooltip"
 													    data-placement="top">{{ $extra->title }}</h5>
 													£ {{ number_format($extra->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
 													@if ($extra->available)
@@ -228,7 +237,8 @@
 													</a>
 												@endif
 												<div class="caption">
-													<h3 class="hidden-xs" style="cursor:help;" title="{{ $dessert->description }}" data-toggle="tooltip"
+													<h3 class="hidden-xs" style="cursor:help;" title="{{ $dessert->description }}"
+													    data-toggle="tooltip"
 													    data-placement="top">{{ $dessert->title }}</h3>
 													<h5 style="cursor:help;" title="{{ $dessert->description }}" data-toggle="tooltip"
 													    data-placement="top" class="visible-xs">{{ $dessert->title }}</h5>
@@ -258,4 +268,23 @@
 			</aside>
 		</main>
 	</header>
+@stop
+
+@section('scripts')
+	<script>
+		$(function() {
+			$('a[href*="#"]:not([href="#"])').click(function() {
+				if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+					var target = $(this.hash);
+					target     = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+					if (target.length) {
+						$('html, body').animate({
+							scrollTop : target.offset().top
+						}, 1000);
+						return false;
+					}
+				}
+			});
+		});
+	</script>
 @stop

@@ -10,8 +10,10 @@
 				<a class="btn-link text-bright underline" href="/images/menu/Javan-Restaurant-Menu.pdf" target="_blank"
 				   title="Javan Restaurant Menu">click here</a>
 			</p>
-			<p class="text-warning"><i class="fa fa-info-circle fa-fw"></i>
-				Please hover your mouse on each food to see the descriptions</p>
+			<p class="text-warning hidden-xs"><i class="fa fa-info-circle fa-fw"></i>
+				Hover your mouse on each food to see the descriptions</p>
+			<p class="text-warning visible-xs"><i class="fa fa-info-circle fa-fw"></i>
+				Tab on each food name to see the descriptions</p>
 			<p class="text-info"><i class="fa fa-info-circle fa-fw"></i>
 				We serve selections of wines and beers</p>
 			<article class="col-md-8">
@@ -80,8 +82,10 @@
 													</a>
 												@endif
 												<div class="caption">
-													<h3 style="cursor:help;" title="{{ $appetizer->description }}" data-toggle="tooltip"
+													<h3 class="hidden-xs" style="cursor:help;" title="{{ $appetizer->description }}" data-toggle="tooltip"
 													    data-placement="top">{{ $appetizer->title }}</h3>
+													<h5 class="visible-xs" style="cursor:help;" title="{{ $appetizer->description }}" data-toggle="tooltip"
+													    data-placement="top">{{ $appetizer->title }}</h5>
 													£ {{ number_format($appetizer->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
 													@if ($appetizer->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $appetizer) }}"
@@ -108,8 +112,10 @@
 													</a>
 												@endif
 												<div class="caption">
-													<h3 style="cursor:help;" title="{{ $main_course->description }}" data-toggle="tooltip"
+													<h3 class="hidden-xs" style="cursor:help;" title="{{ $main_course->description }}" data-toggle="tooltip"
 													    data-placement="top">{{ $main_course->title }}</h3>
+													<h5 class="visible-xs" style="cursor:help;" title="{{ $main_course->description }}" data-toggle="tooltip"
+													    data-placement="top">{{ $main_course->title }}</h5>
 													£ {{ number_format($main_course->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
 													@if ($main_course->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $main_course) }}"
@@ -136,8 +142,10 @@
 													</a>
 												@endif
 												<div class="caption">
-													<h3 style="cursor:help;" title="{{ $extra->description }}" data-toggle="tooltip"
+													<h3 class="hidden-xs" style="cursor:help;" title="{{ $extra->description }}" data-toggle="tooltip"
 													    data-placement="top">{{ $extra->title }}</h3>
+													<h5 class="visible-xs" style="cursor:help;" title="{{ $extra->description }}" data-toggle="tooltip"
+													    data-placement="top">{{ $extra->title }}</h5>
 													£ {{ number_format($extra->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
 													@if ($extra->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $extra) }}"
@@ -164,7 +172,8 @@
 													</a>
 												@endif
 												<div class="caption">
-													<h3>{{ $beverage->title }}</h3>
+													<h3 class="hidden-xs">{{ $beverage->title }}</h3>
+													<h5 class="visible-xs">{{ $beverage->title }}</h5>
 													£ {{ number_format($beverage->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
 													@if ($beverage->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $beverage) }}"
@@ -191,7 +200,8 @@
 													</a>
 												@endif
 												<div class="caption">
-													<h3>{{ $juice->title }}</h3>
+													<h3 class="hidden-xs">{{ $juice->title }}</h3>
+													<h5 class="visible-xs">{{ $juice->title }}</h5>
 													£ {{ number_format($juice->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
 													@if ($juice->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $juice) }}"
@@ -218,8 +228,10 @@
 													</a>
 												@endif
 												<div class="caption">
-													<h3 style="cursor:help;" title="{{ $dessert->description }}" data-toggle="tooltip"
+													<h3 class="hidden-xs" style="cursor:help;" title="{{ $dessert->description }}" data-toggle="tooltip"
 													    data-placement="top">{{ $dessert->title }}</h3>
+													<h5 style="cursor:help;" title="{{ $dessert->description }}" data-toggle="tooltip"
+													    data-placement="top" class="visible-xs">{{ $dessert->title }}</h5>
 													£ {{ number_format($dessert->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;
 													@if ($dessert->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $dessert) }}"

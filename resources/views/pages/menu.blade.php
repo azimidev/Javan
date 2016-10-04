@@ -72,7 +72,7 @@
 							<div class="tab-pane" id="appetizers">
 								<div class="row">
 									@foreach ($appetizers as $appetizer)
-										<div class="col-sm-4">
+										<div class="col-sm-4 col-xs-6">
 											<div class="thumbnail">
 												@if ($appetizer->image_path)
 													<a href="/{{ $appetizer->image_path }}" data-lity>
@@ -100,7 +100,7 @@
 							<div class="tab-pane active" id="main_courses">
 								<div class="row">
 									@foreach ($main_courses as $main_course)
-										<div class="col-sm-4">
+										<div class="col-sm-4 col-xs-6">
 											<div class="thumbnail">
 												@if ($main_course->image_path)
 													<a href="/{{ $main_course->image_path }}" data-lity>
@@ -128,7 +128,7 @@
 							<div class="tab-pane" id="extras">
 								<div class="row">
 									@foreach ($extras as $extra)
-										<div class="col-sm-4">
+										<div class="col-sm-4 col-xs-6">
 											<div class="thumbnail">
 												@if ($extra->image_path)
 													<a href="/{{ $extra->image_path }}" data-lity>
@@ -156,7 +156,7 @@
 							<div class="tab-pane" id="beverages">
 								<div class="row">
 									@foreach ($beverages as $beverage)
-										<div class="col-sm-4">
+										<div class="col-sm-4 col-xs-6">
 											<div class="thumbnail">
 												@if ($beverage->image_path)
 													<a href="/{{ $beverage->image_path }}" data-lity>
@@ -183,7 +183,7 @@
 							<div class="tab-pane" id="juices">
 								<div class="row">
 									@foreach ($juices as $juice)
-										<div class="col-sm-4">
+										<div class="col-sm-4 col-xs-6">
 											<div class="thumbnail">
 												@if ($juice->image_path)
 													<a href="/{{ $juice->image_path }}" data-lity>
@@ -210,7 +210,7 @@
 							<div class="tab-pane" id="desserts">
 								<div class="row">
 									@foreach ($desserts as $dessert)
-										<div class="col-sm-4">
+										<div class="col-sm-4 col-xs-6">
 											<div class="thumbnail">
 												@if ($dessert->image_path)
 													<a href="/{{ $dessert->image_path }}" data-lity>

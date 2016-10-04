@@ -66,3 +66,22 @@
 		@endif
 	</div>
 </div>
+
+@section('scripts')
+	<script>
+		$(function() {
+			$('a[href*="#"]:not([href="#appetizers"]):not([href="#main_courses"]):not([href="#extras"]):not([href="#beverages"]):not([href="#juices"]):not([href="#desserts"])').click(function() {
+				if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+					var target = $(this.hash);
+					target     = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+					if (target.length) {
+						$('html, body').animate({
+							scrollTop : target.offset().top
+						}, 1000);
+						return false;
+					}
+				}
+			});
+		});
+	</script>
+@stop

@@ -1,4 +1,4 @@
-<p style="position: fixed; z-index: 100; right: 10px; top: 30px; font-size: 40px;" class="visible-xs">
+<p style="position: fixed; z-index: 100; right: 3%; top: 8%; font-size: 40px;" class="visible-xs">
 	<a class="text-info" href="#pjax-container"><i class="fa fa-shopping-cart fa-fw"></i></a>
 </p>
 <div class="panel panel-success" id="pjax-container">
@@ -66,3 +66,22 @@
 		@endif
 	</div>
 </div>
+
+@section('scripts')
+	<script>
+		$(function() {
+			$('a[href*="#"]:not([href="#"])').click(function() {
+				if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+					var target = $(this.hash);
+					target     = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+					if (target.length) {
+						$('html, body').animate({
+							scrollTop : target.offset().top
+						}, 1000);
+						return false;
+					}
+				}
+			});
+		});
+	</script>
+@stop

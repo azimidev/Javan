@@ -46,8 +46,8 @@ function today($date)
 
 function javan_is_open()
 {
-	$opening_time = (new DateTime('Europe/London'))->setTime(12, 0)->getTimestamp();
-	$closing_time = (new DateTime('Europe/London'))->setTime(23, 0)->getTimestamp();
+	$opening_time = (new DateTime('Europe/London'))->setTime(12, 30)->getTimestamp();
+	$closing_time = (new DateTime('Europe/London'))->setTime(22, 30)->getTimestamp();
 
 	return time() >= $opening_time && time() <= $closing_time;
 }

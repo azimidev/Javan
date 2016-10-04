@@ -20,7 +20,7 @@
 				@unless (javan_is_open())
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
-						We are closed now and cannot accept orders unless you want specific delivery time between 13:00 - 23:00
+						We are either closed or cannot deliver to you, unless you want specific delivery time between 12:30 - 22:30
 					</div>
 				@endunless
 

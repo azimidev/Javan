@@ -71,7 +71,7 @@
 					</div>
 					<div class="content">
 						<div class="tab-content text-center">
-							<div class="tab-pane" id="appetizers">
+							<div class="tab-pane fade" id="appetizers">
 								<div class="row">
 									@foreach ($appetizers as $appetizer)
 										<div class="col-sm-4 col-xs-6">
@@ -103,7 +103,7 @@
 									@endforeach
 								</div>
 							</div>
-							<div class="tab-pane active" id="main_courses">
+							<div class="tab-pane fade in active" id="main_courses">
 								<div class="row">
 									@foreach ($main_courses as $main_course)
 										<div class="col-sm-4 col-xs-6">
@@ -135,7 +135,7 @@
 									@endforeach
 								</div>
 							</div>
-							<div class="tab-pane" id="extras">
+							<div class="tab-pane fade" id="extras">
 								<div class="row">
 									@foreach ($extras as $extra)
 										<div class="col-sm-4 col-xs-6">
@@ -167,7 +167,7 @@
 									@endforeach
 								</div>
 							</div>
-							<div class="tab-pane" id="beverages">
+							<div class="tab-pane fade" id="beverages">
 								<div class="row">
 									@foreach ($beverages as $beverage)
 										<div class="col-sm-4 col-xs-6">
@@ -195,7 +195,7 @@
 									@endforeach
 								</div>
 							</div>
-							<div class="tab-pane" id="juices">
+							<div class="tab-pane fade" id="juices">
 								<div class="row">
 									@foreach ($juices as $juice)
 										<div class="col-sm-4 col-xs-6">
@@ -223,7 +223,7 @@
 									@endforeach
 								</div>
 							</div>
-							<div class="tab-pane" id="desserts">
+							<div class="tab-pane fade" id="desserts">
 								<div class="row">
 									@foreach ($desserts as $dessert)
 										<div class="col-sm-4 col-xs-6">

@@ -30,7 +30,7 @@
 				<div class="item">
 					<img src="/images/carousel/2.jpg" alt="Javan Restaurant Live Music">
 					<div class="carousel-caption hidden-xs">
-						<h3>We Only Use Finest Baby Lamb Fillets</h3>
+						<h3>Compare the Quality and You be the Judge</h3>
 					</div>
 				</div>
 				<div class="item">

@@ -84,11 +84,11 @@
 												<div class="caption">
 													<h3 class="hidden-xs" style="cursor:help;" title="{{ $appetizer->description }}"
 													    data-toggle="tooltip"
-													    data-placement="top">{{ $appetizer->title }}</h3>
+													    data-placement="top" itemprop="name">{{ $appetizer->title }}</h3>
 													<h5 class="visible-xs" style="cursor:help;" title="{{ $appetizer->description }}"
 													    data-toggle="tooltip"
-													    data-placement="top">{{ $appetizer->title }}</h5>
-													<span class="text-primary">£ {{ number_format($appetizer->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;</span>
+													    data-placement="top" itemprop="name">{{ $appetizer->title }}</h5>
+													<span class="text-primary" itemprop="price">£ {{ number_format($appetizer->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;</span>
 													@if ($appetizer->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $appetizer) }}"
 														   class="btn btn-sm btn-success btn-raised">
@@ -116,11 +116,13 @@
 												<div class="caption">
 													<h3 class="hidden-xs" style="cursor:help;" title="{{ $main_course->description }}"
 													    data-toggle="tooltip"
-													    data-placement="top">{{ $main_course->title }}</h3>
+													    data-placement="top"
+													    itemprop="name">{{ $main_course->title }}</h3>
 													<h5 class="visible-xs" style="cursor:help;" title="{{ $main_course->description }}"
 													    data-toggle="tooltip"
-													    data-placement="top">{{ $main_course->title }}</h5>
-													<span class="text-primary">£ {{ number_format($main_course->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;</span>
+													    data-placement="top"
+													    itemprop="name">{{ $main_course->title }}</h5>
+													<span class="text-primary" itemprop="price">£ {{ number_format($main_course->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;</span>
 													@if ($main_course->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $main_course) }}"
 														   class="btn btn-sm btn-success btn-raised">
@@ -148,11 +150,12 @@
 												<div class="caption">
 													<h3 class="hidden-xs" style="cursor:help;" title="{{ $extra->description }}"
 													    data-toggle="tooltip"
-													    data-placement="top">{{ $extra->title }}</h3>
+													    data-placement="top" itemprop="name">{{ $extra->title }}</h3>
 													<h5 class="visible-xs" style="cursor:help;" title="{{ $extra->description }}"
 													    data-toggle="tooltip"
-													    data-placement="top">{{ $extra->title }}</h5>
-													<span class="text-primary">£ {{ number_format($extra->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;</span>
+													    data-placement="top" itemprop="name">{{ $extra->title }}</h5>
+													<span class="text-primary" itemprop="price">£ {{ number_format($extra->price / 100 , 2) }}
+														&nbsp;&nbsp;&nbsp;</span>
 													@if ($extra->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $extra) }}"
 														   class="btn btn-sm btn-success btn-raised">
@@ -178,9 +181,9 @@
 													</a>
 												@endif
 												<div class="caption">
-													<h3 class="hidden-xs">{{ $beverage->title }}</h3>
-													<h5 class="visible-xs">{{ $beverage->title }}</h5>
-													<span class="text-primary">£ {{ number_format($beverage->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;</span>
+													<h3 class="hidden-xs" itemprop="name">{{ $beverage->title }}</h3>
+													<h5 class="visible-xs" itemprop="name">{{ $beverage->title }}</h5>
+													<span class="text-primary" itemprop="price">£ {{ number_format($beverage->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;</span>
 													@if ($beverage->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $beverage) }}"
 														   class="btn btn-sm btn-success btn-raised">
@@ -206,9 +209,10 @@
 													</a>
 												@endif
 												<div class="caption">
-													<h3 class="hidden-xs">{{ $juice->title }}</h3>
-													<h5 class="visible-xs">{{ $juice->title }}</h5>
-													<span class="text-primary">£ {{ number_format($juice->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;</span>
+													<h3 class="hidden-xs" itemprop="name">{{ $juice->title }}</h3>
+													<h5 class="visible-xs" itemprop="name">{{ $juice->title }}</h5>
+													<span class="text-primary" itemprop="price">£ {{ number_format($juice->price / 100 , 2) }}
+														&nbsp;&nbsp;&nbsp;</span>
 													@if ($juice->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $juice) }}"
 														   class="btn btn-sm btn-success btn-raised">
@@ -236,10 +240,11 @@
 												<div class="caption">
 													<h3 class="hidden-xs" style="cursor:help;" title="{{ $dessert->description }}"
 													    data-toggle="tooltip"
-													    data-placement="top">{{ $dessert->title }}</h3>
+													    data-placement="top" itemprop="name">{{ $dessert->title }}</h3>
 													<h5 style="cursor:help;" title="{{ $dessert->description }}" data-toggle="tooltip"
-													    data-placement="top" class="visible-xs">{{ $dessert->title }}</h5>
-													<span class="text-primary">£ {{ number_format($dessert->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;</span>
+													    data-placement="top" class="visible-xs" itemprop="name">{{ $dessert->title }}</h5>
+													<span class="text-primary" itemprop="price">£ {{ number_format($dessert->price / 100 , 2) }}
+														&nbsp;&nbsp;&nbsp;</span>
 													@if ($dessert->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $dessert) }}"
 														   class="btn btn-sm btn-success btn-raised">

@@ -1,50 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+		xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-<url>
-  <loc>https://javan-restaurant.co.uk/</loc>
-</url>
-<url>
-  <loc>https://javan-restaurant.co.uk/about</loc>
-</url>
-<url>
-  <loc>https://javan-restaurant.co.uk/Persian-Food-Delivery-London</loc>
-</url>
-<url>
-  <loc>https://javan-restaurant.co.uk/guest/reservation</loc>
-</url>
-<url>
-  <loc>https://javan-restaurant.co.uk/contact</loc>
-</url>
-<url>
-  <loc>https://javan-restaurant.co.uk/blog</loc>
-</url>
-<url>
-  <loc>https://javan-restaurant.co.uk/login</loc>
-</url>
-<url>
-  <loc>https://javan-restaurant.co.uk/register</loc>
-</url>
-<url>
-  <loc>https://javan-restaurant.co.uk/images/files/Javan-Terms-and-Conditions.pdf</loc>
-  <lastmod>2016-08-20T02:05:17+00:00</lastmod>
-</url>
-<url>
-  <loc>https://javan-restaurant.co.uk/information</loc>
-</url>
-<url>
-  <loc>https://javan-restaurant.co.uk/images/menu/Javan-Restaurant-Menu.pdf</loc>
-  <lastmod>2016-08-20T02:05:17+00:00</lastmod>
-</url>
-<url>
-  <loc>https://javan-restaurant.co.uk/blog/lunch-time-offer</loc>
-</url>
-<url>
-  <loc>https://javan-restaurant.co.uk/password/reset</loc>
-</url>
+	<url>
+		<loc>https://javan-restaurant.co.uk/</loc>
+		<changefreq>weekly</changefreq>
+		<priority>1.00</priority>
+	</url>
+	<url>
+		<loc>https://javan-restaurant.co.uk/about</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://javan-restaurant.co.uk/Persian-Food-Delivery-London</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://javan-restaurant.co.uk/guest/reservation</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://javan-restaurant.co.uk/contact</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://javan-restaurant.co.uk/blog</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://javan-restaurant.co.uk/login</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://javan-restaurant.co.uk/register</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://javan-restaurant.co.uk/information</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://javan-restaurant.co.uk/images/menu/Javan-Restaurant-Menu.pdf</loc>
+		<lastmod>2016-09-15T00:44:08+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://javan-restaurant.co.uk/images/files/Javan-Terms-and-Conditions.pdf</loc>
+		<lastmod>2016-08-20T02:05:17+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://javan-restaurant.co.uk/blog/night-club-starting-soon</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://javan-restaurant.co.uk/blog/two-weeks-offer-from-5916-to-11916</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://javan-restaurant.co.uk/blog/live-music-from-11th-september</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://javan-restaurant.co.uk/blog/lunch-time-offer</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://javan-restaurant.co.uk/password/reset</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.64</priority>
+	</url>
 </urlset>

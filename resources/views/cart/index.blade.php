@@ -124,6 +124,6 @@
 @stop
 
 @section('scripts')
-	<script>fbq('track', 'Purchase', {value: '1.00', currency: 'USD'});</script>
+	<script>fbq('track', 'AddToCart');</script>
 @stop
 

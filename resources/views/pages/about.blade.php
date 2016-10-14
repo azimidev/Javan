@@ -19,14 +19,16 @@
 		<article>
 			<div class="col-sm-8">
 				<article>
-					<h1>Why you should try our cuisine ?</h1>
+					<h1 class="hidden-xs">Why you should try our cuisine ?</h1>
+					<h3 class="visible-xs">Why you should try our cuisine ?</h3>
 					<p>Javan Restaurant is a Persian cuisine restaurant in a great location in King Street, West London. We serve
 						top quality meals. This restaurant established with the aim of familiarising people within this area with
 						Persian Cuisine.</p>
 					<p>We recently changed the management, name, quality of food our staff and especially our head chef. Our head
 						chef is one of the best chefs in Iranian communities with many years experience in working for top Persian
 						restaurants in London. We now do food delivery to your home.</p>
-					<h2>We have space for your events</h2>
+					<h2 class="hidden-xs">We have space for your events</h2>
+					<h4 class="visible-xs">We have space for your events</h4>
 					<p>We have a bar floor downstairs of restaurant where you can book for your events such as parties, birthday
 						parties, christmas celebrations, weddings, grauation parties, goodbye parties and so on</p>
 					<p>We serve the best quality foods. We use finest baby lamb fillets, poussins, chickens and ingredients.

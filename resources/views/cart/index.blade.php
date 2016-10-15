@@ -122,8 +122,3 @@
 		@endif
 	</main>
 @stop
-
-@section('scripts')
-	<script>fbq('track', 'AddToCart');</script>
-@stop
-

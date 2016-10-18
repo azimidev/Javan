@@ -160,8 +160,9 @@
 																	</table>
 																	<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
 																		Dear {{ $user['name'] }}, <br/><br/>
-																		You have ordered food delivery but for the reason below we could not accept your
-																		order, Therefore, we have rejected your order and refunded your money.
+																		You have ordered food delivery but for the reason below we could proceed with your
+																		order, Therefore, we have cenceled your order and refunded your money. We appologise
+																		for any inconvenience we may caused.
 																	</p>
 																	<br/>
 																	<p style="margin:0;margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
@@ -183,7 +184,7 @@
 																	</p>
 																	<br/><br/>
 																	<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
-																		Your order will be rejected and refunded if we could not verify your information
+																		Your order may be rejected and refunded if we could not verify your information
 																		with the rejection reason(s) on your note.
 																	</p>
 																	<hr/>

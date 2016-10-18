@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Login To Javan Restaurant')
 @section('content')
-
 	<div class="login">
 		<div class="container">
 			<div class="row">

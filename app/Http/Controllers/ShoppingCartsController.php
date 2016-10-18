@@ -75,7 +75,7 @@ class ShoppingCartsController extends Controller
 	public function store(Request $request)
 	{
 		if (less_than_minimum_order()) {
-			flash()->error('Error', 'Sorry but the minimum order is £' . env('MINIMUM_ORDER'));
+			flash()->error('Error', 'The minimum order is £' . env('MINIMUM_ORDER'));
 
 			return redirect()->route('menu');
 		}

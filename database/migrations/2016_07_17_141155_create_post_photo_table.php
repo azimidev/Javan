@@ -19,7 +19,6 @@ class CreatePostPhotoTable extends Migration
 	        $table->string('path');
 	        $table->string('thumbnail_path');
 	        $table->timestamps();
-
 	        $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade')->onUpdate('cascade');
         });
     }

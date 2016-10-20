@@ -83,18 +83,6 @@ class ReservationsController extends Controller
 	}
 
 	/**
-	 * Display the specified resource.
-	 *
-	 * @param $reservations
-	 * @return \Illuminate\Http\Response
-	 * @internal param int $id
-	 */
-	public function show(Reservation $reservations)
-	{
-		//
-	}
-
-	/**
 	 * Show the form for editing the specified resource.
 	 *
 	 * @param int|\Javan\Reservation $reservations

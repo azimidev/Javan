@@ -11,7 +11,7 @@
 
 			<a class="navbar-brand" href="{{ url('/') }}">
 				<span>
-					<img height="100%" src="/images/logo.png" alt="Javan Restaurant Logo">
+					{{--<img height="100%" src="/images/logo.png" alt="Javan Restaurant Logo">--}}
 					Javan Restaurant
 				</span>
 			</a>

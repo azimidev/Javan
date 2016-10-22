@@ -33,7 +33,7 @@
 					</a>
 				</p>
 				<h2 class="hidden-xs">Opening Hours</h2>
-				<h3 class="hidden-xs">Opening Hours</h3>
+				<h3 class="visible-xs">Opening Hours</h3>
 				<p class="text-justify">
 					We are open <b>everyday</b> from <b>12:00</b> ro <b>23:00</b>
 				</p>

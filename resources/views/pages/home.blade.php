@@ -23,8 +23,8 @@
 					<dt>Saturday</dt><dd>12:00 - 23:00</dd>
 					<dt>Sunday</dt><dd>12:00 - 23:00</dd>
 				</dl>
-				<h2 class="hidden-xs">Koko Cokctail's Opening Hours</h2>
-				<h3 class="visible-xs">Koko Cokctail's Opening Hours</h3>
+				<h2 class="hidden-xs">Coco Cokctail's Opening Hours</h2>
+				<h3 class="visible-xs">Coco Cokctail's Opening Hours</h3>
 				<p class="text-justify">
 				<dl class="dl-horizontal">
 					<dt>Monday</dt><dd>19:00 - 23:00</dd>

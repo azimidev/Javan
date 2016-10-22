@@ -26,10 +26,6 @@
 				<h2 class="hidden-xs">Coco Cokctail's Opening Hours</h2>
 				<h3 class="visible-xs">Coco Cokctail's Opening Hours</h3>
 				<dl class="dl-horizontal">
-					<dt>Monday</dt><dd>19:00 - 23:00</dd>
-					<dt>Tuesday</dt><dd>19:00 - 23:00</dd>
-					<dt>Wednesday</dt><dd>19:00 - 23:00</dd>
-					<dt>Thursday</dt><dd>19:00 - 23:00</dd>
 					<dt>Friday</dt><dd>19:00 - 00:00</dd>
 					<dt>Saturday</dt><dd>19:00 - 00:00</dd>
 					<dt>Sunday</dt><dd>19:00 - 23:00</dd>

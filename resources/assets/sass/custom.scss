@@ -19,6 +19,14 @@ body { background-color : $dark; }
 
 footer { color : white; }
 
+.bbcnassim { font-family: $bbcnassim !important; }
+
+.irannastaliq { font-family: $iranNastaliq !important; }
+
+.lato { font-family : $lato; }
+
+.openSnas { font-family : $openSans; }
+
 .text-bright { color : $bright !important; }
 
 .text-twilight { color : $twilight !important; }
@@ -51,12 +59,6 @@ footer { color : white; }
 .login { margin : 100px 0; }
 
 .register { margin : 100px 0; }
-
-.iranNastaliq { font-family : $iranNastaliq; }
-
-.lato { font-family : $lato; }
-
-.openSnas { font-family : $openSans; }
 
 .btn { margin : 1% 0; }
 

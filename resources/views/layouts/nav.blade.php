@@ -10,7 +10,10 @@
 			</button>
 
 			<a class="navbar-brand" href="{{ url('/') }}">
-				Javan Restaurant
+				<span>
+					<img height="100%" src="/images/logo.png" alt="Javan Restaurant Logo">
+					Javan Restaurant
+				</span>
 			</a>
 		</div>
 

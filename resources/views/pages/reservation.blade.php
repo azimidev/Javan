@@ -114,7 +114,7 @@
 		<aside>
 			<div class="col-sm-4">
 				<img src="/images/restaurant/Javan_in_and_out.png" alt="Javan Restaurant Interior and Exterior" width="100%">
-				<h2><i class="fa fa-info fa-fw"></i> Private Dining and Parties</h2>
+				{{--<h2><i class="fa fa-info fa-fw"></i> Private Dining and Parties</h2>
 				<p class="text-justify">
 					We have a space for about 60 people downstairs which is ideal for your celebrations and private parties.
 					To book this place for your events please call us on <a href="tel:02085638553">02085638553</a> and arrange a
@@ -143,7 +143,7 @@
 				<h2><i class="fa fa-info fa-fw"></i> Before You Book</h2>
 				<p>Please view and download the terms and conditions below to clear up everything before booking:</p>
 				<a class="btn btn-raised btn-primary" href="/images/files/Javan-Terms-and-Conditions.pdf" target="_blank">Terms
-					& Conditions (PDF)</a>
+					& Conditions (PDF)</a>--}}
 			</div>
 		</aside>
 	</main>

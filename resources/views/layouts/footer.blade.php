@@ -49,7 +49,6 @@
 			</ul>
 			<br>
 			&copy; {{ date('Y') }} Javan Restaurant London <br>
-			<small>Designed and Created by Hassan Azimi</small>
 		</nav>
 		<nav class="copyright navbar-right">
 			<div>

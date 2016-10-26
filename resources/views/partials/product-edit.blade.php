@@ -21,7 +21,7 @@
 	<div class="col-sm-8">
 		<input type="number" class="form-control" name="price" id="price" placeholder="Price x 100" required
 		       value="{{ $products->price }}">
-		<span class="help-block text-info">Product price time 100 for example £1.50 MUST be entered 150</span>
+		<span class="help-block text-info">Product price in pence for example £1.50 MUST be entered 150 pence</span>
 	</div>
 </div>
 
@@ -36,7 +36,7 @@
 			<option {{ $products->hasCategory('juice') ? 'selected' : '' }} value="juice">Juice</option>
 			<option {{ $products->hasCategory('dessert') ? 'selected' : '' }} value="dessert">Dessert</option>
 		</select>
-		<span class="help-block text-info">Choose a role</span>
+		<span class="help-block text-info">Choose a category</span>
 	</div>
 </div>
 

@@ -38,12 +38,12 @@
 		<link rel="shortcut icon" type="image/png" href="/images/favicon.png">
 	</head>
 	<body id="app-layout">
-		<h4 dir="rtl" class="bbcnassim alert alert-warning alert-dismissable center"
+		<h3 dir="rtl" class="bbcnassim alert alert-warning alert-dismissable center"
 		    style="line-height:30px;">
 			<span onclick="$(this).parent().slideUp('slow')" style="cursor:pointer;">
 				انتقال ارز به ایران و برعکس در کوتاه ترین زمان ممکن
 			</span>
-		</h4>
+		</h3>
 		@include('layouts.nav')
 		@include('errors.errors')
 		@yield('content')

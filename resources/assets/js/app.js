@@ -75,8 +75,7 @@
 	/**
 	 * Attribute data-ajax for every form
 	 */
-	$('form#deliverable' +
-		'').on('submit', function(e) {
+	$('form#deliverable').on('submit', function(e) {
 		var form   = $(this);
 		var method = form.find('input[name="_method"]').val() || 'POST';
 		var url    = form.prop('action');

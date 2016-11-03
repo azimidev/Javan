@@ -12,7 +12,7 @@
 						<div class="alert-icon"><i class="material-icons">error</i></div>
 						We are closed now and cannot accept orders unless you want specific delivery time between
 						<time datetime="13:00">13:00</time>
-						-
+						&mdash;
 						<time datetime="23:00">23:00</time>
 					</div>
 				@endunless
@@ -95,8 +95,7 @@
 											<select name="select2" data-stripe="exp_month" id="exp-date"
 											        class="card-expiry-month stripe-sensitive required form-control" required>
 												@for ($i = 0; $i < 12; $i++)
-													<option
-															value="{{ $i + 1 }}" {{ $i + 1 == date('m') + 1 ? 'selected' : '' }}>{{ $i + 1 }}</option>
+													<option value="{{ $i + 1 }}" {{ $i + 1 == date('m') + 1 ? 'selected' : '' }}>{{ $i + 1 }}</option>
 												@endfor
 											</select>
 											<span> / </span>
@@ -126,12 +125,12 @@
 									<div class="col-sm-7">
 									<textarea type="text" class="form-control" name="note" id="note"
 									          {{ javan_is_open() ? '' : 'required minlength=6' }}
-									          placeholder="{{ javan_is_open() ? 'Type Delivery Instruction' : 'We are closed now so please specify the delivery time here between 12:00 to 23:00'}}"></textarea>
+									          placeholder="{{ javan_is_open() ? 'Optional Delivery Instructions' : 'We are closed now so please specify the delivery time here between 12:30 to 22:30'}}"></textarea>
 										@if (javan_is_open())
 											<span class="help-block text-primary">Ex: time of delivery, the house bell and etcetera</span>
 										@else
 											<span
-													class="help-block text-primary">Please specify the delivery time here between 13:00 to 23:00</span>
+													class="help-block text-primary">Please specify the delivery time here between 12:30 to 22:30</span>
 										@endif
 									</div>
 								</div>

@@ -17,10 +17,13 @@
 			<p class="text-info"><i class="fa fa-info-circle fa-fw"></i>
 				We serve selections of wines and beers</p>
 			<article class="col-md-8">
-				@unless (javan_is_open())
+				@unless(javan_is_open())
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
-						We are either closed or cannot deliver to you, unless you want specific delivery time between 12:30 - 22:30
+						We are closed now and cannot accept orders unless you want specific delivery time between
+						<time datetime="12:30">12:30</time>
+						&mdash;
+						<time datetime="22:30">22:30</time>
 					</div>
 				@endunless
 

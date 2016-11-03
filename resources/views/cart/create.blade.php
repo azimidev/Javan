@@ -11,9 +11,9 @@
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
 						We are closed now and cannot accept orders unless you want specific delivery time between
-						<time datetime="13:00">13:00</time>
+						<time datetime="12:30">12:30</time>
 						&mdash;
-						<time datetime="23:00">23:00</time>
+						<time datetime="22:00">22:30</time>
 					</div>
 				@endunless
 				<div class="panel panel-primary">

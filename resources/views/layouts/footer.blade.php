@@ -48,10 +48,10 @@
 				</li>
 			</ul>
 			<br>
-			&copy; {{ date('Y') }} Javan Restaurant London <br>
-			<span class="bbcnassim lead">
+			<p class="bbcnassim lead">
 				انتقال ارز به ایران و برعکس در کوتاه ترین زمان ممکن
-			</span>
+			</p>
+			<p>&copy; {{ date('Y') }} Javan Restaurant London</p>
 		</nav>
 		<nav class="copyright navbar-right">
 			<div>

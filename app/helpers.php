@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @param null $title
+ * @param null $message
+ * @return \Illuminate\Foundation\Application|\Javan\Http\Flash|mixed
+ */
 function flash($title = NULL, $message = NULL)
 {
 	$flash = app('Javan\Http\Flash');
@@ -11,11 +16,19 @@ function flash($title = NULL, $message = NULL)
 	return $flash->info($title, $message);
 }
 
+/**
+ * @param $path
+ * @param string $active
+ * @return string
+ */
 function active($path, $active = 'active')
 {
 	return Request::is($path) ? $active : '';
 }
 
+/**
+ * @return string
+ */
 function select_times_of_day()
 {
 	$open_time  = strtotime('12:00');
@@ -34,16 +47,27 @@ function select_times_of_day()
 	return $output;
 }
 
+/**
+ * @param $date
+ * @return mixed
+ */
 function expired($date)
 {
 	return $date->lt(Carbon\Carbon::today());
 }
 
+/**
+ * @param $date
+ * @return mixed
+ */
 function today($date)
 {
 	return $date->eq(Carbon\Carbon::today());
 }
 
+/**
+ * @return bool
+ */
 function javan_is_open()
 {
 	$date_time    = new DateTime('Europe/London');
@@ -53,6 +77,9 @@ function javan_is_open()
 	return time() >= $opening_time && time() <= $closing_time;
 }
 
+/**
+ * @return bool
+ */
 function less_than_minimum_order()
 {
 	$total = (int) str_replace(',', '', \Cart::total());
@@ -60,6 +87,11 @@ function less_than_minimum_order()
 	return $total < env('MINIMUM_ORDER');
 }
 
+/**
+ * @param $column
+ * @param $body
+ * @return string
+ */
 function sort_column_by($column, $body)
 {
 	$direction = (request()->get('direction') == 'ASC') ? 'DESC' : 'ASC';
@@ -69,6 +101,10 @@ function sort_column_by($column, $body)
 	return '<a href=' . $route . '>' . $body . '</a>';
 }
 
+/**
+ * @param $string
+ * @return mixed
+ */
 function persian($string)
 {
 	$western = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
@@ -77,11 +113,20 @@ function persian($string)
 	return str_replace($western, $eastern, $string);
 }
 
+/**
+ * @param $parameter
+ * @param $slug
+ * @return bool
+ */
 function route_parameter($parameter, $slug)
 {
 	return request()->route()->parameter($parameter) === $slug;
 }
 
+/**
+ * @param $model
+ * @return string
+ */
 function status($model)
 {
 	if ($model->recent()) {
@@ -93,6 +138,10 @@ function status($model)
 	}
 }
 
+/**
+ * @param $post
+ * @return string
+ */
 function rss_tag_uri($post)
 {
 	$parsedUrl = parse_url(route('blog', $post->slug));
@@ -104,6 +153,10 @@ function rss_tag_uri($post)
 	return implode('', $output);
 }
 
+/**
+ * @param $destination
+ * @return array
+ */
 function deliverable($destination)
 {
 	$address = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=' .

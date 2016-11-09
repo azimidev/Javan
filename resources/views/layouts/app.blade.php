@@ -12,16 +12,16 @@
 		      content="Persian, Restaurant, London, Chelo, Kabab, Iranian, Cuisine, Take-Aways, Naan, Delivery, Hammersmith, Chiswick"/>
 		<meta name="copyright" content="javan-restaurant.co.uk">
 		<meta name="author" content="Javan Persian Restaurant London"/>
-		<meta name="application-name" content="Javan Persian Restaurant London">
+		<meta name="application-name" content="@yield('title', 'Javan Persian Restaurant London')">
 		<!--GEO Tags-->
-		<meta name="DC.title" content="Javan Persian Restaurant"/>
+		<meta name="DC.title" content="@yield('title', 'Javan Persian Restaurant London')"/>
 		<meta name="geo.region" content="GB-HMF"/>
 		<meta name="geo.placename" content="London"/>
 		<meta name="geo.position" content="51.493272;-0.239747"/>
 		<meta name="ICBM" content="51.493272, -0.239747"/>
 		<!--Facebook Tags-->
 		<meta property="og:url" content="{{ request()->fullUrl() }}"/>
-		<meta property="og:title" content="Javan Persian Restaurant"/>
+		<meta property="og:title" content="@yield('title', 'Javan Persian Restaurant London')"/>
 		<meta property="og:type" content="article"/>
 		<meta property="og:image" content="{{ request()->root() }}/images/Javan-Facebook-Logo.png"/>
 		<meta property="article:author" content="https://www.facebook.com/JavanLondonLtd"/>
@@ -30,7 +30,7 @@
 		      content="Authentic Persian Cuisine Licenced Restaurant in West London, Hammersmith, Chiswick With Great Traditional Interior Design and Selection of Georgian WInes, Beers and Shisha"/>
 		<!--Twitter Tags-->
 		<meta name="twitter:card" content="summary"/>
-		<meta name="twitter:title" content="Javan Persian Restaurant"/>
+		<meta name="twitter:title" content="@yield('title', 'Javan Persian Restaurant London')"/>
 		<meta name="twitter:description"
 		      content="Authentic Persian Cuisine Licenced Restaurant in West London, Hammersmith, Chiswick With Great Traditional Interior Design and Selection of Georgian WInes, Beers and Shisha"/>
 		<meta name="twitter:image" content="{{ request()->root() }}/images/Javan-Twitter-Logo.png"/>

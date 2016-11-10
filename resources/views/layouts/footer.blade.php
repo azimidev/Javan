@@ -51,7 +51,7 @@
 			<p class="bbcnassim lead">
 				انتقال ارز به ایران و برعکس در کوتاه ترین زمان ممکن
 			</p>
-			<p>&copy; {{ date('Y') }} Javan Restaurant London</p>
+			{{--<p>&copy; {{ date('Y') }} Javan Restaurant London</p>--}}
 		</nav>
 		<nav class="copyright navbar-right">
 			<div>

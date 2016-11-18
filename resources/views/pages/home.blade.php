@@ -12,6 +12,9 @@
 				   class="btn btn-danger btn-raised btn-round btn-lg btn-block">
 					Reserve Table Online
 				</a>
+				<a href="{{ auth()->check() ? route('member.bookings') : route('create.reservation') }}">
+					<img src="{{ url('/images/Xmas.jpg') }}" alt="Xmas Booking" width="100%" class="img-rounded">
+				</a>
 				<h2 class="hidden-xs">Javan's Opening Hours</h2>
 				<h3 class="visible-xs">Javan's Opening Hours</h3>
 				<dl class="dl-horizontal">

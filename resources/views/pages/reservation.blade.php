@@ -17,6 +17,7 @@
 
 	<main class="main main-raised container">
 		<article>
+			<img src="{{ url('/images/Xmas.jpg') }}" alt="Xmas Booking" width="100%" class="img-rounded">
 			<div class="col-sm-8">
 				<h2><i class="fa fa-yelp fa-fw"></i> Use Yelp Reservation</h2>
 				<div class="alert alert-inverse">

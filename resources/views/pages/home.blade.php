@@ -22,8 +22,8 @@
 					<dt>Tuesday</dt><dd>12:00 - 23:00</dd>
 					<dt>Wednesday</dt><dd>12:00 - 23:00</dd>
 					<dt>Thursday</dt><dd>12:00 - 23:00</dd>
-					<dt>Friday</dt><dd>12:00 - 23:00</dd>
-					<dt>Saturday</dt><dd>12:00 - 23:00</dd>
+					<dt>Friday</dt><dd>12:00 - 23:30</dd>
+					<dt>Saturday</dt><dd>12:00 - 23:30</dd>
 					<dt>Sunday</dt><dd>12:00 - 23:00</dd>
 				</dl>
 				{{--

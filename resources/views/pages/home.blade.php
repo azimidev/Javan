@@ -17,7 +17,7 @@
 				</a>
 				<h2 class="hidden-xs">Javan's Opening Hours</h2>
 				<h3 class="visible-xs">Javan's Opening Hours</h3>
-				<dl class="dl-horizontal">
+				<dl class="dl-horizontal lead">
 					<dt>Monday</dt><dd>12:00 - 23:00</dd>
 					<dt>Tuesday</dt><dd>12:00 - 23:00</dd>
 					<dt>Wednesday</dt><dd>12:00 - 23:00</dd>
@@ -35,11 +35,8 @@
 					<dt>Sunday</dt><dd>19:00 - 23:00</dd>
 				</dl>
 				--}}
-				<h2 class="hidden-xs">Contact Number</h2>
-				<h3 class="visible-xs">Contact Number</h3>
-				<p class="text-justify">
-					020 8563 8553
-				</p>
+				<h2 class="hidden-xs">Tel: 020 8563 8553</h2>
+				<h3 class="visible-xs">Tel: 020 8563 8553</h3>
 			</div>
 		</article>
 		<aside>

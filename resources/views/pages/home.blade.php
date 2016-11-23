@@ -12,6 +12,7 @@
 				   class="btn btn-danger btn-raised btn-round btn-lg btn-block">
 					Reserve Table Online
 				</a>
+				<br><br>
 				<a href="{{ auth()->check() ? route('member.bookings') : route('create.reservation') }}">
 					<img src="{{ url('/images/Xmas.jpg') }}" alt="Xmas Booking" width="100%" class="img-rounded">
 				</a>
@@ -26,23 +27,18 @@
 					<dt>Saturday</dt><dd>12:00 - 23:30</dd>
 					<dt>Sunday</dt><dd>12:00 - 23:00</dd>
 				</dl>
-				{{--
-				<h2 class="hidden-xs">Coco Cokctail's Opening Hours</h2>
-				<h3 class="visible-xs">Coco Cokctail's Opening Hours</h3>
-				<dl class="dl-horizontal">
-					<dt>Friday</dt><dd>19:00 - 00:00</dd>
-					<dt>Saturday</dt><dd>19:00 - 00:00</dd>
-					<dt>Sunday</dt><dd>19:00 - 23:00</dd>
-				</dl>
-				--}}
 				<h2 class="hidden-xs">Tel: 020 8563 8553</h2>
 				<h3 class="visible-xs">Tel: 020 8563 8553</h3>
+				<br><br><br>
+				<p class="bbcnassim text-success large-text center" dir="rtl">لحم الحلال</p>
+				<br><br><br>
+				<p class="bbcnassim text-danger center lead" dir="rtl">بهترین کیفیت غذای ایرانی</p>
+				<p class="bbcnassim text-danger center lead" dir="rtl">قضاوت به عهده شما</p>
+
 			</div>
 		</article>
 		<aside>
 			<div class="col-md-4">
-				<p class="bbcnassim pull-right text-right text-danger large-text">حلال</p>
-
 				<div class="card card-nav-tabs card-plain">
 					<div class="header header-primary">
 						<div class="nav-tabs-navigation">

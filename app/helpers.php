@@ -7,9 +7,9 @@
  */
 function flash($title = NULL, $message = NULL)
 {
-	$flash = app('Javan\Http\Flash');
+	$flash = app(Javan\Http\Flash::class);
 
-	if (func_num_args() == 0) {
+	if ( ! func_num_args()) {
 		return $flash;
 	}
 
@@ -71,8 +71,8 @@ function today($date)
 function javan_is_open()
 {
 	$date_time    = new DateTime('Europe/London');
-	$opening_time = $date_time->setTime(12, 30)->getTimestamp();
-	$closing_time = $date_time->setTime(22, 30)->getTimestamp();
+	$opening_time = $date_time->setTime(12, 15)->getTimestamp();
+	$closing_time = $date_time->setTime(22, 45)->getTimestamp();
 
 	return time() >= $opening_time && time() <= $closing_time;
 }

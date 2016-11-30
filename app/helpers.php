@@ -70,9 +70,9 @@ function today($date)
  */
 function javan_is_open()
 {
-	$opening_time = (new DateTime('Europe/London'))->setTime(12, 15);
-	$closing_time = (new DateTime('Europe/London'))->setTime(22, 45);
-	$now          = new DateTime();
+	$now          = new DateTime('Europe/London');
+	$opening_time = (clone $now)->setTime(12, 30);
+	$closing_time = (clone $now)->setTime(22, 45);
 
 	return $opening_time <= $now && $now <= $closing_time;
 }

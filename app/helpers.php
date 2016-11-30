@@ -70,11 +70,11 @@ function today($date)
  */
 function javan_is_open()
 {
-	$date_time    = new DateTime('Europe/London');
-	$opening_time = $date_time->setTime(12, 15)->getTimestamp();
-	$closing_time = $date_time->setTime(22, 45)->getTimestamp();
+	$opening_time = (new DateTime('Europe/London'))->setTime(12, 15);
+	$closing_time = (new DateTime('Europe/London'))->setTime(22, 45);
+	$now          = new DateTime();
 
-	return time() >= $opening_time && time() <= $closing_time;
+	return $opening_time <= $now && $now <= $closing_time;
 }
 
 /**

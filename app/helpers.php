@@ -31,17 +31,14 @@ function active($path, $active = 'active')
  */
 function select_times_of_day()
 {
-	$open_time  = strtotime('12:00');
-	$close_time = strtotime('23:00');
-	$interval   = 15 * 60;
-	$output     = '';
+	$open_time  = (new DateTime())->setTime(12, 30);
+	$close_time = (new DateTime())->setTime(22, 45);
+	$interval   = new DateInterval('PT15M');
+	$date_range = new DatePeriod($open_time, $interval, $close_time);
 
-	for ($i = $open_time; $i < $close_time; $i += $interval) {
-		$output .= '<option ';
-		if (time() < $open_time) {
-			$output .= 'selected';
-		}
-		$output .= ' value="' . date('H:i', $i) . '">' . date('H:i', $i) . '</option>';
+	$output = '';
+	foreach ($date_range as $date) {
+		$output .= '<option value="' . $date->format('H:i') . '">' . $date->format('H:i') . '</option>';
 	}
 
 	return $output;

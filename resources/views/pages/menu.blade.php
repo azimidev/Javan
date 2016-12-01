@@ -22,7 +22,7 @@
 					<div class="alert-icon"><i class="material-icons">warning</i></div>
 					Unfortunately, delivery system is not working temporary at this time please call us on <strong
 							class="underline">020 8563 8553</strong> if you'd like to order food delivery.
-					<small>We apologise for any inconvenience this may cause</small>
+					<small>We apologise for any inconvenience this may cause.</small>
 				</div>
 
 				@unless(javan_is_open())

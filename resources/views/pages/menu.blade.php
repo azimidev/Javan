@@ -17,6 +17,12 @@
 			<p class="text-info"><i class="fa fa-info-circle fa-fw"></i>
 				We serve selections of wines and beers</p>
 			<article class="col-md-8">
+
+				<div class="alert alert-danger">
+					<div class="alert-icon"><i class="material-icons">error</i></div>
+					Unfortunately, delivery system is not working at this time please call us on 020 85638553 if you'd like to order food delivery.
+				</div>
+
 				@unless(javan_is_open())
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
@@ -94,7 +100,7 @@
 													<span class="text-primary" itemprop="price">£ {{ number_format($appetizer->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;</span>
 													@if ($appetizer->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $appetizer) }}"
-														   class="btn btn-sm btn-success btn-raised">
+														   class="btn btn-sm btn-success btn-raised disabled">
 															<i class="fa fa-plus fa-lg"></i>
 														</a>
 													@else
@@ -128,7 +134,7 @@
 													<span class="text-primary" itemprop="price">£ {{ number_format($main_course->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;</span>
 													@if ($main_course->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $main_course) }}"
-														   class="btn btn-sm btn-success btn-raised">
+														   class="btn btn-sm btn-success btn-raised disabled">
 															<i class="fa fa-plus fa-lg"></i>
 														</a>
 													@else
@@ -161,7 +167,7 @@
 														&nbsp;&nbsp;&nbsp;</span>
 													@if ($extra->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $extra) }}"
-														   class="btn btn-sm btn-success btn-raised">
+														   class="btn btn-sm btn-success btn-raised disabled">
 															<i class="fa fa-plus fa-lg"></i>
 														</a>
 													@else
@@ -189,7 +195,7 @@
 													<span class="text-primary" itemprop="price">£ {{ number_format($beverage->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;</span>
 													@if ($beverage->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $beverage) }}"
-														   class="btn btn-sm btn-success btn-raised">
+														   class="btn btn-sm btn-success btn-raised disabled">
 															<i class="fa fa-plus fa-lg"></i>
 														</a>
 													@else
@@ -218,7 +224,7 @@
 														&nbsp;&nbsp;&nbsp;</span>
 													@if ($juice->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $juice) }}"
-														   class="btn btn-sm btn-success btn-raised">
+														   class="btn btn-sm btn-success btn-raised disabled">
 															<i class="fa fa-plus fa-lg"></i>
 														</a>
 													@else
@@ -250,7 +256,7 @@
 														&nbsp;&nbsp;&nbsp;</span>
 													@if ($dessert->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $dessert) }}"
-														   class="btn btn-sm btn-success btn-raised">
+														   class="btn btn-sm btn-success btn-raised disabled">
 															<i class="fa fa-plus fa-lg"></i>
 														</a>
 													@else

@@ -19,8 +19,10 @@
 			<article class="col-md-8">
 
 				<div class="alert alert-warning">
-					<div class="alert-icon"><i class="material-icons">error</i></div>
-					Unfortunately, delivery system is not working at this time please call us on 020 85638553 if you'd like to order food delivery.
+					<div class="alert-icon"><i class="material-icons">warning</i></div>
+					Unfortunately, delivery system is not working temporary at this time please call us on <strong
+							class="underline">020 8563 8553</strong> if you'd like to order food delivery.
+					<small>We apologise for any inconvenience this may cause</small>
 				</div>
 
 				@unless(javan_is_open())
@@ -97,7 +99,8 @@
 													<h5 class="visible-xs" style="cursor:help;" title="{{ $appetizer->description }}"
 													    data-toggle="tooltip"
 													    data-placement="top" itemprop="name">{{ $appetizer->title }}</h5>
-													<span class="text-primary" itemprop="price">£ {{ number_format($appetizer->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;</span>
+													<span class="text-primary" itemprop="price">£ {{ number_format($appetizer->price / 100 , 2) }}
+														&nbsp;&nbsp;&nbsp;</span>
 													@if ($appetizer->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $appetizer) }}"
 														   class="btn btn-sm btn-success btn-raised disabled">
@@ -131,7 +134,9 @@
 													    data-toggle="tooltip"
 													    data-placement="top"
 													    itemprop="name">{{ $main_course->title }}</h5>
-													<span class="text-primary" itemprop="price">£ {{ number_format($main_course->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;</span>
+													<span class="text-primary"
+													      itemprop="price">£ {{ number_format($main_course->price / 100 , 2) }}
+														&nbsp;&nbsp;&nbsp;</span>
 													@if ($main_course->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $main_course) }}"
 														   class="btn btn-sm btn-success btn-raised disabled">
@@ -192,7 +197,8 @@
 												<div class="caption">
 													<h3 class="hidden-xs" itemprop="name">{{ $beverage->title }}</h3>
 													<h5 class="visible-xs" itemprop="name">{{ $beverage->title }}</h5>
-													<span class="text-primary" itemprop="price">£ {{ number_format($beverage->price / 100 , 2) }} &nbsp;&nbsp;&nbsp;</span>
+													<span class="text-primary" itemprop="price">£ {{ number_format($beverage->price / 100 , 2) }}
+														&nbsp;&nbsp;&nbsp;</span>
 													@if ($beverage->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $beverage) }}"
 														   class="btn btn-sm btn-success btn-raised disabled">

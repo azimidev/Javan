@@ -18,7 +18,7 @@
 				We serve selections of wines and beers</p>
 			<article class="col-md-8">
 
-				<div class="alert alert-danger">
+				<div class="alert alert-warning">
 					<div class="alert-icon"><i class="material-icons">error</i></div>
 					Unfortunately, delivery system is not working at this time please call us on 020 85638553 if you'd like to order food delivery.
 				</div>

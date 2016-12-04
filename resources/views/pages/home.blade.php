@@ -30,11 +30,8 @@
 				<h2 class="hidden-xs">Tel: 020 8563 8553</h2>
 				<h3 class="visible-xs">Tel: 020 8563 8553</h3>
 				<br><br><br>
-				<p class="bbcnassim text-success large-text center" dir="rtl">لحم الحلال</p>
-				<br><br><br>
 				<p class="bbcnassim text-danger center lead" dir="rtl">بهترین کیفیت غذای ایرانی</p>
 				<p class="bbcnassim text-danger center lead" dir="rtl">قضاوت به عهده شما</p>
-
 			</div>
 		</article>
 		<aside>

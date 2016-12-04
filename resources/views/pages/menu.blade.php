@@ -282,6 +282,10 @@
 			<aside class="col-md-4">
 				@include('partials.cart')
 				@include('partials.deliverable')
+				<div class="alert alert-info">
+					Take away dishes don't include side salad. <br>
+					سالاد کنار غذا شامل دلیوری نمی شود.
+				</div>
 			</aside>
 		</main>
 	</header>

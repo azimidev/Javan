@@ -288,7 +288,7 @@
 					<p class="bbcnassim text-right" dir="rtl">سالاد کنار غذا شامل دلیوری نمی شود.</p>
 				</div>
 				<div class="alert-inverse center">
-					<a class="text-twilight" target="_blank" href="//eats.uber.com/stores/5e3716e3-8232-479e-a043-0fd7c10c6113">
+					<a target="_blank" href="//eats.uber.com/stores/5e3716e3-8232-479e-a043-0fd7c10c6113">
 						<img src="/images/UberEats-logo.png" alt="UberEats-logo">
 					</a>
 				</div><!-- /.alert -->

@@ -21,9 +21,9 @@
 				<div class="alert alert-warning">
 					<div class="alert-icon"><i class="material-icons">warning</i></div>
 					Unfortunately, delivery system is not working temporary. Please call us on <strong
-							class="underline">020 8563 8553</strong> if you'd like to order food delivery or order via
-					<a class="alert-link" target="_blank" href="https://eats.uber.com/stores/5e3716e3-8232-479e-a043-0fd7c10c6113">UberEATS</a>
-					<small>We apologise for any inconvenience this may cause.</small>
+							class="underline">020 8563 8553</strong> or order via
+					<a class="text-twilight" target="_blank" href="//eats.uber.com/stores/5e3716e3-8232-479e-a043-0fd7c10c6113">UberEATS</a>
+					if you'd like to order food delivery. <small>We apologise for any inconvenience this may cause.</small>
 				</div>
 
 				@unless(javan_is_open())
@@ -287,6 +287,9 @@
 					<p>Take away dishes don't include side salad.</p>
 					<p class="bbcnassim text-right" dir="rtl">سالاد کنار غذا شامل دلیوری نمی شود.</p>
 				</div>
+				<div class="alert-inverse center">
+					<img src="/images/UberEats-logo.png" alt="UberEats-logo">
+				</div><!-- /.alert -->
 			</aside>
 		</main>
 	</header>

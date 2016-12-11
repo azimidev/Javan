@@ -16,20 +16,21 @@
 				<br><br>
 
 				<a href="{{ auth()->check() ? route('member.bookings') : route('create.reservation') }}">
-					<img src="{{ url('/images/Xmas.jpg') }}" alt="Xmas Booking" width="100%" class="img-rounded">
+					<img src="{{ url('/images/Xmas.jpg') }}" alt="Xmas Booking" width="100%"
+					     class="img-rounded img-raised img-responsive">
 				</a>
 
 				<br><br>
 
 				<div class="col-sm-6">
 					<a href="/blog/christmas-new-year-events">
-						<img class="img-thumbnail" src="//i.imgur.com/9NRrJzB.png" width="100%"
+						<img class="img-thumbnail img-raised img-responsive" src="//i.imgur.com/9NRrJzB.png" width="100%"
 						     alt="Persian Xmas New Year London Live Music">
 					</a>
-				</div>
+				</div><!-- /.col-sm-6 -->
 				<div class="col-sm-6">
 					<a href="/blog/live-music-every-saturday-night">
-						<img class="img-thumbnail" src="//i.imgur.com/G6mhKFm.jpg" width="100%"
+						<img class="img-thumbnail img-raised img-responsive" src="//i.imgur.com/G6mhKFm.jpg" width="100%"
 						     alt="Persian Xmas New Year London Live Music">
 					</a>
 				</div><!-- /.col-sm-6 -->
@@ -38,7 +39,7 @@
 
 				<h2 class="hidden-xs">Javan's Opening Hours</h2>
 				<h3 class="visible-xs">Javan's Opening Hours</h3>
-				<dl class="dl-horizontal lead">
+				<dl class="dl-horizontal">
 					<dt>Monday</dt>
 					<dd>12:00 - 23:00</dd>
 					<dt>Tuesday</dt>
@@ -97,7 +98,7 @@
 										@foreach ($row as $image)
 											<div class="col-sm-6 col-xs-12">
 												<a href="{{ $image['images']['standard_resolution']['url'] }}" data-lity>
-													<img class=" img-space img-rounded img-raised"
+													<img class=" img-space img-thumbnail img-raised"
 													     src="{{ $image['images']['thumbnail']['url'] }}"
 													     alt="{{ $image['link'] }}">
 												</a>

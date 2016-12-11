@@ -22,13 +22,13 @@
 				<br><br>
 
 				<div class="col-sm-6">
-					<a href="//i.imgur.com/9NRrJzB.png" data-lity>
+					<a href="/blog/christmas-new-year-events">
 						<img class="img-thumbnail" src="//i.imgur.com/9NRrJzB.png" width="100%"
 						     alt="Persian Xmas New Year London Live Music">
 					</a>
 				</div>
 				<div class="col-sm-6">
-					<a href="//i.imgur.com/G6mhKFm.jpg" data-lity>
+					<a href="/blog/live-music-every-saturday-night">
 						<img class="img-thumbnail" src="//i.imgur.com/G6mhKFm.jpg" width="100%"
 						     alt="Persian Xmas New Year London Live Music">
 					</a>

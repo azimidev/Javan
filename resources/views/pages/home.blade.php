@@ -12,26 +12,50 @@
 				   class="btn btn-danger btn-raised btn-round btn-lg btn-block">
 					Reserve Table Online
 				</a>
+
 				<br><br>
+
 				<a href="{{ auth()->check() ? route('member.bookings') : route('create.reservation') }}">
 					<img src="{{ url('/images/Xmas.jpg') }}" alt="Xmas Booking" width="100%" class="img-rounded">
 				</a>
+
+				<br><br>
+
+				<div class="col-sm-6">
+					<a href="//i.imgur.com/9NRrJzB.png" data-lity>
+						<img class="img-thumbnail" src="//i.imgur.com/9NRrJzB.png" width="100%"
+						     alt="Persian Xmas New Year London Live Music">
+					</a>
+				</div>
+				<div class="col-sm-6">
+					<a href="//i.imgur.com/G6mhKFm.jpg" data-lity>
+						<img class="img-thumbnail" src="//i.imgur.com/G6mhKFm.jpg" width="100%"
+						     alt="Persian Xmas New Year London Live Music">
+					</a>
+				</div><!-- /.col-sm-6 -->
+
+				<div class="clearfix"></div>
+
 				<h2 class="hidden-xs">Javan's Opening Hours</h2>
 				<h3 class="visible-xs">Javan's Opening Hours</h3>
 				<dl class="dl-horizontal lead">
-					<dt>Monday</dt><dd>12:00 - 23:00</dd>
-					<dt>Tuesday</dt><dd>12:00 - 23:00</dd>
-					<dt>Wednesday</dt><dd>12:00 - 23:00</dd>
-					<dt>Thursday</dt><dd>12:00 - 23:00</dd>
-					<dt>Friday</dt><dd>12:00 - 23:30</dd>
-					<dt>Saturday</dt><dd>12:00 - 23:30</dd>
-					<dt>Sunday</dt><dd>12:00 - 23:00</dd>
+					<dt>Monday</dt>
+					<dd>12:00 - 23:00</dd>
+					<dt>Tuesday</dt>
+					<dd>12:00 - 23:00</dd>
+					<dt>Wednesday</dt>
+					<dd>12:00 - 23:00</dd>
+					<dt>Thursday</dt>
+					<dd>12:00 - 23:00</dd>
+					<dt>Friday</dt>
+					<dd>12:00 - 23:30</dd>
+					<dt>Saturday</dt>
+					<dd>12:00 - 23:30</dd>
+					<dt>Sunday</dt>
+					<dd>12:00 - 23:00</dd>
 				</dl>
 				<h2 class="hidden-xs">Tel: 020 8563 8553</h2>
 				<h3 class="visible-xs">Tel: 020 8563 8553</h3>
-				<br><br><br>
-				<p class="bbcnassim text-danger center lead" dir="rtl">بهترین کیفیت غذای ایرانی</p>
-				<p class="bbcnassim text-danger center lead" dir="rtl">قضاوت به عهده شما</p>
 			</div>
 		</article>
 		<aside>
@@ -94,6 +118,8 @@
 						</div>
 					</div>
 				</div>
+				<p class="bbcnassim text-danger center lead" dir="rtl">بهترین کیفیت غذای ایرانی</p>
+				<p class="bbcnassim text-danger center lead" dir="rtl">قضاوت به عهده شما</p>
 			</div>
 		</aside>
 	</main>

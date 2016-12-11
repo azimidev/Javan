@@ -17,7 +17,6 @@
 			<p class="text-info"><i class="fa fa-info-circle fa-fw"></i>
 				We serve selections of wines and beers</p>
 			<article class="col-md-8">
-
 				@unless(javan_is_open())
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
@@ -27,7 +26,6 @@
 						<time datetime="22:30">22:30</time>
 					</div>
 				@endunless
-
 				<div class="card card-nav-tabs card-plain">
 					<div class="header header-primary">
 						<div class="nav-tabs-navigation">

@@ -151,11 +151,36 @@ function rss_tag_uri($post)
 }
 
 /**
+ * Example of JSON response:
+ *
  * @param $destination
  * @return array
  */
+
 function deliverable($destination)
 {
+	// {
+	// 	"destination_addresses" : [ "London W14, UK" ],
+	// 	"origin_addresses" : [ "291 King St, London W6 9NH, UK" ],
+	// 	"rows" : [
+	//       {
+	// 	      "elements" : [
+	//             {
+	// 	            "distance" : {
+	// 	            "text" : "1.9 mi",
+	//                   "value" : 3082
+	//                },
+	//                "duration" : {
+	// 	            "text" : "7 mins",
+	//                   "value" : 429
+	//                },
+	//                "status" : "OK"
+	//             }
+	//          ]
+	//       }
+	//    ],
+	//    "status" : "OK"
+	// }
 	$address = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=' .
 		'291+King+Street+W6+9NH' . '&destinations=' . $destination . 'London+UK' . '&key=' . env('GOOGLE_API_KEY');
 
@@ -165,25 +190,30 @@ function deliverable($destination)
 
 	if ($response['status'] === 'OK' && $response['rows'][0]['elements'][0]['status'] === 'OK') {
 
+		// $response['rows'][0]['elements'][0]['distance']['value'] // gets the value
+		$distanse = $response['rows'][0]['elements'][0]['distance']['text'];
+		// $response['rows'][0]['elements'][0]['duration']['text'] // gets the text // 15min * 60sec = 900
+		$duration = ceil(($response['rows'][0]['elements'][0]['duration']['value'] + 900) / 60) . ' minutes';
+
 		if ($response['rows'][0]['elements'][0]['distance']['value'] <= 5000) {
 
 			return [
 				'status' => TRUE,
-				'title'  => '<span class="text-success">Yes We Deliver in Your Area</span>',
+				'title'  => '<span class="text-success"><i class="fa fa-smile-o"></i> You are very close.</span>',
 				'text'   => '<b>Your address:</b> ' .
-					array_shift($response['destination_addresses']) . '<br>' .
-					'<b>Estimated Distance:</b> ' . $response['rows'][0]['elements'][0]['distance']['text'] . '<br>' .
-					'<b>Estimated Delivery:</b> ' . $response['rows'][0]['elements'][0]['duration']['text'],
+					'<b class="text-primary">' . array_shift($response['destination_addresses']) . '</b><br>' .
+					"<b>Estimated Distance: </b><b class='text-success'>{$distanse}</b><br>" .
+					"<b>Estimated Delivery: </b><b class='text-success'>{$duration}</b>",
 			];
 		}
 
 		return [
 			'status' => FALSE,
-			'title'  => '<span class="text-danger">Sorry We Don\'t Deliver in Your Area</span>',
+			'title'  => '<span class="text-danger"><i class="fa fa-frown-o"></i> You are a little far!</span>',
 			'text'   => '<b>Your address:</b> ' .
-				array_shift($response['destination_addresses']) . '<br>' .
-				'<b>Estimated Distance:</b> ' . $response['rows'][0]['elements'][0]['distance']['text'] . '<br><br>' .
-				'Order by phone if you\'re willing to pay for the delivery charge' . '<br>' .
+				'<b class="text-primary">' . array_shift($response['destination_addresses']) . '</b><br>' .
+				"<b>Estimated Distance: </b><b class='text-danger'>{$distanse}</b><br><br>" .
+				'<b class="text-success">Order and pay by phone with delivery charge.</b>' . '<br>' .
 				'<b>020 8563 8553</b>',
 		];
 	}

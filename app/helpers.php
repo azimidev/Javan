@@ -192,8 +192,8 @@ function deliverable($destination)
 
 		// $response['rows'][0]['elements'][0]['distance']['value'] // gets the value
 		$distanse = $response['rows'][0]['elements'][0]['distance']['text'];
-		// $response['rows'][0]['elements'][0]['duration']['text'] // gets the text // 15min * 60sec = 900
-		$duration = ceil(($response['rows'][0]['elements'][0]['duration']['value'] + 900) / 60) . ' minutes';
+		// $response['rows'][0]['elements'][0]['duration']['text'] // gets the text // 20min * 60sec = 1200
+		$duration = ceil(($response['rows'][0]['elements'][0]['duration']['value'] + 1200) / 60) . ' minutes';
 
 		if ($response['rows'][0]['elements'][0]['distance']['value'] <= 5000) {
 

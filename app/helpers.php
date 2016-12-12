@@ -199,7 +199,7 @@ function deliverable($destination)
 
 			return [
 				'status' => TRUE,
-				'title'  => '<span class="text-success"><i class="fa fa-smile-o"></i> You are very close.</span>',
+				'title'  => '<span class="text-success"><i class="fa fa-smile-o"></i> Yes! You are very close.</span>',
 				'text'   => '<b>Your address:</b> ' .
 					'<b class="text-primary">' . array_shift($response['destination_addresses']) . '</b><br>' .
 					"<b>Estimated Distance: </b><b class='text-success'>{$distanse}</b><br>" .

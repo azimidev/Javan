@@ -15,8 +15,5 @@
 			<br>
 		@endforeach
 	</span>
-	{{--<div class="col-sm-8">--}}
-	<h2>{{ $post->subject }}</h2>
 	{!! nl2br($post->body) !!}
-	{{--</div>--}}
 @endif

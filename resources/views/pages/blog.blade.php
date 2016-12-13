@@ -18,31 +18,47 @@
 		@if( ! $posts->isEmpty())
 			<article>
 				<div class="col-md-8 col-xs-12">
-					@if ($post)
-						@include('partials.post-show', ['post' => $post])
-						@include('partials.disqus')
-					@else
-						@include('partials.post-show', ['post' => $posts->first()])
-					@endif
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3>{{ $post ? $post->subject : 'Recent News' }}</h3 class="panel-title">
+						</div>
+						<div class="panel-body">
+							@if ($post)
+								@include('partials.post-show', ['post' => $post])
+							@else
+								@include('partials.post-show', ['post' => $posts->first()])
+							@endif
+						</div>
+						@if ($post)
+							<div class="panel-footer">
+								@include('partials.disqus')
+							</div>
+						@endif
+					</div>
 				</div>
 			</article>
-			<aside>
+			<article>
 				<div class="col-md-4 col-xs-12">
-					<h2><i class="fa fa-paper-plane-o"></i> Recent Posts</h2>
-					<div class="list-group">
-						@foreach ($posts as $post)
-							<a class="list-group-item {{ route_parameter('slug', $post->slug) ? 'active' : '' }}"
-							   id="pjax" href="{{ route('blog', $post->slug) }}">
-								{!! status($post) !!} {{ $post->subject }}
-							</a>
-						@endforeach
+					<div class="panel panel-default">
+						  <div class="panel-heading">
+								<h3><i class="fa fa-paper-plane-o"></i> Recent Posts</h2></h3>
+						  </div>
+						  <div class="panel-body">
+							  <div class="list-group">
+								  @foreach ($posts as $post)
+									  <a class="list-group-item list-group-item-success {{ route_parameter('slug', $post->slug) ? 'active' : '' }}"
+									     id="pjax" href="{{ route('blog', $post->slug) }}">
+										  {!! status($post) !!} {{ $post->subject }}
+									  </a>
+								  @endforeach
+							  </div>
+						  </div>
+						<div class="panel-footer center">
+							{{ $posts->render() }}
+							{{-- $posts->appends(request()->input())->links() --}}
+						</div>
 					</div>
-					<div class="center">
-						{{ $posts->render() }}
-						{{-- $posts->appends(request()->input())->links() --}}
-					</div>
-				</div>
-			</aside>
+			</article>
 		@else
 			<div class="center">
 				<h1>There is no post at the moment</h1>

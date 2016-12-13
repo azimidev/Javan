@@ -1,11 +1,13 @@
 @if ($post)
-	<div>
+	<div class="pull-right">
 		@foreach ($post->photos as $photo)
-			{{--<a href="/{{ $photo->path }}" data-lity>--}}
+			<a href="/{{ $photo->path }}" data-lity>
 				<img class="img-space img-responsive img-thumbnail img-raised"
-				     src="/{{ $photo->path }}"
+				     style="margin-left:1em;"
+				     src="/{{ $photo->thumbnail_path }}"
 				     alt="{{ $photo->name }}">
-			{{--</a>--}}
+			</a>
+			<br>
 		@endforeach
 	</div>
 	<h2>{{ $post->subject }}</h2>

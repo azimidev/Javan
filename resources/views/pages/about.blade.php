@@ -21,6 +21,7 @@
 				<article>
 					<h2 class="hidden-xs">Why you should try our cuisine ?</h2>
 					<h3 class="visible-xs">Why you should try our cuisine ?</h3>
+					<img src="/images/restaurant/shisha.png" alt="Shisha - Hookah" class="pull-right" width="25%">
 					<p>Javan Restaurant is a Persian cuisine restaurant in a great location in King Street, West London. We serve
 						top quality meals. This restaurant established with the aim of familiarising people within this area with
 						Persian Cuisine.</p>

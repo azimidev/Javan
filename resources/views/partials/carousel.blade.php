@@ -18,7 +18,7 @@
 				<div class="item active">
 					<img src="/images/carousel/01.jpg" alt="Javan Persian Restaurant">
 					<div class="carousel-caption hidden-xs">
-						<h2>Javan Restaurant</h2>
+						<h2>Javan Persian Restaurant</h2>
 						<h4>
 							291-293 King Street <br>
 							London <br>
@@ -29,33 +29,33 @@
 				</div>
 				<div class="item">
 					<img src="/images/carousel/02.jpg" alt="Javan Restaurant Live Music">
-					<div class="carousel-caption hidden-xs">
+					{{--<div class="carousel-caption hidden-xs">
 						<h3>Compare the Quality and You be the Judge</h3>
-					</div>
+					</div>--}}
 				</div>
 				<div class="item">
 					<img src="/images/carousel/03.jpg" alt="Javan Restaurant Interior Ground Floor">
-					<div class="carousel-caption hidden-xs">
+					{{--<div class="carousel-caption hidden-xs">
 						<h3>Traditional Interior Design <br> Shisha Place and Outside Sitting</h3>
-					</div>
+					</div>--}}
 				</div>
 				<div class="item">
 					<img src="/images/carousel/04.jpg" alt="Javan Persian Restaurant">
-					<div class="carousel-caption hidden-xs">
+					{{--<div class="carousel-caption hidden-xs">
 						<h3>We Love Our Customers</h3>
-					</div>
+					</div>--}}
 				</div>
 				<div class="item">
 					<img src="/images/carousel/05.jpg" alt="Javan Persian Restaurant">
-					<div class="carousel-caption hidden-xs">
+					{{--<div class="carousel-caption hidden-xs">
 						<h3>Top Quality Persian Cuisine</h3>
-					</div>
+					</div>--}}
 				</div>
 				<div class="item">
 					<img src="/images/carousel/06.jpg" alt="Javan Persian Restaurant">
-					<div class="carousel-caption hidden-xs">
+					{{--<div class="carousel-caption hidden-xs">
 						<h3>Plenty Space for Private Parties</h3>
-					</div>
+					</div>--}}
 				</div>
 			</div>
 

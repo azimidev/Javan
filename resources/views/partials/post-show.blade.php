@@ -1,8 +1,8 @@
 @if ($post)
 	<h2>{{ $post->subject }}</h2>
-	{{--<div class="col-sm-7">--}}
+	<div class="pull-left">
 		{!! nl2br($post->body) !!}
-	{{--</div>--}}
+	</div>
 	<div class="pull-right">
 		@foreach ($post->photos as $photo)
 			<a href="/{{ $photo->path }}" data-lity>

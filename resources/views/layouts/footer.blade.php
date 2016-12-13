@@ -46,6 +46,9 @@
 				<li>
 					<i title="Stripe" class="fa fa-cc-stripe fa-fw fa-3x"></i>
 				</li>
+				<li>
+					<i title="PayPal" class="fa fa-cc-paypal fa-fw fa-3x"></i>
+				</li>
 			</ul>
 			<br>
 			<p class="bbcnassim lead">
@@ -73,6 +76,12 @@
 					<span class="fa-stack fa-lg" style="height: 3.5em; width: 2.7em;">
 					  <i class="fa fa-square fa-stack-2x" style="font-size: 2.3em;"></i>
 					  <i class="fa fa-tripadvisor fa-stack-1x" style="color: #000; font-size: 1.3em;	line-height: 1.7em;"></i>
+					</span>
+				</a>
+				<a href="javascript:void(0)" class="text-bright" target="_blank" title="Free Wi-Fi">
+					<span class="fa-stack fa-lg" style="height: 3.5em; width: 2.7em;">
+					  <i class="fa fa-square fa-stack-2x" style="font-size: 2.3em;"></i>
+					  <i class="fa fa-wifi fa-stack-1x" style="color: #000; font-size: 1.3em;	line-height: 1.8em;"></i>
 					</span>
 				</a>
 			</div>

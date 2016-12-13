@@ -40,19 +40,17 @@
 			<article>
 				<div class="col-md-4 col-xs-12">
 					<div class="panel panel-default">
-						  <div class="panel-heading">
-								<h3><i class="fa fa-paper-plane-o"></i> Recent Posts</h2></h3>
-						  </div>
-						  <div class="panel-body">
-							  <div class="list-group">
-								  @foreach ($posts as $post)
-									  <a class="list-group-item list-group-item-success {{ route_parameter('slug', $post->slug) ? 'active' : '' }}"
-									     id="pjax" href="{{ route('blog', $post->slug) }}">
-										  {!! status($post) !!} {{ $post->subject }}
-									  </a>
-								  @endforeach
-							  </div>
-						  </div>
+						<div class="panel-heading">
+							<h3><i class="fa fa-paper-plane-o"></i> Recent Posts</h2></h3>
+						</div>
+						<div class="list-group">
+							@foreach ($posts as $post)
+								<a class="list-group-item {{ route_parameter('slug', $post->slug) ? 'active' : '' }}"
+								   id="pjax" href="{{ route('blog', $post->slug) }}">
+									{!! status($post) !!} {{ $post->subject }}
+								</a>
+							@endforeach
+						</div>
 						<div class="panel-footer center">
 							{{ $posts->render() }}
 							{{-- $posts->appends(request()->input())->links() --}}

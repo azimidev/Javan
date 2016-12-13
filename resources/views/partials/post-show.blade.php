@@ -1,9 +1,9 @@
 @if ($post)
-	<span class="pull-left">
+	<span class="pull-right">
 		@foreach ($post->photos as $photo)
 			<a href="/{{ $photo->path }}" data-lity class="hidden-xs">
 				<img class="img-space img-responsive img-thumbnail img-raised"
-				     style="margin-right:1em;"
+				     style="margin-left:1em;"
 				     src="/{{ $photo->thumbnail_path }}"
 				     alt="{{ $photo->name }}">
 			</a>

@@ -62,7 +62,7 @@ class UsersController extends Controller
 		$this->validate($request, [
 			'name'     => 'required',
 			'email'    => 'required|unique:users',
-			'password' => 'required|min:6'
+			'password' => 'required'
 		]);
 		User::create($request->all());
 		flash()->success('Success', 'User was created');

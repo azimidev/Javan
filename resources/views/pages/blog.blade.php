@@ -20,7 +20,7 @@
 				<div class="col-md-8 col-xs-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3>{{ $post ? $post->subject : 'Recent News' }}</h3 class="panel-title">
+							<h3>{{ $post ? $post->subject : 'Recent News' }}</h3>
 						</div>
 						<div class="panel-body">
 							@if ($post)

@@ -29,7 +29,7 @@
 										<span class="input-group-addon">
 											<i class="fa fa-envelope fa-lg fa-fw"></i>
 										</span>
-									<input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}"
+									<input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}"
 									       placeholder="Email" required>
 
 									@if ($errors->has('email'))

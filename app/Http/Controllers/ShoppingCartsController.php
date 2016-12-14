@@ -103,7 +103,7 @@ class ShoppingCartsController extends Controller
 		$this->dispatch(new SendOrderToAdmin($shoppingCart));
 		$this->dispatch(new SendOrderConfirmation($shoppingCart));
 		Cart::destroy();
-		flash()->overlay('Payment was successfull', 'Delivery has been placed. We are going to send your delivery ASAP unless you have stated a specific delivery time in your delivery instructions. If you have any problems please call us on 020 8563 8553');
+		flash()->overlay('Payment was successfull', 'Delivery has been placed. We are going to send your delivery ASAP unless you have stated a specific delivery time. If you Didn\'t get confirmation email, please call us on 020 8563 8553');
 
 		return redirect()->route('member.orders');
 	}

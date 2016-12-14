@@ -14,7 +14,7 @@
 			</div>
 		</div>
 	</div>
-	<main class="container main main-raised">
+	<main class="container main main-raised" id="pjax-container">
 		@if( ! $posts->isEmpty())
 			<article>
 				<div class="col-md-8 col-xs-12">

@@ -14,7 +14,7 @@
 			</div>
 		</div>
 	</div>
-	<main class="container main main-raised" id="pjax-container">
+	<main class="container main main-raised">
 		@if( ! $posts->isEmpty())
 			<article>
 				<div class="col-md-8 col-xs-12">
@@ -56,6 +56,7 @@
 							{{-- $posts->appends(request()->input())->links() --}}
 						</div>
 					</div>
+				</div>
 			</article>
 		@else
 			<div class="center">

@@ -20,21 +20,27 @@
 
 				{{--<div class="alert alert-warning">
 					<div class="alert-icon"><i class="material-icons">warning</i></div>
-					Unfortunately, delivery system is not working temporary. Please call us on <strong
-							class="underline">020 8563 8553</strong> or order via
-					<a class="text-twilight" target="_blank" href="//eats.uber.com/stores/5e3716e3-8232-479e-a043-0fd7c10c6113">UberEATS</a>
-					if you'd like to order food delivery. <small>We apologise for any inconvenience this may cause.</small>
+					<strong>Delivery Status: </strong>
+					Temporary not working. Please call us on <strong>020 8563 8553</strong> or order via
+					<a class="text-twilight alert-link" target="_blank"
+					   href="//eats.uber.com/stores/5e3716e3-8232-479e-a043-0fd7c10c6113">UberEATS</a>
 				</div>--}}
 
-				@unless(javan_is_open())
+				@if(javan_is_open())
+					<div class="alert alert-success">
+						<div class="alert-icon"><i class="material-icons">done</i></div>
+						<strong>Delivery Status: </strong> Accepting Orders.
+					</div>
+				@else
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
-						We are closed now and cannot accept orders unless you want specific delivery time between
+						<strong>Delivery Status: </strong> Not Accepting Orders.
+						You can now schedule delivery time between
 						<time datetime="12:30">12:30</time>
 						&mdash;
 						<time datetime="22:45">22:45</time>
 					</div>
-				@endunless
+				@endif
 
 				<div class="card card-nav-tabs card-plain">
 					<div class="header header-primary">

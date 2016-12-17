@@ -140,7 +140,7 @@
 								<div class="control-group">
 									<div class="controls">
 										<div class="center">
-											<button class="btn btn-success btn-raised submit" type="submit">Pay Now</button>
+											<button class="btn btn-success btn-raised submit" type="submit">Pay & Place Order</button>
 										</div>
 									</div>
 								</div>

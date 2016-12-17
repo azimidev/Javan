@@ -21,7 +21,7 @@
 					For parties more than 25 people please call us on <a href="tel:02085638553" class="alert-link">02085638553</a>
 				</p>
 				<p class="text-justify">
-					Please make sure you have inserted yur number <strong>preferably mobile number</strong> correctly in your
+					Please make sure you have inserted your number <strong>preferably mobile number</strong> correctly in your
 					profile in case we want to contact you urgently to avoid any disappointments.
 				</p>
 				<p class="text-justify">

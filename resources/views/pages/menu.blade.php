@@ -18,13 +18,13 @@
 				We serve selections of wines and beers</p>
 			<article class="col-md-8">
 
-				<div class="alert alert-warning">
+				{{--<div class="alert alert-warning">
 					<div class="alert-icon"><i class="material-icons">warning</i></div>
 					Unfortunately, delivery system is not working temporary. Please call us on <strong
 							class="underline">020 8563 8553</strong> or order via
 					<a class="text-twilight" target="_blank" href="//eats.uber.com/stores/5e3716e3-8232-479e-a043-0fd7c10c6113">UberEATS</a>
 					if you'd like to order food delivery. <small>We apologise for any inconvenience this may cause.</small>
-				</div>
+				</div>--}}
 
 				@unless(javan_is_open())
 					<div class="alert alert-danger">
@@ -32,7 +32,7 @@
 						We are closed now and cannot accept orders unless you want specific delivery time between
 						<time datetime="12:30">12:30</time>
 						&mdash;
-						<time datetime="22:30">22:30</time>
+						<time datetime="22:45">22:45</time>
 					</div>
 				@endunless
 
@@ -100,11 +100,11 @@
 													<h5 class="visible-xs" style="cursor:help;" title="{{ $appetizer->description }}"
 													    data-toggle="tooltip"
 													    data-placement="top" itemprop="name">{{ $appetizer->title }}</h5>
-													<span class="text-primary" itemprop="price">£ {{ number_format($appetizer->price / 100 , 2) }}
-														&nbsp;&nbsp;&nbsp;</span>
+													<span class="text-primary" itemprop="price">
+														£ {{ number_format($appetizer->price / 100 , 2) }}&nbsp;&nbsp;&nbsp;</span>
 													@if ($appetizer->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $appetizer) }}"
-														   class="btn btn-sm btn-success btn-raised disabled">
+														   class="btn btn-sm btn-success btn-raised">
 															<i class="fa fa-plus fa-lg"></i>
 														</a>
 													@else
@@ -140,7 +140,7 @@
 														&nbsp;&nbsp;&nbsp;</span>
 													@if ($main_course->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $main_course) }}"
-														   class="btn btn-sm btn-success btn-raised disabled">
+														   class="btn btn-sm btn-success btn-raised">
 															<i class="fa fa-plus fa-lg"></i>
 														</a>
 													@else
@@ -173,7 +173,7 @@
 														&nbsp;&nbsp;&nbsp;</span>
 													@if ($extra->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $extra) }}"
-														   class="btn btn-sm btn-success btn-raised disabled">
+														   class="btn btn-sm btn-success btn-raised">
 															<i class="fa fa-plus fa-lg"></i>
 														</a>
 													@else
@@ -202,7 +202,7 @@
 														&nbsp;&nbsp;&nbsp;</span>
 													@if ($beverage->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $beverage) }}"
-														   class="btn btn-sm btn-success btn-raised disabled">
+														   class="btn btn-sm btn-success btn-raised">
 															<i class="fa fa-plus fa-lg"></i>
 														</a>
 													@else
@@ -231,7 +231,7 @@
 														&nbsp;&nbsp;&nbsp;</span>
 													@if ($juice->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $juice) }}"
-														   class="btn btn-sm btn-success btn-raised disabled">
+														   class="btn btn-sm btn-success btn-raised">
 															<i class="fa fa-plus fa-lg"></i>
 														</a>
 													@else
@@ -263,7 +263,7 @@
 														&nbsp;&nbsp;&nbsp;</span>
 													@if ($dessert->available)
 														<a id="addToCart" href="{{ route('add.to.cart', $dessert) }}"
-														   class="btn btn-sm btn-success btn-raised disabled">
+														   class="btn btn-sm btn-success btn-raised">
 															<i class="fa fa-plus fa-lg"></i>
 														</a>
 													@else

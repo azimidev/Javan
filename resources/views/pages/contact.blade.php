@@ -4,7 +4,7 @@
 	<div class="header">
 		<div>
 			<iframe width="100%" height="450" frameborder="0"
-			        src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJm0npDkoOdkgR65Z2_pEgI3Y&key={{ env('GOOGLE_API_KEY') }}"
+			        src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJm0npDkoOdkgR65Z2_pEgI3Y&key={{ config('services.google.key') }}"
 			        allowfullscreen>
 			</iframe>
 		</div>

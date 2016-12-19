@@ -23,7 +23,7 @@ function flash($title = NULL, $message = NULL)
  */
 function active($path, $active = 'active')
 {
-	return Request::is($path) ? $active : '';
+	return request()->is($path) ? $active : '';
 }
 
 /**
@@ -67,11 +67,30 @@ function today($date)
  */
 function javan_is_open()
 {
-	$now          = new DateTime('Europe/London');
-	$opening_time = (clone $now)->setTime(12, 30);
-	$closing_time = (clone $now)->setTime(22, 45);
+	$javan_schedule = [
+		'Mon' => ['04:00 PM' => '10:45 PM'],
+		'Tue' => ['12:30 PM' => '10:45 PM'],
+		'Wed' => ['12:30 PM' => '10:45 PM'],
+		'Thu' => ['12:30 PM' => '10:45 PM'],
+		'Fri' => ['12:30 PM' => '10:45 PM'],
+		'Sat' => ['12:00 PM' => '11:00 PM'],
+		'Sun' => ['12:00 PM' => '11:00 PM'],
+	];
 
-	return $opening_time <= $now && $now <= $closing_time;
+	$now = (new DateTime('Europe/London'))->setTimestamp(time());
+
+	foreach ($javan_schedule[date('D', time())] as $opening_time => $closing_time) {
+
+		$opening_time = DateTime::createFromFormat('h:i A', $opening_time);
+		$closing_time = DateTime::createFromFormat('h:i A', $closing_time);
+
+		if ($opening_time <= $now && $now <= $closing_time) {
+			return TRUE;
+			break;
+		}
+	}
+
+	return FALSE;
 }
 
 /**
@@ -81,7 +100,7 @@ function less_than_minimum_order()
 {
 	$total = (int) str_replace(',', '', \Cart::total());
 
-	return $total < env('MINIMUM_ORDER');
+	return $total < config('app.min-order');
 }
 
 /**
@@ -182,7 +201,8 @@ function deliverable($destination)
 	//    "status" : "OK"
 	// }
 	$address = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=' .
-		'291+King+Street+W6+9NH' . '&destinations=' . $destination . 'London+UK' . '&key=' . env('GOOGLE_API_KEY');
+		'291+King+Street+W6+9NH' . '&destinations=' . $destination . 'London+UK' . '&key=' .
+		config('services.google.key');
 
 	$client   = new GuzzleHttp\Client();
 	$request  = $client->get($address);
@@ -202,8 +222,8 @@ function deliverable($destination)
 				'title'  => '<span class="text-success"><i class="fa fa-smile-o"></i> Yes! You are very close.</span>',
 				'text'   => '<b>Your address:</b> ' .
 					'<b class="text-primary">' . array_shift($response['destination_addresses']) . '</b><br>' .
-					"<b>Estimated Distance: </b><b class='text-success'>{$distanse}</b><br>" .
-					"<b>Estimated Delivery: </b><b class='text-success'>{$duration}</b>",
+					"<b>Estimated Distance: </b><b class=\"text-success\">{$distanse}</b><br>" .
+					"<b>Estimated Delivery: </b><b class=\"text-success\">{$duration}</b>",
 			];
 		}
 
@@ -212,7 +232,7 @@ function deliverable($destination)
 			'title'  => '<span class="text-danger"><i class="fa fa-frown-o"></i> You are a little far!</span>',
 			'text'   => '<b>Your address:</b> ' .
 				'<b class="text-primary">' . array_shift($response['destination_addresses']) . '</b><br>' .
-				"<b>Estimated Distance: </b><b class='text-danger'>{$distanse}</b><br><br>" .
+				"<b>Estimated Distance: </b><b class=\"text-danger\">{$distanse}</b><br><br>" .
 				'<b class="text-success">Order and pay by phone with delivery charge.</b>' . '<br>' .
 				'<b>020 8563 8553</b>',
 		];

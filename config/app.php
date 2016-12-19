@@ -2,6 +2,8 @@
 
 return [
 
+	'min-order' => env('MINIMUM_ORDER', 20),
+
 	/*
 	|--------------------------------------------------------------------------
 	| Application Environment

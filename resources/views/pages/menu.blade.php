@@ -29,12 +29,12 @@
 				@if(javan_is_open())
 					<div class="alert alert-success">
 						<div class="alert-icon"><i class="material-icons">done</i></div>
-						<strong>Delivery Status: </strong> Accepting Orders.
+						<strong>Delivery Status : </strong> Accepting Orders.
 					</div>
 				@else
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
-						<strong>Delivery Status: </strong> Not Accepting Orders.
+						<strong>Delivery Status : </strong> Not Accepting Orders.
 						You can now schedule delivery time between
 						<time datetime="12:30">12:30</time>
 						&mdash;

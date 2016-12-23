@@ -64,8 +64,10 @@
 					</div>
 					<div class="panel-body">
 						@if(auth()->user()->address && auth()->user()->post_code && auth()->user()->phone)
+
 							<form action="{{ route('cart.store') }}" method="POST" role="form"
 							      class="form-horizontal" id="payment-form">
+
 								{{ csrf_field() }}
 
 								<noscript>
@@ -125,12 +127,11 @@
 									<div class="col-sm-7">
 									<textarea type="text" class="form-control" name="note" id="note"
 									          {{ javan_is_open() ? '' : 'required minlength=6' }}
-									          placeholder="{{ javan_is_open() ? 'Optional Delivery Instructions' : 'We are closed now so please specify the delivery time here between 12:30 to 22:30'}}"></textarea>
+									          placeholder="{{ javan_is_open() ? 'Optional Delivery Instructions' : 'Schedule the delivery time here any day between 12:30 to 23:00'}}"></textarea>
 										@if (javan_is_open())
 											<span class="help-block text-primary">Ex: time of delivery, the house bell and etcetera</span>
 										@else
-											<span
-													class="help-block text-primary">Please specify the delivery time here between 12:30 to 22:30</span>
+											<span class="help-block text-danger">We are closed! Please schedule the delivery time here any day between 12:30 to 23:00</span>
 										@endif
 									</div>
 								</div>

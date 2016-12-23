@@ -38,7 +38,7 @@
 						You can now schedule delivery time between
 						<time datetime="12:30">12:30</time>
 						&mdash;
-						<time datetime="22:45">22:45</time>
+						<time datetime="23:00">23:00</time>
 					</div>
 				@endif
 

@@ -67,6 +67,10 @@
 	</div>
 </div>
 
+
+
+
+
 @section('scripts')
 	<script>
 		$(function() {

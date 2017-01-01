@@ -15,27 +15,7 @@
 
 				<br><br>
 
-				<div class="col-sm-6">
-					<a href="/blog/christmas-new-year-events">
-						<img class="img-thumbnail img-raised img-responsive" src="//i.imgur.com/9NRrJzB.png" width="100%"
-						     alt="Persian Xmas New Year London Live Music">
-					</a>
-				</div><!-- /.col-sm-6 -->
-				<div class="col-sm-6">
-					<a href="/blog/live-music-every-saturday-night">
-						<img class="img-thumbnail img-raised img-responsive" src="//i.imgur.com/G6mhKFm.jpg" width="100%"
-						     alt="Persian Xmas New Year London Live Music">
-					</a>
-				</div><!-- /.col-sm-6 -->
-
 				<div class="clearfix"></div>
-
-				<br><br>
-
-				<a href="{{ auth()->check() ? route('member.bookings') : route('create.reservation') }}">
-					<img src="{{ url('/images/Xmas.jpg') }}" alt="Xmas Booking" width="100%"
-					     class="img-rounded img-raised img-responsive">
-				</a>
 
 				<h2 class="hidden-xs">Javan's Opening Hours</h2>
 				<h3 class="visible-xs">Javan's Opening Hours</h3>

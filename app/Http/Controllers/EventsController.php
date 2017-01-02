@@ -113,7 +113,10 @@ class EventsController extends Controller
 	 */
 	public function update(Request $request, Event $events)
 	{
-		//
+		$events->update($request->all());
+		flash()->success('Success', 'Event has been updated');
+
+		return redirect()->route('events.show', $events->slug);
 	}
 
 	/**
@@ -121,14 +124,19 @@ class EventsController extends Controller
 	 *
 	 * @param \Javan\Event $events
 	 * @return \Illuminate\Http\Response
+	 * @throws \Exception
 	 */
 	public function destroy(Event $events)
 	{
-		//
+		$events->delete();
+		$this->deletePhoto($events);
+		flash()->success('Success', 'Event has been removed');
+
+		return back();
 	}
 
 	/**
-	 * @param \Javan\Product $product
+	 * @param \Javan\Event $event
 	 * @param \Illuminate\Http\Request $request
 	 * @return \Symfony\Component\HttpFoundation\File\File
 	 * @throws \Symfony\Component\HttpFoundation\File\Exception\FileException

@@ -119,6 +119,7 @@ class ProductsController extends Controller
 	public function destroy(Product $products)
 	{
 		$products->delete();
+		$this->deletePhoto($products);
 		flash()->success('Success', 'Product has been removed');
 
 		return back();

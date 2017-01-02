@@ -17,6 +17,31 @@
 		</article>
 		<aside>
 			<div class="col-sm-4">
+				@if ($products->image_path)
+					<h2><i class="fa fa-picture-o fa-fw"></i> Photo Uploaded</h2>
+					<div class="row">
+						<div class="img-wrap">
+							<form method="POST" action="{{ route('delete.product.photo', $products->id) }}">
+								{{ csrf_field() }}
+								{{ method_field('DELETE') }}
+								<button type="submit" class="close confirm" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<a href="/{{ $products->image_path }}" data-lity>
+									<img class="img-space img-responsive img-thumbnail img-raised pull-right" width="100%"
+									     src="/{{ $products->image_path }}" alt="{{ $products->title }}">
+								</a>
+							</form>
+						</div>
+					</div>
+				@endif
+				@unless ($products->image_path)
+					<h2><i class="fa fa-picture-o fa-fw"></i> Add <span class="text-danger">One</span> Product Photo</h2>
+					<form class="dropzone" action="{{ route('add.product.photo', $products->id) }}" method="POST"
+					      id="addProductPhoto"
+					      enctype="multipart/form-data">
+						{{ csrf_field() }}
+						<div class="text-primary dz-message" data-dz-message>Upload Photos Here</div>
+					</form>
+				@endunless
 			</div>
 		</aside>
 	</main>

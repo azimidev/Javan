@@ -126,6 +126,15 @@
 		// addRemoveLinks : true,
 	};
 
+	Dropzone.options.addEventPhoto = {
+		paramName      : "photo", // The name that will be used to transfer the file
+		maxFilesize    : 9, // MB
+		uploadMultiple : false,
+		maxFiles       : 1,
+		acceptedFiles  : '.jpg, .jpeg, .png, .bmp', // Validates file types
+		// addRemoveLinks : true,
+	};
+
 	/**
 	 * Pjax
 	 */

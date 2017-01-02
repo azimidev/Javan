@@ -25,6 +25,7 @@ Route::group(['prefix' => 'member', 'as' => 'member.'], function() {
 	Route::patch('{user}', 'SessionsController@update')->name('update');
 	Route::get('reservations', 'SessionsController@reservations')->name('reservations');
 	Route::get('orders', 'SessionsController@orders')->name('orders');
+	Route::get('bookings', 'SessionsController@bookings')->name('bookings');
 });
 
 # Admin & Manager Profile
@@ -43,6 +44,9 @@ Route::resource('events', 'EventsController');
 # Products Photo
 Route::post('/products/{product}/photo', 'ProductsController@addPhoto')->name('add.product.photo');
 Route::delete('/products/{product}/photo', 'ProductsController@deletePhoto')->name('delete.product.photo');
+
+Route::post('/events/{event}/photo', 'EventsController@addPhoto')->name('add.event.photo');
+Route::delete('/events/{event}/photo', 'EventsController@deletePhoto')->name('delete.event.photo');
 # Posts Photo
 Route::post('/post/{slug}/photos', 'PhotosController@store')->name('add.photo');
 Route::delete('/photo/{photo}', 'PhotosController@destroy')->name('delete.photo');

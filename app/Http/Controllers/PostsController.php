@@ -60,11 +60,6 @@ class PostsController extends Controller
 		$post->body    = $request->body;
 		$post->visible = $request->visible;
 
-		// $index = 1;
-		// while (Post::whereSlug($post->slug)->exists()) {
-		// 	$post->slug = str_slug($request->subject) . '-' . $index++;
-		// }
-
 		$latestSlug = Post::whereRaw("slug RLIKE '^{$post->slug}(-[0-9]*)?$'")->orderBy('id')->pluck('slug');
 
 		if ( ! $latestSlug->isEmpty()) {

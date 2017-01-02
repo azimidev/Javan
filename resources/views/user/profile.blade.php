@@ -66,12 +66,17 @@
 				<ul class="list-unstyled">
 					<li>
 						<a class="btn btn-primary" href="{{ route('member.reservations') }}">
-							<i class="fa fa-calendar fa-lg fa-fw"></i> Your Booking
+							<i class="fa fa-calendar fa-lg fa-fw"></i> Your Restaurant Reservations
 						</a>
 					</li>
 					<li>
 						<a class="btn btn-primary" href="{{ route('member.orders') }}">
-							<i class="fa fa-cutlery fa-lg fa-fw"></i> Your Orders
+							<i class="fa fa-cutlery fa-lg fa-fw"></i> Your Food Orders
+						</a>
+					</li>
+					<li>
+						<a class="btn btn-primary" href="{{ route('member.bookings') }}">
+							<i class="fa fa-calendar fa-lg fa-fw"></i> Your Live Music Bookings
 						</a>
 					</li>
 				</ul>

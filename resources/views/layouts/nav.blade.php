@@ -81,6 +81,11 @@
 									</a>
 								</li>
 								<li>
+									<a href="{{ route('events.index') }}">
+										<i class="fa fa-btn fa-calendar-o fa-fw"></i> Events
+									</a>
+								</li>
+								<li>
 									<a href="{{ route('post.index') }}">
 										<i class="fa fa-newspaper-o fa-fw"></i> Blog
 									</a>

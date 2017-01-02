@@ -17,8 +17,8 @@
 				<dd>{!! $products->available ? '<span class="label label-success">YES</span>' : '<span class="label label-danger">NO</span>' !!}</dd>
 			</dl>
 			<div class="col-lg-offset-2">
-				<a href="{{ route('products.index') }}" class="btn btn-raised btn-danger">
-					<i class="fa fa-ban"></i> Cancel
+				<a href="{{ route('products.index') }}" class="btn btn-raised btn-primary">
+					<i class="fa fa-arrow-left"></i> Back
 				</a>
 				<a href="{{ route('products.edit', $products->id) }}" class="btn btn-raised btn-success">
 					<i class="fa fa-pencil-square-o"></i> Edit

@@ -39,6 +39,14 @@ class User extends Authenticatable
 	}
 
 	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function bookings()
+	{
+		return $this->hasMany(Booking::class);
+	}
+
+	/**
 	 * @param \Javan\Post $post
 	 * @return \Illuminate\Database\Eloquent\Model
 	 */

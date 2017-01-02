@@ -52,7 +52,7 @@
 								<form action="{{ route('reservations.destroy', $booking) }}" method="POST">
 									{{ csrf_field() }}
 									{{ method_field('DELETE') }}
-									@can('adminManager', auth()->user())
+									@can('admin_manager', auth()->user())
 										<a href="{{ route('reservations.edit', $booking) }}" class="btn btn-sm btn-raised btn-success">
 											Change
 										</a>

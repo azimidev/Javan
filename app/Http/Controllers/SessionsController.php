@@ -80,6 +80,21 @@ class SessionsController extends Controller
 
 	/**
 	 * @return \Illuminate\Contracts\View\Factory
+	 * @throws \Exception
+	 * \Illuminate\Http\RedirectResponse
+	 * \Illuminate\View\View
+	 */
+	public function bookings()
+	{
+		if ($this->user->bookings->isEmpty()) {
+			return redirect()->route('bookings.create');
+		}
+
+		return view('bookings.index', ['bookings' => $this->user->bookings()->paginate(50)]);
+	}
+
+	/**
+	 * @return \Illuminate\Contracts\View\Factory
 	 * \Illuminate\Http\RedirectResponse
 	 * \Illuminate\Routing\Redirector|\Illuminate\View\View
 	 */

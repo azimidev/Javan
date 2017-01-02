@@ -8,7 +8,7 @@
 				<div class="col-sm-8 col-sm-offset-2">
 					<div class="brand">
 						<h1>Guest Reservation</h1>
-						<h3>Book a table as a guest</h3>
+						<h3>Book a table as a guest ( upstairs )</h3>
 					</div>
 				</div>
 			</div>
@@ -18,6 +18,12 @@
 	<main class="main main-raised container">
 		<article>
 			<div class="col-sm-8">
+				<div class="alert alert-danger">
+					<p class="text-justify">
+						<i class="fa fa-info-circle fa-lg fa-fw"></i>
+						This is not for live music booking. This is for restaurant's table bookings (upstairs) ONLY.
+					</p>
+				</div>
 				<h2><i class="fa fa-yelp fa-fw"></i> Use Yelp Reservation</h2>
 				<div class="alert alert-inverse">
 					<p class="text-justify">

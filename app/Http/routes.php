@@ -23,7 +23,7 @@ Route::group(['prefix' => 'member', 'as' => 'member.'], function() {
 	Route::get('profile', 'SessionsController@show')->name('show');
 	Route::get('{user}/edit', 'SessionsController@edit')->name('edit');
 	Route::patch('{user}', 'SessionsController@update')->name('update');
-	Route::get('bookings', 'SessionsController@bookings')->name('bookings');
+	Route::get('reservations', 'SessionsController@reservations')->name('reservations');
 	Route::get('orders', 'SessionsController@orders')->name('orders');
 });
 
@@ -37,6 +37,8 @@ Route::resource('reservations', 'ReservationsController');
 Route::resource('post', 'PostsController');
 Route::resource('products', 'ProductsController');
 Route::resource('cart', 'ShoppingCartsController');
+Route::resource('bookings', 'BookingsController');
+Route::resource('events', 'EventsController');
 
 # Products Photo
 Route::post('/products/{product}/photo', 'ProductsController@addPhoto')->name('add.product.photo');

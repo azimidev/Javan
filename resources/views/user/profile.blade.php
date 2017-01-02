@@ -11,35 +11,26 @@
 						<p class="text-bright"> Please make sure your address is correct for delivery before you order otherwise we
 							cannot deliver to you.</p>
 					@endunless
-					<p>For reservations or delivery please click on the buttons below</p>
 					<p>
 						<a href="{{ route('member.orders') }}" class="btn btn-danger btn-raised btn-round btn-lg">
 							Take Away Orders
 						</a>
-						<a href="{{ route('member.bookings') }}" class="btn btn-info btn-raised btn-round btn-lg">
-							Bookings
+						<a href="{{ route('member.reservations') }}" class="btn btn-info btn-raised btn-round btn-lg">
+							Restaurant Reservations
 						</a>
 					</p>
 				@endcan
-				@can('admin', $user)
-					<p class="text-danger">You are the owner or administrator with the full privilege</p>
-					<p>
-						<a href="{{ route('reservations.index') }}" class="btn btn-primary btn-raised btn-round">
-							Manage Bookings
-						</a>
-						<a href="{{ route('cart.index') }}" class="btn btn-primary btn-raised btn-round">
-							Manage Take Aways
-						</a>
-					</p>
-				@endcan
-				@can('manager', $user)
-					<p class="text-success">You are the manager of the restaurnat who can:</p>
+				@can('admin_manager', $user)
+					<p class="lead">Role: {{ ucfirst($user->role) }}</p>
 					<p>
 						<a href="{{ route('reservations.index') }}" class="btn btn-info btn-raised btn-round">
-							Manage Bookings
+							Reservations
 						</a>
 						<a href="{{ route('cart.index') }}" class="btn btn-danger btn-raised btn-round">
-							Manage Take Aways
+							Take Aways
+						</a>
+						<a href="{{ route('bookings.index') }}" class="btn btn-primary btn-raised btn-round">
+							Event Bookings
 						</a>
 					</p>
 				@endcan
@@ -74,7 +65,7 @@
 				<h2><i class="fa fa-info-circle"></i> Navigation</h2>
 				<ul class="list-unstyled">
 					<li>
-						<a class="btn btn-primary" href="{{ route('member.bookings') }}">
+						<a class="btn btn-primary" href="{{ route('member.reservations') }}">
 							<i class="fa fa-calendar fa-lg fa-fw"></i> Your Booking
 						</a>
 					</li>

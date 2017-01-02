@@ -4,7 +4,7 @@
 		<input class="datepicker form-control" type="text" name="date" id="date" placeholder="Date"
 		       value="{{ date('Y-m-d') }}" pattern="[0-9\-]+"
 		       data-date="{{ date('Y-m-d') }}" data-date-format="yyyy-mm-dd" required>
-		<span class="help-block text-info">Your full date here</span>
+		<span class="help-block text-primary">Your full date here</span>
 	</div>
 </div>
 
@@ -14,7 +14,7 @@
 		<select class="form-control" name="time" id="time" required>
 			{!! select_times_of_day() !!}
 		</select>
-		<span class="help-block text-info">What time would you like to book ?</span>
+		<span class="help-block text-primary">What time would you like to book ?</span>
 	</div>
 </div>
 
@@ -23,7 +23,7 @@
 	<div class="col-sm-5">
 		<input type="number" class="form-control" name="seats" id="seats" placeholder="Seats"
 		       value="{{ old('seats') }}" min="1" max="25" required>
-		<span class="help-block text-info">Please call us for more than 25 person</span>
+		<span class="help-block text-primary">Please call us for more than 25 person</span>
 	</div>
 </div>
 

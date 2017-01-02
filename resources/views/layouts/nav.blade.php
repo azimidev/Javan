@@ -25,7 +25,7 @@
 				@if (auth()->guest())
 					<li class="{{ active('guest/reservation') }}"><a href="{{ route('create.reservation') }}">Reservation</a></li>
 				@else
-					<li class="{{ active('member/bookings') }}"><a href="{{ route('member.bookings') }}">Reservation</a></li>
+					<li class="{{ active('member/reservations') }}"><a href="{{ route('member.reservations') }}">Reservation</a></li>
 				@endif
 				<li class="{{ active('contact') }}"><a href="{{ url('/contact') }}">Contact</a></li>
 				<li class="{{ active('blog') }}"><a href="{{ route('blog') }}">Blog</a></li>
@@ -56,8 +56,8 @@
 									<i class="fa fa-user fa-fw"></i> Profile
 								</a></li>
 							@can ('member', auth()->user())
-								<li><a href="{{ route('member.bookings') }}">
-										<i class="fa fa-calendar fa-fw"></i> Your Booking
+								<li><a href="{{ route('member.reservations') }}">
+										<i class="fa fa-calendar fa-fw"></i> Your Reservations
 									</a></li>
 								<li><a href="{{ route('member.orders') }}">
 										<i class="fa fa-cutlery fa-fw"></i> Your Orders
@@ -67,15 +67,24 @@
 								<li class="divider"></li>
 								<li>
 									<a href="{{ route('reservations.index') }}">
-										<i class="fa fa-calendar fa-fw"></i> Manage Bookings
+										<i class="fa fa-calendar fa-fw"></i>Restaurant Reservations
 									</a>
 								</li>
-								<li><a href="{{ route('cart.index') }}">
-										<i class="fa fa-btn fa-cutlery fa-fw"></i> Manage Take Aways
-									</a></li>
-								<li><a href="{{ route('post.index') }}">
-										<i class="fa fa-newspaper-o fa-fw"></i> Manage Blog
-									</a></li>
+								<li>
+									<a href="{{ route('bookings.index') }}">
+										<i class="fa fa-calendar fa-fw"></i>Event Bookings
+									</a>
+								</li>
+								<li>
+									<a href="{{ route('cart.index') }}">
+										<i class="fa fa-btn fa-cutlery fa-fw"></i>Take Aways
+									</a>
+								</li>
+								<li>
+									<a href="{{ route('post.index') }}">
+										<i class="fa fa-newspaper-o fa-fw"></i> Blog
+									</a>
+								</li>
 							@endcan
 							@can ('admin', auth()->user())
 								<li class="divider"></li>

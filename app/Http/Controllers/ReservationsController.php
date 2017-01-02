@@ -79,7 +79,7 @@ class ReservationsController extends Controller
 
 		flash()->success('Success', 'You have booked successfully');
 
-		return redirect()->route('member.bookings');
+		return redirect()->route('member.reservations');
 	}
 
 	/**
@@ -112,7 +112,7 @@ class ReservationsController extends Controller
 
 		flash()->success('Success', 'Reservation was updated');
 
-		return redirect()->route('member.bookings');
+		return redirect()->route('member.reservations');
 	}
 
 	/**

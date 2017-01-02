@@ -33,6 +33,6 @@
 			<i class="fa fa-plus"></i>
 			Create
 		</button>
-		<a class="btn btn-danger btn-raised" href="{{ route('member.bookings') }}">Cancel</a>
+		<a class="btn btn-danger btn-raised" href="{{ route('member.reservations') }}">Cancel</a>
 	</div>
 </div>

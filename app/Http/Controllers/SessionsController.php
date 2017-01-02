@@ -67,7 +67,7 @@ class SessionsController extends Controller
 	 * \Illuminate\Http\RedirectResponse
 	 * \Illuminate\View\View
 	 */
-	public function bookings()
+	public function reservations()
 	{
 		if ($this->user->reservations->isEmpty()) {
 			return redirect()->route('reservations.create');

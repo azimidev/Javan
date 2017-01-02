@@ -34,6 +34,6 @@
 			<i class="fa fa-pencil-square-o fa-lg"></i>
 			Change
 		</button>
-		<a class="btn btn-danger btn-raised" href="{{ route('member.bookings') }}">Cancel</a>
+		<a class="btn btn-danger btn-raised" href="{{ route('member.reservations') }}">Cancel</a>
 	</div>
 </div>

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
+	use Schedulable;
 	protected $fillable = [
 		'name',
 		'description',
@@ -17,7 +18,6 @@ class Event extends Model
 		'start',
 		'finish',
 	];
-
 	/**
 	 * The attributes that should be mutated to dates.
 	 *
@@ -31,14 +31,6 @@ class Event extends Model
 	];
 
 	/**
-	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
-	 */
-	public function booking()
-	{
-		return $this->hasMany(Booking::class);
-	}
-
-	/**
 	 * @param $slug
 	 * @return mixed
 	 */
@@ -48,11 +40,38 @@ class Event extends Model
 	}
 
 	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function booking()
+	{
+		return $this->hasMany(Booking::class);
+	}
+
+	/**
 	 * @param $value
 	 * @return string
 	 */
 	public function getNameAttribute($value)
 	{
 		return ucwords($value);
+	}
+
+	/**
+	 * @param $query
+	 * @return mixed
+	 */
+	public function scopeActive($query)
+	{
+		return $query->where('active', TRUE);
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function seatsRemaining()
+	{
+		$bookedSeats = Booking::all()->where('event_id', $this->id)->sum('seats');
+
+		return $this->capacity - $bookedSeats;
 	}
 }

@@ -17,26 +17,44 @@
 
 				<div class="clearfix"></div>
 
-				<h2 class="hidden-xs">Javan's Opening Hours</h2>
-				<h3 class="visible-xs">Javan's Opening Hours</h3>
-				<dl class="dl-horizontal">
-					<dt>Monday</dt>
-					<dd>12:00 - 23:00</dd>
-					<dt>Tuesday</dt>
-					<dd>12:00 - 23:00</dd>
-					<dt>Wednesday</dt>
-					<dd>12:00 - 23:00</dd>
-					<dt>Thursday</dt>
-					<dd>12:00 - 23:00</dd>
-					<dt>Friday</dt>
-					<dd>12:00 - 23:30</dd>
-					<dt>Saturday</dt>
-					<dd>12:00 - 23:30</dd>
-					<dt>Sunday</dt>
-					<dd>12:00 - 23:00</dd>
-				</dl>
-				<h2 class="hidden-xs">Tel: 020 8563 8553</h2>
-				<h3 class="visible-xs">Tel: 020 8563 8553</h3>
+				<h1>Our Live Music Events</h1>
+
+				<div class="row">
+					@foreach ($events as $event)
+						<div class="col-sm-6 col-xs-12">
+							<div class="thumbnail">
+								<div class="caption center">
+									<h2 class="hidden-xs" title="{{ $event->name }}" itemprop="name">{{ $event->name }}</h2>
+									<h3>{{ $event->start->format('l jS F h:i A') }}</h3>
+									<h3 class="text-primary" itemprop="price">£ {{ number_format($event->price / 100 , 2) }}
+										<small>Per Person</small>
+									</h3>
+									@if ($event->seatsRemaining())
+										<h3 class="text-danger">
+											{{ $event->seatsRemaining() }} {{ str_plural('seat', $event->seatsRemaining()) }} Remaining
+										</h3>
+										<a href="#" class="btn btn-success btn-block btn-lg btn-raised">Book Now !</a>
+									@else
+										<h3 class="text-danger">
+											No Seats Remaining
+										</h3>
+										<a href="javascript:void(0)" class="btn btn-danger btn-block btn-lg btn-raised disabled">Fully Booked !</a>
+									@endif
+								</div>
+								@if ($event->image_path)
+									<a href="/{{ $event->image_path }}" data-lity>
+										<img src="/{{ $event->image_path }}" class="img-responsive" alt="mirza-ghasemi">
+									</a>
+								@endif
+								<div class="caption center">
+									<h4>End Date: {{ $event->finish->format('l jS F h:i A') }}</h4>
+									<h4>Capacity : {{ $event->capacity }}</h4>
+								</div>
+							</div>
+						</div>
+					@endforeach
+				</div>
+
 			</div>
 		</article>
 		<aside>

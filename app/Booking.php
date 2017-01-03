@@ -31,4 +31,13 @@ class Booking extends Model
 	{
 		return $this->belongsTo(Event::class);
 	}
+
+	/**
+	 * @param $query
+	 * @return mixed
+	 */
+	public function scopeActive($query)
+	{
+		return $query->where('active', TRUE);
+	}
 }

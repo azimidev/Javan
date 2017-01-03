@@ -7,6 +7,7 @@ use Cart;
 use Illuminate\Http\Request;
 use Instagram;
 use Javan\AppMailer;
+use Javan\Event;
 use Javan\Jobs\SendReservationConfirmation;
 use Javan\Jobs\SendReservationToAdmin;
 use Javan\Post;
@@ -22,8 +23,9 @@ class PagesController extends Controller
 	public function home()
 	{
 		$images = Instagram::getResultImage(12);
+		$events = Event::active()->latest()->limit(4)->get();
 
-		return view('pages.home', compact('images'));
+		return view('pages.home', compact('images', 'events'));
 	}
 
 	/**

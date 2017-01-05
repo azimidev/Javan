@@ -66,8 +66,9 @@
 										Login
 									</button>
 									<div class="clearfix"></div>
+									<a class="btn btn-raised btn-primary btn-sm" href="{{ url('/register') }}">Sign Up</a>
+									<div class="clearfix"></div>
 									<a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
-									<a class="btn btn-link" href="{{ url('/register') }}">Sign Up</a>
 								</div>
 							</div>
 						</form>

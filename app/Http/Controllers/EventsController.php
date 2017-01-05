@@ -2,6 +2,7 @@
 
 namespace Javan\Http\Controllers;
 
+use Cart;
 use File;
 use Illuminate\Http\Request;
 use Javan\Event;

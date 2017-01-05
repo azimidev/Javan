@@ -2,6 +2,7 @@
 
 namespace Javan;
 
+use Cart;
 use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
@@ -70,8 +71,11 @@ class Event extends Model
 	 */
 	public function seatsRemaining()
 	{
-		$bookedSeats = Booking::all()->where('event_id', $this->id)->sum('seats');
+		$bookings      = Booking::all()->where('event_id', $this->id)->sum('seats');
+		$cart_bookings = Cart::instance('event')->count();
 
-		return $this->capacity - $bookedSeats;
+		$qty = $cart_bookings ? $cart_bookings + $bookings : $bookings;
+
+		return $this->capacity - $qty;
 	}
 }

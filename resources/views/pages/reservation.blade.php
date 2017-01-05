@@ -24,15 +24,6 @@
 						This is not for live music booking. This is for restaurant's table bookings (upstairs) ONLY.
 					</p>
 				</div>
-				<h2><i class="fa fa-yelp fa-fw"></i> Use Yelp Reservation</h2>
-				<div class="alert alert-inverse">
-					<p class="text-justify">
-						<i class="fa fa-info-circle fa-lg fa-fw"></i>
-						If you don't like to register simply use Yelp Reservation
-					</p>
-				</div>
-				@include('partials.yelp-reservation')
-				<hr>
 				<form class="form-horizontal" action="{{ route('store.reservation') }}" method="POST" role="form">
 					{{ csrf_field() }}
 					<div class="alert alert-inverse">
@@ -119,37 +110,6 @@
 		</article>
 		<aside>
 			<div class="col-sm-4">
-				<img src="/images/restaurant/Javan_in_and_out.png" alt="Javan Restaurant Interior and Exterior" width="100%">
-				{{--<h2><i class="fa fa-info fa-fw"></i> Private Dining and Parties</h2>
-				<p class="text-justify">
-					We have a space for about 60 people downstairs which is ideal for your celebrations and private parties.
-					To book this place for your events please call us on <a href="tel:02085638553">02085638553</a> and arrange a
-					good time to meet the manager and discuss the booking date, time and deposit.
-				</p>
-				<h2><i class="fa fa-info fa-fw"></i> Private Parties Information</h2>
-				<dl class="dl-horizontal">
-					<dt>Location:</dt>
-					<dd>Down Floor</dd>
-					<dt>Cost Per Person:</dt>
-					<dd>£ 25</dd>
-					<dt>Minimum People:</dt>
-					<dd>20</dd>
-					<dt>Maximum People:</dt>
-					<dd>50</dd>
-					<dt>Earliest Start Time:</dt>
-					<dd>3 PM</dd>
-					<dt>Latest End Time:</dt>
-					<dd>10:30 PM</dd>
-					<dt>What's Included:</dt>
-					<dd>1 Mixed Grilled for 4 Person</dd>
-					<dd>1 Portion Rice for Everyone</dd>
-					<dd>1 Starter for Everyone</dd>
-					<dd>1 Soft Drink for Everyone</dd>
-				</dl>
-				<h2><i class="fa fa-info fa-fw"></i> Before You Book</h2>
-				<p>Please view and download the terms and conditions below to clear up everything before booking:</p>
-				<a class="btn btn-raised btn-primary" href="/images/files/Javan-Terms-and-Conditions.pdf" target="_blank">Terms
-					& Conditions (PDF)</a>--}}
 			</div>
 		</aside>
 	</main>

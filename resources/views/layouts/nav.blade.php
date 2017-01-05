@@ -27,6 +27,7 @@
 				@else
 					<li class="{{ active('member/reservations') }}"><a href="{{ route('member.reservations') }}">Reservation</a></li>
 				@endif
+				<li class="{{ active('persian-live-music') }}"><a href="{{ url('/persian-live-music') }}">Live Music Events</a></li>
 				<li class="{{ active('contact') }}"><a href="{{ url('/contact') }}">Contact</a></li>
 				<li class="{{ active('blog') }}"><a href="{{ route('blog') }}">Blog</a></li>
 			</ul>

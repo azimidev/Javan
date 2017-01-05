@@ -287,7 +287,7 @@
 
 			</article>
 			<aside class="col-md-4">
-				@include('partials.cart')
+				@include('partials.product-cart')
 				@include('partials.deliverable')
 				<div class="alert alert-primary">
 					<p>Take away dishes don't include side salad.</p>

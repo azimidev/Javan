@@ -5,8 +5,8 @@
 	<div class="panel-heading">
 		<div class="panel-title">
 			<i class="fa fa-shopping-cart fa-fw fa-lg"></i> Shopping Cart
-			@if (Cart::count())
-				<span class="badge">{{ Cart::count() }}</span>
+			@if (Cart::instance('menu')->count())
+				<span class="badge">{{ Cart::instance('menu')->count() }}</span>
 				<a id="destroyCart" title="Clear Cart" class="close" href="{{ route('destroy.cart') }}" data-toggle="tooltip">
 					<i class="material-icons">clear</i>
 				</a>
@@ -24,7 +24,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				@foreach (Cart::content() as $row)
+				@foreach (Cart::instance('menu')->content() as $row)
 					<tr>
 						<td>{{ $row->qty }}</td>
 						<td>{{ $row->name }}</td>
@@ -42,13 +42,13 @@
 				<tr>
 					<td>&nbsp;</td>
 					<td class="text-right">VAT :</td>
-					<td>£{{ Cart::tax() }}</td>
+					<td>£{{ Cart::instance('menu')->tax() }}</td>
 					<td>&nbsp;</td>
 				</tr>
 				<tr class="lead">
 					<td>&nbsp;</td>
 					<td class="text-right"><strong>Total :</strong></td>
-					<td><strong>£{{ Cart::total() }}</strong></td>
+					<td><strong>£{{ Cart::instance('menu')->total() }}</strong></td>
 					<td>&nbsp;</td>
 				</tr>
 			</tfoot>
@@ -69,63 +69,63 @@
 
 @section('scripts')
 	<script>
-		$(function() {
-			$('a[href*="#"]:not([href="#appetizers"]):not([href="#main_courses"]):not([href="#extras"]):not([href="#beverages"]):not([href="#juices"]):not([href="#desserts"])').click(function() {
-				if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-					var target = $(this.hash);
-					target     = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-					if (target.length) {
-						$('html, body').animate({
-							scrollTop : target.offset().top
-						}, 1000);
-						return false;
-					}
-				}
-			});
-		});
+	  $(function() {
+		  $('a[href*="#"]:not([href="#appetizers"]):not([href="#main_courses"]):not([href="#extras"]):not([href="#beverages"]):not([href="#juices"]):not([href="#desserts"])').click(function() {
+			  if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+				  var target = $(this.hash);
+				  target     = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+				  if (target.length) {
+					  $('html, body').animate({
+						  scrollTop : target.offset().top
+					  }, 1000);
+					  return false;
+				  }
+			  }
+		  });
+	  });
 	</script>
 	<script src="https://js.stripe.com/v2/"></script>
 	<script>
 		/* <![CDATA[ */
-		(function() {
-			var StripeBilling = {
+	(function() {
+		var StripeBilling = {
 
-				init : function() {
-					this.form              = $('#payment-form');
-					this.submitButton      = this.form.find('.submit');
-					this.submitButtonValue = this.submitButton.val();
-					Stripe.setPublishableKey('{{ config('services.stripe.key') }}');
-					this.bindEvents();
-				},
+			init : function() {
+				this.form              = $('#payment-form');
+				this.submitButton      = this.form.find('.submit');
+				this.submitButtonValue = this.submitButton.val();
+				Stripe.setPublishableKey('{{ config('services.stripe.key') }}');
+				this.bindEvents();
+			},
 
-				bindEvents : function() {
-					this.form.on('submit', $.proxy(this.sendToken, this));
-				},
+			bindEvents : function() {
+				this.form.on('submit', $.proxy(this.sendToken, this));
+			},
 
-				sendToken : function(event) {
-					this.submitButton.val('One Moment').prop('disabled', true);
-					Stripe.createToken(this.form, $.proxy(this.stripeResponseHandler, this));
-					event.preventDefault();
-				},
+			sendToken : function(event) {
+				this.submitButton.val('One Moment').prop('disabled', true);
+				Stripe.createToken(this.form, $.proxy(this.stripeResponseHandler, this));
+				event.preventDefault();
+			},
 
-				stripeResponseHandler : function(status, response) {
-					if (response.error) {
-						this.form.find('.payment-errors').show().text(response.error.message);
-						return this.submitButton.prop('disabled', false).val(this.submitButtonValue);
-					}
-
-					$('<input>', {
-						type  : 'hidden',
-						name  : 'stripe-token',
-						value : response.id
-					}).appendTo(this.form);
-
-					this.form[0].submit();
+			stripeResponseHandler : function(status, response) {
+				if (response.error) {
+					this.form.find('.payment-errors').show().text(response.error.message);
+					return this.submitButton.prop('disabled', false).val(this.submitButtonValue);
 				}
-			};
 
-			StripeBilling.init();
-		})();
+				$('<input>', {
+					type  : 'hidden',
+					name  : 'stripe-token',
+					value : response.id
+				}).appendTo(this.form);
+
+				this.form[0].submit();
+			}
+		};
+
+		StripeBilling.init();
+	})();
 		/* ]]> */
 	</script>
 @stop

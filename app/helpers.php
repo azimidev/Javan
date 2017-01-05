@@ -175,7 +175,6 @@ function rss_tag_uri($post)
  * @param $destination
  * @return array
  */
-
 function deliverable($destination)
 {
 	// {

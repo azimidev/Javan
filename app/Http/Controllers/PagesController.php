@@ -18,18 +18,18 @@ use Javan\User;
 class PagesController extends Controller
 {
 	/**
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 * @return \Illuminate\View\View
 	 */
 	public function home()
 	{
 		$images = Instagram::getResultImage(12);
-		$events = Event::active()->latest()->limit(4)->get();
+		$events = Event::active()->latest()->limit(1)->get();
 
 		return view('pages.home', compact('images', 'events'));
 	}
 
 	/**
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 * @return \Illuminate\View\View
 	 */
 	public function about()
 	{
@@ -37,7 +37,7 @@ class PagesController extends Controller
 	}
 
 	/**
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 * @return \Illuminate\View\View
 	 */
 	public function menu()
 	{
@@ -52,7 +52,17 @@ class PagesController extends Controller
 	}
 
 	/**
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 * @return \Illuminate\View\View
+	 */
+	public function liveMusic()
+	{
+		$events = Event::active()->latest()->limit(1)->get();
+
+		return view('pages.live-music', compact('events'));
+	}
+
+	/**
+	 * @return \Illuminate\View\View
 	 */
 	public function contact()
 	{
@@ -60,7 +70,7 @@ class PagesController extends Controller
 	}
 
 	/**
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 * @return \Illuminate\View\View
 	 */
 	public function information()
 	{
@@ -68,7 +78,7 @@ class PagesController extends Controller
 	}
 
 	/**
-	 * @return \Illuminate\Http\Response|\Javan\Http\Controllers\PagesController
+	 * @return \Illuminate\Http\Response
 	 */
 	public function feed()
 	{
@@ -118,7 +128,7 @@ class PagesController extends Controller
 	}
 
 	/**
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 * @return \Illuminate\View\View
 	 */
 	public function createReservation()
 	{
@@ -173,7 +183,7 @@ class PagesController extends Controller
 	 */
 	public function addToCart(Product $product)
 	{
-		Cart::add($product->id, $product->title, 1, number_format($product->price / 100, 2));
+		Cart::instance('menu')->add($product->id, $product->title, 1, number_format($product->price / 100, 2));
 
 		return back();
 	}
@@ -185,7 +195,7 @@ class PagesController extends Controller
 	 */
 	public function removeFromCart($rowId, $qty)
 	{
-		$qty > 1 ? Cart::update($rowId, $qty - 1) : Cart::remove($rowId);
+		$qty > 1 ? Cart::instance('menu')->update($rowId, $qty - 1) : Cart::instance('menu')->remove($rowId);
 
 		return back();
 	}
@@ -195,7 +205,39 @@ class PagesController extends Controller
 	 */
 	public function destroyCart()
 	{
-		Cart::destroy();
+		Cart::instance('menu')->destroy();
+
+		return back();
+	}
+
+	public function addEventToCart(Event $event)
+	{
+		$this->validate(request(), [
+			'qty' => 'required|numeric',
+		]);
+		Cart::instance('event')->add($event->id, $event->name, request()->qty, number_format($event->price / 100, 2));
+
+		return back();
+	}
+
+	/**
+	 * @param $rowId
+	 * @param $qty
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
+	public function removeEventFromCart($rowId, $qty)
+	{
+		$qty > 1 ? Cart::instance('event')->update($rowId, $qty - 1) : Cart::instance('event')->remove($rowId);
+
+		return back();
+	}
+
+	/**
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
+	public function destroyEventCart()
+	{
+		Cart::instance('event')->destroy();
 
 		return back();
 	}

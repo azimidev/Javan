@@ -4,7 +4,7 @@
 <div class="panel panel-success" id="pjax-container">
 	<div class="panel-heading">
 		<div class="panel-title">
-			<i class="fa fa-shopping-cart fa-fw fa-lg"></i> Shopping Cart
+			<i class="fa fa-shopping-cart fa-fw fa-lg"></i> Event Ticket Booking
 			@if (Cart::instance('event')->count())
 				<span class="badge">{{ Cart::instance('event')->count() }}</span>
 				<a id="destroyCart" title="Clear Cart" class="close" href="{{ route('destroy.event.cart') }}"

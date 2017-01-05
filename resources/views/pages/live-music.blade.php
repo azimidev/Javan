@@ -9,6 +9,12 @@
 
 			<article class="col-md-8">
 
+				<div class="alert alert-warning">
+					<div class="alert-icon"><i class="material-icons">info</i></div>
+					Remaining seats are not guaranteed and they will be booked at any point and time.
+					Your booking <strong>isn't valid</strong> until you <strong>fully pay and receive a confirmation email</strong>.
+				</div>
+
 				<div class="row">
 					@foreach ($events as $event)
 						<div class="col-xs-12">

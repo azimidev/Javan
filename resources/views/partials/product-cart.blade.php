@@ -4,10 +4,10 @@
 <div class="panel panel-success" id="pjax-container">
 	<div class="panel-heading">
 		<div class="panel-title">
-			<i class="fa fa-shopping-cart fa-fw fa-lg"></i> Delivery Orders
+			<i class="fa fa-shopping-cart fa-fw fa-lg"></i> Orders in Cart
 			@if (Cart::instance('menu')->count())
 				<span class="badge">{{ Cart::instance('menu')->count() }}</span>
-				<a id="destroyCart" title="Clear Cart" class="close" href="{{ route('destroy.cart') }}" data-toggle="tooltip">
+				<a data-pjax title="Clear Cart" class="close" href="{{ route('destroy.cart') }}" data-toggle="tooltip">
 					<i class="material-icons">clear</i>
 				</a>
 			@endif
@@ -30,7 +30,7 @@
 						<td>{{ $row->name }}</td>
 						<td>£{{ number_format($row->price, 2) }}</td>
 						<td>
-							<a id="removeFromCart" href="{{ route('remove.from.cart', [$row->rowId, $row->qty]) }}"
+							<a data-pjax href="{{ route('remove.from.cart', [$row->rowId, $row->qty]) }}"
 							   class="text-danger">
 								<i class="material-icons">clear</i>
 							</a>

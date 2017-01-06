@@ -3,7 +3,7 @@
 @section('content')
 	<header class="header header-filter"
 	        style="background: url('/images/background/background-5.jpg') repeat;">
-		<main class="container">
+		<main class="container" id="pjax-container">
 			@include('partials.notify-alert', ['data' => 'Seat Updated'])
 			<h1 class="text-bright"><i class="fa fa-calendar fa-fw"></i> The Live Music Events</h1>
 
@@ -26,18 +26,18 @@
 										<small>Per Person</small>
 									</h3>
 									@if ($event->seatsRemaining())
-										<h3 class="text-danger">
+										<h3 class="text-success">
 											{{ $event->seatsRemaining() }}
 											{{ str_plural('seat', $event->seatsRemaining()) }} Remaining
 										</h3>
 										<form action="{{ route('add.event.to.cart', $event) }}"
-										      method="GET" class="form-inline">
+										      method="GET" class="form-inline" data-pjax>
 											<div class="form-group">
 												<div class="input-group">
-													<label for="qty">How many seats would you like ?</label>
-													<input type="number" class="form-control" id="qty" placeholder="Enter how many seats here"
-													       name="qty"
-													       min="0" max="{{ $event->seatsRemaining() }}" required>
+													<label for="quantity">How many seats would you like ?</label>
+													<input type="number" class="form-control" id="quantity" placeholder="Enter how many seats here"
+													       name="quantity"
+													       min="1" max="{{ $event->seatsRemaining() }}" required>
 													<span class="input-group-btn">
 													<button type="submit" class="btn btn-success btn-raised">
 														<i class="fa fa-plus fa-fw fa-lg"></i>
@@ -50,8 +50,11 @@
 										<h3 class="text-danger">
 											No Seats Remaining
 										</h3>
-										<a href="javascript:void(0)" class="btn btn-danger btn-block btn-lg btn-raised disabled">Fully
-											Booked !</a>
+										@if (Cart::instance('event')->count())
+											<p class="alert alert-danger lead">Fully Booked <span class="badge text-uppercase">not confirmed</span></p>
+										@else
+											<p class="alert alert-danger lead">Fully Booked <span class="badge text-uppercase">confirmed</span></p>
+										@endif
 									@endif
 									<p>{{ nl2br($event->description) }}</p>
 									<h3>End Date: {{ $event->finish->format('l jS F h:i A') }}</h3>

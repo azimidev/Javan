@@ -5,7 +5,7 @@ Route::get('/', 'PagesController@home');
 Route::get('about', 'PagesController@about');
 Route::get('Persian-Food-Delivery-London', 'PagesController@menu')->name('menu');
 Route::get('menu', function() { return redirect()->route('menu'); });
-Route::get('persian-live-music', 'PagesController@liveMusic');
+Route::get('Persian-Live-Music', 'PagesController@liveMusic');
 Route::post('deliverable', 'PagesController@deliverable');
 Route::get('about', 'PagesController@about');
 Route::get('contact', 'PagesController@contact');
@@ -52,9 +52,9 @@ Route::delete('/events/{event}/photo', 'EventsController@deletePhoto')->name('de
 Route::post('/post/{slug}/photos', 'PhotosController@store')->name('add.photo');
 Route::delete('/photo/{photo}', 'PhotosController@destroy')->name('delete.photo');
 # Product Cart
-Route::get('cart/add/{product}', 'PagesController@addToCart')->name('add.to.cart');
-Route::get('cart/remove/{productId}/{qty}', 'PagesController@removeFromCart')->name('remove.from.cart');
-Route::get('cart/destroy/all', 'PagesController@destroyCart')->name('destroy.cart');
+Route::get('menu/add/{product}', 'PagesController@addToCart')->name('add.to.cart');
+Route::get('menu/remove/{productId}/{qty}', 'PagesController@removeFromCart')->name('remove.from.cart');
+Route::get('menu/destroy/all', 'PagesController@destroyCart')->name('destroy.cart');
 
 Route::get('event/add/{event}', 'PagesController@addEventToCart')->name('add.event.to.cart');
 Route::get('event/remove/{eventId}/{qty}', 'PagesController@removeEventFromCart')->name('remove.event.from.cart');

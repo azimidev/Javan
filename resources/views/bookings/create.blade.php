@@ -1,21 +1,14 @@
 @extends('layouts.app')
-@section('title', 'Order Food Delivery - Javan Restaurant')
+@section('title', 'Buy Live Music Ticket - Javan Restaurant')
 @section('content')
 	<header class="header header-filter"
-	        style="background-image: url('/images/menu-background.png');">
+	        style="background-image: url('/images/background/background-5.png');">
 		<main class="container">
-			@include('partials.notify-alert', ['data' => 'Cart Updated'])
-			<h1 class="text-bright"><i class="fa fa-shopping-cart fa-fw fa-lg"></i> Cart Checkout</h1>
+			@include('partials.notify-alert', ['data' => 'Ticket Updated'])
+			<h1 class="text-bright"><i class="fa fa-shopping-cart fa-fw fa-lg"></i> Ticket Checkout</h1>
+
 			<article class="col-md-8">
-				@unless(javan_is_open())
-					<div class="alert alert-danger">
-						<div class="alert-icon"><i class="material-icons">error</i></div>
-						We are closed now and cannot accept orders unless you want specific delivery time between
-						<time datetime="12:30">12:30</time>
-						&mdash;
-						<time datetime="22:00">22:30</time>
-					</div>
-				@endunless
+
 				<div class="panel panel-success">
 					<div class="panel-heading">
 						<div class="panel-title">
@@ -23,9 +16,9 @@
 						</div>
 					</div>
 					<div class="panel-body">
-						@if(auth()->user()->address && auth()->user()->post_code && auth()->user()->phone)
+						@if(auth()->user()->name && auth()->user()->phone)
 
-							<form action="{{ route('cart.store') }}" method="POST" role="form"
+							<form action="{{ route('bookings.store') }}" method="POST" role="form"
 							      class="form-horizontal" id="payment-form">
 
 								{{ csrf_field() }}
@@ -93,26 +86,12 @@
 									   It appears after and to the right of your card number.'></i>
 								</div>
 
-								<div class="form-group">
-									<label for="note" class="control-label col-sm-3">Instructions</label>
-									<div class="col-sm-7">
-									<textarea type="text" class="form-control" name="note" id="note"
-									          {{ javan_is_open() ? '' : 'required minlength=6' }}
-									          placeholder="{{ javan_is_open() ? 'Optional Delivery Instructions' : 'Schedule the delivery time here any day between 12:30 to 23:00'}}"></textarea>
-										@if (javan_is_open())
-											<span class="help-block text-primary">Ex: time of delivery, the house bell and etcetera</span>
-										@else
-											<span class="help-block text-danger">We are closed! Please schedule the delivery time here any day between 12:30 to 23:00</span>
-										@endif
-									</div>
-								</div>
-
 								<p class="lead text-center text-danger payment-errors animated pulse infinite"></p>
 
 								<div class="control-group">
 									<div class="controls">
 										<div class="center">
-											<button class="btn btn-success btn-raised submit" type="submit">Pay & Place Order</button>
+											<button class="btn btn-success btn-raised submit" type="submit">Pay & Book</button>
 										</div>
 									</div>
 								</div>
@@ -121,8 +100,7 @@
 						@else
 							<div class="alert alert-danger">
 								<div class="alert-icon"><i class="material-icons">error</i></div>
-								Payment form is not visible because one of your <strong>Address</strong>, <strong>Post
-									Code</strong> or <strong>Phone</strong> is empty
+								Payment form is not visible because one of your <strong>Name</strong> or <strong>Phone</strong> is empty
 								<a class="btn btn-sm btn-default btn-raised btn-round"
 								   href="{{ route('member.edit', auth()->user()) }}">Please Update Your Details</a>
 							</div>
@@ -140,9 +118,9 @@
 							Just a friendly reminder about security and card payments in this website:
 						</p>
 						<p class="text-justify">
-							We use a service called <a href="https://stripe.com/gb/privacy" target="_blank">Stripe</a> for our
+							We use a service called <a href="//stripe.com/gb/privacy" target="_blank">Stripe</a> for our
 							payments. This means <u>your credit card information does not touch our server</u> and it is passed
-							through <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security" target="_blank">SSL</a>
+							through <a href="//en.wikipedia.org/wiki/Transport_Layer_Security" target="_blank">SSL</a>
 							connection. Therefore, no matter if you are a member and regular customer <u>we never store your credit
 								card details</u> that is why everytime you purchase, you need to enter your credit card details again.
 							We know this is tedious but it's for your own and our customers security.
@@ -152,7 +130,7 @@
 			</article>
 			<aside class="col-md-4">
 
-				@include('partials.product-cart')
+				@include('partials.event-cart')
 
 				<div class="panel panel-primary">
 					<div class="panel-heading">
@@ -161,43 +139,29 @@
 						</div>
 					</div>
 					<div class="panel-body">
-						@unless(deliverable(auth()->user()->post_code)['status'])
-							<div class="alert alert-warning">
-								<div class="container-fluid">
-									<div class="alert-icon">
-										<i class="material-icons">warning</i>
-									</div>
-									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-										<span aria-hidden="true"><i class="material-icons">clear</i></span>
-									</button>
-									Is your information correct? It seems we cannot deliver to your address!
-								</div>
-							</div>
-						@endunless
-
 						<table class="table table-condensed table-striped">
 							<tr>
-								<td>Name</td>
+								<td><strong>Name</strong></td>
 								<td>{{ auth()->user()->name ?: '-' }}</td>
 							</tr>
 							<tr>
-								<td>Email</td>
+								<td><strong>Email</strong></td>
 								<td>{{ auth()->user()->email ?: '-' }}</td>
 							</tr>
 							<tr>
-								<td>Address</td>
+								<td><strong>Address</strong></td>
 								<td>{{ auth()->user()->address ?: '-' }}</td>
 							</tr>
 							<tr>
-								<td>City</td>
+								<td><strong>City</strong></td>
 								<td>{{ auth()->user()->city ?: '-' }}</td>
 							</tr>
 							<tr>
-								<td>Post Code</td>
+								<td><strong>Post Code</strong></td>
 								<td>{{ auth()->user()->post_code ?: '-' }}</td>
 							</tr>
 							<tr>
-								<td>Phone</td>
+								<td><strong>Phone</strong></td>
 								<td>{{ auth()->user()->phone ?: '-' }}</td>
 							</tr>
 						</table>

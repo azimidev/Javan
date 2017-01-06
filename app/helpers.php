@@ -98,7 +98,7 @@ function javan_is_open()
  */
 function less_than_minimum_order()
 {
-	$total = (int) str_replace(',', '', \Cart::total());
+	$total = (int) str_replace(',', '', \Cart::instance('menu')->total());
 
 	return $total < config('app.min-order');
 }

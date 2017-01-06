@@ -1,13 +1,13 @@
 <p style="position: fixed; z-index: 100; right: 3%; top: 8%; font-size: 40px;" class="visible-xs">
-	<a class="text-info" href="#pjax-container"><i class="fa fa-shopping-cart fa-fw"></i></a>
+	<a class="text-info" href="#cart"><i class="fa fa-shopping-cart fa-fw"></i></a>
 </p>
-<div class="panel panel-success" id="pjax-container">
+<div class="panel panel-success" id="cart">
 	<div class="panel-heading">
 		<div class="panel-title">
 			<i class="fa fa-shopping-cart fa-fw fa-lg"></i> Event Ticket Booking
 			@if (Cart::instance('event')->count())
 				<span class="badge">{{ Cart::instance('event')->count() }}</span>
-				<a id="destroyCart" title="Clear Cart" class="close" href="{{ route('destroy.event.cart') }}"
+				<a data-pjax title="Clear Cart" class="close" href="{{ route('destroy.event.cart') }}"
 				   data-toggle="tooltip">
 					<i class="material-icons">clear</i>
 				</a>
@@ -19,8 +19,8 @@
 			<thead>
 				<tr>
 					<th width="5%">Seat</th>
-					<th>Event</th>
-					<th>Price</th>
+					<th width="75%">Event</th>
+					<th width="10%">Price</th>
 					<th width="5%">&nbsp;</th>
 				</tr>
 			</thead>
@@ -31,8 +31,8 @@
 						<td>{{ $row->name }}</td>
 						<td>£{{ number_format($row->price, 2) }}</td>
 						<td>
-							<a id="removeFromCart" href="{{ route('remove.event.from.cart', [$row->rowId, $row->qty]) }}"
-							   class="text-danger">
+							<a  href="{{ route('remove.event.from.cart', [$row->rowId, $row->qty]) }}"
+							   class="text-danger" data-pjax>
 								<i class="material-icons">clear</i>
 							</a>
 						</td>
@@ -54,7 +54,7 @@
 				</tr>
 			</tfoot>
 		</table>
-		<a href="{{ route('cart.create') }}" class="btn btn-block btn-success btn-raised">
+		<a href="{{ route('bookings.create') }}" class="btn btn-block btn-success btn-raised">
 			Checkout
 		</a>
 	</div>
@@ -63,7 +63,7 @@
 @section('scripts')
 	<script>
 	  $(function() {
-		  $('a[href*="#"]:not([href="#appetizers"]):not([href="#main_courses"]):not([href="#extras"]):not([href="#beverages"]):not([href="#juices"]):not([href="#desserts"])').click(function() {
+		  $('a[href*="#"]').click(function() {
 			  if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
 				  var target = $(this.hash);
 				  target     = target.length ? target : $('[name=' + this.hash.slice(1) + ']');

@@ -21,15 +21,49 @@
 			<!-- Left Side Of Navbar -->
 			<ul class="nav navbar-nav">
 				<li class="{{ active('about') }}"><a href="{{ url('/about') }}">About</a></li>
-				<li class="{{ active('Persian-Food-Delivery-London') }}"><a href="{{ url('/Persian-Food-Delivery-London') }}">Menu</a></li>
+				<li class="{{ active('Persian-Food-Delivery-London') }}">
+					<a href="{{ url('/Persian-Food-Delivery-London') }}">
+						@if (Cart::instance('menu')->count())
+							<span class="text-bright">Menu & Delivery</span>
+							<span class="badge">{{ Cart::instance('menu')->count() }}</span>
+						@else
+							Menu & Delivery
+						@endif
+					</a>
+				</li>
 				@if (auth()->guest())
-					<li class="{{ active('guest/reservation') }}"><a href="{{ route('create.reservation') }}">Reservation</a></li>
+					<li class="{{ active('guest/reservation') }}">
+						<a href="{{ route('create.reservation') }}">
+							Reservation
+						</a>
+					</li>
 				@else
-					<li class="{{ active('member/reservations') }}"><a href="{{ route('member.reservations') }}">Reservation</a></li>
+					<li class="{{ active('member/reservations') }}">
+						<a href="{{ route('member.reservations') }}">
+							Reservation
+						</a>
+					</li>
 				@endif
-				<li class="{{ active('persian-live-music') }}"><a href="{{ url('/persian-live-music') }}">Live Music Events</a></li>
-				<li class="{{ active('contact') }}"><a href="{{ url('/contact') }}">Contact</a></li>
-				<li class="{{ active('blog') }}"><a href="{{ route('blog') }}">Blog</a></li>
+				<li class="{{ active('Persian-Live-Music') }}">
+					<a href="{{ url('/Persian-Live-Music') }}">
+						@if (Cart::instance('event')->count())
+							<span class="text-bright">Live Music Events</span>
+							<span class="badge">{{ Cart::instance('event')->count() }}</span>
+						@else
+							Live Music Events
+						@endif
+					</a>
+				</li>
+				<li class="{{ active('contact') }}">
+					<a href="{{ url('/contact') }}">
+						Contact
+					</a>
+				</li>
+				<li class="{{ active('blog') }}">
+					<a href="{{ route('blog') }}">
+						Blog
+					</a>
+				</li>
 			</ul>
 
 			<!-- Right Side Of Navbar -->
@@ -39,13 +73,6 @@
 					<li class="{{ active('login') }}"><a href="{{ url('/login') }}">Login</a></li>
 					<li class="{{ active('register') }}"><a href="{{ url('/register') }}">Register</a></li>
 				@else
-					@if (Cart::count())
-					<li class="{{ active('cart/create') }} btn-default"><a href="{{ route('cart.create') }}">
-							<i class="fa fa-shopping-cart"></i> Cart
-							<span class="badge">{{ Cart::count() }}</span>
-						</a>
-					</li>
-					@endif
 
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

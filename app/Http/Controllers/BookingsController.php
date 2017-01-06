@@ -3,9 +3,24 @@
 namespace Javan\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Javan\Billing\BillingInterface;
 
 class BookingsController extends Controller
 {
+	protected $billing;
+
+	/**
+	 * ShoppingCartsController constructor.
+	 *
+	 * @param \Javan\Billing\BillingInterface $billing
+	 */
+	public function __construct(BillingInterface $billing)
+	{
+		$this->middleware('auth');
+		$this->middleware('admin.manager', ['except' => ['create', 'store', 'show']]);
+		$this->billing = $billing;
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -23,7 +38,7 @@ class BookingsController extends Controller
 	 */
 	public function create()
 	{
-		//
+		return view('bookings.create');
 	}
 
 	/**

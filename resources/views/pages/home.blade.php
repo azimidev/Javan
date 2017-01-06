@@ -5,11 +5,11 @@
 		@include('partials.carousel')
 		<article>
 			<div class="col-md-8">
-				<a href="{{ route('menu') }}" class="btn btn-primary btn-raised btn-round btn-lg btn-block">
+				<a href="{{ route('menu') }}" class="btn btn-inverse btn-raised btn-round btn-lg btn-block text-bright">
 					Order Food Online
 				</a>
 				<a href="{{ auth()->check() ? route('member.reservations') : route('create.reservation') }}"
-				   class="btn btn-primary btn-raised btn-round btn-lg btn-block">
+				   class="btn btn-inverse btn-raised btn-round btn-lg btn-block text-bright">
 					Reserve Table Online
 				</a>
 

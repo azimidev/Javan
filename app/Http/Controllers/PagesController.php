@@ -210,12 +210,21 @@ class PagesController extends Controller
 		return back();
 	}
 
+	/**
+	 * @param \Javan\Event $event
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
 	public function addEventToCart(Event $event)
 	{
 		$this->validate(request(), [
-			'qty' => 'required|numeric',
+			'quantity' => 'required|numeric|between:1,' . $event->seatsRemaining(),
 		]);
-		Cart::instance('event')->add($event->id, $event->name, request()->qty, number_format($event->price / 100, 2));
+		Cart::instance('event')->add(
+			$event->id,
+			$event->name,
+			request('quantity'),
+			number_format($event->price / 100, 2)
+		);
 
 		return back();
 	}
@@ -242,6 +251,9 @@ class PagesController extends Controller
 		return back();
 	}
 
+	/**
+	 * @return array
+	 */
 	public function deliverable()
 	{
 		$this->validate(request(), ['post_code' => 'required|min:2']);

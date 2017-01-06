@@ -5,7 +5,8 @@ Route::get('/', 'PagesController@home');
 Route::get('about', 'PagesController@about');
 Route::get('Persian-Food-Delivery-London', 'PagesController@menu')->name('menu');
 Route::get('menu', function() { return redirect()->route('menu'); });
-Route::get('Persian-Live-Music', 'PagesController@liveMusic');
+Route::get('Persian-Live-Music', 'PagesController@liveMusic')->name('music');
+Route::get('music', function() { return redirect()->route('music'); });
 Route::post('deliverable', 'PagesController@deliverable');
 Route::get('about', 'PagesController@about');
 Route::get('contact', 'PagesController@contact');
@@ -35,11 +36,11 @@ Route::get('manager', 'UsersController@managerIndex')->name('manager.index');
 
 # Resources
 Route::resource('user', 'UsersController');
-Route::resource('reservations', 'ReservationsController');
 Route::resource('post', 'PostsController');
 Route::resource('products', 'ProductsController');
-Route::resource('cart', 'ShoppingCartsController');
-Route::resource('bookings', 'BookingsController');
+Route::resource('cart', 'ShoppingCartsController', ['except' => ['show', 'edit']]);
+Route::resource('reservations', 'ReservationsController', ['except' => ['show', 'edit']]);
+Route::resource('bookings', 'BookingsController', ['except' => ['show', 'edit']]);
 Route::resource('events', 'EventsController');
 
 # Products Photo

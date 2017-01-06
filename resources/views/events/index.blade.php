@@ -48,7 +48,7 @@
 										<a href="{{ route('events.edit', $event) }}" class="btn btn-sm btn-success">
 											<i class="fa fa-lg fa-pencil-square-o"></i>
 										</a>
-										<button type="submit" class="btn btn-sm btn-danger">
+										<button type="submit" class="btn btn-sm btn-danger confirm">
 											<i class="fa fa-lg fa-trash"></i>
 										</button>
 									</form>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Javan\Billing\BillingInterface;
 use Javan\Booking;
 use Javan\Jobs\SendBookingConfirmation;
+use Javan\Jobs\SendBookingRefundEmail;
 use Javan\Jobs\SendBookingToAdmin;
 
 class BookingsController extends Controller
@@ -32,7 +33,17 @@ class BookingsController extends Controller
 	 */
 	public function index()
 	{
-		//
+		$sortBy    = request()->get('sortBy');
+		$direction = request()->get('direction');
+		$params    = compact('sortBy', 'direction');
+
+		if ($sortBy && $direction) {
+			$bookings = Booking::with('user', 'event')->orderBy($params['sortBy'], $params['direction'])->paginate(50);
+		} else {
+			$bookings = Booking::with('user', 'event')->latest()->paginate(50);
+		}
+
+		return view('bookings.index', compact('bookings'));
 	}
 
 	/**
@@ -71,55 +82,47 @@ class BookingsController extends Controller
 			'active'    => TRUE,
 		]);
 		$this->dispatch(new SendBookingToAdmin($booking));
-		// $this->dispatch(new SendBookingConfirmation($booking));
+		$this->dispatch(new SendBookingConfirmation($booking));
 		Cart::instance('event')->destroy();
-		flash()->overlay('Payment was successfull', "Ticket has been purchased. Please check your email for more info. <br> Your ticket number is <strong>{$booking->ticket}</strong>");
+		flash()->overlay('Payment was successful', "Ticket has been purchased. Please check your email for more info. <br> Your ticket number is <strong>{$booking->ticket}</strong>");
 
 		return redirect()->route('member.bookings');
 	}
 
 	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int $id
-	 * @return \Illuminate\Http\Response
+	 * @param \Javan\Booking $bookings
+	 * @return \Illuminate\Http\RedirectResponse
 	 */
-	public function show($id)
+	public function update(Booking $bookings)
 	{
-		//
+		if ( ! $bookings->charge_id) {
+			flash()->error('Error!', 'Could not find the charge.');
+
+			return back();
+		}
+		$refund = $this->billing->refund(['charge' => $bookings->charge_id]);
+		$bookings->update([
+			'refund_id' => $refund->id,
+			'seats'     => 0,
+			'active'    => FALSE,
+		]);
+
+		$this->dispatch(new SendBookingRefundEmail($bookings));
+		flash()->success('Success', 'Payment has been refunded successfully');
+
+		return back();
 	}
 
 	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int $id
-	 * @return \Illuminate\Http\Response
+	 * @param \Javan\Booking $bookings
+	 * @return \Illuminate\Http\RedirectResponse
+	 * @throws \Exception
 	 */
-	public function edit($id)
+	public function destroy(Booking $bookings)
 	{
-		//
-	}
+		$bookings->delete();
+		flash()->success('Success', 'Booking has been deleted successfully');
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  \Illuminate\Http\Request $request
-	 * @param  int $id
-	 * @return \Illuminate\Http\Response
-	 */
-	public function update(Request $request, $id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int $id
-	 * @return \Illuminate\Http\Response
-	 */
-	public function destroy($id)
-	{
-		//
+		return back();
 	}
 }

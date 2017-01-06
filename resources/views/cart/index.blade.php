@@ -64,7 +64,7 @@
 							<td>£{{ number_format($cart->total / 100, 2) }}</td>
 							<td>{!! nl2br($cart->note) !!}</td>
 							<td>{!! $cart->status ? '<span class="label label-success">Accepted & Paid</span>' : '<span class="label label-danger">Rejected & Refunded</span>' !!}</td>
-							@can('admin_manager', auth()->user())
+							@can('admin', auth()->user())
 								<td>
 									<form action="{{ route('cart.destroy', $cart) }}" method="POST">
 										{{ csrf_field() }}

@@ -87,10 +87,22 @@ class SessionsController extends Controller
 	public function bookings()
 	{
 		if ($this->user->bookings->isEmpty()) {
-			return redirect()->route('bookings.create');
+			return redirect()->route('music');
 		}
 
-		return view('bookings.index', ['bookings' => $this->user->bookings()->paginate(20)]);
+		$sortBy    = request()->get('sortBy');
+		$direction = request()->get('direction');
+		$params    = compact('sortBy', 'direction');
+
+		if ($sortBy && $direction) {
+			$bookings = $this->user->bookings()->with('event')
+			                       ->orderBy($params['sortBy'], $params['direction'])->paginate(20);
+		} else {
+			$bookings = $this->user->bookings()->with('event')
+			                       ->latest()->paginate(20);
+		}
+
+		return view('bookings.index', compact('bookings'));
 	}
 
 	/**
@@ -109,7 +121,7 @@ class SessionsController extends Controller
 		$params    = compact('sortBy', 'direction');
 
 		if ($sortBy && $direction) {
-			$carts = $this->user->shoppingCarts()->orderBy($params['sortBy'], $params['direction'])->paginate(50);
+			$carts = $this->user->shoppingCarts()->orderBy($params['sortBy'], $params['direction'])->paginate(20);
 		} else {
 			$carts = $this->user->shoppingCarts()->latest()->paginate(20);
 		}

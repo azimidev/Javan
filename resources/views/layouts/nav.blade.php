@@ -80,16 +80,27 @@
 						</a>
 
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="{{ route('member.show') }}">
+							<li>
+								<a href="{{ route('member.show') }}">
 									<i class="fa fa-user fa-fw"></i> Profile
-								</a></li>
+								</a>
+							</li>
 							@can ('member', auth()->user())
-								<li><a href="{{ route('member.reservations') }}">
+								<li>
+									<a href="{{ route('member.reservations') }}">
 										<i class="fa fa-calendar fa-fw"></i> Your Reservations
-									</a></li>
-								<li><a href="{{ route('member.orders') }}">
+									</a>
+								</li>
+								<li>
+									<a href="{{ route('member.orders') }}">
 										<i class="fa fa-cutlery fa-fw"></i> Your Orders
-									</a></li>
+									</a>
+								</li>
+								<li>
+									<a href="{{ route('member.bookings') }}">
+										<i class="fa fa-calendar fa-fw"></i> Your Music Tickets
+									</a>
+								</li>
 							@endcan
 							@can ('admin_manager', auth()->user())
 								<li class="divider"></li>

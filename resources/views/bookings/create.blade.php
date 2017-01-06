@@ -76,7 +76,6 @@
 										<span class="help-block text-primary"> 3 or 4 digits on back of your card</span>
 									</div>
 									<i class="fa fa-question-circle fa-lg fa-fw text-info" data-toggle="tooltip" data-placement="right"
-									   style="cursor:pointer;"
 									   title='<img src="/images/cvv.png" alt="CVV CVC" width="100%">
 									   <h4>Visa, Mastercard or Discover</h4>
 									   The CVV ("Card Verification Value") on your card is a 3 or 4 digit

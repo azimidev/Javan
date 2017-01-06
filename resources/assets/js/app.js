@@ -166,7 +166,7 @@
 	 */
 	$('.confirm').click(function(e) {
 		e.preventDefault();
-		var form = $(this).parents('form');
+		var form = $(this).closest('form');
 		swal({
 			title              : "<h4>Are You Sure ?</h4>",
 			type               : "question",

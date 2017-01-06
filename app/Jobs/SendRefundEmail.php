@@ -30,8 +30,11 @@ class SendRefundEmail extends Job implements ShouldQueue
 	 */
 	public function handle(AppMailer $mailer)
 	{
-		$mailer->sendRefundEmail(
-			$this->cart->user->email, $this->cart->load('user')->toArray()
+		$mailer->sendEmailTo(
+			$this->cart->user->email,
+			$this->cart->load('user')->toArray(),
+			'Order Rejected & Refunded!',
+			'emails.refund-order'
 		);
 	}
 }

@@ -34,8 +34,8 @@
 
 								<!-- Card Number -->
 								<div class="form-group">
-									<label class="col-sm-3 control-label" for="cardnumber">Card Number</label>
-									<div class="col-sm-7">
+									<label class="col-xs-3 control-label" for="cardnumber">Card Number</label>
+									<div class="col-xs-7">
 										<input type="text" id="cardnumber" minlength="16" maxlength="19" placeholder="Card Number"
 										       class="card-number form-control" data-stripe="number" pattern="[0-9]{16,19}" required>
 										<span class="help-block text-primary">16 digits card number in front of your card</span>
@@ -44,8 +44,8 @@
 
 								<!-- Expiry-->
 								<div class="form-group">
-									<label class="col-sm-3 control-label" for="exp-date">Card Expiry Date</label>
-									<div class="col-sm-7">
+									<label class="col-xs-3 control-label" for="exp-date">Card Expiry Date</label>
+									<div class="col-xs-7">
 										<div class="form-inline">
 											<select name="select2" data-stripe="exp_month" id="exp-date"
 											        class="card-expiry-month stripe-sensitive required form-control" required>
@@ -69,8 +69,8 @@
 
 								<!-- CVV -->
 								<div class="form-group">
-									<label class="col-sm-3 control-label" for="cvc">CVC / CVV</label>
-									<div class="col-sm-3">
+									<label class="col-xs-3 control-label" for="cvc">CVC / CVV</label>
+									<div class="col-xs-3">
 										<input type="text" id="cvc" placeholder="CVC" size="4" class="card-cvc form-control"
 										       data-stripe="cvc" pattern="[0-9]{1,4}" minlength="1" maxlength="4" required>
 										<span class="help-block text-primary"> 3 or 4 digits on back of your card</span>

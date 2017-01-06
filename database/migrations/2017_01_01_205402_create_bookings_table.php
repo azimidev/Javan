@@ -20,7 +20,7 @@ class CreateBookingsTable extends Migration
 			$table->string('refund_id')->index()->nullable();
 			$table->integer('seats');
 			$table->integer('total');
-			$table->bigInteger('ticket');
+			$table->string('ticket')->unique();
 			$table->boolean('active')->default(TRUE);
 			$table->timestamps();
 

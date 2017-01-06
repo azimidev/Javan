@@ -30,8 +30,11 @@ class SendOrderConfirmation extends Job implements ShouldQueue
 	 */
 	public function handle(AppMailer $mailer)
 	{
-		$mailer->sendOrderConfirmationTo(
-			$this->cart->user->email, $this->cart->load('user')->toArray()
+		$mailer->sendEmailTo(
+			$this->cart->user->email,
+			$this->cart->load('user')->toArray(),
+			'Your Order Confirmation',
+			'emails.order-confirmation'
 		);
 	}
 }

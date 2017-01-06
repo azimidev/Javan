@@ -23,7 +23,7 @@ class AppMailer
 	}
 
 	/**
-	 * @param      $request
+	 * @param $request
 	 */
 	public function sendEmail($request)
 	{
@@ -37,69 +37,15 @@ class AppMailer
 	/**
 	 * @param $email
 	 * @param $data
+	 * @param $subject
+	 * @param $view
 	 */
-	public function sendReservationConfirmationTo($email, $data)
+	public function sendEmailTo($email, $data, $subject, $view)
 	{
 		$this->data    = $data;
 		$this->to      = $email;
-		$this->subject = 'Your Booking Confirmation';
-		$this->view    = 'emails.reservation-confirmation';
-
-		$this->deliver();
-	}
-
-	/**
-	 * @param $email
-	 * @param $data
-	 */
-	public function sendReservationToAdmin($email, $data)
-	{
-		$this->data    = $data;
-		$this->to      = $email;
-		$this->subject = 'New Booking Reservation';
-		$this->view    = 'emails.admin-reservation-notice';
-
-		$this->deliver();
-	}
-
-	/**
-	 * @param $email
-	 * @param $data
-	 */
-	public function sendOrderConfirmationTo($email, $data)
-	{
-		$this->data    = $data;
-		$this->to      = $email;
-		$this->subject = 'Your Order Confirmation';
-		$this->view    = 'emails.order-confirmation';
-
-		$this->deliver();
-	}
-
-	/**
-	 * @param $email
-	 * @param $data
-	 */
-	public function sendOrderToAdmin($email, $data)
-	{
-		$this->data    = $data;
-		$this->to      = $email;
-		$this->subject = 'New Delivery Order';
-		$this->view    = 'emails.admin-order-notice';
-
-		$this->deliver();
-	}
-
-	/**
-	 * @param $email
-	 * @param $data
-	 */
-	public function sendRefundEmail($email, $data)
-	{
-		$this->data    = $data;
-		$this->to      = $email;
-		$this->subject = 'Order Rejected & Refunded!';
-		$this->view    = 'emails.refund-order';
+		$this->subject = $subject;
+		$this->view    = $view;
 
 		$this->deliver();
 	}

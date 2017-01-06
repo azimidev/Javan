@@ -2,8 +2,12 @@
 
 namespace Javan\Http\Controllers;
 
+use Cart;
 use Illuminate\Http\Request;
 use Javan\Billing\BillingInterface;
+use Javan\Booking;
+use Javan\Jobs\SendBookingConfirmation;
+use Javan\Jobs\SendBookingToAdmin;
 
 class BookingsController extends Controller
 {
@@ -49,7 +53,29 @@ class BookingsController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		//
+		// TODO: check if there is any seats available or not fully booked
+		// TODO: check if cart is not empty
+
+		$charge  = $this->billing->charge([
+			'total' => Cart::instance('event')->subtotal() * 100,
+			'email' => auth()->user()->email,
+			'token' => $request->input('stripe-token'),
+		]);
+		$booking = Booking::create([
+			'user_id'   => auth()->user()->id,
+			'event_id'  => Cart::instance('event')->content()->first()->id,
+			'charge_id' => $charge->id,
+			'seats'     => Cart::instance('event')->content()->first()->qty,
+			'total'     => Cart::instance('event')->subtotal() * 100,
+			'ticket'    => random_int(1000, 9999), // strtoupper(str_random(5))
+			'active'    => TRUE,
+		]);
+		$this->dispatch(new SendBookingToAdmin($booking));
+		// $this->dispatch(new SendBookingConfirmation($booking));
+		Cart::instance('event')->destroy();
+		flash()->overlay('Payment was successfull', "Ticket has been purchased. Please check your email for more info. <br> Your ticket number is <strong>{$booking->ticket}</strong>");
+
+		return redirect()->route('member.bookings');
 	}
 
 	/**

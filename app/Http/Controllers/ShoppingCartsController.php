@@ -74,6 +74,7 @@ class ShoppingCartsController extends Controller
 	 */
 	public function store(Request $request)
 	{
+		// This also checks if cart is empty
 		if (less_than_minimum_order()) {
 			flash()->error('Error', 'The minimum order is £' . config('app.min-order'));
 
@@ -88,21 +89,21 @@ class ShoppingCartsController extends Controller
 			return back();
 		}
 		$charge       = $this->billing->charge([
-			'total' => Cart::total() * 100,
+			'total' => Cart::instance('menu')->total() * 100,
 			'email' => auth()->user()->email,
 			'token' => $request->input('stripe-token'),
 		]);
 		$shoppingCart = ShoppingCart::create([
 			'user_id'   => auth()->user()->id,
 			'charge_id' => $charge->id,
-			'orders'    => serialize(Cart::content()),
-			'total'     => Cart::total() * 100,
+			'orders'    => serialize(Cart::instance('menu')->content()),
+			'total'     => Cart::instance('menu')->total() * 100,
 			'status'    => TRUE,
 			'note'      => $request->input('note'),
 		]);
 		$this->dispatch(new SendOrderToAdmin($shoppingCart));
 		$this->dispatch(new SendOrderConfirmation($shoppingCart));
-		Cart::destroy();
+		Cart::instance('menu')->destroy();
 		flash()->overlay('Payment was successfull', 'Delivery has been placed. We are going to send your delivery ASAP unless you have stated a specific delivery time. If you Didn\'t get confirmation email, please call us on 020 8563 8553');
 
 		return redirect()->route('member.orders');

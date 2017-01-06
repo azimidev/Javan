@@ -6,21 +6,21 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Javan\AppMailer;
-use Javan\Reservation;
+use Javan\Booking;
 
-class SendReservationConfirmation extends Job implements ShouldQueue
+class SendBookingConfirmation extends Job implements ShouldQueue
 {
 	use InteractsWithQueue, SerializesModels;
-	protected $reservation;
+	protected $booking;
 
 	/**
 	 * Create a new job instance.
 	 *
-	 * @param \Javan\Reservation $reservation
+	 * @param \Javan\Booking $booking
 	 */
-	public function __construct(Reservation $reservation)
+	public function __construct(Booking $booking)
 	{
-		$this->reservation = $reservation;
+		$this->booking = $booking;
 	}
 
 	/**
@@ -31,10 +31,10 @@ class SendReservationConfirmation extends Job implements ShouldQueue
 	public function handle(AppMailer $mailer)
 	{
 		$mailer->sendEmailTo(
-			$this->reservation->user->email,
-			$this->reservation->load('user')->toArray(),
-			'Your Booking Confirmation',
-			'emails.reservation-confirmation'
+			$this->booking->user->email,
+			$this->booking->load('user'. 'event')->toArray(),
+			'Your Ticket',
+			'emails.booking-confirmation'
 		);
 	}
 }

@@ -30,6 +30,11 @@ class SendOrderToAdmin extends Job implements ShouldQueue
 	 */
 	public function handle(AppMailer $mailer)
 	{
-		$mailer->sendOrderToAdmin(env('PRINTER_EMAIL'), $this->cart->load('user')->toArray());
+		$mailer->sendEmailTo(
+			env('PRINTER_EMAIL'),
+			$this->cart->load('user')->toArray(),
+			'New Delivery Order',
+			'emails.admin-order-notice'
+		);
 	}
 }

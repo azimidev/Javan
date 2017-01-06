@@ -75,7 +75,7 @@ class SessionsController extends Controller
 
 		Reservation::cancelOldReservations();
 
-		return view('reservations.index', ['reservations' => $this->user->reservations()->paginate(50)]);
+		return view('reservations.index', ['reservations' => $this->user->reservations()->paginate(20)]);
 	}
 
 	/**
@@ -90,7 +90,7 @@ class SessionsController extends Controller
 			return redirect()->route('bookings.create');
 		}
 
-		return view('bookings.index', ['bookings' => $this->user->bookings()->paginate(50)]);
+		return view('bookings.index', ['bookings' => $this->user->bookings()->paginate(20)]);
 	}
 
 	/**
@@ -111,7 +111,7 @@ class SessionsController extends Controller
 		if ($sortBy && $direction) {
 			$carts = $this->user->shoppingCarts()->orderBy($params['sortBy'], $params['direction'])->paginate(50);
 		} else {
-			$carts = $this->user->shoppingCarts()->latest()->paginate(50);
+			$carts = $this->user->shoppingCarts()->latest()->paginate(20);
 		}
 
 		$carts->transform(function($cart) {

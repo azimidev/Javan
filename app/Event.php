@@ -71,8 +71,8 @@ class Event extends Model
 	 */
 	public function seatsRemaining()
 	{
-		$bookings      = Booking::all()->where('event_id', $this->id)->sum('seats');
-		$cart_bookings = Cart::instance('event')->count();
+		$bookings      = (int) Booking::active()->where('event_id', $this->id)->sum('seats');
+		$cart_bookings = (int) Cart::instance('event')->count();
 
 		$qty = $cart_bookings ? $cart_bookings + $bookings : $bookings;
 

@@ -62,7 +62,7 @@ class BookingsController extends Controller
 
 		$event = Event::findOrFail(Cart::instance('event')->content()->first()->id);
 
-		if ($event->seatsRemaining() <= 0) {
+		if ($event->seatsRemaining() < 0) {
 			flash()->overlay(
 				'There is no enough seats!',
 				'We are either fully booked or there is not enough seats available. This is because someone booked faster in the same time!',

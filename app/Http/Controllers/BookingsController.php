@@ -55,9 +55,22 @@ class BookingsController extends Controller
 	public function create()
 	{
 		if ( ! Cart::instance('event')->count()) {
-			flash()->error('No Ticket Added');
+			flash()->error('No Ticket Added!', 'Please add a ticket in your cart');
 
-			return redirect('music');
+			return redirect()->route('music');
+		}
+
+		$event = Event::findOrFail(Cart::instance('event')->content()->first()->id);
+
+		if ($event->seatsRemaining() <= 0) {
+			flash()->overlay(
+				'There is no enough seats!',
+				'We are either fully booked or there is not enough seats available. This is because someone booked faster in the same time!',
+				'error'
+			);
+			Cart::instance('event')->destroy();
+
+			return redirect()->route('music');
 		}
 
 		return view('bookings.create');
@@ -71,12 +84,23 @@ class BookingsController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		if ( ! Event::findOrFail(Cart::instance('event')->content()->first()->id)->seatsRemaining()) {
-			flash()->error('Sorry!', 'This event is now fully booked');
+		$event = Event::findOrFail(Cart::instance('event')->content()->first()->id);
 
-			return back();
+		if (expired($event->finish)) {
+			flash()->error('Sorry we could not book you!', 'This event is expired');
+			Cart::instance('event')->destroy();
+
+			return redirect()->route('music');
 		}
-		// TODO: check if the finish date is expired (helper)
+		if ($event->seatsRemaining() <= 0) {
+			flash()->overlay(
+				'Sorry we could not book you!',
+				'We are fully booked or there is not enough seats available. This is because someone booked faster in the same time!',
+				'error'
+			);
+
+			return redirect()->route('music');
+		}
 
 		$charge  = $this->billing->charge([
 			'total' => Cart::instance('event')->subtotal() * 100,

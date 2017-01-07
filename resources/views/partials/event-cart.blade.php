@@ -31,7 +31,7 @@
 						<td>{{ $row->name }}</td>
 						<td>£{{ number_format($row->price, 2) }}</td>
 						<td>
-							<a  href="{{ route('remove.event.from.cart', [$row->rowId, $row->qty]) }}"
+							<a href="{{ route('remove.event.from.cart', [$row->rowId, $row->qty]) }}"
 							   class="text-danger" data-pjax>
 								<i class="material-icons">clear</i>
 							</a>
@@ -54,9 +54,11 @@
 				</tr>
 			</tfoot>
 		</table>
-		<a href="{{ route('bookings.create') }}" class="btn btn-block btn-success btn-raised">
-			Checkout
-		</a>
+		@if(Cart::instance('event')->count())
+			<a href="{{ route('bookings.create') }}" class="btn btn-block btn-success btn-raised">
+				Checkout
+			</a>
+		@endif
 	</div>
 </div>
 

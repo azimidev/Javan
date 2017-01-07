@@ -30,7 +30,7 @@
 										<p class="alert alert-primary lead">
 											This Event is Expired
 										</p>
-									@elseif ($event->seatsRemaining())
+									@elseif ($event->seatsRemaining() > 0)
 										<h3 class="text-success">
 											{{ $event->seatsRemaining() }}
 											{{ str_plural('seat', $event->seatsRemaining()) }} Remaining

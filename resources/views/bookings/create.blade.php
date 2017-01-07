@@ -59,8 +59,9 @@
 											<select name="select2" data-stripe="exp_year" id="exp-date"
 											        class="card-expiry-year stripe-sensitive required form-control" required>
 												@for ($i = 0; $i < 12; $i++)
-													<option
-															value="{{ $i + date('Y') }}" {{ $i === 0 ? 'selected' : '' }}>{{ $i + date('Y') }}</option>
+													<option value="{{ $i + date('Y') }}" {{ $i === 0 ? 'selected' : '' }}>
+														{{ $i + date('Y') }}
+													</option>
 												@endfor
 											</select>
 										</div>

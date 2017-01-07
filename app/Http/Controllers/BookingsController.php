@@ -6,6 +6,7 @@ use Cart;
 use Illuminate\Http\Request;
 use Javan\Billing\BillingInterface;
 use Javan\Booking;
+use Javan\Event;
 use Javan\Jobs\SendBookingConfirmation;
 use Javan\Jobs\SendBookingRefundEmail;
 use Javan\Jobs\SendBookingToAdmin;
@@ -53,6 +54,12 @@ class BookingsController extends Controller
 	 */
 	public function create()
 	{
+		if ( ! Cart::instance('event')->count()) {
+			flash()->error('No Ticket Added');
+
+			return redirect('music');
+		}
+
 		return view('bookings.create');
 	}
 
@@ -64,8 +71,11 @@ class BookingsController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		// TODO: check if there is any seats available or not fully booked
-		// TODO: check if cart is not empty
+		if ( ! Event::findOrFail(Cart::instance('event')->content()->first()->id)->seatsRemaining()) {
+			flash()->error('Sorry!', 'This event is now fully booked');
+
+			return back();
+		}
 		// TODO: check if the finish date is expired (helper)
 
 		$charge  = $this->billing->charge([

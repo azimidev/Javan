@@ -20,7 +20,7 @@ class SendBookingToAdmin extends Job implements ShouldQueue
 	 */
 	public function __construct(Booking $booking)
 	{
-		$this->cart = $booking;
+		$this->booking = $booking;
 	}
 
 	/**

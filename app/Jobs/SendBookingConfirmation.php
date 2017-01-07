@@ -32,7 +32,7 @@ class SendBookingConfirmation extends Job implements ShouldQueue
 	{
 		$mailer->sendEmailTo(
 			$this->booking->user->email,
-			$this->booking->load('user'. 'event')->toArray(),
+			$this->booking->load('user', 'event')->toArray(),
 			'Your Ticket',
 			'emails.booking-confirmation'
 		);

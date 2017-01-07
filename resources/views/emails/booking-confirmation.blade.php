@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta name="viewport" content="width=device-width">
-		<title>Javan Restaurant Order Confirmation</title>
+		<title>Javan Restaurant Booking Confirmation</title>
 	</head>
 	<body
 			style="-moz-box-sizing:border-box;-ms-text-size-adjust:100%;-webkit-box-sizing:border-box;-webkit-text-size-adjust:100%;Margin:0;background:#f3f3f3!important;box-sizing:border-box;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;min-width:100%;padding:0;text-align:left;width:100%!important">
@@ -13,7 +13,8 @@
 					<td align="center" valign="top"
 					    style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0 auto;border-collapse:collapse!important;color:#0a0a0a;float:none;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;hyphens:auto;line-height:1.3;margin:0 auto;padding:0;text-align:center;vertical-align:top;word-wrap:break-word">
 						<center data-parsed="" style="min-width:580px;width:100%">
-							<table align="center" style="Margin:0 auto;background:#f3f3f3;border-collapse:collapse;border-spacing:0;float:none;margin:0 auto;padding:0;text-align:center;vertical-align:top;width:580px">
+							<table align="center"
+							       style="Margin:0 auto;background:#f3f3f3;border-collapse:collapse;border-spacing:0;float:none;margin:0 auto;padding:0;text-align:center;vertical-align:top;width:580px">
 								<tbody>
 									<tr style="padding:0;text-align:left;vertical-align:top">
 										<td style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;hyphens:auto;line-height:1.3;margin:0;padding:0;text-align:left;vertical-align:top;word-wrap:break-word">
@@ -27,7 +28,7 @@
 																	<tr style="padding:0;text-align:left;vertical-align:top">
 																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">
 																			<h1 style="Margin:0;Margin-bottom:10px;color:inherit;font-family:Helvetica,Arial,sans-serif;font-size:30px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:center;word-wrap:normal">
-																				Javan's Delivery Confirmation
+																				Javan's Live Music Ticket Confirmation
 																			</h1>
 																		</th>
 																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;padding:0!important;text-align:left;visibility:hidden;width:0"></th>
@@ -42,7 +43,8 @@
 									</tr>
 								</tbody>
 							</table>
-							<table align="center" style="Margin:0 auto;background:#fefefe;border-collapse:collapse;border-spacing:0;border-top:8px solid #639;float:none;margin:0 auto;padding:0;text-align:center;vertical-align:top;width:580px">
+							<table align="center"
+							       style="Margin:0 auto;background:#fefefe;border-collapse:collapse;border-spacing:0;border-top:8px solid #639;float:none;margin:0 auto;padding:0;text-align:center;vertical-align:top;width:580px">
 								<tbody>
 									<tr style="padding:0;text-align:left;vertical-align:top">
 										<td style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;hyphens:auto;line-height:1.3;margin:0;padding:0;text-align:left;vertical-align:top;word-wrap:break-word">
@@ -77,31 +79,37 @@
 																			</table>
 																			<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
 																				Dear {{ $user['name'] }}, <br/><br/>
-																				Your delivery order with Javan Restaurant has been placed and confirmed. <br/>
-																				Here's the delivery information:
+																				Your live music ticket(s) with Javan Restaurant has been confirmed.
+																				<br/>
+																				Thank you for buying the ticket.
+																				<br/><br/>
+																				Here's the Ticket information:
 																			</p>
 																			<br/>
+																			<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:700;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
+																				Ticket : {{ $ticket }}
+																			</p>
 																			<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
-																				Orders:
-																			<ul>
-																				@foreach (unserialize($orders) as $order)
-																					<li>{{ $order->qty }} {{ $order->name }}</li>
-																				@endforeach
-																			</ul>
+																				Event : {{ $event['name'] }}
+																			</p>
+																			<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
+																				Seats : {{ $seats }}
 																			</p>
 																			<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
 																				Total: £{{ number_format($total / 100, 2) }}
 																			</p>
 																			<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
-																				Note: {!! $note !!}
-																			</p>
-																			<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
-																				Status: {!! $status ? '<b style="color:green;">Accepted & Paid</b>' : '<b style="color:red;">Rejected & Refunded</b>' !!}
+																				Status
+																				: {!! $active ? '<b style="color:green;">Accepted & Booked</b>' : '<b style="color:red;">Refunded & Rejected</b>' !!}
 																			</p>
 																			<br/><br/>
 																			<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
-																				Your order will be rejected and refunded if we could not verify your information
-																				with the rejection reason on your notes.
+																				Your ticket is <strong>non-refundable</strong> if you do not appear in the
+																				event.
+																				If the event is canceled for any reason, we will refund your money immediately.
+																				Children in any age under over 3 will not have discounts. We only sell the
+																				seats.
+																				Please retrain this email to show upon arrival.
 																			</p>
 																			<hr/>
 																			<center data-parsed="" style="min-width:532px;width:100%">

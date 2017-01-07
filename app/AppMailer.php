@@ -42,8 +42,8 @@ class AppMailer
 	 */
 	public function sendEmailTo($email, $data, $subject, $view)
 	{
-		$this->data    = $data;
 		$this->to      = $email;
+		$this->data    = $data;
 		$this->subject = $subject;
 		$this->view    = $view;
 

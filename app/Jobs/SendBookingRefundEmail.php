@@ -33,7 +33,7 @@ class SendBookingRefundEmail extends Job implements ShouldQueue
 	{
 		$mailer->sendEmailTo(
 			$this->booking->user->email,
-			$this->booking->load('user')->toArray(),
+			$this->booking->load('user', 'event')->toArray(),
 			'Ticket Refunded & Rejected!',
 			'emails.refund-booking'
 		);

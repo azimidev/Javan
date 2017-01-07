@@ -6,29 +6,27 @@
 	</head>
 	<body>
 		<h2>Javan Restaurant</h2>
-		<h3>Delivery Confirmation</h3>
+		<h3>Booking Confirmation</h3>
 		<table>
 			<tr>
-				<td><strong>Orders :</strong></td>
-				<td>
-					<ul>
-						@foreach (unserialize($orders) as $order)
-							<li>{{ $order->qty }} {{ $order->name }}</li>
-						@endforeach
-					</ul>
-				</td>
+				<td><strong>Event :</strong></td>
+				<td>{{ $event['name'] }}</td>
+			</tr>
+			<tr>
+				<td><strong>Seats :</strong></td>
+				<td>{{ $seats }}</td>
 			</tr>
 			<tr>
 				<td><strong>Total :</strong></td>
 				<td>£{{ number_format($total / 100, 2) }}</td>
 			</tr>
 			<tr>
-				<td><strong>Note :</strong></td>
-				<td>{!! $note !!}</td>
+				<td><strong>Ticket Number :</strong></td>
+				<td>{{ $ticket }}</td>
 			</tr>
 			<tr>
 				<td><strong>Status :</strong></td>
-				<td>{!! $status ? '<span style="color:green;">Accepted & Paid</span>' : '<span style="color:red;">Rejected & Refunded</span>' !!}</td>
+				<td>{!! $active ? '<span style="color:green;">Accepted & Paid</span>' : '<span style="color:red;">Rejected & Refunded</span>' !!}</td>
 			</tr>
 			<tr>
 				<td><strong>Name :</strong></td>

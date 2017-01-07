@@ -189,8 +189,8 @@ function deliverable($destination)
 	//                   "value" : 3082
 	//                },
 	//                "duration" : {
-	// 	            "text" : "7 mins",
-	//                   "value" : 429
+	// 	                "text"  : "7 mins",
+	//                  "value" : 429
 	//                },
 	//                "status" : "OK"
 	//             }

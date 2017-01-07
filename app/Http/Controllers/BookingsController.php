@@ -66,6 +66,7 @@ class BookingsController extends Controller
 	{
 		// TODO: check if there is any seats available or not fully booked
 		// TODO: check if cart is not empty
+		// TODO: check if the finish date is expired (helper)
 
 		$charge  = $this->billing->charge([
 			'total' => Cart::instance('event')->subtotal() * 100,
@@ -84,7 +85,7 @@ class BookingsController extends Controller
 		$this->dispatch(new SendBookingToAdmin($booking));
 		$this->dispatch(new SendBookingConfirmation($booking));
 		Cart::instance('event')->destroy();
-		flash()->overlay('Payment was successful', "Ticket has been purchased. Please check your email for more info. <br> Your ticket number is <strong>{$booking->ticket}</strong>");
+		flash()->overlay('Payment was successful', "Your ticket has been confirmed. Please check your email for more info. <br> Your ticket number is <strong>{$booking->ticket}</strong>");
 
 		return redirect()->route('member.bookings');
 	}

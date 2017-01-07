@@ -12,7 +12,8 @@
 				<div class="alert alert-warning">
 					<div class="alert-icon"><i class="material-icons">info</i></div>
 					Remaining seats are not guaranteed and they will be booked at any point and time.
-					Your booking <strong>isn't valid</strong> until you <strong>fully pay and receive a confirmation email</strong>.
+					Your booking <strong>isn't valid</strong> until you <strong>fully pay and receive a confirmation
+						email</strong>.
 				</div>
 
 				<div class="row">
@@ -25,7 +26,11 @@
 									<h3 class="text-primary" itemprop="price">£ {{ number_format($event->price / 100 , 2) }}
 										<small>Per Person</small>
 									</h3>
-									@if ($event->seatsRemaining())
+									@if (expired($event->finish))
+										<p class="alert alert-primary lead">
+											This Event is Expired
+										</p>
+									@elseif ($event->seatsRemaining())
 										<h3 class="text-success">
 											{{ $event->seatsRemaining() }}
 											{{ str_plural('seat', $event->seatsRemaining()) }} Remaining
@@ -35,7 +40,8 @@
 											<div class="form-group">
 												<div class="input-group">
 													<label for="quantity">How many seats would you like ?</label>
-													<input type="number" class="form-control" id="quantity" placeholder="Enter how many seats here"
+													<input type="number" class="form-control" id="quantity"
+													       placeholder="Enter how many seats here"
 													       name="quantity"
 													       min="1" max="{{ $event->seatsRemaining() }}" required>
 													<span class="input-group-btn">
@@ -51,18 +57,22 @@
 											No Seats Remaining
 										</h3>
 										@if (Cart::instance('event')->count())
-											<p class="alert alert-danger lead">Fully Booked <span class="badge text-uppercase">not confirmed</span></p>
+											<p class="alert alert-danger lead">
+												Fully Booked <span class="badge text-uppercase">not confirmed</span>
+											</p>
 										@else
-											<p class="alert alert-danger lead">Fully Booked <span class="badge text-uppercase">confirmed</span></p>
+											<p class="alert alert-danger lead">
+												Fully Booked <span class="badge text-uppercase">confirmed</span>
+											</p>
 										@endif
 									@endif
-									<p>{{ nl2br($event->description) }}</p>
+									<p class="text-justify lead">{{ nl2br($event->description) }}</p>
 									<h3>End Date: {{ $event->finish->format('l jS F h:i A') }}</h3>
 									<h3>Capacity : {{ $event->capacity }}</h3>
 								</div>
 								@if ($event->image_path)
 									<a href="/{{ $event->image_path }}" data-lity>
-										<img src="/{{ $event->image_path }}" class="img-responsive" alt="mirza-ghasemi">
+										<img src="/{{ $event->image_path }}" class="img-responsive" alt="Persian Live Music London">
 									</a>
 								@endif
 							</div>

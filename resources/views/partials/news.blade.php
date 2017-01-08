@@ -6,7 +6,7 @@
 			<div class="center">
 				<div class="form-group">
 					<div class="input-group">
-						<input placeholder="Enter Email for Newsletters" class="form-control" type="text"
+						<input placeholder="Enter Email for News" class="form-control" type="text"
 						       name="email"/>
 						<input type="hidden" value="JavanRestaurant" name="uri"/>
 						<input type="hidden" name="loc" value="en_US"/>

@@ -25,7 +25,7 @@ class EventsController extends Controller
 	 */
 	public function index()
 	{
-		$events = Event::with('booking')->latest()->paginate(50);
+		$events = Event::with('bookings')->latest()->paginate(50);
 
 		return view('events.index', compact('events'));
 	}

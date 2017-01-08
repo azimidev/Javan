@@ -89,7 +89,7 @@ class EventsController extends Controller
 	 */
 	public function show($slug)
 	{
-		$event = Event::slug($slug)->load('boolings');
+		$event = Event::slug($slug)->load('bookings');
 
 		return view('events.show', compact('event'));
 	}

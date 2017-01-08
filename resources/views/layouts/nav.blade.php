@@ -31,6 +31,16 @@
 						@endif
 					</a>
 				</li>
+				<li class="{{ active('Persian-Live-Music') }}">
+					<a href="{{ url('/Persian-Live-Music') }}">
+						@if (Cart::instance('event')->count())
+							<span class="text-bright">Live Music Events</span>
+							<span class="badge">{{ Cart::instance('event')->count() }}</span>
+						@else
+							Live Music Events
+						@endif
+					</a>
+				</li>
 				@if (auth()->guest())
 					<li class="{{ active('guest/reservation') }}">
 						<a href="{{ route('create.reservation') }}">
@@ -44,16 +54,6 @@
 						</a>
 					</li>
 				@endif
-				<li class="{{ active('Persian-Live-Music') }}">
-					<a href="{{ url('/Persian-Live-Music') }}">
-						@if (Cart::instance('event')->count())
-							<span class="text-bright">Live Music Events</span>
-							<span class="badge">{{ Cart::instance('event')->count() }}</span>
-						@else
-							Live Music Events
-						@endif
-					</a>
-				</li>
 				<li class="{{ active('contact') }}">
 					<a href="{{ url('/contact') }}">
 						Contact

@@ -5,8 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	</head>
 	<body>
-		<h2>Javan Restaurant</h2>
-		<h3>Delivery Confirmation</h3>
+		<h2>Delivery Confirmation</h2>
 		<table>
 			<tr>
 				<td><strong>Orders :</strong></td>

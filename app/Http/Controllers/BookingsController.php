@@ -55,8 +55,6 @@ class BookingsController extends Controller
 	public function create()
 	{
 		if ( ! Cart::instance('event')->count()) {
-			flash()->error('No Ticket Added!', 'Please add a ticket in your cart');
-
 			return redirect()->route('music');
 		}
 

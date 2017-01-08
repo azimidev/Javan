@@ -29,9 +29,8 @@
 																<tbody>
 																	<tr style="padding:0;text-align:left;vertical-align:top">
 																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">
-																			<h1
-																					style="Margin:0;Margin-bottom:10px;color:inherit;font-family:Helvetica,Arial,sans-serif;font-size:25px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:center;word-wrap:normal">
-																				We Have Canceled Your Ticket and Refunded Your Money
+																			<h1 style="Margin:0;Margin-bottom:10px;color:inherit;font-family:Helvetica,Arial,sans-serif;font-size:25px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:center;word-wrap:normal">
+																				Your Ticket is Canceled and Refunded
 																			</h1>
 																		</th>
 																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;padding:0!important;text-align:left;visibility:hidden;width:0"></th>
@@ -86,9 +85,9 @@
 																			</table>
 																			<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
 																				Dear {{ $user['name'] }}, <br/><br/>
-																				You have purchased live music ticket but for some reason your ticket was
-																				canceled. We have refunded your money. We appologise for any inconvenience this
-																				may caused.
+																				You previously have purchased live music ticket but for some reason your ticket
+																				was canceled. We have refunded your money. We appologise for any inconvenience
+																				this may caused.
 																			</p>
 																			<br/>
 																			<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:700;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
@@ -98,18 +97,16 @@
 																				Event : {{ $event['name'] }}
 																			</p>
 																			<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
-																				Seats : {{ $seats }}
+																				Total Refunded : £{{ number_format($total / 100, 2) }}
 																			</p>
 																			<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
-																				Total Refunded: £{{ number_format($total / 100, 2) }}
-																			</p>
-																			<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
-																				Status
-																				: {!! $active ? '<b style="color:green;">Accepted & Booked</b>' : '<b style="color:red;">Refunded & Rejected</b>' !!}
+																				Status : {!! $active ? '<b style="color:green;">Accepted & Booked</b>' : '<b style="color:red;">Cancelled & Refunded</b>' !!}
 																			</p>
 																			<br/><br/>
 																			<p style="Margin:0;Margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left">
 																				Your ticket was canceled for the reason which can be explained by the manager.
+																				However, the main reasons are we either are fully booked and don't have any
+																				available seats or the event was canceled.
 																			</p>
 																			<hr/>
 																			<center data-parsed="" style="min-width:532px;width:100%">
@@ -128,13 +125,13 @@
 																												</a>
 																											</th>
 																											<th style="Margin:0 auto;color:#0a0a0a;float:none;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0 auto;padding:10px;padding-right:10px;text-align:center">
-																												<a href="https://www.facebook.com/JavanLondonLtd/"
+																												<a href="//www.facebook.com/JavanLondonLtd/"
 																												   style="Margin:0;color:#2199e8;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none">
 																													Facebook
 																												</a>
 																											</th>
 																											<th style="Margin:0 auto;color:#0a0a0a;float:none;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0 auto;padding:10px;padding-right:10px;text-align:center">
-																												<a href="https://plus.google.com/b/107724180985175918891/"
+																												<a href="//plus.google.com/b/107724180985175918891/"
 																												   style="Margin:0;color:#2199e8;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none">
 																													Google+
 																												</a>

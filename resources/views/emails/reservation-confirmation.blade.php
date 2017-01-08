@@ -127,14 +127,14 @@
 																											</th>
 																											<th
 																													style="Margin:0 auto;color:#0a0a0a;float:none;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0 auto;padding:10px;padding-right:10px;text-align:center">
-																												<a href="https://www.facebook.com/JavanLondonLtd/"
+																												<a href="//www.facebook.com/JavanLondonLtd/"
 																												   style="Margin:0;color:#2199e8;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none">
 																													Facebook
 																												</a>
 																											</th>
 																											<th
 																													style="Margin:0 auto;color:#0a0a0a;float:none;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0 auto;padding:10px;padding-right:10px;text-align:center">
-																												<a href="https://plus.google.com/b/107724180985175918891/"
+																												<a href="//plus.google.com/b/107724180985175918891/"
 																												   style="Margin:0;color:#2199e8;font-family:Helvetica,Arial,sans-serif;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left;text-decoration:none">
 																													Google+
 																												</a>
@@ -155,8 +155,7 @@
 																				</table>
 																			</center>
 																		</th>
-																		<th
-																				style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;padding:0!important;text-align:left;visibility:hidden;width:0"></th>
+																		<th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;padding:0!important;text-align:left;visibility:hidden;width:0"></th>
 																	</tr>
 																</tbody>
 															</table>

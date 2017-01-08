@@ -8,10 +8,10 @@
 				<a href="{{ route('menu') }}" class="btn btn-inverse btn-raised btn-round btn-lg btn-block text-bright">
 					Order Food Online
 				</a>
-				<a href="{{ auth()->check() ? route('member.reservations') : route('create.reservation') }}"
+				{{--<a href="{{ auth()->check() ? route('member.reservations') : route('create.reservation') }}"
 				   class="btn btn-inverse btn-raised btn-round btn-lg btn-block text-bright">
 					Reserve Table Online
-				</a>
+				</a>--}}
 
 				<br><br>
 

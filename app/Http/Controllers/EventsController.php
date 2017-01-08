@@ -90,8 +90,6 @@ class EventsController extends Controller
 	{
 		$event = Event::slug($slug);
 
-		dd($event);
-
 		return view('events.show', compact('event'));
 	}
 

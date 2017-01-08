@@ -2,7 +2,6 @@
 
 namespace Javan\Http\Controllers;
 
-use Cart;
 use File;
 use Illuminate\Http\Request;
 use Javan\Event;
@@ -89,7 +88,9 @@ class EventsController extends Controller
 	 */
 	public function show($slug)
 	{
-		$event = Event::slug($slug)->load('bookings');
+		$event = Event::slug($slug);
+
+		dd($event);
 
 		return view('events.show', compact('event'));
 	}

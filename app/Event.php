@@ -37,7 +37,7 @@ class Event extends Model
 	 */
 	public static function slug($slug)
 	{
-		return static::with('booking')->whereSlug($slug)->firstOrFail();
+		return static::with('bookings')->whereSlug($slug)->firstOrFail();
 	}
 
 	/**

@@ -41,6 +41,9 @@
 					<i title="Master Card" class="fa fa-cc-mastercard fa-fw fa-3x"></i>
 				</li>
 				<li>
+					<i title="Discover" class="fa fa-cc-discover fa-fw fa-3x"></i>
+				</li>
+				<li>
 					<i title="American Express" class="fa fa-cc-jcb fa-fw fa-3x"></i>
 				</li>
 				<li>
@@ -85,7 +88,7 @@
 					</span>
 				</a>
 			</div>
-			@include('partials.news')
+			{{--@include('partials.news')--}}
 		</nav>
 	</div>
 

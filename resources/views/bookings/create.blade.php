@@ -36,7 +36,7 @@
 								<div class="form-group">
 									<label class="col-xs-3 control-label" for="cardnumber">Card Number</label>
 									<div class="col-xs-7">
-										<input type="text" id="cardnumber" minlength="16" maxlength="19" placeholder="Card Number"
+										<input type="text" id="cardnumber" minlength="16" maxlength="19" placeholder="16 digits card number"
 										       class="card-number form-control" data-stripe="number" pattern="[0-9]{16,19}" required>
 										<span class="help-block text-primary">16 digits card number in front of your card</span>
 									</div>
@@ -51,14 +51,14 @@
 											        class="card-expiry-month stripe-sensitive required form-control" required>
 												@for ($i = 0; $i < 12; $i++)
 													<option value="{{ $i + 1 }}" {{ $i + 1 == date('m') + 1 ? 'selected' : '' }}>
-														{{ $i + 1 }}
+														{{ $i + 1 }} - {{ get_month_name($i + 1) }}
 													</option>
 												@endfor
 											</select>
-											<span> / </span>
+											<span> /&nbsp;&nbsp;&nbsp;</span>
 											<select name="select2" data-stripe="exp_year" id="exp-date"
 											        class="card-expiry-year stripe-sensitive required form-control" required>
-												@for ($i = 0; $i < 12; $i++)
+												@for ($i = 0; $i <= 25; $i++)
 													<option value="{{ $i + date('Y') }}" {{ $i === 0 ? 'selected' : '' }}>
 														{{ $i + date('Y') }}
 													</option>
@@ -70,9 +70,9 @@
 
 								<!-- CVV -->
 								<div class="form-group">
-									<label class="col-xs-3 control-label" for="cvc">CVC / CVV</label>
+									<label class="col-xs-3 control-label" for="cvc">Security Code</label>
 									<div class="col-xs-3">
-										<input type="text" id="cvc" placeholder="CVC" size="4" class="card-cvc form-control"
+										<input type="text" id="cvc" placeholder="CVC / CVV" size="4" class="card-cvc form-control"
 										       data-stripe="cvc" pattern="[0-9]{1,4}" minlength="1" maxlength="4" required>
 										<span class="help-block text-primary"> 3 or 4 digits on back of your card</span>
 									</div>
@@ -95,8 +95,20 @@
 										</div>
 									</div>
 								</div>
-
 							</form>
+
+							<div class="col-xs-6 text-muted text-left">
+								<i title="Visa" class="fa fa-cc-visa fa-fw fa-2x"></i>
+								<i title="Master Card" class="fa fa-cc-mastercard fa-fw fa-2x"></i>
+								<i title="Discover Card" class="fa fa-cc-discover fa-fw fa-2x"></i>
+								<i title="American Express" class="fa fa-cc-jcb fa-fw fa-2x"></i>
+							</div>
+
+							<div class="col-xs-6 text-muted text-right">
+								<i class="fa fa-lock fa-fw fa-lg"></i>
+								<span>256-bit SSL encryption</span>
+							</div>
+
 						@else
 							<div class="alert alert-danger">
 								<div class="alert-icon"><i class="material-icons">error</i></div>
@@ -107,9 +119,10 @@
 						@endif
 					</div>
 				</div>
-				<div class="panel">
+				<div class="panel panel-default">
 					<div class="panel-heading">
 						<div class="panel-title">
+							<i title="Stripe" class="fa fa-cc-stripe fa-fw fa-lg pull-right"></i>
 							<i class="fa fa-lock fa-fw fa-lg"></i> Security and Privacy
 						</div>
 					</div>
@@ -121,9 +134,9 @@
 							We use a service called <a href="//stripe.com/gb/privacy" target="_blank">Stripe</a> for our
 							payments. This means <u>your credit card information does not touch our server</u> and it is passed
 							through <a href="//en.wikipedia.org/wiki/Transport_Layer_Security" target="_blank">SSL</a>
-							connection. Therefore, no matter if you are a member and regular customer <u>we never store your credit
-								card details</u> that is why everytime you purchase, you need to enter your credit card details again.
-							We know this is tedious but it's for your own and our customers security.
+							encryption connection. Therefore, no matter if you are a member and regular customer <u>we never store
+								your credit card details</u> that is why everytime you purchase, you need to enter your credit card
+							details again.We know this is tedious but it's for your own and our customers security.
 						</p>
 					</div>
 				</div>

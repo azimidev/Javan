@@ -56,6 +56,7 @@
 							{{-- $posts->appends(request()->input())->links() --}}
 						</div>
 					</div>
+					@include('partials.news')
 				</div>
 			</article>
 		@else

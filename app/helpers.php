@@ -154,6 +154,11 @@ function status($model)
 	}
 }
 
+function get_month_name($integer)
+{
+	return DateTime::createFromFormat('!m', $integer)->format('F');
+}
+
 /**
  * @param $post
  * @return string

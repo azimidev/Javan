@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card card-raised">
 	<div class="content">
 		<form action="//feedburner.google.com/fb/a/mailverify" method="POST"
 		      target="popupwindow" class="form-inline"

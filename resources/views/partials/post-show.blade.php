@@ -1,4 +1,5 @@
 @if ($post)
+	<h2>{{ $post->subject }}</h2>
 	<span class="pull-right">
 		@foreach ($post->photos as $photo)
 			<a href="/{{ $photo->path }}" data-lity class="hidden-xs">

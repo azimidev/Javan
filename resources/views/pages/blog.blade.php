@@ -41,7 +41,7 @@
 				<div class="col-md-4 col-xs-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3><i class="fa fa-paper-plane-o"></i> Recent Posts</h2></h3>
+							<h3><i class="fa fa-paper-plane-o"></i> Recent Posts</h3>
 						</div>
 						<div class="list-group">
 							@foreach ($posts as $post)

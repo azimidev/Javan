@@ -12,7 +12,7 @@
 	<div class="col-sm-5">
 		<input type="email" class="form-control" name="email" id="email" placeholder="Email"
 		       value="{{ $user->email }}">
-		<span class="help-block text-primary">Your email address is vert important</span>
+		<span class="help-block text-primary">Your email address is very important</span>
 	</div>
 </div>
 

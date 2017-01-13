@@ -39,7 +39,7 @@ Route::resource('user', 'UsersController');
 Route::resource('post', 'PostsController');
 Route::resource('products', 'ProductsController');
 Route::resource('cart', 'ShoppingCartsController', ['except' => ['show', 'edit']]);
-Route::resource('reservations', 'ReservationsController', ['except' => ['show', 'edit']]);
+Route::resource('reservations', 'ReservationsController', ['except' => ['show']]);
 Route::resource('bookings', 'BookingsController', ['except' => ['show', 'edit']]);
 Route::resource('events', 'EventsController');
 

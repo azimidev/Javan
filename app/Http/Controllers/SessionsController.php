@@ -55,7 +55,11 @@ class SessionsController extends Controller
 			'phone'     => 'required|numeric',
 		]);
 
-		$this->user->update($request->all());
+		if ( ! trim($request->password)) {
+			$this->user->update($request->except('password'));
+		} else {
+			$this->user->update($request->all());
+		}
 		flash()->success('Success', 'Profile has been updated successfully');
 
 		return back();

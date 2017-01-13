@@ -10,7 +10,7 @@
 						<legend>Change Your Profile Details</legend>
 						{{ method_field('PATCH') }}
 						{{ csrf_field() }}
-						@include('partials.edit', ['user' => $user])
+						@include('partials.user-form', ['user' => $user, 'submit_button' => 'Update Profile'])
 					</fieldset>
 				</form>
 			</div>
@@ -23,9 +23,9 @@
 				</p>
 				<h2><i class="fa fa-lock fa-fw fa-lg"></i> Password Change</h2>
 				<p class="text-justify">
-					If you'd like to change your password please <strong>log out</strong> of and go to <strong>log in</strong>
-					page, from there click on <strong>forgot your password</strong> enter your email in the field. We will send
-					you an email reset password with a <strong>link</strong> to reset your password.
+					If you'd like to change your password please type your new password in the password field. If you do not wish
+					to change your password please leave the <strong>password field blank</strong>.
+					<span class="text-danger">Please be careful because some browsers have auto field populate.</span>
 				</p>
 				<h2><i class="fa fa-phone fa-fw fa-lg"></i> Mobile Number</h2>
 				<p class="text-justify">
@@ -34,7 +34,8 @@
 				</p>
 				<h2><i class="fa fa-gavel fa-fw fa-lg"></i> Terms & Conditions</h2>
 				<p class="text-justify">
-					Please visit <a href="{{ url('/information') }}" target="_blank" title="Terms & Conditions">here</a> and read our terms and conditions
+					Please visit <a class="btn-link" href="{{ url('/information') }}" target="_blank" title="Terms & Conditions">here</a> and read
+					our terms and conditions
 				</p>
 			</div>
 		</aside>

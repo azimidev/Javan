@@ -10,7 +10,7 @@
 						<fieldset>
 							<legend>Please fill out this form</legend>
 							{{ csrf_field() }}
-							@include('partials.create')
+							@include('partials.user-form', ['user' => new Javan\User()])
 						</fieldset>
 					</form>
 				</div>

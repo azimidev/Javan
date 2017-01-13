@@ -62,7 +62,7 @@ class UsersController extends Controller
 		$this->validate($request, [
 			'name'     => 'required',
 			'email'    => 'required|unique:users',
-			'password' => 'required'
+			'password' => 'required',
 		]);
 		User::create($request->all());
 		flash()->success('Success', 'User was created');
@@ -91,7 +91,11 @@ class UsersController extends Controller
 			'email' => 'required|email',
 		]);
 
-		$user->update($request->all());
+		if ( ! trim($request->password)) {
+			$user->update($request->except('password'));
+		} else {
+			$user->update($request->all());
+		}
 		flash()->success('Success', 'Member\'s profile was updated');
 
 		return back();

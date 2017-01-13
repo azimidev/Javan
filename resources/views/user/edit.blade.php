@@ -15,7 +15,7 @@
 						@endif
 						{{ method_field('PATCH') }}
 						{{ csrf_field() }}
-						@include('partials.edit', ['user' => $user])
+						@include('partials.user-form', ['user' => $user, 'submit_button' => 'Update User'])
 					</fieldset>
 				</form>
 			</div>

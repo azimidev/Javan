@@ -131,7 +131,6 @@
 												    data-toggle="tooltip"
 												    data-placement="top"
 												    itemprop="name">{{ $main_course->title }}</h4>
-												<br>
 												<span class="text-primary"
 												      itemprop="price">£ {{ number_format($main_course->price / 100 , 2) }}
 													&nbsp;&nbsp;&nbsp;</span>

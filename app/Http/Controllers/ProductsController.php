@@ -106,7 +106,7 @@ class ProductsController extends Controller
 		$products->update($request->all());
 		flash()->success('Success', 'Menu has been updated');
 
-		return redirect()->route('products.show', $products->id);
+		return redirect()->route('products.index');
 	}
 
 	/**

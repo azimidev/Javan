@@ -11,7 +11,7 @@
 						<legend>Edit the form below</legend>
 						{{ method_field('PATCH') }}
 						{{ csrf_field() }}
-						@include('partials.post-edit', ['post' => $post])
+						@include('partials.post-form', ['post' => $post, 'submit_button' => 'Update Post'])
 					</fieldset>
 				</form>
 			</div>

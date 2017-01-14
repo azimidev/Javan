@@ -9,7 +9,7 @@
 					<fieldset>
 						<legend>Please fill out this form</legend>
 						{{ csrf_field() }}
-						@include('partials.post-create')
+						@include('partials.post-form', ['post' => new Javan\Post()])
 					</fieldset>
 				</form>
 			</div>

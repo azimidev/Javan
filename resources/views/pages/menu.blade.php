@@ -123,10 +123,10 @@
 								</div>
 							</div>
 							<div class="tab-pane fade in active" id="main_courses">
-								<div class="row">
+								<div class="row" style="margin-bottom:20px;">
 									@foreach ($main_courses as $main_course)
 										<div class="col-sm-4 col-xs-6">
-											<div class="thumbnail" style="margin-bottom: 100px;">
+											<div class="thumbnail">
 												@if ($main_course->image_path)
 													<a href="/{{ $main_course->image_path }}" data-lity>
 														<img src="/{{ $main_course->image_path }}" class="img-responsive" alt="mirza-ghasemi">

@@ -99,12 +99,9 @@
 												</a>
 											@endif
 											<div class="caption">
-												<h4 class="hidden-xs" style="cursor:help;" title="{{ $appetizer->description }}"
+												<h4 style="cursor:help;" title="{{ $appetizer->description }}"
 												    data-toggle="tooltip"
 												    data-placement="top" itemprop="name">{{ $appetizer->title }}</h4>
-												<h5 class="visible-xs" style="cursor:help;" title="{{ $appetizer->description }}"
-												    data-toggle="tooltip"
-												    data-placement="top" itemprop="name">{{ $appetizer->title }}</h5>
 												<span class="text-primary" itemprop="price">
 														£ {{ number_format($appetizer->price / 100 , 2) }}&nbsp;&nbsp;&nbsp;</span>
 												@if ($appetizer->available)
@@ -130,14 +127,11 @@
 												</a>
 											@endif
 											<div class="caption">
-												<h4 class="hidden-xs" style="cursor:help;" title="{{ $main_course->description }}"
+												<h4 style="cursor:help;" title="{{ $main_course->description }}"
 												    data-toggle="tooltip"
 												    data-placement="top"
 												    itemprop="name">{{ $main_course->title }}</h4>
-												<h5 class="visible-xs" style="cursor:help;" title="{{ $main_course->description }}"
-												    data-toggle="tooltip"
-												    data-placement="top"
-												    itemprop="name">{{ $main_course->title }}</h5>
+												<br>
 												<span class="text-primary"
 												      itemprop="price">£ {{ number_format($main_course->price / 100 , 2) }}
 													&nbsp;&nbsp;&nbsp;</span>
@@ -164,12 +158,9 @@
 												</a>
 											@endif
 											<div class="caption">
-												<h4 class="hidden-xs" style="cursor:help;" title="{{ $extra->description }}"
+												<h4 style="cursor:help;" title="{{ $extra->description }}"
 												    data-toggle="tooltip"
 												    data-placement="top" itemprop="name">{{ $extra->title }}</h4>
-												<h5 class="visible-xs" style="cursor:help;" title="{{ $extra->description }}"
-												    data-toggle="tooltip"
-												    data-placement="top" itemprop="name">{{ $extra->title }}</h5>
 												<span class="text-primary" itemprop="price">£ {{ number_format($extra->price / 100 , 2) }}
 													&nbsp;&nbsp;&nbsp;</span>
 												@if ($extra->available)
@@ -195,8 +186,7 @@
 												</a>
 											@endif
 											<div class="caption">
-												<h4 class="hidden-xs" itemprop="name">{{ $beverage->title }}</h4>
-												<h5 class="visible-xs" itemprop="name">{{ $beverage->title }}</h5>
+												<h4 itemprop="name">{{ $beverage->title }}</h4>
 												<span class="text-primary" itemprop="price">£ {{ number_format($beverage->price / 100 , 2) }}
 													&nbsp;&nbsp;&nbsp;</span>
 												@if ($beverage->available)
@@ -222,8 +212,7 @@
 												</a>
 											@endif
 											<div class="caption">
-												<h4 class="hidden-xs" itemprop="name">{{ $juice->title }}</h4>
-												<h5 class="visible-xs" itemprop="name">{{ $juice->title }}</h5>
+												<h4 itemprop="name">{{ $juice->title }}</h4>
 												<span class="text-primary" itemprop="price">£ {{ number_format($juice->price / 100 , 2) }}
 													&nbsp;&nbsp;&nbsp;</span>
 												@if ($juice->available)
@@ -249,11 +238,9 @@
 												</a>
 											@endif
 											<div class="caption">
-												<h4 class="hidden-xs" style="cursor:help;" title="{{ $dessert->description }}"
+												<h4 style="cursor:help;" title="{{ $dessert->description }}"
 												    data-toggle="tooltip"
 												    data-placement="top" itemprop="name">{{ $dessert->title }}</h4>
-												<h5 style="cursor:help;" title="{{ $dessert->description }}" data-toggle="tooltip"
-												    data-placement="top" class="visible-xs" itemprop="name">{{ $dessert->title }}</h5>
 												<span class="text-primary" itemprop="price">£ {{ number_format($dessert->price / 100 , 2) }}
 													&nbsp;&nbsp;&nbsp;</span>
 												@if ($dessert->available)

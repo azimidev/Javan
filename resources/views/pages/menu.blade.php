@@ -150,7 +150,7 @@
 															<i class="fa fa-plus fa-lg"></i>
 														</a>
 													@else
-														<span class="label label-danger">Not Available</span> <br><br>
+														<span class="label label-danger">Not Available</span> <br><br><br>
 													@endif
 												</div>
 											</div>

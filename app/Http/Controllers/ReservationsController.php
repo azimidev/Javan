@@ -98,7 +98,7 @@ class ReservationsController extends Controller
 	 *
 	 * @param  \Illuminate\Http\Request $request
 	 * @param int|\Javan\Reservation $reservations
-	 * @return \Illuminate\Http\Response
+	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
 	 */
 	public function update(Request $request, Reservation $reservations)
 	{
@@ -107,6 +107,12 @@ class ReservationsController extends Controller
 			'time'  => 'required',
 			'seats' => 'required|max:50',
 		]);
+
+		if (strtotime($request->input('date') . ' ' . $request->input('time')) < time()) {
+			flash()->error('Error!', 'You cannot change your booking to the past date.');
+
+			return back()->withInput();
+		}
 
 		$reservations->update($request->all());
 

@@ -11,14 +11,13 @@
 						<legend>Please fill out the form below</legend>
 						{{ method_field('PATCH') }}
 						{{ csrf_field() }}
-						@include('partials.reservations-edit', ['reservations' => $reservations])
+						@include('partials.reservations-form', ['reservations' => $reservations, 'submit_button' => 'Change Reservation'])
 					</fieldset>
 				</form>
 			</div>
 		</article>
 		<aside>
 			<div class="col-sm-4">
-				<h2><i class="fa fa-info-circle"></i> Information</h2>
 			</div>
 		</aside>
 	</main>

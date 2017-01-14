@@ -9,7 +9,7 @@
 					<fieldset>
 						<legend>Please fill out this form</legend>
 						{{ csrf_field() }}
-						@include('partials.reservations-create')
+						@include('partials.reservations-form', ['reservations' => new Javan\Reservation()])
 					</fieldset>
 				</form>
 			</div>

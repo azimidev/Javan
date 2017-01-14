@@ -103,7 +103,7 @@
 						</div>
 					</div>
 
-					@include('partials.reservations-create')
+					@include('partials.reservations-form', ['reservations' => new Javan\Reservation()])
 
 				</form>
 			</div>

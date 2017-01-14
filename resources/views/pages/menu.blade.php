@@ -126,13 +126,13 @@
 								<div class="row">
 									@foreach ($main_courses as $main_course)
 										<div class="col-sm-4 col-xs-6">
-											<div class="thumbnail">
+											<div class="thumbnail" style="margin-bottom: 50px;">
 												@if ($main_course->image_path)
 													<a href="/{{ $main_course->image_path }}" data-lity>
 														<img src="/{{ $main_course->image_path }}" class="img-responsive" alt="mirza-ghasemi">
 													</a>
 												@endif
-												<div class="caption" style="margin-bottom: 10px;">
+												<div class="caption">
 													<h3 class="hidden-xs" style="cursor:help;" title="{{ $main_course->description }}"
 													    data-toggle="tooltip"
 													    data-placement="top"

@@ -123,7 +123,7 @@
 								</div>
 							</div>
 							<div class="tab-pane fade in active" id="main_courses">
-								<div class="row" style="margin-bottom:20px;">
+								{{--<div class="row">--}}
 									@foreach ($main_courses as $main_course)
 										<div class="col-sm-4 col-xs-6">
 											<div class="thumbnail">
@@ -156,7 +156,7 @@
 											</div>
 										</div>
 									@endforeach
-								</div>
+								{{--</div>--}}
 							</div>
 							<div class="tab-pane fade" id="extras">
 								<div class="row">

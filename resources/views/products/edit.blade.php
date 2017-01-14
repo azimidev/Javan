@@ -10,7 +10,7 @@
 						<legend>Edit the form below</legend>
 						{{ method_field('PATCH') }}
 						{{ csrf_field() }}
-						@include('partials.product-edit', ['products' => $products])
+						@include('partials.product-form', ['products' => $products, 'submit_button' => 'Update Product'])
 					</fieldset>
 				</form>
 			</div>

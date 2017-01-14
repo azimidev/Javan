@@ -126,7 +126,7 @@
 								<div class="row">
 									@foreach ($main_courses as $main_course)
 										<div class="col-sm-4 col-xs-6">
-											<div class="thumbnail" style="margin-bottom: 50px;">
+											<div class="thumbnail" style="margin-bottom: 100px;">
 												@if ($main_course->image_path)
 													<a href="/{{ $main_course->image_path }}" data-lity>
 														<img src="/{{ $main_course->image_path }}" class="img-responsive" alt="mirza-ghasemi">

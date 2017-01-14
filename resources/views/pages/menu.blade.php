@@ -137,10 +137,10 @@
 													    data-toggle="tooltip"
 													    data-placement="top"
 													    itemprop="name">{{ $main_course->title }}</h3>
-													<h5 class="visible-xs" style="cursor:help;" title="{{ $main_course->description }}"
+													<h6 class="visible-xs" style="cursor:help;" title="{{ $main_course->description }}"
 													    data-toggle="tooltip"
 													    data-placement="top"
-													    itemprop="name">{{ $main_course->title }}</h5> <br>
+													    itemprop="name">{{ $main_course->title }}</h6>
 													<span class="text-primary"
 													      itemprop="price">£ {{ number_format($main_course->price / 100 , 2) }}
 														&nbsp;&nbsp;&nbsp;</span>
@@ -150,7 +150,7 @@
 															<i class="fa fa-plus fa-lg"></i>
 														</a>
 													@else
-														<span class="label label-danger">Not Available</span> <br><br><br>
+														<span class="label label-danger">Not Available</span> <br><br>
 													@endif
 												</div>
 											</div>

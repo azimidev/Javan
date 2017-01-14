@@ -22,7 +22,7 @@
 							<th width="50%">{!! sort_column_by('description', 'Description') !!}</th>
 							<th>{!! sort_column_by('price', 'Price') !!}</th>
 							<th>{!! sort_column_by('category', 'Category') !!}</th>
-							<th width="30%" colspan="2">Actions</th>
+							<th width="10%" colspan="2">Actions</th>
 						</tr>
 					</thead>
 					<tbody>

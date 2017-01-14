@@ -90,196 +90,184 @@
 					<div class="content">
 						<div class="tab-content text-center">
 							<div class="tab-pane fade" id="appetizers">
-								{{--<div class="row">--}}
-									@foreach ($appetizers as $appetizer)
-										<div class="col-sm-4 col-xs-6">
-											<div class="thumbnail" style="min-height:365px;">
-												@if ($appetizer->image_path)
-													<a href="/{{ $appetizer->image_path }}" data-lity>
-														<img src="/{{ $appetizer->image_path }}" class="img-responsive" alt="mirza-ghasemi">
-													</a>
-												@endif
-												<div class="caption">
-													<h3 class="hidden-xs" style="cursor:help;" title="{{ $appetizer->description }}"
-													    data-toggle="tooltip"
-													    data-placement="top" itemprop="name">{{ $appetizer->title }}</h3>
-													<h5 class="visible-xs" style="cursor:help;" title="{{ $appetizer->description }}"
-													    data-toggle="tooltip"
-													    data-placement="top" itemprop="name">{{ $appetizer->title }}</h5>
-													<span class="text-primary" itemprop="price">
+								@foreach ($appetizers as $appetizer)
+									<div class="col-sm-4 col-xs-6">
+										<div class="thumbnail">
+											@if ($appetizer->image_path)
+												<a href="/{{ $appetizer->image_path }}" data-lity>
+													<img src="/{{ $appetizer->image_path }}" class="img-responsive" alt="mirza-ghasemi">
+												</a>
+											@endif
+											<div class="caption">
+												<h4 class="hidden-xs" style="cursor:help;" title="{{ $appetizer->description }}"
+												    data-toggle="tooltip"
+												    data-placement="top" itemprop="name">{{ $appetizer->title }}</h4>
+												<h5 class="visible-xs" style="cursor:help;" title="{{ $appetizer->description }}"
+												    data-toggle="tooltip"
+												    data-placement="top" itemprop="name">{{ $appetizer->title }}</h5>
+												<span class="text-primary" itemprop="price">
 														£ {{ number_format($appetizer->price / 100 , 2) }}&nbsp;&nbsp;&nbsp;</span>
-													@if ($appetizer->available)
-														<a data-pjax href="{{ route('add.to.cart', $appetizer) }}"
-														   class="btn btn-sm btn-success btn-raised">
-															<i class="fa fa-plus fa-lg"></i>
-														</a>
-													@else
-														<span class="label label-danger">Not Available</span>
-													@endif
-												</div>
+												@if ($appetizer->available)
+													<a data-pjax href="{{ route('add.to.cart', $appetizer) }}"
+													   class="btn btn-sm btn-success btn-raised">
+														<i class="fa fa-plus fa-lg"></i>
+													</a>
+												@else
+													<span class="label label-danger">Not Available</span>
+												@endif
 											</div>
 										</div>
-									@endforeach
-								{{--</div>--}}
+									</div>
+								@endforeach
 							</div>
 							<div class="tab-pane fade in active" id="main_courses">
-								{{--<div class="row">--}}
-									@foreach ($main_courses as $main_course)
-										<div class="col-sm-4 col-xs-6">
-											<div class="thumbnail" style="min-height:365px;">
-												@if ($main_course->image_path)
-													<a href="/{{ $main_course->image_path }}" data-lity>
-														<img src="/{{ $main_course->image_path }}" class="img-responsive" alt="mirza-ghasemi">
+								@foreach ($main_courses as $main_course)
+									<div class="col-sm-4 col-xs-6">
+										<div class="thumbnail">
+											@if ($main_course->image_path)
+												<a href="/{{ $main_course->image_path }}" data-lity>
+													<img src="/{{ $main_course->image_path }}" class="img-responsive" alt="mirza-ghasemi">
+												</a>
+											@endif
+											<div class="caption">
+												<h4 class="hidden-xs" style="cursor:help;" title="{{ $main_course->description }}"
+												    data-toggle="tooltip"
+												    data-placement="top"
+												    itemprop="name">{{ $main_course->title }}</h4>
+												<h5 class="visible-xs" style="cursor:help;" title="{{ $main_course->description }}"
+												    data-toggle="tooltip"
+												    data-placement="top"
+												    itemprop="name">{{ $main_course->title }}</h5>
+												<span class="text-primary"
+												      itemprop="price">£ {{ number_format($main_course->price / 100 , 2) }}
+													&nbsp;&nbsp;&nbsp;</span>
+												@if ($main_course->available)
+													<a data-pjax href="{{ route('add.to.cart', $main_course) }}"
+													   class="btn btn-sm btn-success btn-raised">
+														<i class="fa fa-plus fa-lg"></i>
 													</a>
+												@else
+													<span class="label label-danger">Not Available</span>
 												@endif
-												<div class="caption">
-													<h3 class="hidden-xs" style="cursor:help;" title="{{ $main_course->description }}"
-													    data-toggle="tooltip"
-													    data-placement="top"
-													    itemprop="name">{{ $main_course->title }}</h3>
-													<h5 class="visible-xs" style="cursor:help;" title="{{ $main_course->description }}"
-													    data-toggle="tooltip"
-													    data-placement="top"
-													    itemprop="name">{{ $main_course->title }}</h5>
-													<span class="text-primary"
-													      itemprop="price">£ {{ number_format($main_course->price / 100 , 2) }}
-														&nbsp;&nbsp;&nbsp;</span>
-													@if ($main_course->available)
-														<a data-pjax href="{{ route('add.to.cart', $main_course) }}"
-														   class="btn btn-sm btn-success btn-raised">
-															<i class="fa fa-plus fa-lg"></i>
-														</a>
-													@else
-														<span class="label label-danger">Not Available</span>
-													@endif
-												</div>
 											</div>
 										</div>
-									@endforeach
-								{{--</div>--}}
+									</div>
+								@endforeach
 							</div>
 							<div class="tab-pane fade" id="extras">
-								{{--<div class="row">--}}
-									@foreach ($extras as $extra)
-										<div class="col-sm-4 col-xs-6">
-											<div class="thumbnail" style="min-height:365px;">
-												@if ($extra->image_path)
-													<a href="/{{ $extra->image_path }}" data-lity>
-														<img src="/{{ $extra->image_path }}" class="img-responsive" alt="mirza-ghasemi">
+								@foreach ($extras as $extra)
+									<div class="col-sm-4 col-xs-6">
+										<div class="thumbnail">
+											@if ($extra->image_path)
+												<a href="/{{ $extra->image_path }}" data-lity>
+													<img src="/{{ $extra->image_path }}" class="img-responsive" alt="mirza-ghasemi">
+												</a>
+											@endif
+											<div class="caption">
+												<h4 class="hidden-xs" style="cursor:help;" title="{{ $extra->description }}"
+												    data-toggle="tooltip"
+												    data-placement="top" itemprop="name">{{ $extra->title }}</h4>
+												<h5 class="visible-xs" style="cursor:help;" title="{{ $extra->description }}"
+												    data-toggle="tooltip"
+												    data-placement="top" itemprop="name">{{ $extra->title }}</h5>
+												<span class="text-primary" itemprop="price">£ {{ number_format($extra->price / 100 , 2) }}
+													&nbsp;&nbsp;&nbsp;</span>
+												@if ($extra->available)
+													<a data-pjax href="{{ route('add.to.cart', $extra) }}"
+													   class="btn btn-sm btn-success btn-raised">
+														<i class="fa fa-plus fa-lg"></i>
 													</a>
+												@else
+													<span class="label label-danger">Not Available</span>
 												@endif
-												<div class="caption">
-													<h3 class="hidden-xs" style="cursor:help;" title="{{ $extra->description }}"
-													    data-toggle="tooltip"
-													    data-placement="top" itemprop="name">{{ $extra->title }}</h3>
-													<h5 class="visible-xs" style="cursor:help;" title="{{ $extra->description }}"
-													    data-toggle="tooltip"
-													    data-placement="top" itemprop="name">{{ $extra->title }}</h5>
-													<span class="text-primary" itemprop="price">£ {{ number_format($extra->price / 100 , 2) }}
-														&nbsp;&nbsp;&nbsp;</span>
-													@if ($extra->available)
-														<a data-pjax href="{{ route('add.to.cart', $extra) }}"
-														   class="btn btn-sm btn-success btn-raised">
-															<i class="fa fa-plus fa-lg"></i>
-														</a>
-													@else
-														<span class="label label-danger">Not Available</span>
-													@endif
-												</div>
 											</div>
 										</div>
-									@endforeach
-								{{--</div>--}}
+									</div>
+								@endforeach
 							</div>
 							<div class="tab-pane fade" id="beverages">
-								{{--<div class="row">--}}
-									@foreach ($beverages as $beverage)
-										<div class="col-sm-4 col-xs-6">
-											<div class="thumbnail" style="min-height:365px;">
-												@if ($beverage->image_path)
-													<a href="/{{ $beverage->image_path }}" data-lity>
-														<img src="/{{ $beverage->image_path }}" class="img-responsive" alt="mirza-ghasemi">
+								@foreach ($beverages as $beverage)
+									<div class="col-sm-4 col-xs-6">
+										<div class="thumbnail">
+											@if ($beverage->image_path)
+												<a href="/{{ $beverage->image_path }}" data-lity>
+													<img src="/{{ $beverage->image_path }}" class="img-responsive" alt="mirza-ghasemi">
+												</a>
+											@endif
+											<div class="caption">
+												<h4 class="hidden-xs" itemprop="name">{{ $beverage->title }}</h4>
+												<h5 class="visible-xs" itemprop="name">{{ $beverage->title }}</h5>
+												<span class="text-primary" itemprop="price">£ {{ number_format($beverage->price / 100 , 2) }}
+													&nbsp;&nbsp;&nbsp;</span>
+												@if ($beverage->available)
+													<a data-pjax href="{{ route('add.to.cart', $beverage) }}"
+													   class="btn btn-sm btn-success btn-raised">
+														<i class="fa fa-plus fa-lg"></i>
 													</a>
+												@else
+													<span class="label label-danger">Not Available</span>
 												@endif
-												<div class="caption">
-													<h3 class="hidden-xs" itemprop="name">{{ $beverage->title }}</h3>
-													<h5 class="visible-xs" itemprop="name">{{ $beverage->title }}</h5>
-													<span class="text-primary" itemprop="price">£ {{ number_format($beverage->price / 100 , 2) }}
-														&nbsp;&nbsp;&nbsp;</span>
-													@if ($beverage->available)
-														<a data-pjax href="{{ route('add.to.cart', $beverage) }}"
-														   class="btn btn-sm btn-success btn-raised">
-															<i class="fa fa-plus fa-lg"></i>
-														</a>
-													@else
-														<span class="label label-danger">Not Available</span>
-													@endif
-												</div>
 											</div>
 										</div>
-									@endforeach
-								{{--</div>--}}
+									</div>
+								@endforeach
 							</div>
 							<div class="tab-pane fade" id="juices">
-								{{--<div class="row">--}}
-									@foreach ($juices as $juice)
-										<div class="col-sm-4 col-xs-6">
-											<div class="thumbnail" style="min-height:365px;">
-												@if ($juice->image_path)
-													<a href="/{{ $juice->image_path }}" data-lity>
-														<img src="/{{ $juice->image_path }}" class="img-responsive" alt="mirza-ghasemi">
+								@foreach ($juices as $juice)
+									<div class="col-sm-4 col-xs-6">
+										<div class="thumbnail">
+											@if ($juice->image_path)
+												<a href="/{{ $juice->image_path }}" data-lity>
+													<img src="/{{ $juice->image_path }}" class="img-responsive" alt="mirza-ghasemi">
+												</a>
+											@endif
+											<div class="caption">
+												<h4 class="hidden-xs" itemprop="name">{{ $juice->title }}</h4>
+												<h5 class="visible-xs" itemprop="name">{{ $juice->title }}</h5>
+												<span class="text-primary" itemprop="price">£ {{ number_format($juice->price / 100 , 2) }}
+													&nbsp;&nbsp;&nbsp;</span>
+												@if ($juice->available)
+													<a data-pjax href="{{ route('add.to.cart', $juice) }}"
+													   class="btn btn-sm btn-success btn-raised">
+														<i class="fa fa-plus fa-lg"></i>
 													</a>
+												@else
+													<span class="label label-danger">Not Available</span>
 												@endif
-												<div class="caption">
-													<h3 class="hidden-xs" itemprop="name">{{ $juice->title }}</h3>
-													<h5 class="visible-xs" itemprop="name">{{ $juice->title }}</h5>
-													<span class="text-primary" itemprop="price">£ {{ number_format($juice->price / 100 , 2) }}
-														&nbsp;&nbsp;&nbsp;</span>
-													@if ($juice->available)
-														<a data-pjax href="{{ route('add.to.cart', $juice) }}"
-														   class="btn btn-sm btn-success btn-raised">
-															<i class="fa fa-plus fa-lg"></i>
-														</a>
-													@else
-														<span class="label label-danger">Not Available</span>
-													@endif
-												</div>
 											</div>
 										</div>
-									@endforeach
-								{{--</div>--}}
+									</div>
+								@endforeach
 							</div>
 							<div class="tab-pane fade" id="desserts">
-								{{--<div class="row">--}}
-									@foreach ($desserts as $dessert)
-										<div class="col-sm-4 col-xs-6">
-											<div class="thumbnail" style="min-height:365px;">
-												@if ($dessert->image_path)
-													<a href="/{{ $dessert->image_path }}" data-lity>
-														<img src="/{{ $dessert->image_path }}" class="img-responsive" alt="mirza-ghasemi">
+								@foreach ($desserts as $dessert)
+									<div class="col-sm-4 col-xs-6">
+										<div class="thumbnail">
+											@if ($dessert->image_path)
+												<a href="/{{ $dessert->image_path }}" data-lity>
+													<img src="/{{ $dessert->image_path }}" class="img-responsive" alt="mirza-ghasemi">
+												</a>
+											@endif
+											<div class="caption">
+												<h4 class="hidden-xs" style="cursor:help;" title="{{ $dessert->description }}"
+												    data-toggle="tooltip"
+												    data-placement="top" itemprop="name">{{ $dessert->title }}</h4>
+												<h5 style="cursor:help;" title="{{ $dessert->description }}" data-toggle="tooltip"
+												    data-placement="top" class="visible-xs" itemprop="name">{{ $dessert->title }}</h5>
+												<span class="text-primary" itemprop="price">£ {{ number_format($dessert->price / 100 , 2) }}
+													&nbsp;&nbsp;&nbsp;</span>
+												@if ($dessert->available)
+													<a data-pjax href="{{ route('add.to.cart', $dessert) }}"
+													   class="btn btn-sm btn-success btn-raised">
+														<i class="fa fa-plus fa-lg"></i>
 													</a>
+												@else
+													<span class="label label-danger">Not Available</span>
 												@endif
-												<div class="caption">
-													<h3 class="hidden-xs" style="cursor:help;" title="{{ $dessert->description }}"
-													    data-toggle="tooltip"
-													    data-placement="top" itemprop="name">{{ $dessert->title }}</h3>
-													<h5 style="cursor:help;" title="{{ $dessert->description }}" data-toggle="tooltip"
-													    data-placement="top" class="visible-xs" itemprop="name">{{ $dessert->title }}</h5>
-													<span class="text-primary" itemprop="price">£ {{ number_format($dessert->price / 100 , 2) }}
-														&nbsp;&nbsp;&nbsp;</span>
-													@if ($dessert->available)
-														<a data-pjax href="{{ route('add.to.cart', $dessert) }}"
-														   class="btn btn-sm btn-success btn-raised">
-															<i class="fa fa-plus fa-lg"></i>
-														</a>
-													@else
-														<span class="label label-danger">Not Available</span>
-													@endif
-												</div>
 											</div>
 										</div>
-									@endforeach
-								{{--</div>--}}
+									</div>
+								@endforeach
 							</div>
 						</div>
 					</div>

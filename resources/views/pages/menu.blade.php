@@ -133,10 +133,10 @@
 													</a>
 												@endif
 												<div class="caption">
-													<h4 class="hidden-xs" style="cursor:help;" title="{{ $main_course->description }}"
+													<h3 class="hidden-xs" style="cursor:help;" title="{{ $main_course->description }}"
 													    data-toggle="tooltip"
 													    data-placement="top"
-													    itemprop="name">{{ $main_course->title }}</h4>
+													    itemprop="name">{{ $main_course->title }}</h3>
 													<h5 class="visible-xs" style="cursor:help;" title="{{ $main_course->description }}"
 													    data-toggle="tooltip"
 													    data-placement="top"

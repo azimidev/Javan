@@ -132,7 +132,7 @@
 														<img src="/{{ $main_course->image_path }}" class="img-responsive" alt="mirza-ghasemi">
 													</a>
 												@endif
-												<div class="caption">
+												<div class="caption" style="margin-bottom: 10px;">
 													<h3 class="hidden-xs" style="cursor:help;" title="{{ $main_course->description }}"
 													    data-toggle="tooltip"
 													    data-placement="top"

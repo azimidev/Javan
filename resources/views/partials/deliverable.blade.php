@@ -21,6 +21,6 @@
 				</div>
 			</div>
 		</form>
-		<p class="label label-info">maximum distance is 3 miles</p>
+		<p class="label label-info">maximum distance: 3 miles</p>
 	</div>
 </div>

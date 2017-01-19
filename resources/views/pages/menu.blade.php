@@ -10,12 +10,15 @@
 				<a class="btn-link text-bright underline" href="/images/menu/Javan-Restaurant-Menu.pdf" target="_blank"
 				   title="Javan Restaurant Menu">click here</a>
 			</p>
+			<p class="text-warning"><i class="fa fa-info-circle fa-fw"></i>
+				We serve selections of wines and beers</p>
+			<p class="text-bright"><i class="fa fa-info-circle fa-fw"></i>
+				We will ask for your payment details when you <span class="underline">order food by phone</span class="underline"></p>
 			<p class="text-warning hidden-xs"><i class="fa fa-info-circle fa-fw"></i>
 				Hover your mouse on each food to see the descriptions</p>
 			<p class="text-warning visible-xs"><i class="fa fa-info-circle fa-fw"></i>
 				Tab on each food name to see the descriptions</p>
-			<p class="text-info"><i class="fa fa-info-circle fa-fw"></i>
-				We serve selections of wines and beers</p>
+
 			<article class="col-md-8">
 
 				{{--<div class="alert alert-warning">
@@ -26,7 +29,7 @@
 					   href="//eats.uber.com/stores/5e3716e3-8232-479e-a043-0fd7c10c6113">UberEATS</a>
 				</div>--}}
 
-				@if(javan_is_open())
+				@if(! javan_is_open())
 					<div class="alert alert-success">
 						<div class="alert-icon"><i class="material-icons">done</i></div>
 						<strong>Delivery Status : </strong> Accepting Orders.

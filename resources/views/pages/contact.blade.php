@@ -93,7 +93,9 @@
 
 				<address>
 					<strong>Phone</strong> <br>
-					<a href="tel:02085638553">020 8563 8553</a>
+					<a class="lead" href="tel:02085638553">020 8563 8553</a> <br>
+					<p class="alert alert-primary">
+						We will ask for your payment details when you order food by phone</p>
 				</address>
 
 				<address>

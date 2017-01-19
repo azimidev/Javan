@@ -29,7 +29,7 @@
 					   href="//eats.uber.com/stores/5e3716e3-8232-479e-a043-0fd7c10c6113">UberEATS</a>
 				</div>--}}
 
-				@if(! javan_is_open())
+				@if(javan_is_open())
 					<div class="alert alert-success">
 						<div class="alert-icon"><i class="material-icons">done</i></div>
 						<strong>Delivery Status : </strong> Accepting Orders.

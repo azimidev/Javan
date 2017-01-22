@@ -76,7 +76,7 @@
 												</p>
 											@endif
 										@endif
-										<p class="text-justify lead">{{ nl2br($event->description) }}</p>
+										<p class="text-justify lead">{!! nl2br($event->description) !!}</p>
 										<h3>End Date: {{ $event->finish->format('l jS F h:i A') }}</h3>
 										<h3>Capacity : {{ $event->capacity }}</h3>
 									</div>

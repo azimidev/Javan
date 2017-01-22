@@ -20,7 +20,7 @@
 				<dt>Finish:</dt>
 				<dd>{{ $event->finish->toDayDateTimeString() }}</dd>
 				<dt>Description:</dt>
-				<dd>{{ $event->description ?: '-' }}</dd>
+				<dd>{!! nl2br($event->description) ?: '-' !!}</dd>
 			</dl>
 			<div class="col-lg-offset-2">
 				<a href="{{ route('events.index') }}" class="btn btn-raised btn-primary">

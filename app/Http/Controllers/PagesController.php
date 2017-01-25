@@ -108,26 +108,6 @@ class PagesController extends Controller
 	}
 
 	/**
-	 * @param \Illuminate\Http\Request $request
-	 * @param \Javan\AppMailer $mailer
-	 * @return \Illuminate\Http\RedirectResponse
-	 */
-	public function sendEmailEnquiry(Request $request, AppMailer $mailer)
-	{
-		$this->validate($request, [
-			'name'         => 'required',
-			'email'        => 'required|email',
-			'user_message' => 'required',
-		]);
-
-		$mailer->sendEmail($request);
-
-		flash()->success('Thank You!', 'Your message was sent successfully.');
-
-		return back();
-	}
-
-	/**
 	 * @return \Illuminate\View\View
 	 */
 	public function createReservation()

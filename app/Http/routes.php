@@ -12,7 +12,6 @@ Route::get('about', 'PagesController@about');
 Route::get('contact', 'PagesController@contact');
 Route::get('information', 'PagesController@information');
 Route::get('feed', 'PagesController@feed');
-Route::post('contact', 'PagesController@sendEmailEnquiry')->name('send.email');
 Route::get('blog/{slug?}', 'PagesController@blog')->name('blog');
 Route::get('guest/reservation', 'PagesController@createReservation')->name('create.reservation');
 Route::post('guest/reservation', 'PagesController@storeReservation')->name('store.reservation');

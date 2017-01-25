@@ -4,17 +4,16 @@
 	<div class="header">
 		<div>
 			<div class="info">
-				<style scoped>
-					.info {
+				<style scoped>.info {
 						position         : absolute;
 						top              : 150px;
 						right            : 50px;
 						background-color : rgba(0, 0, 0, .5);
 						padding          : 10px;
+						border           : 1px solid #C8FF00;
 						border-radius    : 4px;
 						color            : white;
-					}
-				</style>
+					}</style>
 				<address>
 					<strong class="lead text-bright">Javan Restaurant</strong> <br>
 					291-293 King Street <br>

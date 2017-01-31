@@ -38,10 +38,6 @@
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
 						<strong>Delivery Status : </strong> Not Accepting Orders.
-						You can now schedule delivery time between
-						<time datetime="12:30">12:30</time>
-						&mdash;
-						<time datetime="23:00">23:00</time>
 					</div>
 				@endif
 

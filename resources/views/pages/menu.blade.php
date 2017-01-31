@@ -38,6 +38,7 @@
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
 						<strong>Delivery Status : </strong> Not Accepting Orders.
+						<small>Please find us on UberEATS searching for "Javan"</small>
 					</div>
 				@endif
 

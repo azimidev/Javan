@@ -32,12 +32,12 @@
 				@if(javan_is_open())
 					<div class="alert alert-success">
 						<div class="alert-icon"><i class="material-icons">done</i></div>
-						<strong>Delivery Status : </strong> Accepting Orders.
+						<strong>Delivery Status : </strong> Accepting Orders Now.
 					</div>
 				@else
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
-						<strong>Delivery Status : </strong> Not Accepting Orders.
+						<strong>Delivery Status : </strong> Not Accepting Orders Now.
 					</div>
 				@endif
 

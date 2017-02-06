@@ -81,6 +81,38 @@ class User extends Authenticatable
 	}
 
 	/**
+	 * @param $value
+	 */
+	public function setPostCodeAttribute($value)
+	{
+		$this->attributes['post_code'] = strtoupper($value);
+	}
+
+	/**
+	 * @param $value
+	 */
+	public function setCityAttribute($value)
+	{
+		$this->attributes['city'] = ucwords($value);
+	}
+
+	/**
+	 * @param $value
+	 */
+	public function setAddressAttribute($value)
+	{
+		$this->attributes['address'] = ucwords($value);
+	}
+
+	/**
+	 * @param $value
+	 */
+	public function setEmailAttribute($value)
+	{
+		$this->attributes['email'] = strtolower($value);
+	}
+
+	/**
 	 * @param $password
 	 */
 	public function setPasswordAttribute($password)

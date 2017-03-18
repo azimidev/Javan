@@ -13,7 +13,8 @@
 			<p class="text-warning"><i class="fa fa-info-circle fa-fw"></i>
 				We serve selections of wines and beers</p>
 			<p class="text-bright"><i class="fa fa-info-circle fa-fw"></i>
-				We will ask for your payment details when you <span class="underline">order food by phone</span class="underline"></p>
+				We will ask for your payment details when you <span
+						class="underline">order food by phone</span class="underline"></p>
 			<p class="text-warning hidden-xs"><i class="fa fa-info-circle fa-fw"></i>
 				Hover your mouse on each food to see the descriptions</p>
 			<p class="text-warning visible-xs"><i class="fa fa-info-circle fa-fw"></i>
@@ -37,7 +38,8 @@
 				@else
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
-						<strong>Delivery Status : </strong> Not Accepting Orders Now.
+						<strong>Delivery Status : </strong> Not Accepting Orders Now. Please use <a
+								href="//eats.uber.com/stores/5e3716e3-8232-479e-a043-0fd7c10c6113">UberEATS</a>
 					</div>
 				@endif
 
@@ -96,13 +98,15 @@
 												<div class="thumbnail">
 													@if ($appetizer->image_path)
 														<a href="/{{ $appetizer->image_path }}" data-lity>
-															<img src="/{{ $appetizer->image_path }}" class="img-responsive" alt="mirza-ghasemi">
+															<img src="/{{ $appetizer->image_path }}"
+															     class="img-responsive" alt="mirza-ghasemi">
 														</a>
 													@endif
 													<div class="caption">
 														<h4 style="cursor:help;" title="{{ $appetizer->description }}"
 														    data-toggle="tooltip"
-														    data-placement="top" itemprop="name">{{ $appetizer->title }}</h4>
+														    data-placement="top"
+														    itemprop="name">{{ $appetizer->title }}</h4>
 														<span class="text-primary" itemprop="price">
 														£ {{ number_format($appetizer->price / 100 , 2) }}&nbsp;&nbsp;&nbsp;</span>
 														@if ($appetizer->available)
@@ -128,7 +132,8 @@
 												<div class="thumbnail">
 													@if ($main_course->image_path)
 														<a href="/{{ $main_course->image_path }}" data-lity>
-															<img src="/{{ $main_course->image_path }}" class="img-responsive" alt="mirza-ghasemi">
+															<img src="/{{ $main_course->image_path }}"
+															     class="img-responsive" alt="mirza-ghasemi">
 														</a>
 													@endif
 													<div class="caption">
@@ -162,14 +167,17 @@
 												<div class="thumbnail">
 													@if ($extra->image_path)
 														<a href="/{{ $extra->image_path }}" data-lity>
-															<img src="/{{ $extra->image_path }}" class="img-responsive" alt="mirza-ghasemi">
+															<img src="/{{ $extra->image_path }}" class="img-responsive"
+															     alt="mirza-ghasemi">
 														</a>
 													@endif
 													<div class="caption">
 														<h4 style="cursor:help;" title="{{ $extra->description }}"
 														    data-toggle="tooltip"
-														    data-placement="top" itemprop="name">{{ $extra->title }}</h4>
-														<span class="text-primary" itemprop="price">£ {{ number_format($extra->price / 100 , 2) }}
+														    data-placement="top"
+														    itemprop="name">{{ $extra->title }}</h4>
+														<span class="text-primary"
+														      itemprop="price">£ {{ number_format($extra->price / 100 , 2) }}
 															&nbsp;&nbsp;&nbsp;</span>
 														@if ($extra->available)
 															<a data-pjax href="{{ route('add.to.cart', $extra) }}"
@@ -194,7 +202,8 @@
 												<div class="thumbnail">
 													@if ($beverage->image_path)
 														<a href="/{{ $beverage->image_path }}" data-lity>
-															<img src="/{{ $beverage->image_path }}" class="img-responsive" alt="mirza-ghasemi">
+															<img src="/{{ $beverage->image_path }}"
+															     class="img-responsive" alt="mirza-ghasemi">
 														</a>
 													@endif
 													<div class="caption">
@@ -225,12 +234,14 @@
 												<div class="thumbnail">
 													@if ($juice->image_path)
 														<a href="/{{ $juice->image_path }}" data-lity>
-															<img src="/{{ $juice->image_path }}" class="img-responsive" alt="mirza-ghasemi">
+															<img src="/{{ $juice->image_path }}" class="img-responsive"
+															     alt="mirza-ghasemi">
 														</a>
 													@endif
 													<div class="caption">
 														<h4 itemprop="name">{{ $juice->title }}</h4>
-														<span class="text-primary" itemprop="price">£ {{ number_format($juice->price / 100 , 2) }}
+														<span class="text-primary"
+														      itemprop="price">£ {{ number_format($juice->price / 100 , 2) }}
 															&nbsp;&nbsp;&nbsp;</span>
 														@if ($juice->available)
 															<a data-pjax href="{{ route('add.to.cart', $juice) }}"
@@ -255,14 +266,17 @@
 												<div class="thumbnail">
 													@if ($dessert->image_path)
 														<a href="/{{ $dessert->image_path }}" data-lity>
-															<img src="/{{ $dessert->image_path }}" class="img-responsive" alt="mirza-ghasemi">
+															<img src="/{{ $dessert->image_path }}"
+															     class="img-responsive" alt="mirza-ghasemi">
 														</a>
 													@endif
 													<div class="caption">
 														<h4 style="cursor:help;" title="{{ $dessert->description }}"
 														    data-toggle="tooltip"
-														    data-placement="top" itemprop="name">{{ $dessert->title }}</h4>
-														<span class="text-primary" itemprop="price">£ {{ number_format($dessert->price / 100 , 2) }}
+														    data-placement="top"
+														    itemprop="name">{{ $dessert->title }}</h4>
+														<span class="text-primary"
+														      itemprop="price">£ {{ number_format($dessert->price / 100 , 2) }}
 															&nbsp;&nbsp;&nbsp;</span>
 														@if ($dessert->available)
 															<a data-pjax href="{{ route('add.to.cart', $dessert) }}"

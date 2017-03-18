@@ -31,13 +31,13 @@
 						@endif
 					</a>
 				</li>
-				<li class="{{ active('Persian-Live-Music') }}">
-					<a href="{{ url('/Persian-Live-Music') }}">
+				<li class="{{ active('Event-Booking') }}">
+					<a href="{{ url('/Event-Booking') }}">
 						@if (Cart::instance('event')->count())
-							<span class="text-bright">Live Music Events</span>
+							<span class="text-bright">Events Booking</span>
 							<span class="badge">{{ Cart::instance('event')->count() }}</span>
 						@else
-							Live Music Events
+							Events Booking
 						@endif
 					</a>
 				</li>

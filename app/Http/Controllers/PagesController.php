@@ -54,7 +54,7 @@ class PagesController extends Controller
 	/**
 	 * @return \Illuminate\View\View
 	 */
-	public function liveMusic()
+	public function music()
 	{
 		$events = Event::active()->latest()->limit(1)->get();
 

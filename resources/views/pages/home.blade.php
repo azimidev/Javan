@@ -18,7 +18,7 @@
 				<div class="clearfix"></div>
 
 				@if ( ! $events->isEmpty())
-					<h2>Our Live Music Events</h2>
+					<h2>Event Booking</h2>
 
 					<div class="row">
 						@foreach ($events as $event)
@@ -26,7 +26,7 @@
 								<div class="thumbnail">
 									<div class="caption center">
 										<h2 class="hidden-xs" title="{{ $event->name }}" itemprop="name">{{ $event->name }}</h2>
-										<h3>{{ $event->start->format('l jS F h:i A') }}</h3>
+										{{--<h3>{{ $event->start->format('l jS F h:i A') }}</h3>--}}
 										<h3 class="text-primary" itemprop="price">£ {{ number_format($event->price / 100 , 2) }}
 											<small>Per Person</small>
 										</h3>
@@ -43,7 +43,7 @@
 											<a href="javascript:void(0)" class="btn btn-danger btn-block btn-lg btn-raised disabled">Fully
 												Booked !</a>
 										@endif
-										<h3>End Date: {{ $event->finish->format('l jS F h:i A') }}</h3>
+										{{--<h3>End Date: {{ $event->finish->format('l jS F h:i A') }}</h3>--}}
 										<h3>Capacity : {{ $event->capacity }}</h3>
 									</div>
 									@if ($event->image_path)

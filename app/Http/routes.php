@@ -7,7 +7,7 @@ Route::get('/', 'PagesController@home');
 Route::get('about', 'PagesController@about');
 Route::get('Persian-Food-Delivery-London', 'PagesController@menu')->name('menu');
 Route::get('menu', function() { return redirect()->route('menu'); });
-Route::get('Persian-Live-Music', 'PagesController@liveMusic')->name('music');
+Route::get('Event-Booking', 'PagesController@music')->name('music');
 Route::get('music', function() { return redirect()->route('music'); });
 Route::post('deliverable', 'PagesController@deliverable');
 Route::get('about', 'PagesController@about');

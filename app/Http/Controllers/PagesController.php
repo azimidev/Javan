@@ -58,7 +58,7 @@ class PagesController extends Controller
 	{
 		$events = Event::active()->latest()->limit(1)->get();
 
-		return view('pages.live-music', compact('events'));
+		return view('pages.music', compact('events'));
 	}
 
 	/**

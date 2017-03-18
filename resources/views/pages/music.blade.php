@@ -32,7 +32,7 @@
 								<div class="thumbnail">
 									<div class="caption center">
 										<h1 class="hidden-xs" title="{{ $event->name }}" itemprop="name">{{ $event->name }}</h1>
-										<h3>{{ $event->start->format('l jS F h:i A') }}</h3>
+										{{--<h3>{{ $event->start->format('l jS F h:i A') }}</h3>--}}
 										<h3 class="text-primary" itemprop="price">£ {{ number_format($event->price / 100 , 2) }}
 											<small>Per Person</small>
 										</h3>
@@ -77,7 +77,7 @@
 											@endif
 										@endif
 										<p class="text-justify lead">{!! nl2br($event->description) !!}</p>
-										<h3>End Date: {{ $event->finish->format('l jS F h:i A') }}</h3>
+										{{--<h3>End Date: {{ $event->finish->format('l jS F h:i A') }}</h3>--}}
 										<h3>Capacity : {{ $event->capacity }}</h3>
 									</div>
 									@if ($event->image_path)

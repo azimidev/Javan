@@ -5,8 +5,6 @@
 	        style="background: url('/images/background/background-5.jpg') repeat;">
 		<main class="container" id="pjax-container">
 			@include('partials.notify-alert', ['data' => 'Seat Updated'])
-			<h1 class="text-bright"><i class="fa fa-calendar fa-fw"></i>Event Booking</h1>
-
 			<article class="col-md-8">
 
 				@if ($events->isEmpty())

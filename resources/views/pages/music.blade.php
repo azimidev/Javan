@@ -18,7 +18,7 @@
 					</div>
 				@else
 					<div class="alert alert-warning">
-						<div class="alert-icon"><i class="material-icons">info</i></div>
+						<div class="alert-icon"><i class="material-icons">warning</i></div>
 						Your booking <strong>isn't valid</strong> until you <strong>fully pay and receive a confirmation
 							email</strong>.
 					</div>

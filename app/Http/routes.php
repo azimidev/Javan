@@ -1,7 +1,6 @@
 <?php
 
-Route::get('uber', function() { return redirect('//eats.uber.com/stores/5e3716e3-8232-479e-a043-0fd7c10c6113
-//eats.uber.com/stores/5e3716e3-8232-479e-a043-0fd7c10c6113'); })->name('uber');
+Route::get('uber', function() { return redirect('//eats.uber.com/stores/5e3716e3-8232-479e-a043-0fd7c10c6113'); })->name('uber');
 
 # Pages
 Route::get('/', 'PagesController@home');

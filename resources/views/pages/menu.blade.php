@@ -39,7 +39,7 @@
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
 						<strong>Delivery Status : </strong> Not Accepting Orders Now. Please use <a
-								href="//eats.uber.com/stores/5e3716e3-8232-479e-a043-0fd7c10c6113">UberEATS</a>
+								href="{{ route('uber') }}">UberEATS</a>
 					</div>
 				@endif
 
@@ -306,7 +306,7 @@
 					<p class="bbcnassim text-right" dir="rtl">سالاد کنار غذا شامل دلیوری نمی شود.</p>
 				</div>
 				<div class="alert-inverse center">
-					<a target="_blank" href="//eats.uber.com/stores/5e3716e3-8232-479e-a043-0fd7c10c6113">
+					<a target="_blank" href="{{ route('uber') }}">
 						<img src="/images/UberEats-logo.png" alt="UberEats-logo">
 					</a>
 				</div><!-- /.alert -->

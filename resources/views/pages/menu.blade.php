@@ -38,8 +38,8 @@
 				@else
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
-						<strong>Delivery Status : </strong> Not Accepting Orders Now. Please use <a
-								href="{{ route('uber') }}">UberEATS</a>
+						<strong>Delivery Status : </strong> Not Accepting Orders Now. Please use
+						<a class="alert-link" href="{{ route('uber') }}">UberEATS</a>
 					</div>
 				@endif
 

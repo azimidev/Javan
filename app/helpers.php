@@ -68,13 +68,13 @@ function today($date)
 function javan_is_open()
 {
 	$javan_schedule = [
-		'Mon' => ['' => ''], // ['04:00 PM' => '10:00 PM'],
+		'Mon' => ['04:00 PM' => '10:00 PM'],
 		'Tue' => ['' => ''], // ['12:30 PM' => '11:00 PM'],
-		'Wed' => ['' => ''], // ['12:30 PM' => '11:00 PM'],
-		'Thu' => ['' => ''], // ['12:30 PM' => '19:20 PM'],
-		'Fri' => ['' => ''], // ['12:30 PM' => '11:00 PM'],
-		'Sat' => ['' => ''], // ['12:00 PM' => '11:00 PM'],
-		'Sun' => ['' => ''], // ['12:00 PM' => '11:00 PM'],
+		'Wed' => ['12:30 PM' => '11:00 PM'],
+		'Thu' => ['12:30 PM' => '19:20 PM'],
+		'Fri' => ['12:30 PM' => '11:00 PM'],
+		'Sat' => ['12:00 PM' => '11:00 PM'],
+		'Sun' => ['12:00 PM' => '11:00 PM'],
 	];
 
 	$now = (new DateTime('Europe/London'))->setTimestamp(time());
@@ -206,7 +206,7 @@ function deliverable($destination)
 	// }
 	$address = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=' .
 		'291+King+Street+W6+9NH' . '&destinations=' . $destination . 'London+UK' . '&key=' .
-		config('services.google.key');
+		config('sery');
 
 	$client   = new GuzzleHttp\Client();
 	$request  = $client->get($address);

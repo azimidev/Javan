@@ -26,8 +26,8 @@
 	 * Bootstrap Date picker
 	 * @type {Date}
 	 */
-	var nowTemp = new Date();
-	var now     = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+	let nowTemp = new Date();
+	let now     = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 
 	$('#date, .datepicker').datepicker({
 		format   : 'yyyy-mm-dd',
@@ -66,7 +66,7 @@
 	 * Attribute data-remote for every form
 	 */
 	$('form[data-remote]').on('submit', function(e) {
-		var $btn = $(this).find('button').button('loading');
+		let $btn = $(this).find('button').button('loading');
 		setTimeout(function() {
 			$btn.button('reset');
 		}, 3600000); // 1000*60*60 (1 hour)
@@ -76,9 +76,9 @@
 	 * Attribute data-ajax for every form
 	 */
 	$('form#deliverable').on('submit', function(e) {
-		var form   = $(this);
-		var method = form.find('input[name="_method"]').val() || 'POST';
-		var url    = form.prop('action');
+		let form   = $(this);
+		let method = form.find('input[name="_method"]').val() || 'POST';
+		let url    = form.prop('action');
 		$.ajax({
 			type    : method,
 			url     : url,
@@ -93,12 +93,12 @@
 				});
 			},
 			error   : function(data) {
-				var errors = $.parseJSON(data.responseText);
+				let errors = $.parseJSON(data.responseText);
 				$.each(errors, function(index, value) {
 					swal({
 						title             : value.toString(),
 						type              : 'error',
-						confirmButtonText : 'Oh Okay'
+						confirmButtonText : 'Ah Okay'
 					});
 				});
 			}
@@ -166,7 +166,7 @@
 	 */
 	$('.confirm').click(function(e) {
 		e.preventDefault();
-		var form = $(this).closest('form');
+		let form = $(this).closest('form');
 		swal({
 			title              : "<h4>Are You Sure ?</h4>",
 			type               : "question",
@@ -189,8 +189,8 @@
 	/**
 	 * Reloading page every interval minute
 	 */
-	var reloading;
-	var interval = 30000;
+	let reloading;
+	let interval = 30000;
 
 	function checkReloading() {
 		if (window.location.hash == "#autoreload") {

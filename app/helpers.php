@@ -175,7 +175,7 @@ function rss_tag_uri($post)
 }
 
 /**
- * Example of JSON response:
+ * Check if the delivery address is close
  *
  * @param $destination
  * @return array
@@ -206,7 +206,7 @@ function deliverable($destination)
 	// }
 	$address = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=' .
 		'291+King+Street+W6+9NH' . '&destinations=' . $destination . 'London+UK' . '&key=' .
-		config('sery');
+		config('services.google.key');
 
 	$client   = new GuzzleHttp\Client();
 	$request  = $client->get($address);
@@ -215,7 +215,7 @@ function deliverable($destination)
 	if ($response['status'] === 'OK' && $response['rows'][0]['elements'][0]['status'] === 'OK') {
 
 		// $response['rows'][0]['elements'][0]['distance']['value'] // gets the value
-		$distanse = $response['rows'][0]['elements'][0]['distance']['text'];
+		$distance = $response['rows'][0]['elements'][0]['distance']['text'];
 		// $response['rows'][0]['elements'][0]['duration']['text'] // gets the text // 20min * 60sec = 1200
 		$duration = ceil(($response['rows'][0]['elements'][0]['duration']['value'] + 1200) / 60) . ' minutes';
 
@@ -226,7 +226,7 @@ function deliverable($destination)
 				'title'  => '<span class="text-success"><i class="fa fa-smile-o"></i> Yes! You are very close.</span>',
 				'text'   => '<b>Your address:</b> ' .
 					'<b class="text-primary">' . array_shift($response['destination_addresses']) . '</b><br>' .
-					"<b>Estimated Distance: </b><b class=\"text-success\">{$distanse}</b><br>" .
+					"<b>Estimated Distance: </b><b class=\"text-success\">{$distance}</b><br>" .
 					"<b>Estimated Delivery: </b><b class=\"text-success\">{$duration}</b>",
 			];
 		}
@@ -236,7 +236,7 @@ function deliverable($destination)
 			'title'  => '<span class="text-danger"><i class="fa fa-frown-o"></i> You are a little far!</span>',
 			'text'   => '<b>Your address:</b> ' .
 				'<b class="text-primary">' . array_shift($response['destination_addresses']) . '</b><br>' .
-				"<b>Estimated Distance: </b><b class=\"text-danger\">{$distanse}</b><br><br>" .
+				"<b>Estimated Distance: </b><b class=\"text-danger\">{$distance}</b><br><br>" .
 				'<b class="text-success">Order and pay by phone with delivery charge.</b>' . '<br>' .
 				'<b>020 8563 8553</b>',
 		];

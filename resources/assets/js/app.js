@@ -193,18 +193,18 @@
 	let interval = 30000;
 
 	function checkReloading() {
-		if (window.location.hash == "#autoreload") {
-			reloading                                  = setTimeout("window.location.reload();", interval);
-			document.getElementById("refresh").checked = true;
+		if (window.location.hash === '#autoreload') {
+			reloading                                  = setTimeout('window.location.reload();', interval);
+			document.getElementById('refresh').checked = true;
 		}
 	}
 
 	function toggleAutoRefresh(cb) {
 		if (cb.checked) {
-			window.location.replace("#autoreload");
-			reloading = setTimeout("window.location.reload();", interval);
+			window.location.replace('#autoreload');
+			reloading = setTimeout('window.location.reload();', interval);
 		} else {
-			window.location.replace("#");
+			window.location.replace('#');
 			clearTimeout(reloading);
 		}
 	}

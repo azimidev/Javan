@@ -42,7 +42,7 @@
 			<tfoot>
 				<tr>
 					<td>&nbsp;</td>
-					<td class="text-right">VAT :</td>
+					<td class="text-right">Service Charge :</td>
 					<td><s>£{{ Cart::instance('event')->tax() }}</s></td>
 					<td>&nbsp;</td>
 				</tr>

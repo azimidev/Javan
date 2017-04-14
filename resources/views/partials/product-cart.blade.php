@@ -41,7 +41,7 @@
 			<tfoot>
 				<tr>
 					<td>&nbsp;</td>
-					<td class="text-right">VAT :</td>
+					<td class="text-right">Delivery Fee :</td>
 					<td>£{{ Cart::instance('menu')->tax() }}</td>
 					<td>&nbsp;</td>
 				</tr>

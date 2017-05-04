@@ -69,12 +69,12 @@ function javan_is_open()
 {
 	$javan_schedule = [
 		'Mon' => ['04:00 PM' => '10:00 PM'],
-		'Tue' => ['12:30 PM' => '1:00 PM'],
-		'Wed' => ['12:30 PM' => '10:30 PM'],
-		'Thu' => ['12:30 PM' => '10:30 PM'],
-		'Fri' => ['12:30 PM' => '10:30 PM'],
-		'Sat' => ['12:00 PM' => '10:30 PM'],
-		'Sun' => ['12:00 PM' => '10:30 PM'],
+		'Tue' => ['04:30 PM' => '1:00 PM'],
+		'Wed' => ['04:30 PM' => '10:00 PM'],
+		'Thu' => ['04:30 PM' => '10:00 PM'],
+		'Fri' => ['04:30 PM' => '10:00 PM'],
+		'Sat' => ['04:00 PM' => '10:00 PM'],
+		'Sun' => ['04:00 PM' => '10:00 PM'],
 	];
 
 	$now = (new DateTime('Europe/London'))->setTimestamp(time());

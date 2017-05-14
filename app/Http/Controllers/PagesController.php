@@ -22,10 +22,11 @@ class PagesController extends Controller
 	 */
 	public function home()
 	{
-		$images = Instagram::getResultImage(12);
-		$events = Event::active()->latest()->limit(1)->get();
-
-		return view('pages.home', compact('images', 'events'));
+		return redirect()->route('menu');
+		// $images = Instagram::getResultImage(12);
+		// $events = Event::active()->latest()->limit(1)->get();
+		//
+		// return view('pages.home', compact('images', 'events'));
 	}
 
 	/**

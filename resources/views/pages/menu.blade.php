@@ -40,6 +40,8 @@
 						<div class="alert-icon"><i class="material-icons">error</i></div>
 						<strong>Delivery Status : </strong> Not Accepting Orders Now. Please use
 						<a class="alert-link" href="{{ route('uber') }}">UberEATS</a>
+						or
+						<a class="alert-link" href="{{ route('deliveroo') }}">Deliveroo</a>
 					</div>
 				@endif
 
@@ -305,11 +307,6 @@
 					<p>Take away dishes don't include side salad.</p>
 					<p class="bbcnassim text-right" dir="rtl">سالاد کنار غذا شامل دلیوری نمی شود.</p>
 				</div>
-				<div class="alert-inverse center">
-					<a target="_blank" href="{{ route('uber') }}">
-						<img src="/images/UberEats-logo.png" alt="UberEats-logo">
-					</a>
-				</div><!-- /.alert -->
 			</aside>
 		</main>
 	</header>

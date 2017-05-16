@@ -54,27 +54,31 @@
 				</li>
 			</ul>
 			<br>
-			<p class="bbcnassim lead">
-				انتقال ارز به ایران و برعکس در کوتاه ترین زمان ممکن
-			</p>
+			<a target="_blank" href="{{ route('uber') }}">
+				<img src="/images/UberEats-logo.png" alt="UberEats-logo" width="25%">
+			</a>
+			&nbsp;&nbsp;&nbsp;
+			<a target="_blank" href="{{ route('deliveroo') }}">
+				<img src="/images/Deliveroo-logo.png" alt="Deliveroo-logo" width="25%">
+			</a>
 			{{--<p>&copy; {{ date('Y') }} Javan Restaurant London</p>--}}
 		</nav>
 		<nav class="copyright navbar-right">
 			<div>
-				<a href="https://www.facebook.com/JavanLondonLtd" class="btn-link" target="_blank" title="Facebook">
+				<a href="//www.facebook.com/JavanLondonLtd" class="btn-link" target="_blank" title="Facebook">
 					<i class="fa fa-facebook-square fa-fw fa-3x"></i>
 				</a>
-				<a href="https://www.instagram.com/javan_persian/" class="text-warning" target="_blank" title="Instagram">
+				<a href="//www.instagram.com/javan_persian/" class="text-warning" target="_blank" title="Instagram">
 					<i class="fa fa-instagram fa-fw fa-3x"></i>
 				</a>
-				<a href="https://twitter.com/JavanLondon" class="text-info" target="_blank" title="Twitter">
+				<a href="//twitter.com/JavanLondon" class="text-info" target="_blank" title="Twitter">
 					<i class="fa fa-twitter-square fa-fw fa-3x"></i>
 				</a>
-				<a href="https://plus.google.com/107724180985175918891" class="text-danger" target="_blank"
+				<a href="//plus.google.com/107724180985175918891" class="text-danger" target="_blank"
 				   title="Google Plus">
 					<i class="fa fa-google-plus-square fa-fw fa-3x"></i>
 				</a>
-				<a href="https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d10515099-Reviews-Javan_Restaurant-London_England.html-m24177"
+				<a href="//www.tripadvisor.co.uk/Restaurant_Review-g186338-d10515099-Reviews-Javan_Restaurant-London_England.html-m24177"
 				   class="text-success" target="_blank" title="Trip Advisor">
 					<span class="fa-stack fa-lg" style="height: 3.5em; width: 2.7em;">
 					  <i class="fa fa-square fa-stack-2x" style="font-size: 2.3em;"></i>

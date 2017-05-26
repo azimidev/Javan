@@ -141,7 +141,7 @@ class BookingsController extends Controller
 		]);
 
 		$this->dispatch(new SendBookingRefundEmail($bookings));
-		flash()->success('Success', 'Payment has been refunded successfully');
+		flash()->success('Success', 'Payment has been refunded successfully.');
 
 		return back();
 	}
@@ -154,7 +154,7 @@ class BookingsController extends Controller
 	public function destroy(Booking $bookings)
 	{
 		$bookings->delete();
-		flash()->success('Success', 'Booking has been deleted successfully');
+		flash()->success('Success', 'Booking has been deleted successfully.');
 
 		return back();
 	}

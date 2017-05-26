@@ -18,6 +18,7 @@ trait Schedulable
 	 * S    seconds
 	 *
 	 * @return bool
+	 * @throws \Exception
 	 */
 	public function uptodate()
 	{
@@ -38,6 +39,7 @@ trait Schedulable
 	 * S    seconds
 	 *
 	 * @return bool
+	 * @throws \Exception
 	 */
 	public function recent()
 	{

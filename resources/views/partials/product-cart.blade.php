@@ -69,63 +69,63 @@
 
 @section('scripts')
 	<script>
-	  $(function() {
-		  $('a[href*="#"]:not([href="#appetizers"]):not([href="#main_courses"]):not([href="#extras"]):not([href="#beverages"]):not([href="#juices"]):not([href="#desserts"])').click(function() {
-			  if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-				  var target = $(this.hash);
-				  target     = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-				  if (target.length) {
-					  $('html, body').animate({
-						  scrollTop : target.offset().top
-					  }, 1000);
-					  return false;
-				  }
-			  }
-		  });
-	  });
+		$(function() {
+			$('a[href*="#"]:not([href="#appetizers"]):not([href="#main_courses"]):not([href="#extras"]):not([href="#beverages"]):not([href="#juices"]):not([href="#desserts"])').click(function() {
+				if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+					var target = $(this.hash);
+					target     = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+					if (target.length) {
+						$('html, body').animate({
+							scrollTop : target.offset().top
+						}, 1000);
+						return false;
+					}
+				}
+			});
+		});
 	</script>
 	<script src="https://js.stripe.com/v2/"></script>
 	<script>
 		/* <![CDATA[ */
-	(function() {
-		var StripeBilling = {
+		(function() {
+			var StripeBilling = {
 
-			init : function() {
-				this.form              = $('#payment-form');
-				this.submitButton      = this.form.find('.submit');
-				this.submitButtonValue = this.submitButton.val();
-				Stripe.setPublishableKey('{{ config('services.stripe.key') }}');
-				this.bindEvents();
-			},
+				init : function() {
+					this.form              = $('#payment-form');
+					this.submitButton      = this.form.find('.submit');
+					this.submitButtonValue = this.submitButton.val();
+					Stripe.setPublishableKey('{{ config('services.stripe.key') }}');
+					this.bindEvents();
+				},
 
-			bindEvents : function() {
-				this.form.on('submit', $.proxy(this.sendToken, this));
-			},
+				bindEvents : function() {
+					this.form.on('submit', $.proxy(this.sendToken, this));
+				},
 
-			sendToken : function(event) {
-				this.submitButton.val('One Moment').prop('disabled', true);
-				Stripe.createToken(this.form, $.proxy(this.stripeResponseHandler, this));
-				event.preventDefault();
-			},
+				sendToken : function(event) {
+					this.submitButton.val('One Moment').prop('disabled', true);
+					Stripe.createToken(this.form, $.proxy(this.stripeResponseHandler, this));
+					event.preventDefault();
+				},
 
-			stripeResponseHandler : function(status, response) {
-				if (response.error) {
-					this.form.find('.payment-errors').show().text(response.error.message);
-					return this.submitButton.prop('disabled', false).val(this.submitButtonValue);
+				stripeResponseHandler : function(status, response) {
+					if (response.error) {
+						this.form.find('.payment-errors').show().text(response.error.message);
+						return this.submitButton.prop('disabled', false).val(this.submitButtonValue);
+					}
+
+					$('<input>', {
+						type  : 'hidden',
+						name  : 'stripe-token',
+						value : response.id
+					}).appendTo(this.form);
+
+					this.form[0].submit();
 				}
+			};
 
-				$('<input>', {
-					type  : 'hidden',
-					name  : 'stripe-token',
-					value : response.id
-				}).appendTo(this.form);
-
-				this.form[0].submit();
-			}
-		};
-
-		StripeBilling.init();
-	})();
+			StripeBilling.init();
+		})();
 		/* ]]> */
 	</script>
 @stop

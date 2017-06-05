@@ -53,14 +53,6 @@
 					<i title="PayPal" class="fa fa-cc-paypal fa-fw fa-3x"></i>
 				</li>
 			</ul>
-			<br>
-			<a target="_blank" href="{{ route('uber') }}">
-				<img src="/images/UberEats-logo.png" alt="UberEats-logo" width="25%">
-			</a>
-			&nbsp;&nbsp;&nbsp;
-			<a target="_blank" href="{{ route('deliveroo') }}">
-				<img src="/images/Deliveroo-logo.png" alt="Deliveroo-logo" width="25%">
-			</a>
 			{{--<p>&copy; {{ date('Y') }} Javan Restaurant London</p>--}}
 		</nav>
 		<nav class="copyright navbar-right">

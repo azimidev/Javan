@@ -163,6 +163,7 @@ return [
 		Intervention\Image\ImageServiceProvider::class,
 		Oblagio\Instagram\InstagramServiceProvider::class,
 		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+		Appstract\Opcache\OpcacheServiceProvider::class,
 
 	],
 

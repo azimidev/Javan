@@ -14,7 +14,7 @@ class Event extends Model
 		'slug',
 		'capacity',
 		'price',
-		'acrive',
+		'active',
 		'image_path',
 		'start',
 		'finish',

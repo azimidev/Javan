@@ -40,7 +40,7 @@
 						<div class="alert-icon"><i class="material-icons">error</i></div>
 						<strong>Delivery Status : </strong> Not Accepting Orders Now. Please use
 						<a class="alert-link" href="{{ route('uber') }}">UberEATS</a>
-						{{--or <a class="alert-link" href="{{ route('deliveroo') }}">Deliveroo</a>--}}
+						or <a class="alert-link" href="{{ route('deliveroo') }}">Deliveroo</a>
 					</div>
 				@endif
 

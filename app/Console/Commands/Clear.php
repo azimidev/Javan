@@ -21,14 +21,6 @@ class Clear extends Command
 	protected $description = 'Clear the opcode cache';
 
 	/**
-	 * Create a new command instance.
-	 */
-	public function __construct()
-	{
-		parent::__construct();
-	}
-
-	/**
 	 * Execute the console command.
 	 *
 	 * @return mixed

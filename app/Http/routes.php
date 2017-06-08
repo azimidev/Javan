@@ -4,8 +4,8 @@ Route::get('uber', function() { return redirect('//eats.uber.com/stores/5e3716e3
 Route::get('deliveroo', function() { return redirect('//deliveroo.co.uk/menu/london/hammersmith/javan-restaurant'); })->name('deliveroo');
 
 # Pages
-// Route::get('/', 'PagesController@home');
-Route::get('/', function() { return redirect()->route('menu'); });
+Route::get('/', 'PagesController@home');
+// Route::get('/', function() { return redirect()->route('menu'); });
 
 Route::get('about', 'PagesController@about');
 Route::get('Persian-Food-Delivery-London', 'PagesController@menu')->name('menu');

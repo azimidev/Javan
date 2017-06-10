@@ -30,24 +30,18 @@
 						@if( ! javan_is_open())
 							Not Accepting Orders Now
 						@elseif( ! auth()->user()->address && ! auth()->user()->post_code && ! auth()->user()->phone)
-							<div class="alert alert-danger">
-								<div class="alert-icon"><i class="material-icons">error</i></div>
-								Payment form is not visible because of one of the following reasons:
-								<ul>
-									<li>Your address is empty</li>
-									<li>Your post code is empty</li>
-									<li>Your phone is empty</li>
-								</ul>
-								<a class="btn btn-sm btn-default btn-raised btn-round"
-								   href="{{ route('member.edit', auth()->user()) }}">Please Update Your Details</a>
-							</div>
+							Payment form is not visible because of one of the following reasons:
+							<ul>
+								<li>Your address is empty</li>
+								<li>Your post code is empty</li>
+								<li>Your phone is empty</li>
+							</ul>
+							<a class="btn btn-sm btn-default btn-raised btn-round"
+							   href="{{ route('member.edit', auth()->user()) }}">Please Update Your Details</a>
 						@else
-
 							<form action="{{ route('cart.store') }}" method="POST" role="form"
 							      class="form-horizontal" id="payment-form">
-
 								{{ csrf_field() }}
-
 								<noscript>
 									<div class="alert alert-danger">
 										<h4>JavaScript is not enabled!</h4>

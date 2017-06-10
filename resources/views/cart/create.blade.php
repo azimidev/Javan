@@ -139,8 +139,13 @@
 						@else
 							<div class="alert alert-danger">
 								<div class="alert-icon"><i class="material-icons">error</i></div>
-								Payment form is not visible because one of your <strong>Address</strong>, <strong>Post
-									Code</strong> or <strong>Phone</strong> is empty
+								Payment form is not visible because of one of the following reasons:
+								<ul>
+									<li>We don't accept orders at the moment</li>
+									<li>Your address is empty</li>
+									<li>Your post code is empty</li>
+									<li>Your phone is empty</li>
+								</ul>
 								<a class="btn btn-sm btn-default btn-raised btn-round"
 								   href="{{ route('member.edit', auth()->user()) }}">Please Update Your Details</a>
 							</div>

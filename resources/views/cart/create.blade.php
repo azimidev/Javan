@@ -7,15 +7,19 @@
 			@include('partials.notify-alert', ['data' => 'Cart Updated'])
 			<h1 class="text-bright"><i class="fa fa-shopping-cart fa-fw fa-lg"></i> Cart Checkout</h1>
 			<article class="col-md-8">
-				@unless(javan_is_open())
+				@if(javan_is_open())
+					<div class="alert alert-success">
+						<div class="alert-icon"><i class="material-icons">done</i></div>
+						<strong>Delivery Status : </strong> Accepting Orders Now.
+					</div>
+				@else
 					<div class="alert alert-danger">
 						<div class="alert-icon"><i class="material-icons">error</i></div>
-						We are closed now and cannot accept orders unless you want specific delivery time between
-						<time datetime="12:30">12:30</time>
-						&mdash;
-						<time datetime="22:00">22:30</time>
+						<strong>Delivery Status : </strong> Not Accepting Orders Now. Please use
+						<a class="alert-link" href="{{ route('uber') }}">UberEATS</a>
+						{{--or <a class="alert-link" href="{{ route('deliveroo') }}">Deliveroo</a>--}}
 					</div>
-				@endunless
+				@endif
 				<div class="panel panel-success">
 					<div class="panel-heading">
 						<div class="panel-title">
@@ -33,7 +37,8 @@
 								<noscript>
 									<div class="alert alert-danger">
 										<h4>JavaScript is not enabled!</h4>
-										<p>This payment form requires your browser to have JavaScript enabled. Please activate JavaScript
+										<p>This payment form requires your browser to have JavaScript enabled. Please activate
+											JavaScript
 											and reload this page. Check <a href="http://enable-javascript.com" target="_blank">enable-javascript.com</a>
 											for more informations.</p>
 									</div>
@@ -44,7 +49,8 @@
 									<label class="col-xs-3 control-label" for="cardnumber">Card Number</label>
 									<div class="col-xs-7">
 										<input type="text" id="cardnumber" minlength="16" maxlength="19" placeholder="Card Number"
-										       class="card-number form-control" data-stripe="number" pattern="[0-9]{16,19}" required>
+										       class="card-number form-control" data-stripe="number" pattern="[0-9]{16,19}"
+										       required>
 										<span class="help-block text-primary">16 digits card number in front of your card</span>
 									</div>
 								</div>
@@ -82,7 +88,8 @@
 										       data-stripe="cvc" pattern="[0-9]{1,4}" minlength="1" maxlength="4" required>
 										<span class="help-block text-primary"> 3 or 4 digits on back of your card</span>
 									</div>
-									<i class="fa fa-question-circle fa-lg fa-fw text-info" data-toggle="tooltip" data-placement="right"
+									<i class="fa fa-question-circle fa-lg fa-fw text-info" data-toggle="tooltip"
+									   data-placement="right"
 									   style="cursor:pointer;"
 									   title='<img src="/images/cvv.png" alt="CVV CVC" width="100%">
 									   <h4>Visa, Mastercard or Discover</h4>
@@ -102,7 +109,7 @@
 										@if (javan_is_open())
 											<span class="help-block text-primary">Ex: time of delivery, the house bell and etcetera</span>
 										@else
-											<span class="help-block text-danger">We are closed! Please schedule the delivery time here any day between 12:30 to 23:00</span>
+											<span class="help-block text-danger">Not Accepting Orders Now</span>
 										@endif
 									</div>
 								</div>
@@ -112,7 +119,14 @@
 								<div class="control-group">
 									<div class="controls">
 										<div class="center">
-											<button class="btn btn-success btn-raised submit" type="submit">Pay & Place Order</button>
+											<button class="btn btn-success btn-raised submit"
+											        type="submit" {{  javan_is_open() ? '' : 'disabled'}}>
+												@if (javan_is_open())
+													Pay & Place Order
+												@else
+													Not Accepting Orders Now
+												@endif
+											</button>
 										</div>
 									</div>
 								</div>
@@ -157,7 +171,8 @@
 							payments. This means <u>your credit card information does not touch our server</u> and it is passed
 							through <a href="//en.wikipedia.org/wiki/Transport_Layer_Security" target="_blank">SSL</a>
 							encryption connection. Therefore, no matter if you are a member and regular customer <u>we never store
-								your credit card details</u> that is why everytime you purchase, you need to enter your credit card
+								your credit card details</u> that is why everytime you purchase, you need to enter your credit
+							card
 							details again.We know this is tedious but it's for your own and our customers security.
 						</p>
 					</div>

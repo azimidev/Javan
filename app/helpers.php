@@ -70,11 +70,11 @@ function javan_is_open()
 	$javan_schedule = [
 		'Mon' => ['11:00 AM' => '11:00 AM'],
 		'Tue' => ['11:00 AM' => '11:00 AM'],
-		'Wed' => ['11:00 AM' => '11:00 AM'],
-		'Thu' => ['11:00 AM' => '11:00 AM'],
-		'Fri' => ['11:00 AM' => '11:00 AM'],
-		'Sat' => ['11:00 AM' => '11:00 AM'],
-		'Sun' => ['11:00 AM' => '11:00 AM'],
+		'Wed' => ['12:00 PM' => '10:30 PM'],
+		'Thu' => ['12:00 PM' => '10:30 PM'],
+		'Fri' => ['12:00 PM' => '10:30 PM'],
+		'Sat' => ['12:00 PM' => '10:30 PM'],
+		'Sun' => ['12:00 PM' => '10:30 PM'],
 	];
 
 	$now = (new DateTime('Europe/London'))->setTimestamp(time());

@@ -10,11 +10,8 @@
 				<a class="btn-link text-bright underline" href="/images/menu/Javan-Restaurant-Menu.pdf" target="_blank"
 				   title="Javan Restaurant Menu">click here</a>
 			</p>
-			<p class="text-warning"><i class="fa fa-info-circle fa-fw"></i>
-				We serve selections of wines and beers</p>
-			<p class="text-bright"><i class="fa fa-info-circle fa-fw"></i>
-				We will ask for your payment details when you <span
-						class="underline">order food by phone</span class="underline"></p>
+			<p class="text-danger"><i class="fa fa-info-circle fa-fw"></i>
+				We don't accept phone order.</p>
 			<p class="text-warning hidden-xs"><i class="fa fa-info-circle fa-fw"></i>
 				Hover your mouse on each food to see the descriptions</p>
 			<p class="text-warning visible-xs"><i class="fa fa-info-circle fa-fw"></i>
@@ -27,7 +24,7 @@
 					<strong>Delivery Status: </strong>
 					Temporary not working. Please call us on <strong>020 8563 8553</strong> or order via
 					<a class="text-twilight alert-link" target="_blank"
-					   href="//eats.uber.com/stores/5e3716e3-8232-479e-a043-0fd7c10c6113">UberEATS</a>
+					   href="{{ route('uber') }}">UberEATS</a>
 				</div>--}}
 
 				@if(javan_is_open())

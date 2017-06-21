@@ -32,7 +32,7 @@ function active($path, $active = 'active')
 function select_times_of_day()
 {
 	$open_time  = (new DateTime())->setTime(12, 30);
-	$close_time = (new DateTime())->setTime(22, 45);
+	$close_time = (new DateTime())->setTime(22, 30);
 	$interval   = new DateInterval('PT15M');
 	$date_range = new DatePeriod($open_time, $interval, $close_time);
 
@@ -70,11 +70,11 @@ function javan_is_open()
 	$javan_schedule = [
 		'Mon' => ['11:00 AM' => '11:00 AM'],
 		'Tue' => ['11:00 AM' => '11:00 AM'],
-		'Wed' => ['12:00 PM' => '10:30 PM'],
-		'Thu' => ['12:00 PM' => '10:30 PM'],
-		'Fri' => ['12:00 PM' => '10:30 PM'],
-		'Sat' => ['12:00 PM' => '10:30 PM'],
-		'Sun' => ['12:00 PM' => '10:30 PM'],
+		'Wed' => ['11:00 PM' => '11:00 AM'],
+		'Thu' => ['11:00 AM' => '11:00 AM'],
+		'Fri' => ['11:00 AM' => '11:00 AM'],
+		'Sat' => ['11:00 AM' => '11:00 AM'],
+		'Sun' => ['11:00 AM' => '11:00 AM'],
 	];
 
 	$now = (new DateTime('Europe/London'))->setTimestamp(time());

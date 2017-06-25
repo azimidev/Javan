@@ -5,8 +5,8 @@
 		@include('partials.carousel')
 		<article>
 			<div class="col-md-8">
-				<a href="{{ route('menu') }}" class="btn btn-inverse btn-raised btn-round btn-lg btn-block text-bright">
-					Order Food Online
+				<a href="{{ javan_is_open() ? route('menu') : route('uber') }}" class="btn btn-success btn-raised btn-round btn-lg btn-block">
+					Order Food Online Now !
 				</a>
 				{{--<a href="{{ auth()->check() ? route('member.reservations') : route('create.reservation') }}"
 				   class="btn btn-inverse btn-raised btn-round btn-lg btn-block text-bright">

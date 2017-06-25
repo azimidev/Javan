@@ -39,6 +39,7 @@
 						<a class="alert-link" href="{{ route('uber') }}">UberEATS</a>
 						{{--or <a class="alert-link" href="{{ route('deliveroo') }}">Deliveroo</a>--}}
 					</div>
+					<a href="{{ route('uber') }}" class="btn btn-raised btn-block btn-lg btn-success">Click here to order from UberEATS</a>
 				@endif
 
 				<div class="card card-nav-tabs card-plain">
@@ -107,13 +108,13 @@
 														    itemprop="name">{{ $appetizer->title }}</h4>
 														<span class="text-primary" itemprop="price">
 														£ {{ number_format($appetizer->price / 100 , 2) }}&nbsp;&nbsp;&nbsp;</span>
-														@if ($appetizer->available)
+														@if ($appetizer->available && javan_is_open())
 															<a data-pjax href="{{ route('add.to.cart', $appetizer) }}"
 															   class="btn btn-sm btn-success btn-raised">
 																<i class="fa fa-plus fa-lg"></i>
 															</a>
 														@else
-															<span class="label label-danger">Not Available</span>
+															<span class="label label-danger">N/A</span>
 														@endif
 													</div>
 												</div>
@@ -142,13 +143,13 @@
 														<span class="text-primary"
 														      itemprop="price">£ {{ number_format($main_course->price / 100 , 2) }}
 															&nbsp;&nbsp;&nbsp;</span>
-														@if ($main_course->available)
+														@if ($main_course->available && javan_is_open())
 															<a data-pjax href="{{ route('add.to.cart', $main_course) }}"
 															   class="btn btn-sm btn-success btn-raised">
 																<i class="fa fa-plus fa-lg"></i>
 															</a>
 														@else
-															<span class="label label-danger">Not Available</span>
+															<span class="label label-danger">N/A</span>
 														@endif
 													</div>
 												</div>
@@ -177,13 +178,13 @@
 														<span class="text-primary"
 														      itemprop="price">£ {{ number_format($extra->price / 100 , 2) }}
 															&nbsp;&nbsp;&nbsp;</span>
-														@if ($extra->available)
+														@if ($extra->available && javan_is_open())
 															<a data-pjax href="{{ route('add.to.cart', $extra) }}"
 															   class="btn btn-sm btn-success btn-raised">
 																<i class="fa fa-plus fa-lg"></i>
 															</a>
 														@else
-															<span class="label label-danger">Not Available</span>
+															<span class="label label-danger">N/A</span>
 														@endif
 													</div>
 												</div>
@@ -209,13 +210,13 @@
 														<span class="text-primary"
 														      itemprop="price">£ {{ number_format($beverage->price / 100 , 2) }}
 															&nbsp;&nbsp;&nbsp;</span>
-														@if ($beverage->available)
+														@if ($beverage->available && javan_is_open())
 															<a data-pjax href="{{ route('add.to.cart', $beverage) }}"
 															   class="btn btn-sm btn-success btn-raised">
 																<i class="fa fa-plus fa-lg"></i>
 															</a>
 														@else
-															<span class="label label-danger">Not Available</span>
+															<span class="label label-danger">N/A</span>
 														@endif
 													</div>
 												</div>
@@ -241,13 +242,13 @@
 														<span class="text-primary"
 														      itemprop="price">£ {{ number_format($juice->price / 100 , 2) }}
 															&nbsp;&nbsp;&nbsp;</span>
-														@if ($juice->available)
+														@if ($juice->available && javan_is_open())
 															<a data-pjax href="{{ route('add.to.cart', $juice) }}"
 															   class="btn btn-sm btn-success btn-raised">
 																<i class="fa fa-plus fa-lg"></i>
 															</a>
 														@else
-															<span class="label label-danger">Not Available</span>
+															<span class="label label-danger">N/A</span>
 														@endif
 													</div>
 												</div>
@@ -276,13 +277,13 @@
 														<span class="text-primary"
 														      itemprop="price">£ {{ number_format($dessert->price / 100 , 2) }}
 															&nbsp;&nbsp;&nbsp;</span>
-														@if ($dessert->available)
+														@if ($dessert->available && javan_is_open())
 															<a data-pjax href="{{ route('add.to.cart', $dessert) }}"
 															   class="btn btn-sm btn-success btn-raised">
 																<i class="fa fa-plus fa-lg"></i>
 															</a>
 														@else
-															<span class="label label-danger">Not Available</span>
+															<span class="label label-danger">N/A</span>
 														@endif
 													</div>
 												</div>

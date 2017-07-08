@@ -11,7 +11,7 @@
 				   title="Javan Restaurant Menu">click here</a>
 			</p>
 			<p class="text-danger"><i class="fa fa-info-circle fa-fw"></i>
-				We don't accept phone order.</p>
+				We don't accept phone orders.</p>
 			<p class="text-warning hidden-xs"><i class="fa fa-info-circle fa-fw"></i>
 				Hover your mouse on each food to see the descriptions</p>
 			<p class="text-warning visible-xs"><i class="fa fa-info-circle fa-fw"></i>

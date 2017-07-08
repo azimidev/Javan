@@ -18,12 +18,6 @@
 	<main class="main main-raised container">
 		<article>
 			<div class="col-sm-8">
-				<div class="alert alert-danger">
-					<p class="text-justify">
-						<i class="fa fa-info-circle fa-lg fa-fw"></i>
-						This is not for live music booking. This is for restaurant's table bookings (upstairs) ONLY.
-					</p>
-				</div>
 				<form class="form-horizontal" action="{{ route('store.reservation') }}" method="POST" role="form">
 					{{ csrf_field() }}
 					<div class="alert alert-inverse">

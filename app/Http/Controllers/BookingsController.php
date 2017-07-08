@@ -34,8 +34,8 @@ class BookingsController extends Controller
 	 */
 	public function index()
 	{
-		$sortBy    = request()->get('sortBy');
-		$direction = request()->get('direction');
+		$sortBy    = request('sortBy');
+		$direction = request('direction');
 		$params    = compact('sortBy', 'direction');
 
 		if ($sortBy && $direction) {

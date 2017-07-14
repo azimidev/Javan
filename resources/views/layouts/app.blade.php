@@ -23,7 +23,7 @@
 		<meta property="og:url" content="{{ request()->fullUrl() }}"/>
 		<meta property="og:title" content="@yield('title', 'Javan Persian Restaurant London')"/>
 		<meta property="og:type" content="article"/>
-		<meta property="og:image" content="{{ request()->root() }}/images/Javan-Facebook-Logo.png"/>
+		<meta property="og:image" content="{{ url('/images/Javan-Facebook-Logo.png')}} "/>
 		<meta property="article:author" content="https://www.facebook.com/JavanLondonLtd"/>
 		<meta property="og:locale" content="en_UK"/>
 		<meta property="og:description"
@@ -33,9 +33,9 @@
 		<meta name="twitter:title" content="@yield('title', 'Javan Persian Restaurant London')"/>
 		<meta name="twitter:description"
 		      content="Authentic Persian Cuisine Licenced Restaurant in West London, Hammersmith, Chiswick With Great Traditional Interior Design and Selection of Georgian WInes, Beers and Shisha"/>
-		<meta name="twitter:image" content="{{ request()->root() }}/images/Javan-Twitter-Logo.png"/>
+		<meta name="twitter:image" content="{{ url('/images/Javan-Twitter-Logo.png') }}"/>
 		<link href="{{ elixir('css/app.css') }}" rel="stylesheet">
-		<link rel="shortcut icon" type="image/png" href="/images/favicon.png">
+		<link rel="shortcut icon" type="image/png" href="{{ url('/images/favicon.png') }}">
 	</head>
 	<body id="app-layout">
 		@include('layouts.nav')

@@ -5,7 +5,6 @@ namespace Javan\Http\Controllers;
 use Cache;
 use Cart;
 use Illuminate\Http\Request;
-use Instagram;
 use Javan\Event;
 use Javan\Jobs\SendReservationConfirmation;
 use Javan\Jobs\SendReservationToAdmin;

@@ -6,7 +6,6 @@ use Cache;
 use Cart;
 use Illuminate\Http\Request;
 use Instagram;
-use Javan\AppMailer;
 use Javan\Event;
 use Javan\Jobs\SendReservationConfirmation;
 use Javan\Jobs\SendReservationToAdmin;
@@ -22,10 +21,10 @@ class PagesController extends Controller
 	 */
 	public function home()
 	{
-		$images = Instagram::getResultImage(12);
+		// $images = Instagram::getResultImage(12);
 		$events = Event::active()->latest()->limit(1)->get();
 
-		return view('pages.home', compact('images', 'events'));
+		return view('pages.home', compact('events'));
 	}
 
 	/**
@@ -85,7 +84,7 @@ class PagesController extends Controller
 		if (Cache::has('rss')) {
 			$posts = Cache::pull('rss');
 		} else {
-			$posts = Cache::remember('rss', 1440, function() {
+			$posts = Cache::remember('rss', 1440, function () {
 				return Post::with('user', 'photos')->latest()->limit(10)->get();
 			});
 		}

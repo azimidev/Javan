@@ -162,7 +162,7 @@ class User extends Authenticatable
 		if (is_array($role)) {
 			foreach ($role as $r) {
 				if ($this->hasRole($r)) {
-					return TRUE;
+					return true;
 				}
 			}
 		}

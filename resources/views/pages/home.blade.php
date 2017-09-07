@@ -89,20 +89,20 @@
 					<div class="content">
 						<div class="tab-content text-center">
 							<div class="tab-pane active" id="instagram">
-								@foreach (array_chunk($images, 2) as $row)
-									<div class="row">
-										@foreach ($row as $image)
-											<div class="col-sm-6 col-xs-12">
-												<a href="{{ $image['images']['standard_resolution']['url'] }}"
-												   data-lity>
-													<img class=" img-space img-thumbnail img-raised"
-													     src="{{ $image['images']['thumbnail']['url'] }}"
-													     alt="{{ $image['link'] }}">
-												</a>
-											</div>
-										@endforeach
-									</div>
-								@endforeach
+								{{--@foreach (array_chunk($images, 2) as $row)--}}
+									{{--<div class="row">--}}
+										{{--@foreach ($row as $image)--}}
+											{{--<div class="col-sm-6 col-xs-12">--}}
+												{{--<a href="{{ $image['images']['standard_resolution']['url'] }}"--}}
+												   {{--data-lity>--}}
+													{{--<img class=" img-space img-thumbnail img-raised"--}}
+													     {{--src="{{ $image['images']['thumbnail']['url'] }}"--}}
+													     {{--alt="{{ $image['link'] }}">--}}
+												{{--</a>--}}
+											{{--</div>--}}
+										{{--@endforeach--}}
+									{{--</div>--}}
+								{{--@endforeach--}}
 							</div>
 							<div class="tab-pane" id="tweets">
 								@include('partials.twitter')
